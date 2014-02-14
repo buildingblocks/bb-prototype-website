@@ -1,0 +1,56 @@
+---
+hide: true
+title: Responsive Testing
+layout: src/layouts/_bb.hbs
+---
+<body class="responsive" id="container">
+	<p><a href="/">&larr; Back to file list</a></p>
+	<div id="url">
+		<select id="files">
+			<option value="">Select a file to test&hellip;</option>
+			<?php echo $filelist ?>
+			{{#each pages}}
+				{{#unless data.hide}}
+				<option value="{{relative dest this.dest}}">{{basename}}</a>
+				{{/unless}}
+			{{/each}}
+		</select>
+		<div id="options">
+			<label for="normal"><input id="normal" type="radio" name="option" value="1" checked>Width only</label>
+			<label for="accurate"><input id="accurate" type="radio" name="option" value="2">Device sizes</label>
+		</div>
+	</div>
+	<div id="frames" class="widthOnly">
+		<div id="inner">
+			<div id="f1" class="frame">
+				<h2>240<b> x 320</b> <span class="small">(small phone)</span> <img src="{{assets}}/_bb/loader.gif" /></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="255" height="320"></iframe>
+			</div>
+			<div id="f2" class="frame">
+				<h2>320<b> x 480</b> <span class="small">(iPhone)</span> <img src="{{assets}}/_bb/loader.gif" /></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="335" height="480"></iframe>
+			</div>
+			<div id="f3" class="frame">
+				<h2>480<b> x 640</b> <span class="small">(small tablet)</span> <img src="{{assets}}/_bb/loader.gif" /></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="495" height="640"></iframe>
+			</div>
+			<div id="f4" class="frame">
+				<h2>600<b> x 800</b> <span class="small">(small tablet)</span> <img src="{{assets}}/_bb/loader.gif" /></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="615" height="800"></iframe>
+			</div>
+			<div id="f5" class="frame">
+				<h2>768<b> x 1024</b> <span class="small">(iPad - Portrait)</span> <img src="{{assets}}/_bb/loader.gif" /></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="783" height="1024"></iframe>
+			</div>
+			<div id="f6" class="frame">
+				<h2>1024<b> x 768</b> <span class="small">(iPad - Landscape)</span> <img src="{{assets}}/_bb/loader.gif" /></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="1039" height="768"></iframe>
+			</div>
+		</div>
+	</div>
+	<footer role="contentinfo">
+		<p>&copy; Copyright Building Blocks Ltd</p>
+	</footer>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script src="{{assets}}/_bb/responsive.js"></script>
+</body>

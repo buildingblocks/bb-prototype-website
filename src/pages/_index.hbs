@@ -1,0 +1,30 @@
+---
+hide: true
+title: File List
+layout: src/layouts/_bb.hbs
+---
+<body>
+	<div id="page">
+		<header role="banner">
+			<a href="#" class="logo">
+				<img src="{{assets}}/_bb/bb-logo.svg" alt="Building Blocks" width="83" height="50" />
+			</a>
+			<h1>{{project.title}} - Prototype HTML</h1>
+		</header>
+		<div id="main" role="main">
+			<ul class="file-list">
+				{{#each pages}}
+					{{#unless data.hide}}
+					<li>
+						<a href="{{relative dest this.dest}}">{{basename}}</a>
+					</li>
+					{{/unless}}
+				{{/each}}
+			</ul>
+			{{>_responsive-link}}
+		</div>
+		<footer role="contentinfo">
+			<p>&copy; Copyright Building Blocks Ltd</p>
+		</footer>
+	</div>
+</body>

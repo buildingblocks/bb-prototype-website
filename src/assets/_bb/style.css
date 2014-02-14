@@ -1,0 +1,338 @@
+/****************************************
+
+ Building Blocks - List CSS
+
+ Author: Paul Welsh
+ Email: p.welsh@building-blocks.com
+
+****************************************/
+
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+
+html { background: #FFFFFF }
+
+body {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0 20px;
+    color: #000;
+    overflow-y: scroll;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    }
+
+a,
+a:link,
+a:visited,
+a:focus {
+    color: #2056AE;
+    text-decoration: none;
+     border-bottom: 1px solid rgba(32,86,174,0);
+    }
+
+a:hover {
+    color: #2056AE;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(32,86,174,0.2);
+    }
+
+b,
+strong { font-weight: normal }
+
+p { margin-bottom: 20px }
+
+#page {
+    max-width: 940px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    }
+
+.ie6 #page { width: 940px }
+
+header[role="banner"] {
+    padding: 20px 0 20px 0;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    }
+
+.logo {
+    float: left;
+    max-width: 83px;
+}
+
+.logo img {
+	max-width: 100%;
+	height: auto;
+}
+
+.logo-svg {
+	display: block;
+}
+
+.no-svg .logo-svg {
+	display: none;
+}
+
+.logo-png {
+	display: none;
+}
+
+.no-svg .logo-png {
+	display: block;
+}
+
+header[role="banner"] h1 {
+    padding: 25px 0 0 0;
+    float: right;
+    font-size: 18px;
+    font-weight: normal;
+    max-width: 60%;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Arial, Sans-Serif;
+    }
+
+#main {
+    clear: both;
+    width: 100%;
+    float: left;
+    }
+
+h2 {
+    padding: 20px 0 10px 0;
+    font-size: 18px;
+    line-height: 28px;
+    width: 100%;
+    clear: both;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Arial, Sans-Serif;
+    }
+
+h2 b { font-weight: bold }
+
+h2 span {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1;
+    font-family: 'Helvetica Neue', Arial, Sans-Serif;
+    vertical-align: baseline;
+    }
+
+span.small {
+    font-size: 12px;
+    vertical-align: middle;
+    }
+
+.file-list {
+    padding: 0;
+    width: 100%;
+    float: left;
+    border-top: 1px solid #E6E6E7;
+    font-size: 16px;
+    }
+
+.file-list li {
+    padding: 10px 0;
+    border-top: 1px solid #E6E6E7;
+    width: 100%;
+    float: left;
+    }
+
+.file-list li:first-child { border-top: 0 }
+
+.file-list li a {
+    float: left;
+    display: block;
+    }
+
+.file-list li.signed-off a {
+    padding-right: 24px;
+    background: url(check_alt_16x16.png) 100% 50% no-repeat;
+    }
+
+.lastedit {
+    text-align: right;
+    float: right;
+    display: block;
+    }
+
+.responsive-link {
+    width: 100%;
+    float: left;
+    border-top: 1px solid #E6E6E7;
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 0;
+    }
+
+    .responsive-link b {
+	    clear: both;
+	    float: none;
+	    display: block;
+	    text-align: left;
+	    font-size: 12px;
+	    padding-top: 2px;
+	    }
+
+.file-list li a {
+    float: left;
+    display: block;
+    }
+
+footer[role="contentinfo"] {
+    padding: 20px 0 20px 0;
+    width: 100%;
+    overflow: hidden;
+    clear: both;
+    border-top: 1px solid #E6E6E7;
+    margin-top: 0;
+    margin-bottom: 20px;
+    float: left;
+    font-size: 14px;
+    }
+
+/* responsive tool styles */
+
+* { vertical-align: top }
+
+body.responsive {
+    padding: 20px;
+    overflow-y: scroll;
+    }
+
+.responsive h2 {
+	padding-bottom: 5px;
+	}
+
+.responsive h2 img {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    margin-left: 2px;
+    }
+
+.responsive span.small {
+    font-size: 13px;
+    vertical-align: middle;
+    }
+
+.responsive #url {
+    display: block;
+    overflow: hidden;
+    }
+
+.responsive #url select {
+    float: left;
+    font-size: 15px;
+    margin: 0 20px 10px 0;
+    padding: 1px;
+    max-width: 600px;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-family: "Helevtica Neue",Helevtica, Arial,sans-serif;
+    }
+
+    .responsive #url select:focus {
+	    box-shadow: none;
+	    -webkit-box-shadow: none;
+	    outline: 0 none;
+    }
+
+.responsive #url input[type=text] {
+    border: solid 1px #666;
+    width: 85%;
+    margin: 0 auto;
+    font-size: 2em;
+    text-align: left;
+    }
+
+.responsive #url input[type=submit] { display: none }
+
+.responsive #url #options {
+    float: left;
+    line-height: 25px;
+    font-size: 15px;
+    }
+
+.responsive #url #options label {
+    float: left;
+    margin-right: 10px;
+    }
+
+.responsive #url #options input {
+    margin-top: 5px;
+    margin-right: 3px;
+    }
+
+.responsive #frames {
+    overflow-x: scroll;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    }
+
+.responsive .frame {
+    margin-right: 20px;
+    float: left;
+    }
+
+.responsive .frame:last-child { margin-right: 0 }
+
+.responsive .frame img {
+    display: none;
+    vertical-align: middle;
+    }
+
+.responsive iframe { border: solid 1px #000 }
+
+.responsive .widthOnly { height: auto }
+
+.responsive .widthOnly h2 span,
+.responsive .widthOnly h2 b { display: none }
+
+.responsive .widthOnly iframe { height: 500px }
+
+@media only screen and (max-width: 660px) {
+
+	.logo { width: 150px }
+
+	header[role="banner"] h1 {
+	    clear: both;
+	    float: none;
+	    width: 100%;
+	    padding-top: 15px;
+	    max-width: 100%;
+	    }
+
+	.responsive #url select {
+		max-width: 99%;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+
+	body {
+	    max-width: 480px;
+	    font-size: 16px;
+	    }
+
+	.lastedit,
+	.responsive-link b {
+	    clear: both;
+	    float: none;
+	    text-align: left;
+	    font-size: 12px;
+	    padding-top: 2px;
+	    }
+}
+
+
+@media only screen and (max-width: 320px) {
+
+	body { max-width: 320px }
+
+}
