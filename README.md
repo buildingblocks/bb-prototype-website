@@ -4,7 +4,7 @@
 
 ## Using the template
 
-First things first, intall [Node.js](http://nodejs.org) and [Grunt.js CLI](http://gruntjs.com/getting-started)
+First things first, install [Node.js](http://nodejs.org) and [Grunt.js CLI](http://gruntjs.com/getting-started)
 
 Then, once you have the project downloaded, run the command `npm install` in the root of the project.
 
