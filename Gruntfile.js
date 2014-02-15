@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 		watch: {
 			main: {
 				files: [
-					'<%= config.src %>/{data,project}/{,*/}*.{<%= config.ext %>,yml}',
+					'<%= config.src %>/{partials,pages,layouts}/{,*/}*.{<%= config.ext %>,yml}',
 					'<%= config.src %>/assets/styles/**/*.less',
 					'<%= config.src %>/assets/scripts/plugins/*.js',
 					'<%= config.src %>/assets/scripts/main/**.js',
@@ -60,6 +60,24 @@ module.exports = function(grunt) {
 					cwd: '<%= config.src %>/pages/',
 					src: '*.<%= config.ext %>',
 					dest: '<%= config.dist %>/',
+					rename: function(dest, src) {
+						if (src.substring(0, 1) === '_') {
+							return dest + src.substring(1);
+						} else {
+							return dest + '<%= config.prefix %>' + src;
+						}
+					}
+				}]
+			},
+			comps: {
+				options: {
+					layout: '<%= config.src %>/layouts/default.<%= config.ext %>',
+				},
+				files: [{
+					expand: true,
+					cwd: '<%= config.src %>/partials/',
+					src: '*.<%= config.ext %>',
+					dest: '<%= config.dist %>/components/',
 					rename: function(dest, src) {
 						if (src.substring(0, 1) === '_') {
 							return dest + src.substring(1);
