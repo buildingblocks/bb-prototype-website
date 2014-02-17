@@ -16,9 +16,7 @@ hide: true
 			<ul class="file-list">
 				{{#each pages}}
 					{{#unless data.hide}}
-					<li>
-						<a href="{{relative dest this.dest}}">{{data.component}}</a>
-					</li>
+					<li><a href="{{relative dest this.dest}}">{{data.component}}</a></li>
 					{{/unless}}
 				{{/each}}
 				<li><a href="../">Back to index</a></li>
