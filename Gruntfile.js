@@ -151,13 +151,21 @@ module.exports = function(grunt) {
 		less: {
 			main: {
 				options: {
-					yuicompress: false,
-					sourceMap: true,
-					sourceMapFilename: '<%= config.dist %>/styles/main.css.map',
-					sourceMapRootpath: '/'
+					yuicompress: false
 				},
 				files: {
 					'<%= config.dist %>/styles/main.css': '<%= config.src %>/assets/styles/less/_order.less'
+				}
+			},
+			mainDebug: {
+				options: {
+					yuicompress: false,
+					sourceMap: true,
+					sourceMapFilename: '<%= config.dist %>/styles/main.debug.css.map',
+					sourceMapRootpath: '/'
+				},
+				files: {
+					'<%= config.dist %>/styles/main.debug.css': '<%= config.src %>/assets/styles/less/_order.less'
 				}
 			},
 			fonts: {
