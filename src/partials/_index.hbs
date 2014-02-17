@@ -1,8 +1,9 @@
 ---
-hide: true
-title: File List
 layout: src/layouts/_bb.hbs
+component: index
+hide: true
 ---
+
 <body>
 	<div id="page">
 		<header role="banner">
@@ -15,14 +16,11 @@ layout: src/layouts/_bb.hbs
 			<ul class="file-list">
 				{{#each pages}}
 					{{#unless data.hide}}
-					<li>
-						<a href="{{relative dest this.dest}}">{{basename}}</a>
-					</li>
+					<li><a href="{{relative dest this.dest}}">{{data.component}}</a></li>
 					{{/unless}}
 				{{/each}}
-				<li><a href="components/">View components</a></li>
+				<li><a href="../">Back to index</a></li>
 			</ul>
-			{{>_responsive-link}}
 		</div>
 		<footer role="contentinfo">
 			<p>&copy; Copyright Building Blocks Ltd</p>
