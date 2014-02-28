@@ -110,6 +110,33 @@ module.exports = function(grunt) {
 						return filename;
 					}
 				}]
+			},
+			components: {
+				files: [{
+					expand: true,
+					cwd: '<%= config.src %>/partials/',
+					src: '**/*.<%= config.assembleExt %>',
+					dest: '<%= config.dist %>/',
+					rename: function(dest, src) {
+						var filename = src;
+						if (src.substring(0, 1) === '_') {
+							filename = dest + src.substring(1);
+						} else if(src.indexOf('/') !== -1) {
+							var index = null,
+								splitSrc = src.split('/');
+							filename = dest + '<%= config.filePrefix %>';
+							for (index = 0; index < splitSrc.length; ++index) {
+								filename = filename + splitSrc[index];
+								if (src.indexOf('.<%= config.assembleExt %>')) {
+									filename = filename + '-';
+								}
+							}
+						} else {
+							filename = dest + '<%= config.filePrefix %>' + src;
+						}
+						return filename;
+					}
+				}]
 			}
 		},
 		jshint: {

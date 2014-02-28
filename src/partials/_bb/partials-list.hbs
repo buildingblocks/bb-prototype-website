@@ -1,11 +1,11 @@
 ---
-component: components-list
+component: partials-list
 hide: true
 published: false
 ---
-<h2>Components <span>(List or individual components used in this project)</span></h2>
+<h2>Partials <span>(List or individual components used in this project)</span></h2>
 <ul class="file-list">
-	{{#each page}}
+	{{#each pages}}
 		{{#unless data.hide}}
 		<li><a href="{{relative dest this.dest}}">{{data.component}}</a></li>
 		{{/unless}}

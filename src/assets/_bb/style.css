@@ -9,8 +9,6 @@
 
 html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
 
-html { background: #FFFFFF }
-
 body {
     font-family: Georgia, serif;
     font-size: 16px;
@@ -52,7 +50,7 @@ p { margin-bottom: 20px }
 .ie6 #page { width: 940px }
 
 header[role="banner"] {
-    padding: 20px 0 20px 0;
+    padding: 20px 0 0;
     width: 100%;
     overflow: hidden;
     float: left;
@@ -119,7 +117,7 @@ header[role="banner"] h1 {
     }
 
 h2 {
-    padding: 20px 0 10px 0;
+    padding: 20px 0 10px;
     font-size: 18px;
     line-height: 28px;
     width: 100%;
@@ -177,16 +175,17 @@ span.small {
     display: block;
     }
 
-.responsive-link {
+.page-link {
     width: 100%;
     float: left;
     border-top: 1px solid #E6E6E7;
+    border-bottom: 1px solid #E6E6E7;
     font-size: 16px;
     padding: 10px 0;
     margin: 0;
     }
 
-    .responsive-link strong {
+    .page-link strong {
 	    clear: both;
 	    float: none;
 	    display: block;
@@ -200,11 +199,18 @@ span.small {
     display: block;
     }
 
+.back-link {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 0;
+    }
+
 footer {
     padding: 20px 0 20px 0;
     overflow: hidden;
     clear: both;
-    border-top: 1px solid #E6E6E7;
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 14px;
@@ -341,7 +347,7 @@ footer {
 	    }
 
 	.lastedit,
-	.responsive-link b {
+	.page-link b {
 	    clear: both;
 	    float: none;
 	    text-align: left;
