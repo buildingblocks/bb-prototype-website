@@ -4,7 +4,7 @@
 
 ## Using the template
 
-First things first, intall [Node.js](http://nodejs.org) and [Grunt.js CLI](http://gruntjs.com/getting-started)
+First things first, install [Node.js](http://nodejs.org) and [Grunt.js CLI](http://gruntjs.com/getting-started)
 
 Then, once you have the project downloaded, run the command `npm install` in the root of the project.
 
@@ -36,4 +36,5 @@ Assemble is a component and static site generator that makes it dead simple to b
 * Helpers - Documentation for the helpers in the [handlebars-helpers](http://github.com/assemble/handlebars-helpers) library.
 
 ## Release History
+ * 2014-02-17   v0.2.0   Render components list
  * 2014-02-13   v0.1.0   Inital project upload

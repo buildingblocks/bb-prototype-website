@@ -1,0 +1,13 @@
+---
+component: components-list
+hide: true
+published: false
+---
+<h2>Components <span>(List or individual components used in this project)</span></h2>
+<ul class="file-list">
+	{{#each page}}
+		{{#unless data.hide}}
+		<li><a href="{{relative dest this.dest}}">{{data.component}}</a></li>
+		{{/unless}}
+	{{/each}}
+</ul>

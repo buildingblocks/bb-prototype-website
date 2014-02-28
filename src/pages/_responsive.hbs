@@ -8,7 +8,6 @@ layout: src/layouts/_bb.hbs
 	<div id="url">
 		<select id="files">
 			<option value="">Select a file to test&hellip;</option>
-			<?php echo $filelist ?>
 			{{#each pages}}
 				{{#unless data.hide}}
 				<option value="{{relative dest this.dest}}">{{relative dest this.dest}}</a>

@@ -16,15 +16,8 @@ layout: src/layouts/_bb.hbs
 		</h1>
 	</header>
 	<div id="main" role="main">
-		<ul class="file-list">
-			{{#withSort pages filename}}
-				{{#unless data.hide}}
-					<li class="file">
-						<a href="{{relative dest this.dest}}">{{filename}}</a>
-					</li>
-				{{/unless}}
-			{{/withSort}}
-		</ul>
+		{{>page-list}}
+		{{>components-list}}
 		{{>responsive-link}}
 	</div>
 	<footer role="contentinfo">

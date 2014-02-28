@@ -70,8 +70,12 @@ module.exports = function(grunt) {
 				flatten: false,
 				layout: '<%= config.src %>/layouts/default.<%= config.assembleExt %>',
 				partials: '<%= config.src %>/partials/**/*.<%= config.assembleExt %>',
-				helpers: '<%= config.src %>/helpers/helper-*.js',
-				plugins: ['assemble-contrib-permalinks'],
+				helpers: [
+					'<%= config.src %>/helpers/helper-*.js'
+				],
+				plugins: [
+					'assemble-contrib-permalinks'
+				],
 				assets: '<%= config.dist %>',
 				images: '<%= config.distImages %>',
 				temp: '<%= config.distTemp %>',

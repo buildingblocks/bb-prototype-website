@@ -1,0 +1,14 @@
+---
+component: page-list
+hide: true
+published: false
+---
+<ul class="file-list">
+	{{#withSort pages filename}}
+		{{#unless data.hide}}
+			<li class="file">
+				<a href="{{relative dest this.dest}}">{{filename}}</a>
+			</li>
+		{{/unless}}
+	{{/withSort}}
+</ul>
