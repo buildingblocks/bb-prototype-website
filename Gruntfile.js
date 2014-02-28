@@ -23,7 +23,8 @@ module.exports = function(grunt) {
 			distImages: 'images',
 			distFonts: 'fonts',
 			// misc settings
-			filePrefix: 'bb-website_',
+			pagePrefix: 'bb-website_',
+			partialPrefix: 'bb-website_partial-',
 			assembleExt: 'hbs',
 			mainCss: 'main.css',
 			ieCss: 'ie.css'
@@ -97,7 +98,7 @@ module.exports = function(grunt) {
 						} else if(src.indexOf('/') !== -1) {
 							var index = null,
 								splitSrc = src.split('/');
-							filename = dest + '<%= config.filePrefix %>';
+							filename = dest + '<%= config.pagePrefix %>';
 							for (index = 0; index < splitSrc.length; ++index) {
 								filename = filename + splitSrc[index];
 								if (src.indexOf('.<%= config.assembleExt %>')) {
@@ -105,7 +106,7 @@ module.exports = function(grunt) {
 								}
 							}
 						} else {
-							filename = dest + '<%= config.filePrefix %>' + src;
+							filename = dest + '<%= config.pagePrefix %>' + src;
 						}
 						return filename;
 					}
@@ -124,15 +125,9 @@ module.exports = function(grunt) {
 						} else if(src.indexOf('/') !== -1) {
 							var index = null,
 								splitSrc = src.split('/');
-							filename = dest + '<%= config.filePrefix %>';
-							for (index = 0; index < splitSrc.length; ++index) {
-								filename = filename + splitSrc[index];
-								if (src.indexOf('.<%= config.assembleExt %>')) {
-									filename = filename + '-';
-								}
-							}
+							filename = dest + '<%= config.partialPrefix %>' + splitSrc.pop();
 						} else {
-							filename = dest + '<%= config.filePrefix %>' + src;
+							filename = dest + '<%= config.partialPrefix %>' + src;
 						}
 						return filename;
 					}
