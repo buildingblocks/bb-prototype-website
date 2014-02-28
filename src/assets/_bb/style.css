@@ -83,7 +83,7 @@ header[role="banner"] {
 }
 
 header[role="banner"] h1 {
-    padding: 0;
+    padding: 0 2px;
     float: right;
     font-size: 18px;
     line-height: 25px;
@@ -203,7 +203,7 @@ span.small {
     width: 100%;
     float: left;
     font-size: 16px;
-    padding: 10px 0;
+    padding: 20px 0 10px;
     margin: 0;
     }
 
