@@ -1,0 +1,122 @@
+// new image replacement see: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.hide-text() {
+	text-indent: 150%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.hide-text-alt() {
+	border: 0;
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
+}
+
+// Accessible hide
+.accessible-hide() {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+.display-inlineblock() {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+// produces the "..." on mobile and modern browsers
+.ellipsis(@ellipwidth: 100%) {
+	white-space: nowrap;
+	overflow: hidden;
+	width: @ellipwidth;
+	text-overflow: ellipsis;
+}
+
+// For clearing floats
+.clearfix() {
+	*zoom: 1;
+
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+.ir() {
+	border: 0;
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
+	background-color: transparent;
+}
+
+.hidden() {
+	display: none !important;
+	visibility: hidden;
+}
+
+.visually-hidden() {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+
+	&.focusable:active,
+	&.focusable:focus {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+}
+
+// Border Radius
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	   -moz-border-radius: @radius;
+			border-radius: @radius;
+}
+
+// Drop shadows
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	   -moz-box-shadow: @shadow;
+			box-shadow: @shadow;
+}
+
+
+// Box sizing
+.box-sizing(@boxmodel) {
+	-webkit-box-sizing: @boxmodel;
+	   -moz-box-sizing: @boxmodel;
+		-ms-box-sizing: @boxmodel;
+			box-sizing: @boxmodel;
+}
+
+// User select
+// For selecting text on the page
+.user-select(@select) {
+	-webkit-user-select: @select;
+	   -moz-user-select: @select;
+		-ms-user-select: @select;
+		 -o-user-select: @select;
+			user-select: @select;
+}
+
+// Opacity
+.opacity(@opacity) {
+	opacity: @opacity / 100;
+	filter: ~"alpha(opacity=@{opacity})";
+}

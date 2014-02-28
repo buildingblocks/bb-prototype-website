@@ -1,0 +1,134 @@
+// layout.less
+
+.layout {
+	width: 100%;
+	position: relative;
+	.clearfix();
+}
+
+.container {
+	position: relative;
+	.margin(0, @grid-gutter-width);
+	.max-width(@max-width);
+	.clearfix();
+
+	@media (min-width: @break-point-e) {
+		margin: 0 auto;
+	}
+}
+
+.masonry {
+	overflow: hidden;
+	clear: both;
+}
+
+.region {
+
+	@media (min-width: @break-point-d) {
+		position: relative;
+		float: left;
+	}
+}
+
+.region-inner {
+	position: relative;
+}
+
+.block {
+	float: left;
+	width: 100%;
+	max-width: 100%;
+	.margin-bottom(@vertical-rhythm*3);
+
+	.rtl & {
+		float: right;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		vertical-align: top;
+	}
+
+	&.block-last {
+
+		& + .block {
+			clear: both;
+		}
+	}
+
+	.js .masonry & {
+		margin-right: 0!important;
+
+		@media (min-width: @break-point-d) {
+			margin-bottom: 0!important;
+		}
+	}
+}
+
+.block-sizer {
+	float: left;
+	max-width: 100%;
+}
+
+.gutter-sizer {
+	float: left;
+	max-width: 100%;
+}
+
+.block-last-clear {
+	clear: both;
+}
+
+.region-a {
+
+	@region-a-width: @max-width;
+	@region-a-inner-width: @region-a-width + @grid-gutter-width;
+
+	// Grid layout above @break-point-d only
+	@media (min-width: @break-point-d) {
+		position: relative;
+		float: left;
+		.fluid-width(@region-a-width, @region-a-width);
+
+		.region-inner{
+			position: relative;
+			.fluid-width(@region-a-inner-width, @region-a-width);
+		}
+
+		.block {
+			.fluid-margin-right(@grid-gutter-width, @region-a-inner-width);
+
+			.rtl & {
+				margin-right: 0;
+				.fluid-margin-left(@grid-gutter-width, @region-a-inner-width);
+			}
+		}
+
+		.gutter-sizer {
+			.fluid-width(@grid-gutter-width, @region-a-inner-width);
+		}
+
+		.block-size-a {
+			.fluid-width((@grid-column-width*12) + (@grid-gutter-width*11), @region-a-inner-width);
+		}
+
+		.block-size-b {
+			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-a-inner-width);
+		}
+
+		.block-size-c {
+			.fluid-width((@grid-column-width*4) + (@grid-gutter-width*3), @region-a-inner-width);
+		}
+	}
+}
+
+
+// show the grid
+.visible-grid {
+
+	.block {
+		color: #fff;
+		background: #000;
+	}
+}

@@ -1,0 +1,87 @@
+// variables.less
+
+// Primary Palette
+@brand-color-a: #ED1C24;
+@brand-color-b: #00A650;
+@brand-color-c: #2056AE;
+@brand-color-d: #FABC09;
+
+// Secondary Palette
+@brand-color-e: #434041;
+@brand-color-f: #747172;
+@brand-color-g: #AEADAD;
+@brand-color-h: #D7D6D6;
+
+// Typography
+@font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif: "Georgia Pro", Georgia, Times, serif;
+@font-family-mono: "Anonymous Pro", "Droid Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, "Lucida Console", Courier, monospace;
+@font-family-base: @font-family-serif;
+
+// Font Sizing
+@font-size-base: 16px; // use .font-size(pxValue) to define font sizes
+@font-size-small: 14px;
+@line-height-base: @vertical-rhythm*4; // 24px
+@line-height-small: @vertical-rhythm*3; // 18px
+
+@font-weight-bold: 400; // 700 when not using @font-face
+@font-weight-medium: 400; // 600 when not using @font-face
+@font-weight-regular: 400; // 400 when not using @font-face
+@font-weight-light: 400; // 100 when not using @font-face
+
+// Dimensions
+@max-width: 940px; // overall max width
+@font-size-html: 100%;
+@rem-base: 16px; // 100% browser default font size
+@vertical-rhythm: 6px; // use @vertical-rhythm*X to keep
+
+// Grid system
+@grid-columns: 12;
+@grid-column-width: 60px;
+@grid-gutter-width: 20px;
+@grid-total-width: @max-width;
+@grid-gridsystem-width: (@grid-column-width*@grid-columns) + (@grid-gutter-width*@grid-columns) * 1px;
+@grid-correction: 0.5 / @grid-total-width * 100 * 1%; // IE7 See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+
+// Media Query Break Points (px & em)
+@break-point-a-px: 320px;
+@break-point-a-em-val: ~`parseInt("@{break-point-a-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-a-em: ~"@{break-point-a-em-val}em";
+// Set to -px or -em
+@break-point-a: @break-point-a-em;
+
+@break-point-b-px: 480px;
+@break-point-b-em-val: ~`parseInt("@{break-point-b-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-b-em: ~"@{break-point-b-em-val}em";
+// Set to -px or -em
+@break-point-b: @break-point-b-em;
+
+@break-point-c-px: 600px;
+@break-point-c-em-val: ~`parseInt("@{break-point-c-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-c-em: ~"@{break-point-c-em-val}em";
+// Set to -px or -em
+@break-point-c: @break-point-c-em;
+
+@break-point-d-px: 768px;
+@break-point-d-em-val: ~`parseInt("@{break-point-d-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-d-em: ~"@{break-point-d-em-val}em";
+// Set to -px or -em
+@break-point-d: @break-point-d-em;
+
+@break-point-e-px: 980px;
+@break-point-e-em-val: ~`parseInt("@{break-point-e-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-e-em: ~"@{break-point-e-em-val}em";
+// Set to -px or -em
+@break-point-e: @break-point-e-em;
+
+@break-point-f-px: 1200px;
+@break-point-f-em-val: ~`parseInt("@{break-point-f-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-f-em: ~"@{break-point-f-em-val}em";
+// Set to -px or -em
+@break-point-f: @break-point-f-em;
+
+@break-point-g-px: 1400px;
+@break-point-g-em-val: ~`parseInt("@{break-point-g-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-g-em: ~"@{break-point-g-em-val}em";
+// Set to -px or -em
+@break-point-g: @break-point-g-em;

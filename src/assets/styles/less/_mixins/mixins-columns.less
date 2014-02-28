@@ -1,0 +1,25 @@
+// CSS Columns
+.columns(@columnCount, @columnGap: @globalGutter) {
+	-webkit-column-count: @columnCount;
+	   -moz-column-count: @columnCount;
+			column-count: @columnCount;
+	  -webkit-column-gap: @columnGap;
+	     -moz-column-gap: @columnGap;
+			  column-gap: @columnGap;
+}
+
+.column-gap(@columnGap: @globalGutter) {
+	-webkit-column-gap: @columnGap !important;
+	   -moz-column-gap: @columnGap !important;
+			column-gap: @columnGap !important;
+}
+.column-span(@columnSpan) {
+	-webkit-column-span: @columnSpan;
+	   -moz-column-span: @columnSpan;
+			column-span: @columnSpan;
+}
+.column-rule(@columnRule) {
+	-webkit-column-rule: @columnRule;
+	   -moz-column-rule: @columnRule;
+			column-rule: @columnRule;
+}

@@ -1,25 +1,25 @@
 /*!
-selectivizr v1.0.4b - (c) Keith Clark, freely distributable under the terms 
+selectivizr v1.0.4b - (c) Keith Clark, freely distributable under the terms
 of the MIT license.
 
 selectivizr.com
-  
+
 Notes about this source
 -----------------------
 
  * The #DEBUG_START and #DEBUG_END comments are used to mark blocks of code
    that will be removed prior to building a final release version (using a
    pre-compression script)
-  
-  
+
+
 References:
 -----------
- 
+
  * CSS Syntax          : http://www.w3.org/TR/2003/WD-css3-syntax-20030813/#style
  * Selectors           : http://www.w3.org/TR/css3-selectors/#selectors
  * IE Compatability    : http://msdn.microsoft.com/en-us/library/cc351024(VS.85).aspx
  * W3C Selector Tests  : http://www.w3.org/Style/CSS/Test/CSS3/Selectors/current/html/tests/
- 
+
 */
 
 (function(win) {
@@ -35,14 +35,14 @@ References:
 	var doc = document;
 	var root = doc.documentElement;
 	var xhr = getXHRObject();
-	
+
 	// If were not in standards mode, IE is too old / new or we can't create
 	// an XMLHttpRequest object then we should get out now.
 	if (doc.compatMode != 'CSS1Compat' || ieVersion<6 || ieVersion>8 || !xhr) {
 		return;
 	}
-	
-	
+
+
 	// ========================= Common Objects ============================
 
 	// Compatiable selector engines in order of CSS3 support. Note: '*' is
@@ -50,10 +50,10 @@ References:
 	var selectorEngines = {
 		"NW"								: "*.Dom.select",
 		"MooTools"							: "$$",
-		"DOMAssistant"						: "*.$", 
+		"DOMAssistant"						: "*.$",
 		"Prototype"							: "$$",
 		"YAHOO"								: "*.util.Selector.query",
-		"Sizzle"							: "*", 
+		"Sizzle"							: "*",
 		"jQuery"							: "*",
 		"dojo"								: "*.query"
 	};
@@ -72,10 +72,10 @@ References:
 	var RE_PSEUDO_STRUCTURAL				= /^:(empty|(first|last|only|nth(-last)?)-(child|of-type))$/;
 	var RE_PSEUDO_ELEMENTS					= /:(:first-(?:line|letter))/g;
 	var RE_SELECTOR_GROUP					= /((?:^|(?:\s*})+)(?:\s*@media[^{]+{)?)\s*([^\{]*?[\[:][^{]+)/g;
-	var RE_SELECTOR_PARSE					= /([ +~>])|(:[a-z-]+(?:\(.*?\)+)?)|(\[.*?\])/g; 
+	var RE_SELECTOR_PARSE					= /([ +~>])|(:[a-z-]+(?:\(.*?\)+)?)|(\[.*?\])/g;
 	var RE_LIBRARY_INCOMPATIBLE_PSEUDOS		= /(:not\()?:(hover|enabled|disabled|focus|checked|target|active|visited|first-line|first-letter)\)?/g;
 	var RE_PATCH_CLASS_NAME_REPLACE			= /[^\w-]/g;
-	
+
 	// HTML UI element regexp's
 	var RE_INPUT_ELEMENTS					= /^(INPUT|SELECT|TEXTAREA|BUTTON)$/;
 	var RE_INPUT_CHECKABLE_TYPES			= /^(checkbox|radio)$/;
@@ -88,7 +88,7 @@ References:
 	var RE_TIDY_LEADING_WHITESPACE			= /\s+([)\]+~])/g;
 	var RE_TIDY_CONSECUTIVE_WHITESPACE		= /\s+/g;
 	var RE_TIDY_TRIM_WHITESPACE				= /^\s*((?:[\S\s]*\S)?)\s*$/;
-	
+
 	// String constants
 	var EMPTY_STRING						= "";
 	var SPACE_STRING						= " ";
@@ -101,12 +101,12 @@ References:
 	// creates one or more patches for each matched selector.
 	function patchStyleSheet( cssText ) {
 		return cssText.replace(RE_PSEUDO_ELEMENTS, PLACEHOLDER_STRING).
-			replace(RE_SELECTOR_GROUP, function(m, prefix, selectorText) {	
+			replace(RE_SELECTOR_GROUP, function(m, prefix, selectorText) {
     			var selectorGroups = selectorText.split(",");
     			for (var c = 0, cs = selectorGroups.length; c < cs; c++) {
     				var selector = normalizeSelectorWhitespace(selectorGroups[c]) + SPACE_STRING;
     				var patches = [];
-    				selectorGroups[c] = selector.replace(RE_SELECTOR_PARSE, 
+    				selectorGroups[c] = selector.replace(RE_SELECTOR_PARSE,
     					function(match, combinator, pseudo, attribute, index) {
     						if (combinator) {
     							if (patches.length>0) {
@@ -114,7 +114,7 @@ References:
     								patches = [];
     							}
     							return combinator;
-    						}		
+    						}
     						else {
     							var patch = (pseudo) ? patchPseudoClass( pseudo ) : patchAttribute( attribute );
     							if (patch) {
@@ -133,7 +133,7 @@ References:
 	// --[ patchAttribute() ]-----------------------------------------------
 	// returns a patch for an attribute selector.
 	function patchAttribute( attr ) {
-		return (!BROKEN_ATTR_IMPLEMENTATIONS || BROKEN_ATTR_IMPLEMENTATIONS.test(attr)) ? 
+		return (!BROKEN_ATTR_IMPLEMENTATIONS || BROKEN_ATTR_IMPLEMENTATIONS.test(attr)) ?
 			{ className: createClassName(attr), applyClass: true } : null;
 	};
 
@@ -147,17 +147,17 @@ References:
 		var activateEventName;
 		var deactivateEventName;
 
-		// if negated, remove :not() 
+		// if negated, remove :not()
 		if (isNegated) {
 			pseudo = pseudo.slice(5, -1);
 		}
-		
+
 		// bracket contents are irrelevant - remove them
 		var bracketIndex = pseudo.indexOf("(")
 		if (bracketIndex > -1) {
 			pseudo = pseudo.substring(0, bracketIndex);
-		}		
-		
+		}
+
 		// check we're still dealing with a pseudo-class
 		if (pseudo.charAt(0) == ":") {
 			switch (pseudo.slice(1)) {
@@ -172,7 +172,7 @@ References:
 					// :target is only supported in IE8
 					if (ieVersion == 8) {
 						applyClass = function(e) {
-							var handler = function() { 
+							var handler = function() {
 								var hash = location.hash;
 								var hashID = hash.slice(1);
 								return isNegated ? (hash == EMPTY_STRING || e.id != hashID) : (hash != EMPTY_STRING && e.id == hashID);
@@ -185,30 +185,30 @@ References:
 						break;
 					}
 					return false;
-				
+
 				case "checked":
-					applyClass = function(e) { 
+					applyClass = function(e) {
 						if (RE_INPUT_CHECKABLE_TYPES.test(e.type)) {
 							addEvent( e, "propertychange", function() {
 								if (event.propertyName == "checked") {
 									toggleElementClass( e, className, e.checked !== isNegated );
-								} 							
+								}
 							})
 						}
 						return e.checked !== isNegated;
 					}
 					break;
-					
+
 				case "disabled":
 					isNegated = !isNegated;
 
 				case "enabled":
-					applyClass = function(e) { 
+					applyClass = function(e) {
 						if (RE_INPUT_ELEMENTS.test(e.tagName)) {
 							addEvent( e, "propertychange", function() {
 								if (event.propertyName == "$disabled") {
 									toggleElementClass( e, className, e.$disabled === isNegated );
-								} 
+								}
 							});
 							enabledWatchers.push(e);
 							e.$disabled = e.disabled;
@@ -217,11 +217,11 @@ References:
 						return pseudo == ":enabled" ? isNegated : !isNegated;
 					}
 					break;
-					
+
 				case "focus":
 					activateEventName = "focus";
 					deactivateEventName = "blur";
-								
+
 				case "hover":
 					if (!activateEventName) {
 						activateEventName = "mouseenter";
@@ -237,10 +237,10 @@ References:
 						return isNegated;
 					}
 					break;
-					
+
 				// everything else
 				default:
-					// If we don't support this pseudo-class don't create 
+					// If we don't support this pseudo-class don't create
 					// a patch for it
 					if (!RE_PSEUDO_STRUCTURAL.test(pseudo)) {
 						return false;
@@ -303,10 +303,10 @@ References:
 	function hasPatch( elm, patch ) {
 		return new RegExp("(^|\\s)" + patch.className + "(\\s|$)").test(elm.className);
 	};
-	
-	
+
+
 	// =========================== Utility =================================
-	
+
 	function createClassName( className ) {
 		return namespace + "-" + ((ieVersion == 6 && patchIE6MultipleClasses) ?
 			ie6PatchID++
@@ -356,7 +356,7 @@ References:
 	};
 
 	// --[ toggleClass() ]--------------------------------------------------
-	// adds / removes a className from a string of classNames. Used to 
+	// adds / removes a className from a string of classNames. Used to
 	// manage multiple class changes without forcing a DOM redraw
 	function toggleClass( classList, className, on ) {
 		var re = RegExp("(^|\\s)" + className + "(\\s|$)");
@@ -367,7 +367,7 @@ References:
 			return classExists ? trim(classList.replace(re, PLACEHOLDER_STRING)) : classList;
 		}
 	};
-	
+
 	// --[ addEvent() ]-----------------------------------------------------
 	function addEvent(elm, eventName, eventHandler) {
 		elm.attachEvent("on" + eventName, eventHandler);
@@ -378,9 +378,9 @@ References:
 		if (win.XMLHttpRequest) {
 			return new XMLHttpRequest;
 		}
-		try	{ 
+		try	{
 			return new ActiveXObject('Microsoft.XMLHTTP');
-		} catch(e) { 
+		} catch(e) {
 			return null;
 		}
 	};
@@ -389,9 +389,9 @@ References:
 	function loadStyleSheet( url ) {
 		xhr.open("GET", url, false);
 		xhr.send();
-		return (xhr.status==200) ? xhr.responseText : EMPTY_STRING;	
+		return (xhr.status==200) ? xhr.responseText : EMPTY_STRING;
 	};
-	
+
 	// --[ resolveUrl() ]---------------------------------------------------
 	// Converts a URL fragment to a fully qualified URL using the specified
 	// context URL. Returns null if same-origin policy is broken
@@ -425,14 +425,14 @@ References:
 		}
 
 		// relative path
-		var contextUrlPath = contextUrl.split(/[?#]/)[0]; // ignore query string in the contextUrl	
+		var contextUrlPath = contextUrl.split(/[?#]/)[0]; // ignore query string in the contextUrl
 		if (url.charAt(0) != "?" && contextUrlPath.charAt(contextUrlPath.length - 1) != "/") {
 			contextUrlPath = contextUrlPath.substring(0, contextUrlPath.lastIndexOf("/") + 1);
 		}
 
 		return contextUrlPath + url;
 	};
-	
+
 	// --[ parseStyleSheet() ]----------------------------------------------
 	// Downloads the stylesheet specified by the URL, removes it's comments
 	// and recursivly replaces @import rules with their contents, ultimately
@@ -444,9 +444,9 @@ References:
 				var cssText = parseStyleSheet(resolveUrl(importUrl || importUrl2, url));
 				return (media) ? "@media " + media + " {" + cssText + "}" : cssText;
 			}).
-			replace(RE_ASSET_URL, function( match, isBehavior, quoteChar, assetUrl ) { 
+			replace(RE_ASSET_URL, function( match, isBehavior, quoteChar, assetUrl ) {
 				quoteChar = quoteChar || EMPTY_STRING;
-				return isBehavior ? match : " url(" + quoteChar + resolveUrl(assetUrl, url, true) + quoteChar + ") "; 
+				return isBehavior ? match : " url(" + quoteChar + resolveUrl(assetUrl, url, true) + quoteChar + ") ";
 			});
 		}
 		return EMPTY_STRING;
@@ -459,11 +459,11 @@ References:
 			stylesheet = doc.styleSheets[c];
 			if (stylesheet.href != EMPTY_STRING) {
 				url = resolveUrl(stylesheet.href);
-				
+
 				var attr = 'data-youshallnotparse';
-				
+
 				if (stylesheet.href != EMPTY_STRING && (typeof stylesheet.owningElement.getAttribute(attr) === "undefined" || stylesheet.owningElement.getAttribute(attr) !== "true" )) {
-				
+
 					stylesheet.cssText = stylesheet["rawCssText"] = patchStyleSheet( parseStyleSheet( url ) );
 				}
 			}
@@ -474,8 +474,8 @@ References:
 	function init() {
 		applyPatches();
 
-		// :enabled & :disabled polling script (since we can't hook 
-		// onpropertychange event when an element is disabled) 
+		// :enabled & :disabled polling script (since we can't hook
+		// onpropertychange event when an element is disabled)
 		if (enabledWatchers.length > 0) {
 			setInterval( function() {
 				for (var c = 0, cl = enabledWatchers.length; c < cl; c++) {
@@ -500,7 +500,7 @@ References:
 	var baseUrl = (baseTags.length > 0) ? baseTags[0].href : doc.location.href;
 	getStyleSheets();
 
-	// Bind selectivizr to the ContentLoaded event. 
+	// Bind selectivizr to the ContentLoaded event.
 	ContentLoaded(win, function() {
 		// Determine the "best fit" selector engine
 		for (var engine in selectorEngines) {
@@ -516,9 +516,9 @@ References:
 			}
 		}
 	});
-	
 
-	
+
+
 	/*!
 	 * ContentLoaded.js by Diego Perini, modified for IE<9 only (to save space)
 	 *

@@ -1,0 +1,43 @@
+// Background clipping
+// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
+.background-clip(@clip) {
+	-webkit-background-clip: @clip;
+	 -moz-background-clip: @clip;
+			background-clip: @clip;
+}
+
+// Background sizing
+.background-size(@size){
+	-webkit-background-size: @size;
+	 -moz-background-size: @size;
+		 -o-background-size: @size;
+			background-size: @size;
+}
+
+// Background sizing
+.background-size(@size1, @size2){
+	-webkit-background-size: @size1 @size2;
+	 -moz-background-size: @size1 @size2;
+		 -o-background-size: @size1 @size2;
+			background-size: @size1 @size2;
+}
+
+// RGBA Backgrounds
+.rgba-bg(@colour, @alpha){
+	@alphaColour: hsla(hue(@colour), saturation(@colour), lightness(@colour), @alpha);
+	@ieAlphaColour: argb(@alphaColour);
+	@hex: ~`"@{colour}".replace('#','')`;
+	background: @ieAlphaColour;
+	background: @alphaColour;
+}
+
+// 2x Background Images
+.at2x-bgimage(@path, @size: auto auto){
+	background-image: url(@path);
+	@at2x_path: ~`"@{path}".split('.').slice(0, "@{path}".split('.').length - 1).join(".") + "@2x" + "." + "@{path}".split('.')["@{path}".split('.').length - 1]`;
+
+	@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+		background-image: url(@at2x_path);
+		background-size: @size;
+	}
+}

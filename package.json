@@ -1,18 +1,19 @@
 {
-  "name": "bbproject",
-  "description": "Default bbproject website template.",
+  "name": "bb-prototype-website",
+  "title": "BB Prototype Website",
+  "description": "Default Building Blocks website prototype template.",
   "version": "0.1.0",
-  "homepage": "https://github.com/buildingblocks/bbproject",
+  "homepage": "https://github.com/buildingblocks/bb-prototype-website",
   "author": {
     "name": "Paul Welsh",
     "url": "http://github.com/buildingblocks/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/buildingblocks/bbproject.git"
+    "url": "git://github.com/buildingblocks/bb-prototype-website.git"
   },
   "bugs": {
-    "url": "https://github.com/buildingblocks/bbproject/issues"
+    "url": "https://github.com/buildingblocks/bb-prototype-website/issues"
   },
   "engines": {
     "node": ">=0.8"
@@ -34,15 +35,18 @@
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-uglify": "~0.3.2",
     "grunt-contrib-jshint": "~0.8.0",
-    "grunt-comment-media-queries": "~0.1.0",
     "grunt-contrib-cssmin": "~0.7.0",
     "css-parse": "~1.5.3",
-    "grunt-combine-media-queries": "~1.0.11"
+    "grunt-combine-media-queries": "~1.0.11",
+    "grunt-modernizr": "~0.5.1",
+    "grunt-replace": "~0.6.2",
+    "grunt-stripmq": "0.0.3",
+    "grunt-prettify": "~0.3.4"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/buildingblocks/bbproject/blob/master/LICENSE-MIT"
+      "url": "https://github.com/buildingblocks/bb-prototype-website/blob/master/LICENSE-MIT"
     }
   ],
   "keywords": [

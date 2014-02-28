@@ -3,7 +3,7 @@ hide: true
 title: Responsive Testing
 layout: src/layouts/_bb.hbs
 ---
-<body class="responsive" id="container">
+<div class="responsive">
 	<p><a href="/">&larr; Back to file list</a></p>
 	<div id="url">
 		<select id="files">
@@ -11,7 +11,7 @@ layout: src/layouts/_bb.hbs
 			<?php echo $filelist ?>
 			{{#each pages}}
 				{{#unless data.hide}}
-				<option value="{{relative dest this.dest}}">{{basename}}</a>
+				<option value="{{relative dest this.dest}}">{{relative dest this.dest}}</a>
 				{{/unless}}
 			{{/each}}
 		</select>
@@ -22,10 +22,10 @@ layout: src/layouts/_bb.hbs
 	</div>
 	<div id="frames" class="widthOnly">
 		<div id="inner">
-			<div id="f1" class="frame">
+			<!--<div id="f1" class="frame">
 				<h2>240<b> x 320</b> <span class="small">(small phone)</span> <img src="{{assets}}/_bb/loader.gif" /></h2>
 				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="255" height="320"></iframe>
-			</div>
+			</div>-->
 			<div id="f2" class="frame">
 				<h2>320<b> x 480</b> <span class="small">(iPhone)</span> <img src="{{assets}}/_bb/loader.gif" /></h2>
 				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="335" height="480"></iframe>
@@ -48,9 +48,4 @@ layout: src/layouts/_bb.hbs
 			</div>
 		</div>
 	</div>
-	<footer role="contentinfo">
-		<p>&copy; Copyright Building Blocks Ltd</p>
-	</footer>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-	<script src="{{assets}}/_bb/responsive.js"></script>
-</body>
+</div>

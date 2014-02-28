@@ -1,0 +1,31 @@
+// global.less
+
+* {
+	-webkit-tap-highlight-color: transparent;
+	word-wrap: break-word;
+	.box-sizing(border-box);
+}
+
+:focus {
+	outline: none;
+}
+
+.placeholder(#999);
+
+html {
+	font-size: 100%;
+	background: #fff;
+	-webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	// Disable iOS/WinMobile font size changes
+	@media screen and (max-device-width: 480px) {
+		-webkit-text-size-adjust: 100%;
+		    -ms-text-size-adjust: 100%;
+	}
+}
+
+img {
+	-ms-interpolation-mode: bicubic;
+}

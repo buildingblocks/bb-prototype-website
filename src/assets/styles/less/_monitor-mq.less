@@ -1,0 +1,39 @@
+// for monitor-mq.js
+#monitor_mq{
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	top: -9999em;
+	left: -9999em;
+    width: @break-point-a;
+
+    &.rtl {
+    	left: auto;
+    	right: -9999em;
+    }
+
+	@media (min-width: @break-point-b) {
+		width: @break-point-b-px;
+	}
+
+	@media (min-width: @break-point-c) {
+		width: @break-point-c-px;
+	}
+
+	@media (min-width: @break-point-d) {
+		width: @break-point-d-px;
+	}
+
+	@media (min-width: @break-point-e) {
+		width: @break-point-e-px;
+	}
+
+	@media (min-width: @break-point-f) {
+		width: @break-point-f-px;
+	}
+
+	@media (min-width: @break-point-g) {
+		width: @break-point-g-px;
+	}
+}

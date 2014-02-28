@@ -1,0 +1,42 @@
+// calculates a "fluid" (percentage) width (Ethan Marcotte: target / context = result method)
+.fluid-width(@target, @context) {
+	width: 100%*(@target/@context);
+	// ie correct formular to prevent
+	*width: (100%*(@target/@context))-@grid-correction;
+}
+
+.fluid-margin-right(@target, @context) {
+	margin-right: 100%*(@target/@context);
+	// ie correct formular to prevent
+	*margin-right: (100%*(@target/@context))-@grid-correction;
+}
+
+.fluid-margin-left(@target, @context) {
+	margin-left: 100%*(@target/@context);
+	// ie correct formular to prevent
+	*margin-left: (100%*(@target/@context))-@grid-correction;
+}
+
+.fluid-padding-right(@target, @context) {
+	padding-right: 100%*(@target/@context);
+	// ie correct formular to prevent
+	*padding-right: (100%*(@target/@context))-@grid-correction;
+}
+
+.fluid-padding-left(@target, @context) {
+	padding-left: 100%*(@target/@context);
+	// ie correct formular to prevent
+	*padding-left: (100%*(@target/@context))-@grid-correction;
+}
+
+.fluid-right(@target, @context) {
+	right: 100%*(@target/@context);
+	// ie correct formular to prevent
+	*right: (100%*(@target/@context))-@grid-correction;
+}
+
+.fluid-left(@target, @context) {
+	left: 100%*(@target/@context);
+	// ie correct formular to prevent
+	*left: (100%*(@target/@context))-@grid-correction;
+}

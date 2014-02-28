@@ -42,7 +42,7 @@ strong { font-weight: normal }
 
 p { margin-bottom: 20px }
 
-#page {
+.container {
     max-width: 940px;
     margin: 0 auto;
     position: relative;
@@ -85,15 +85,32 @@ header[role="banner"] {
 }
 
 header[role="banner"] h1 {
-    padding: 25px 0 0 0;
+    padding: 0;
     float: right;
     font-size: 18px;
+    line-height: 25px;
     font-weight: normal;
     max-width: 60%;
     letter-spacing: -1px;
     font-weight: bold;
     font-family: 'Helvetica Neue', Arial, Sans-Serif;
+    text-align: right;
     }
+
+   header[role="banner"] .last-modified {
+   	font-size: 12px;
+   	font-weight: normal;
+   	display: block;
+   	line-height: 20px;
+   	text-align: right;
+   	letter-spacing: 0;
+   	padding-top: 5px;
+   	font-family: Georgia, serif;
+   }
+
+   header[role="banner"] .last-modified b {
+   	font-weight: bold;
+   }
 
 #main {
     clear: both;
@@ -137,7 +154,7 @@ span.small {
 
 .file-list li {
     padding: 10px 0;
-    border-top: 1px solid #E6E6E7;
+    border-bottom: 1px solid #E6E6E7;
     width: 100%;
     float: left;
     }
@@ -169,7 +186,7 @@ span.small {
     margin: 0;
     }
 
-    .responsive-link b {
+    .responsive-link strong {
 	    clear: both;
 	    float: none;
 	    display: block;
@@ -183,15 +200,13 @@ span.small {
     display: block;
     }
 
-footer[role="contentinfo"] {
+footer {
     padding: 20px 0 20px 0;
-    width: 100%;
     overflow: hidden;
     clear: both;
     border-top: 1px solid #E6E6E7;
     margin-top: 0;
     margin-bottom: 20px;
-    float: left;
     font-size: 14px;
     }
 
@@ -199,8 +214,8 @@ footer[role="contentinfo"] {
 
 * { vertical-align: top }
 
-body.responsive {
-    padding: 20px;
+.responsive {
+    padding: 20px 0;
     overflow-y: scroll;
     }
 
@@ -306,6 +321,11 @@ body.responsive {
 	    width: 100%;
 	    padding-top: 15px;
 	    max-width: 100%;
+	    text-align: left;
+	    }
+
+	    header[role="banner"] h1 .last-modified {
+	    	text-align: left;
 	    }
 
 	.responsive #url select {
