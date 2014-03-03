@@ -1,7 +1,7 @@
 var bb = bb ? bb : {};
 (function($) {
 	$.extend(bb, {
-		mq : {
+		monitorMq : {
 			bb: null,
 			$detector: null,
 			detectorId: 'monitor_mq',
@@ -15,9 +15,9 @@ var bb = bb ? bb : {};
 			init: function () {
 				var self = this;
 				self.$detector = $('#' + self.detectorId);
-				self.monitorMq();
+				self.monitor();
 			},
-			monitorMq: function() {
+			monitor: function() {
 				var self = this;
 				if (!self.$detector.length) {
 					self.$detector = $('<div />', {
@@ -35,12 +35,12 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('setGlobal', function (event, bb) {
-		bb.mq.setGlobal(bb);
+		bb.monitorMq.setGlobal(bb);
 	});
 	$.subscribe('pageReady', function () {
-		bb.mq.init();
+		bb.monitorMq.init();
 	});
 	$.subscribe('viewportResizeEnd', function () {
-		bb.mq.monitorMq();
+		bb.monitorMq.monitor();
 	});
 }(jQuery));

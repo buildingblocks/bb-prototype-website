@@ -26,9 +26,6 @@ function allLoaded() {
 };
 
 function loadPage($frame, url) {
-	if (url.substr(0, 7) !== 'http://' && url.substr(0, 8) !== 'https://' && url.substr(0, 7) !== 'file://') {
-		url = 'http://' + window.location.hostname + '/' +url;
-	}
 	$('iframe').not($frame).each(function () {
 		showLoader($(this).parent().attr('id'));
 	})
@@ -41,20 +38,6 @@ $('.frame').each(function () {
 	showLoader($(this).attr('id'))
 });
 
-function getlastmod(URL) {
-	var http=new XMLHttpRequest();
-	http.open('HEAD',URL,false);
-	http.send(null);
-	if (http.status!=200) {return undefined}
-	var str = http.getResponseHeader('Last-modified');
-
-	// str = str.replace(/^[^0-9]+/gi,"");  // delete characters until first digit encountered
-	// var len = str.length;
-	// str = str.substring(0, len - 13);  // delete the final 13 characters
-	// var strsplit = str.split(" ");
-	var reformatted =  str;
-	return reformatted;
-}
 
 //when document loads
 $(document).ready(function () {
@@ -142,17 +125,5 @@ $(document).ready(function () {
 			$(this).data('loaded', true);
 		}
 	});
-
-	var supportsSvg = function() {
-	  return !! document.createElementNS &&
-	         !! document.createElementNS(SVG.ns,'svg').createSVGRect
-	};
-	if ( !supportsSvg ) {
-		$('img[src*="svg"]').attr('src', function() {
-			return $(this).attr('src').replace('.svg', '.png');
-		});
-	}
-
-	//$('.project-title .last-modified').html(document.lastModified);
 
 });

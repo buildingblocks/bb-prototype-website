@@ -27,7 +27,9 @@ module.exports = function(grunt) {
 			partialPrefix: 'bb-website_partial-',
 			assembleExt: 'hbs',
 			mainCss: 'main.css',
-			ieCss: 'ie.css'
+			ieCss: 'ie.css',
+			mainRtlCss: 'main.rtl.css',
+			ieRtlCss: 'ie.rtl.css',
 		},
 		watch: {
 			main: {
@@ -79,7 +81,13 @@ module.exports = function(grunt) {
 				],
 				assets: '<%= config.dist %>',
 				images: '<%= config.distImages %>',
+				styles: '<%= config.distStyles %>',
+				scripts: '<%= config.distScripts %>',
 				temp: '<%= config.distTemp %>',
+				mainCss: '<%= config.mainCss %>',
+				mainRtlCss: '<%= config.mainRtlCss %>',
+				ieCss: '<%= config.ieCss %>',
+				ieRtlCss: '<%= config.ieRtlCss %>',
 				data: [
 					'<%= config.src %>/data/*.{json,yml}',
 					'package.json' ,
@@ -158,6 +166,7 @@ module.exports = function(grunt) {
 					Modernizr: true,
 					clearTimeout: true,
 					setTimeout: true,
+					navigator: true,
 					bb: true
 				}
 			},
@@ -167,6 +176,12 @@ module.exports = function(grunt) {
 			]
 		},
 		concat: {
+			lessMixins: {
+				src: [
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/*.less'
+				],
+				dest: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
+			},
 			jquery: {
 				src: [
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/vendor/jquery-*.js'
@@ -193,17 +208,11 @@ module.exports = function(grunt) {
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/validation/*.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/validation.js'
-			},
-			lessMixins: {
-				src: [
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/*.less'
-				],
-				dest: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
-			},
+			}
 		},
 		uglify: {
 			options: {
-				banner: '<%= meta.banner %>',
+				//banner: '<%= meta.banner %>',
 				preserveComments: 'some',
 				mangle: true,
 				compress: {
@@ -235,6 +244,18 @@ module.exports = function(grunt) {
 				files: {
 					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_order.less'
 				}
+			},
+			rtl: {
+				options: {
+					yuicompress: false,
+					sourceMap: true,
+					sourceMapFilename: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>.map',
+					sourceMapURL: '<%= config.mainRtlCss %>.map',
+					sourceMapRootpath: '/'
+				},
+				files: {
+					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_order.less'
+				}
 			}
 		},
 		cmq: {
@@ -249,6 +270,11 @@ module.exports = function(grunt) {
 				files: {
 					'<%= config.dist %>/<%= config.distStyles %>/<%= config.ieCss %>': '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>'
 				}
+			},
+			ieRtl : {
+				files: {
+					'<%= config.dist %>/<%= config.distStyles %>/<%= config.ieRtlCss %>': '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>'
+				}
 			}
 		},
 		cssmin: {
@@ -256,14 +282,28 @@ module.exports = function(grunt) {
 				src: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>',
 				dest: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>'
 			},
+			mainRtl: {
+				src: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>',
+				dest: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>'
+			},
 			ie: {
 				src: '<%= config.dist %>/<%= config.distStyles %>/<%= config.ieCss %>',
 				dest: '<%= config.dist %>/<%= config.distStyles %>/<%= config.ieCss %>'
+			},
+			ieRtl: {
+				src: '<%= config.dist %>/<%= config.distStyles %>/<%= config.ieRtlCss %>',
+				dest: '<%= config.dist %>/<%= config.distStyles %>/<%= config.ieRtlCss %>'
 			}
 		},
 		copy: {
 			dist: {
 				files: [
+					{
+						expand: true,
+						cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/',
+						src: ['*.js'],
+						dest: '<%= config.dist %>/<%= config.distScripts %>/'
+					},
 					{
 						expand: true,
 						cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcImages %>/',
@@ -305,7 +345,7 @@ module.exports = function(grunt) {
 		},
 		modernizr: {
 			dist: {
-				'devFile': false,
+				'devFile': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/vendor/modernizr.js',
 				'outputFile': '<%= config.dist %>/<%= config.distScripts %>/modernizr.js',
 				'parseFiles': true,
 				'files': {
@@ -408,6 +448,7 @@ module.exports = function(grunt) {
 		'copy:dist',
 		'assemble',
 		'replace',
+		'modernizr',
 		'clean:postBuild'
 	]);
 	grunt.registerTask('build_production', [

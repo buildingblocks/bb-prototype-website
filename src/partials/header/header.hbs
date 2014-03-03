@@ -3,52 +3,10 @@ component: header
 hide: true
 published: false
 ---
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js ie8 lt-ie10 lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if IE 9]><html class="no-js ie9 lt-ie10" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
-	<head>
-
-		<meta charset="utf-8" />
-		<meta http-equiv="cleartype" content="on" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="apple-mobile-web-app-title" content="BB" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-		<title>{{title}} | {{project.client}}</title>
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-
-		<!-- Icons -->
-		<link rel="shortcut icon" href="{{assets}}/images/favicon.ico" />
-		<link rel="apple-touch-icon" href="{{assets}}/images/apple-touch-icon-precomposed.png" />
-		<link rel="apple-touch-icon" href="{{assets}}/images/apple-touch-icon-57x57-precomposed.png" sizes="57x57" />
-		<link rel="apple-touch-icon" href="{{assets}}/images/apple-touch-icon-72x72-precomposed.png" sizes="72x72" />
-		<link rel="apple-touch-icon" href="{{assets}}/images/apple-touch-icon-114x114-precomposed.png" sizes="114x114" />
-		<link rel="apple-touch-icon" href="{{assets}}/images/apple-touch-icon-144x144-precomposed.png" sizes="144x144" />
-		<meta name="msapplication-TileImage" content="{{assets}}/images/apple-touch-icon-144x144-precomposed.png" />
-		<meta name="msapplication-TileColor" content="#FFFFFF" />
-
-		<!-- CSS -->
-		<!--[if gt IE 9]><!--><link rel="stylesheet" media="screen" href="{{assets}}/styles/main.css" /><!--<![endif]-->
-		<!-- No 'media queries' CSS -->
-		<!--[if lt IE 9]><link rel="stylesheet" media="screen" href="{{assets}}/styles/ie.css" /><![endif]-->
-
-		<!-- Feature Detection -->
-		<script src="{{assets}}/scripts/modernizr.js"></script>
-
-	</head>
-	<body>
-
-		<div id="page">
-
-			<header class="header" id="header" role="banner">
-
-				{{>header-logo}}
-
-				{{>header-navigation}}
-
-			</header>
-			<!-- end #header -->
+<body>
+	<div id="page">
+		<header class="header" id="header" role="banner">
+			{{>header-logo}}
+			{{>header-navigation}}
+		</header>
+		<!-- end #header -->

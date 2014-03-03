@@ -1,10 +1,10 @@
 ---
 hide: true
-title: Component List
+title: Partials List
 layout: src/layouts/_bb.hbs
 ---
 <div class="container">
-	<header role="banner">
+	<header class="header" role="banner">
 		<a href="#" class="logo">
 			<img src="{{assets}}/_bb/bb-logo.svg" alt="Building Blocks" width="83" height="50" />
 		</a>
@@ -15,11 +15,11 @@ layout: src/layouts/_bb.hbs
 			</span>
 		</h1>
 	</header>
-	<div id="main" role="main">
+	<div class="main" id="main" role="main">
 		{{>partials-list}}
 		<p class="back-link"><a href="/">&larr; Back to page list</a></p>
 	</div>
-	<footer role="contentinfo">
+	<footer class="footer" role="contentinfo">
 		<p>&copy; Copyright Building Blocks Ltd</p>
 	</footer>
 </div>
