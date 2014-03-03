@@ -62,6 +62,8 @@ var bb = {
 			self.$frames.closest('.responsive-frame').addClass('loading');
 			// change src
 			self.$frames.find('iframe').attr('src', url);
+			self.$files.find('option:selected').removeAttr('selected');
+			self.$files.find('option[value="'+url+'"]').attr('selected','selected');
 			// change url
 			window.history.pushState(null, null, '?' + url);
 		},
