@@ -1,129 +1,84 @@
-var defaultURL = false;
-
-//show loading graphic
-
-function showLoader(id) {
-	$('#' + id + ' img').fadeIn('slow');
-}
-
-//hdie loading graphic
-
-function hideLoader(id) {
-	$('#' + id + ' img').fadeOut('slow');
-}
-
-//function to check load state of each frame
-
-function allLoaded() {
-	var results = [];
-	$('iframe').each(function () {
-		if (!$(this).data('loaded')) {
-			results.push(false)
+var bb = {
+	responsiveTest : {
+		bb: null,
+		$framesContainer: null,
+		$frames: null,
+		$files: null,
+		$options: null,
+		currentUrl: null,
+		init: function () {
+			var self = this;
+			self.$framesContainer = $('#responsive_frames');
+			self.$frames = self.$framesContainer.find('.responsive-frame');
+			self.$files = $('#responsive_files');
+			self.$options = $('#responsive_options');
+			// calculate the container width
+			self.setContainerWidth();
+			// event handler for html file select dropdown
+			self.$files.on('change.responsiveTest', function (event) {
+				var $select = $(this),
+					url = $select.find('option:selected').val();
+				self.loadFile(url);
+			});
+			// load event for each iframe
+			self.$frames.find('iframe').on('load.responsiveTest', function () {
+				var $frame = $(this);
+				self.frameLoaded($frame);
+			});
+			//add event handlers for options radio buttons
+			self.$options.on('change.responsiveTest', 'input', function () {
+				var id = $('input[type=radio]:checked').attr('id');
+				if (id === 'responsive_option_width') {
+					self.$framesContainer.addClass('responsive-width-only');
+				} else {
+					self.$framesContainer.removeClass('responsive-width-only');
+				}
+			});
+			// load from query string?
+			var qsArray = window.location.href.split('?'),
+				qs = qsArray[qsArray.length - 1];
+			if (qs && qsArray.length > 1) {
+				self.loadFile(qs);
+			}
+		},
+		setContainerWidth : function () {
+			var self = this;
+			//set slidable div width
+			$('.responsive-frames-inner').css('width', function () {
+				var width = 0;
+				self.$frames.each(function () {
+					width += $(this).outerWidth(true);
+				});
+				return width;
+			});
+		},
+		loadFile: function (url) {
+			var self = this;
+			if (url === self.currentUrl) {
+				return;
+			}
+			self.currentUrl = url;
+			// add loading class
+			self.$frames.closest('.responsive-frame').addClass('loading');
+			// change src
+			self.$frames.find('iframe').attr('src', url);
+			self.$files.find('option:selected').removeAttr('selected');
+			self.$files.find('option[value="'+url+'"]').attr('selected','selected');
+			// change url
+			window.history.pushState(null, null, '?' + url);
+		},
+		frameLoaded: function ($frame) {
+			var self = this,
+				$parent = $frame.closest('.responsive-frame');
+			// remove loading class
+			$parent.removeClass('loading');
 		}
-	});
-	var result = (results.length > 0) ? false : true;
-	return result;
-};
-
-function loadPage($frame, url) {
-	$('iframe').not($frame).each(function () {
-		showLoader($(this).parent().attr('id'));
-	})
-	$('iframe').not($frame).data('loaded', false);
-	$('iframe').not($frame).attr('src', url);
-	window.history.pushState(null, null, '?' + url);
-}
-
-$('.frame').each(function () {
-	showLoader($(this).attr('id'))
-});
-
-
-//when document loads
-$(document).ready(function () {
-
-	if (defaultURL) loadPage('', defaultURL);
-
-	//query string
-	var qsArray = window.location.href.split('?');
-	var qs = qsArray[qsArray.length - 1];
-
-	if (qs != '' && qsArray.length > 1) {
-		$('#url input[type=text]').val(qs);
-		loadPage('', qs);
+	},
+	pageReady: function (){
+		var self = this;
+		self.responsiveTest.init();
 	}
-
-	//set slidable div width
-	$('#frames #inner').css('width', function () {
-		var width = 0;
-		$('.frame').each(function () {
-			width += $(this).outerWidth() + 20
-		});
-		return width;
-	});
-
-	//add event handlers for options radio buttons
-	$('input[type=radio]').change(function () {
-		$frames = $('#frames');
-		$inputs = $('input[type=radio]:checked').val();
-
-		if ($inputs == '1') {
-			$frames.addClass('widthOnly');
-		} else {
-			$frames.removeClass('widthOnly');
-		}
-	});
-
-	//when the url textbox is used
-	$('form').submit(function () {
-		loadPage('', $('#url input[type=text]').val());
-		return false;
-	});
-
-	$('#files').change(function (e) {
-		var $select = $(this);
-		//$select.find('option').removeAttr('selected');
-		var selectedVal = $select.find('option:selected').val();
-		if (selectedVal != '') {
-			//$select.find('option:selected').attr('selected','selected');
-			loadPage('', selectedVal);
-		}
-	});
-
-	//when frame loads
-	$('iframe').load(function () {
-
-		var $this = $(this);
-		var url = '';
-		var error = false;
-
-		try {
-			url = $this.contents().get(0).location.href;
-		} catch (e) {
-			error = true;
-			if ($('#url input[type=text]').val() != '') {
-				url = $('#url input[type=text]').val();
-			} else {
-				url = defaultURL;
-			}
-		}
-
-		//load other pages with the same URL
-		if (allLoaded()) {
-			if (error) {
-				alert('Browsers prevent navigation from inside iframes across domains.\nPlease use the textbox at the top for external sites.');
-				loadPage('', defaultURL);
-			} else {
-				loadPage($this, url);
-			}
-		}
-
-		//when frame loads, hide loader graphic
-		else {
-			error = false;
-			hideLoader($(this).parent().attr('id'));
-			$(this).data('loaded', true);
-		}
-	});
-
-});
+};
+(function() {
+	var init = (bb !== undefined) ? bb.pageReady() : null;
+}());
