@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 		assemble: {
 			options: {
 				flatten: false,
-				layout: '<%= config.src %>/layouts/default.<%= config.assembleExt %>',
+				layout: '<%= config.src %>/layouts/master.<%= config.assembleExt %>',
 				partials: '<%= config.src %>/partials/**/*.<%= config.assembleExt %>',
 				helpers: [
 					'<%= config.src %>/helpers/helper-*.js'
