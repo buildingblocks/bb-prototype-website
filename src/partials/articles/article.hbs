@@ -1,14 +1,14 @@
 ---
 component: article
 ---
-<article class="article">
+<article class="article {{class}}">
 	<header class="article-header">
-		<h2>Article Title</h2>
+		<h2>{{title}}</h2>
 	</header>
 	<div class="article-details">
-		<p>Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.</p>
+		{{body}}
 	</div>
 	<footer class="article-footer">
-		<a href="link-more">Read more about: Article Title</a>
+		<a href="{{url}}">{{urlText}}</a>
 	</footer>
 </article>

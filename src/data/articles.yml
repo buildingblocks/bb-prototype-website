@@ -1,0 +1,6 @@
+article-style-a :
+	title: This is the article title
+	body: This is the content of the article.
+	class: article-style-a
+	url: "#"
+	urlText: Read More

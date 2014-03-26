@@ -11,19 +11,19 @@ title: Master Page
 <!--[if IE 9]><html class="no-js ie9 lt-ie10" lang="en" dir="ltr"><![endif]-->
 <!--[if gt IE 9]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
 {{/if}}
+	<head>
+		{{>head-meta}}
+		{{>head-app}}
+		{{>head-icons}}
+		{{#if rtl}}
+			{{>head-css-rtl}}
+		{{else}}
+			{{>head-css}}
+		{{/if}}
+		{{>head-scripts}}
+	</head>
 	<body>
 		<div id="page" class="page">
-			<head>
-				{{>head-meta}}
-				{{>head-app}}
-				{{>head-icons}}
-				{{#if rtl}}
-					{{>head-css-rtl}}
-				{{else}}
-					{{>head-css}}
-				{{/if}}
-				{{>head-scripts}}
-			</head>
 			{{>header}}
 			{{>body}}
 			{{>footer}}
