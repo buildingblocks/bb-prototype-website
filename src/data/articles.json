@@ -1,0 +1,16 @@
+{
+	"articleStyleA": {
+		"class": "article-style-a",
+		"title": "Article Title (.article-style-a)",
+		"body": "<p>This is the content of the article.</p>",
+		"url": "#",
+		"urlText": "Read More"
+	},
+	"articleStyleB": {
+		"class": "article-style-b",
+		"title": "Article Title (.article-style-b)",
+		"body": "<p>This is the content of the article.</p>",
+		"url": "#",
+		"urlText": "Read More"
+	}
+}

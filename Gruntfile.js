@@ -32,15 +32,33 @@ module.exports = function(grunt) {
 			ieRtlCss: 'ie.rtl.css',
 		},
 		watch: {
-			main: {
+			html: {
 				files: [
-					'<%= config.src %>/{data,pages,partials,layouts}/{,*/}*.{<%= config.assembleExt %>,yml}',
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/*.css',
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/*.less',
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/mixins-*.less',
+					'<%= config.src %>/{data,pages,partials,layouts}/{,*/}*.{<%= config.assembleExt %>,yml}'
+				],
+				tasks: [
+					'build_html'
+				]
+			},
+			scripts: {
+				files: [
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/**/**.js',
 				],
-				tasks: ['build_dev']
+				tasks: [
+					'build_scripts',
+					'modernizr'
+				]
+			},
+			styles: {
+				files: [
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/*.css',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/*.less',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/mixins-*.less'
+				],
+				tasks: [
+					'build_styles',
+					'modernizr'
+				]
 			},
 			livereload: {
 				options: {
@@ -56,7 +74,7 @@ module.exports = function(grunt) {
 		},
 		connect: {
 			options: {
-				port: 9000,
+				port: 8008,
 				livereload: 35729,
 				// change this to '0.0.0.0' to access the server from outside
 				hostname: 'localhost'
@@ -296,14 +314,18 @@ module.exports = function(grunt) {
 			}
 		},
 		copy: {
-			dist: {
+			bb: {
 				files: [
 					{
 						expand: true,
-						cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/',
-						src: ['*.js'],
-						dest: '<%= config.dist %>/<%= config.distScripts %>/'
-					},
+						cwd: '<%= config.src %>/<%= config.srcAssets %>/_bb/',
+						src: ['**'],
+						dest: '<%= config.dist %>/_bb'
+					}
+				]
+			},
+			assets: {
+				files: [
 					{
 						expand: true,
 						cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcImages %>/',
@@ -321,26 +343,49 @@ module.exports = function(grunt) {
 						cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcTemp %>/',
 						src: ['**'],
 						dest: '<%= config.dist %>/<%= config.distTemp %>/'
-					},
+					}
+				]
+			},
+			scripts: {
+				files: [
 					{
 						expand: true,
-						cwd: '<%= config.src %>/<%= config.srcAssets %>/_bb/',
-						src: ['**'],
-						dest: '<%= config.dist %>/_bb'
+						cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/',
+						src: ['*.js'],
+						dest: '<%= config.dist %>/<%= config.distScripts %>/'
+					}
+				]
+			},
+			styles: {
+				files: [
+					{
+						expand: true,
+						cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/',
+						src: ['*.css'],
+						dest: '<%= config.dist %>/<%= config.distStyles %>/'
 					}
 				]
 			},
 			deploy: {}
 		},
 		clean: {
-			preBuild: [
-				'<%= config.dist %>/'
-			],
-			postBuild: [
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
-			],
 			deploy: [
 				'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>.map'
+			],
+			html: [
+				'<%= config.dist %>/*.html'
+			],
+			scripts: [
+				'<%= config.dist %>/<%= config.srcScripts %>'
+			],
+			styles: [
+				'<%= config.dist %>/<%= config.srcStyles %>'
+			],
+			mixins: [
+				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
+			],
+			everything: [
+				'<%= config.dist %>'
 			]
 		},
 		modernizr: {
@@ -439,19 +484,38 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-replace');
 	grunt.loadNpmTasks('grunt-prettify');
 	// Build tasks.
-	grunt.registerTask('build_dev', [
+	grunt.registerTask('build_html', [
+		'clean:html',
+		'assemble',
+		'copy:assets',
+		'replace',
+	]);
+	grunt.registerTask('build_scripts', [
+		'clean:scripts',
 		'jshint',
-		'clean:preBuild',
-		'concat',
+		'concat:jquery',
+		'concat:scripts',
+		'concat:ieScripts',
+		'concat:validation',
+		'copy:scripts'
+	]);
+	grunt.registerTask('build_styles', [
+		'clean:styles',
+		'concat:lessMixins',
 		'less',
 		'stripmq',
-		'copy:dist',
-		'assemble',
-		'replace',
-		'modernizr',
-		'clean:postBuild'
+		'copy:styles',
+		'copy:assets',
+		'clean:mixins'
+	]);
+	grunt.registerTask('build_dev', [
+		'build_html',
+		'build_scripts',
+		'build_styles',
+		'modernizr'
 	]);
 	grunt.registerTask('build_production', [
+		'clean:production',
 		'build_dev',
 		'cmq',
 		'cssmin',
