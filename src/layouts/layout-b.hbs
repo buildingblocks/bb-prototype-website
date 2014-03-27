@@ -4,24 +4,36 @@ title: Layout B
 {{#extend "master"}}
 	{{! Main Content }}
 	{{#content "master-body"}}
-		<main id="main" role="main" class="layout-a">
+		<main id="main" role="main" class="layout layout-a">
 			{{body}}
-			<div class="region-a">
-				{{#block "region-a"}}{{/block}}
+			{{#if_block "region-a"}}
+			<div class="region region-a">
+				<div class="region-inner">
+					{{#block "region-a"}}{{/block}}
+				</div>
 			</div>
-			<div class="region-b">
-				{{#block "region-b"}}{{/block}}
+			{{/if_block}}
+			{{#if_block "region-b"}}
+			<div class="region region-b">
+				<div class="region-inner">
+					{{#block "region-b"}}{{/block}}
+				</div>
 			</div>
-			<div class="region-c">
-				{{#block "region-c"}}{{/block}}
+			{{/if_block}}
+			{{#if_block "region-c"}}
+			<div class="region region-c">
+				<div class="region-inner">
+					{{#block "region-c"}}{{/block}}
+				</div>
 			</div>
+			{{/if_block}}
 		</main>
 	{{/content}}
 	{{! Additional Content for <head> and just before </body>}}
-	{{#content "master-head"}}
+	{{#content "master-head" extend}}
 		{{#block "head"}}{{/block}}
 	{{/content}}
-	{{#content "master-foot"}}
+	{{#content "master-foot" extend}}
 		{{#block "foot"}}{{/block}}
 	{{/content}}
 {{/extend}}

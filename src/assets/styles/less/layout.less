@@ -1,20 +1,20 @@
 // layout.less
 
-.layout {
-	width: 100%;
+.page {
 	position: relative;
 	.clearfix();
-}
-
-.container {
-	position: relative;
 	.margin(0, @grid-gutter-width);
 	.max-width(@max-width);
-	.clearfix();
 
 	@media (min-width: @break-point-e) {
 		margin: 0 auto;
 	}
+}
+
+.layout {
+	width: 100%;
+	position: relative;
+	.clearfix();
 }
 
 .masonry {
@@ -28,10 +28,18 @@
 		position: relative;
 		float: left;
 	}
+
+	.rtl & {
+
+		@media (min-width: @break-point-d) {
+			float: right;
+		}
+	}
 }
 
 .region-inner {
 	position: relative;
+	overflow: hidden;
 }
 
 .block {
@@ -81,16 +89,16 @@
 }
 
 // Region A
-@region-a-width: @max-width;
+@region-a-width: (@grid-column-width*24) + (@grid-gutter-width*23);
 @region-a-inner-width: @region-a-width + @grid-gutter-width;
 
 .region-a {
 
-	// Grid layout above @break-point-d only
+	// Grid layout above @break-point-X only
 	@media (min-width: @break-point-d) {
 		position: relative;
 		float: left;
-		.fluid-width(@region-a-width, @region-a-width);
+		.fluid-width(@region-a-width, @max-width);
 
 		.region-inner{
 			position: relative;
@@ -111,15 +119,103 @@
 		}
 
 		.block-size-a {
-			.fluid-width((@grid-column-width*12) + (@grid-gutter-width*11), @region-a-inner-width);
+			.fluid-width((@grid-column-width*24) + (@grid-gutter-width*23), @region-a-inner-width);
 		}
 
 		.block-size-b {
-			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-a-inner-width);
+			.fluid-width((@grid-column-width*16) + (@grid-gutter-width*15), @region-a-inner-width);
 		}
 
 		.block-size-c {
-			.fluid-width((@grid-column-width*4) + (@grid-gutter-width*3), @region-a-inner-width);
+			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-a-inner-width);
+		}
+	}
+}
+
+// Region B
+@region-b-width: (@grid-column-width*16) + (@grid-gutter-width*16);
+@region-b-inner-width: @region-b-width + @grid-gutter-width;
+
+.region-b {
+
+	// Grid layout above @break-point-X only
+	@media (min-width: @break-point-d) {
+		position: relative;
+		float: left;
+		.fluid-width(@region-b-width, @max-width);
+
+		.region-inner{
+			position: relative;
+			.fluid-width(@region-b-inner-width, @region-b-width);
+		}
+
+		.block {
+			.fluid-margin-right(@grid-gutter-width, @region-b-inner-width);
+
+			.rtl & {
+				margin-right: 0;
+				.fluid-margin-left(@grid-gutter-width, @region-b-inner-width);
+			}
+		}
+
+		.gutter-sizer {
+			.fluid-width(@grid-gutter-width, @region-b-inner-width);
+		}
+
+		.block-size-a {
+			.fluid-width((@grid-column-width*24) + (@grid-gutter-width*23), @region-b-inner-width);
+		}
+
+		.block-size-b {
+			.fluid-width((@grid-column-width*16) + (@grid-gutter-width*15), @region-b-inner-width);
+		}
+
+		.block-size-c {
+			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-b-inner-width);
+		}
+	}
+}
+
+// Region C
+@region-c-width: (@grid-column-width*8) + (@grid-gutter-width*7);
+@region-c-inner-width: @region-c-width + @grid-gutter-width;
+
+.region-c {
+
+	// Grid layout above @break-point-X only
+	@media (min-width: @break-point-d) {
+		position: relative;
+		float: left;
+		.fluid-width(@region-c-width, @max-width);
+
+		.region-inner{
+			position: relative;
+			.fluid-width(@region-c-inner-width, @region-c-width);
+		}
+
+		.block {
+			.fluid-margin-right(@grid-gutter-width, @region-c-inner-width);
+
+			.rtl & {
+				margin-right: 0;
+				.fluid-margin-left(@grid-gutter-width, @region-c-inner-width);
+			}
+		}
+
+		.gutter-sizer {
+			.fluid-width(@grid-gutter-width, @region-c-inner-width);
+		}
+
+		.block-size-a {
+			.fluid-width((@grid-column-width*24) + (@grid-gutter-width*23), @region-c-inner-width);
+		}
+
+		.block-size-b {
+			.fluid-width((@grid-column-width*16) + (@grid-gutter-width*15), @region-c-inner-width);
+		}
+
+		.block-size-c {
+			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-c-inner-width);
 		}
 	}
 }

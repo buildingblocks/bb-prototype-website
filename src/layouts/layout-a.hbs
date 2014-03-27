@@ -4,18 +4,20 @@ title: Layout A
 {{#extend "master"}}
 	{{! Main Content }}
 	{{#content "master-body"}}
-		<main id="main" role="main" class="layout-a">
+		<main id="main" role="main" class="layout layout-a">
 			{{body}}
-			<div class="region-a">
-				{{#block "region-a"}}{{/block}}
+			<div class="region region-a">
+				<div class="region-inner">
+					{{#block "region-a"}}{{/block}}
+				</div>
 			</div>
 		</main>
 	{{/content}}
 	{{! Additional Content for <head> and just before </body>}}
-	{{#content "master-head"}}
+	{{#content "master-head" extend}}
 		{{#block "head"}}{{/block}}
 	{{/content}}
-	{{#content "master-foot"}}
+	{{#content "master-foot" extend}}
 		{{#block "foot"}}{{/block}}
 	{{/content}}
 {{/extend}}

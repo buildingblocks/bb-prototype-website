@@ -1,16 +1,18 @@
 ---
-title: Blank
+title: Layout Empty
 ---
 {{#extend "master"}}
 	{{! Main Content }}
 	{{#content "master-body"}}
-		{{body}}
+		<main id="main" role="main" class="layout">
+			{{>body}}
+		</main>
 	{{/content}}
 	{{! Additional Content for <head> and just before </body>}}
-	{{#content "master-head"}}
+	{{#content "master-head" extend}}
 		{{#block "head"}}{{/block}}
 	{{/content}}
-	{{#content "master-foot"}}
+	{{#content "master-foot" extend}}
 		{{#block "foot"}}{{/block}}
 	{{/content}}
 {{/extend}}

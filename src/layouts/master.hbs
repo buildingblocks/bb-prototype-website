@@ -24,7 +24,7 @@ title: Master Page
 		{{#block "master-head"}}{{/block}}
 	</head>
 	<body>
-		<div id="page" class="page">
+		<div id="page" class="page {{#if visibleGrid}}visible-grid{{/if}}">
 			{{>header}}
 			{{#block "master-body"}}
 				{{body}}
