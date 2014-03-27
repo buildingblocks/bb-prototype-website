@@ -21,15 +21,19 @@ title: Master Page
 			{{>head-css}}
 		{{/if}}
 		{{>head-scripts}}
+		{{#block "master-head"}}{{/block}}
 	</head>
 	<body>
 		<div id="page" class="page">
 			{{>header}}
-			{{>body}}
+			{{#block "master-body"}}
+				{{body}}
+			{{/block}}
 			{{>footer}}
 		</div>
 		<!-- end #page -->
 		{{>footer-scripts}}
+		{{#block "master-foot"}}{{/block}}
 	</body>
 </html>
 

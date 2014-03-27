@@ -1,7 +1,9 @@
 ---
 title: Home
-layout: src/layouts/layout-a.hbs
 ---
-{{> article articles.articleStyleA}}
-{{> article}}
+{{#extend "layout-a"}}
+	{{#content "region-a"}}
+		{{> article articles.articleStyleA}}
+	{{/content}}
+{{/extend}}
 

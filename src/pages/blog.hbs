@@ -1,4 +1,8 @@
 ---
 title: Blog
-layout: src/layouts/layout-a.hbs
 ---
+{{#extend "layout-a"}}
+	{{#content "region-a"}}
+		<p>region-a content</p>
+	{{/content}}
+{{/extend}}

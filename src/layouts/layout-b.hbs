@@ -1,5 +1,5 @@
 ---
-title: Layout A
+title: Layout B
 ---
 {{#extend "master"}}
 	{{! Main Content }}
@@ -8,6 +8,12 @@ title: Layout A
 			{{body}}
 			<div class="region-a">
 				{{#block "region-a"}}{{/block}}
+			</div>
+			<div class="region-b">
+				{{#block "region-b"}}{{/block}}
+			</div>
+			<div class="region-c">
+				{{#block "region-b"}}{{/block}}
 			</div>
 		</main>
 	{{/content}}
@@ -19,3 +25,4 @@ title: Layout A
 		{{#block "foot"}}{{/block}}
 	{{/content}}
 {{/extend}}
+

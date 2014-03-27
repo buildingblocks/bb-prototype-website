@@ -1,5 +1,12 @@
 ---
 title: Stylesheet
-layout: src/layouts/layout-a.hbs
 rtl: true
 ---
+{{#extend "layout-b"}}
+	{{#content "region-a"}}
+		<p>region-a content</p>
+	{{/content}}
+	{{#content "region-b"}}
+		<p>region-b content</p>
+	{{/content}}
+{{/extend}}

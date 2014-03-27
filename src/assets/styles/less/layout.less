@@ -80,10 +80,11 @@
 	clear: both;
 }
 
-.region-a {
+// Region A
+@region-a-width: @max-width;
+@region-a-inner-width: @region-a-width + @grid-gutter-width;
 
-	@region-a-width: @max-width;
-	@region-a-inner-width: @region-a-width + @grid-gutter-width;
+.region-a {
 
 	// Grid layout above @break-point-d only
 	@media (min-width: @break-point-d) {

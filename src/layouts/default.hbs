@@ -1,15 +1,10 @@
 ---
-title: Layout A
+title: Default
 ---
 {{#extend "master"}}
 	{{! Main Content }}
 	{{#content "master-body"}}
-		<main id="main" role="main" class="layout-a">
-			{{body}}
-			<div class="region-a">
-				{{#block "region-a"}}{{/block}}
-			</div>
-		</main>
+		{{body}}
 	{{/content}}
 	{{! Additional Content for <head> and just before </body>}}
 	{{#content "master-head"}}
