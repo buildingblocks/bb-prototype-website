@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 			mainCss: 'main.css',
 			ieCss: 'ie.css',
 			mainRtlCss: 'main.rtl.css',
-			ieRtlCss: 'ie.rtl.css',
+			ieRtlCss: 'ie.rtl.css'
 		},
 		watch: {
 			html: {
@@ -89,7 +89,6 @@ module.exports = function(grunt) {
 		assemble: {
 			options: {
 				flatten: false,
-				//layout: '<%= config.src %>/layouts/master.<%= config.assembleExt %>',
 				layout: false,
 				partials: [
 					'<%= config.src %>/partials/**/*.<%= config.assembleExt %>',
@@ -468,7 +467,7 @@ module.exports = function(grunt) {
 				ext: '.html',
 				src: ['*.html'],
 				dest: '<%= config.dist %>/'
-			},
+			}
 		}
 	});
 	// Register tasks.
