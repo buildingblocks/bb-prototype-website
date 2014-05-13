@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 		watch: {
 			html: {
 				files: [
-					'<%= config.src %>/{data,pages,partials,layouts}/{,*/}*.{<%= config.assembleExt %>,yml}'
+					'<%= config.src %>/{data,pages,partials,layouts}/{,*/}*.{<%= config.assembleExt %>,yml,json}'
 				],
 				tasks: [
 					'build_html'
@@ -74,8 +74,8 @@ module.exports = function(grunt) {
 		},
 		connect: {
 			options: {
-				port: 8008,
-				livereload: 35729,
+				port: 8001,
+				livereload: 35730,
 				// change this to '0.0.0.0' to access the server from outside
 				hostname: 'localhost'
 			},
@@ -96,9 +96,6 @@ module.exports = function(grunt) {
 				],
 				helpers: [
 					'<%= config.src %>/helpers/helper-*.js'
-				],
-				plugins: [
-					'assemble-contrib-permalinks'
 				],
 				assets: '<%= config.dist %>',
 				images: '<%= config.distImages %>',
@@ -372,7 +369,7 @@ module.exports = function(grunt) {
 			deploy: {}
 		},
 		clean: {
-			deploy: [
+			production: [
 				'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>.map'
 			],
 			html: [
@@ -389,7 +386,8 @@ module.exports = function(grunt) {
 			],
 			everything: [
 				'<%= config.dist %>'
-			]
+			],
+			deploy: []
 		},
 		modernizr: {
 			dist: {
@@ -491,7 +489,7 @@ module.exports = function(grunt) {
 		'clean:html',
 		'assemble',
 		'copy:assets',
-		'replace',
+		'replace'
 	]);
 	grunt.registerTask('build_scripts', [
 		'clean:scripts',
@@ -515,23 +513,26 @@ module.exports = function(grunt) {
 		'build_html',
 		'build_scripts',
 		'build_styles',
-		'modernizr'
+		'modernizr',
+		'copy:bb'
 	]);
 	grunt.registerTask('build_production', [
-		'clean:production',
 		'build_dev',
 		'cmq',
 		'cssmin',
 		'uglify',
-		'prettify'
+		'prettify',
+		'clean:production'
 	]);
 	// Default task.
 	grunt.registerTask('default', [
+		'clean:everything',
 		'build_dev',
 		'watch'
 	]);
 	// Local server task.
 	grunt.registerTask('server', [
+		'clean:everything',
 		'build_dev',
 		'connect:livereload',
 		'watch'
