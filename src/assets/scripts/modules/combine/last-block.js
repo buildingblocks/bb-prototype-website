@@ -1,5 +1,5 @@
 var bb = bb ? bb : {};
-(function($) {
+(function ($) {
 	$.extend(bb, {
 		// last block in a row
 		lastBlock: {
@@ -15,7 +15,7 @@ var bb = bb ? bb : {};
 				var self = this;
 				self.bb = bb;
 			},
-			init: function() {
+			init: function () {
 				var self = this;
 				self.$blockContainers = $('.region-inner');
 				if (!self.$blockContainers) {
@@ -23,13 +23,13 @@ var bb = bb ? bb : {};
 				}
 				self.startProcessing(false);
 			},
-			stopProcessing: function() {
+			stopProcessing: function () {
 				var self = this;
 				console.timeEnd('Processing last blocks');
 				self.processing = false;
 				return false;
 			},
-			startProcessing: function(forceBuild) {
+			startProcessing: function (forceBuild) {
 				var self = this;
 				console.time('Processing last blocks');
 				self.processing = true;
@@ -42,7 +42,7 @@ var bb = bb ? bb : {};
 						$('.' + self.ieLastClass).remove();
 					}
 				}
-				self.$blockContainers.each(function(i) {
+				self.$blockContainers.each(function (i) {
 					var $blockContainer = $(this),
 						$blocks = $blockContainer.find(self.blockSelector),
 						//$blocks = $(),
@@ -55,12 +55,12 @@ var bb = bb ? bb : {};
 					self.processBlocks($blocks, blockContainerWidth);
 				});
 			},
-			processBlocks: function($blocks, blockContainerWidth) {
+			processBlocks: function ($blocks, blockContainerWidth) {
 				var self = this;
 				if (!$blocks || !blockContainerWidth) {
 					self.stopProcessing();
 				}
-				$blocks.each(function(i) {
+				$blocks.each(function (i) {
 					var $block = $(this);
 					if ($block.hasClass('pull-right')) {
 						return true;
@@ -79,7 +79,7 @@ var bb = bb ? bb : {};
 				});
 				self.stopProcessing();
 			},
-			setLastBlock: function($block) {
+			setLastBlock: function ($block) {
 				var self = this;
 				if (!$block) {
 					return false;

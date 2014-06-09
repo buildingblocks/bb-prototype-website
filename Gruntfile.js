@@ -447,6 +447,13 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		jscs: {
+			options: {
+				config: ".jscsrc",
+				requireCurlyBraces: [ "if" ]
+			},
+		scripts: [ '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/{,*/}*.js' ]
+		},
 		prettify: {
 			options: {
 				'indent': 1,
@@ -486,6 +493,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-modernizr");
 	grunt.loadNpmTasks('grunt-replace');
 	grunt.loadNpmTasks('grunt-prettify');
+	grunt.loadNpmTasks("grunt-jscs-checker");
 	// Build tasks.
 	grunt.registerTask('build_html', [
 		'clean:html',
@@ -495,6 +503,7 @@ module.exports = function(grunt) {
 	]);
 	grunt.registerTask('build_scripts', [
 		'clean:scripts',
+		'jscs',
 		'jshint',
 		'concat:jquery',
 		'concat:scripts',

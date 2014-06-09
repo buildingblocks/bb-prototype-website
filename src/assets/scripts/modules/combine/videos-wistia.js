@@ -1,5 +1,5 @@
 var bb = bb ? bb : {};
-(function($) {
+(function ($) {
 	$.extend(bb, {
 		videosWistia: {
 			bb: bb,
@@ -13,14 +13,14 @@ var bb = bb ? bb : {};
 				var self = this;
 				self.$videos = $(self.videoSelector);
 				Modernizr.load({
-                    test: self.$videos.length,
-                    yep: '//fast.wistia.net/static/iframe-api-v1.js',
-                    complete: function() {
-                        self.init();
-                    }
-                });
+										test: self.$videos.length,
+										yep: '//fast.wistia.net/static/iframe-api-v1.js',
+										complete: function () {
+												self.init();
+										}
+								});
 			},
-			init: function() {
+			init: function () {
 				var self = this;
 			}
 		}

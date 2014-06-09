@@ -1,5 +1,5 @@
 var bb = bb ? bb : {};
-(function($) {
+(function ($) {
 	$.extend(bb, {
 		settings: {
 			// cache some common variables

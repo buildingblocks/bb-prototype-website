@@ -1,5 +1,5 @@
 var bb = bb ? bb : {};
-(function($) {
+(function ($) {
 	$.extend(bb, {
 		monitorMq : {
 			bb: null,
@@ -17,7 +17,7 @@ var bb = bb ? bb : {};
 				self.$detector = $('#' + self.detectorId);
 				self.monitor();
 			},
-			monitor: function() {
+			monitor: function () {
 				var self = this;
 				if (!self.$detector.length) {
 					self.$detector = $('<div />', {
