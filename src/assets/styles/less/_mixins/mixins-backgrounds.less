@@ -26,9 +26,17 @@
 .rgba-bg(@colour, @alpha){
 	@alphaColour: hsla(hue(@colour), saturation(@colour), lightness(@colour), @alpha);
 	@ieAlphaColour: argb(@alphaColour);
-	@hex: ~`"@{colour}".replace('#','')`;
-	background: @ieAlphaColour;
-	background: @alphaColour;
+	background-color: @colour; // Fallback for older browsers
+	background-color: @alphaColour;
+
+	.lt-ie9 & {
+		// IE hacks
+		zoom: 1; // hasLayout
+		background-color: transparent;
+		-ms-filter:  "progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})"; // IE 8+
+		filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})"; // IE 6 & 7
+		background-color: @alphaColour;
+	}
 }
 
 // 2x Background Images
