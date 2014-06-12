@@ -1,5 +1,5 @@
 var bb = bb ? bb : {};
-(function($) {
+(function ($) {
 	$.extend(bb, {
 		// reusable site resize function
 		viewportResize: {
@@ -9,22 +9,22 @@ var bb = bb ? bb : {};
 				var self = this;
 				self.bb = bb;
 			},
-			init: function() {
+			init: function () {
 				var self = this;
-				self.bb.settings.$window.on('resize.viewportResize', function() {
+				self.bb.settings.$window.on('resize.viewportResize', function () {
 					self.clearResizeTimeout();
-					self.resizeTimeout = setTimeout(function(){
+					self.resizeTimeout = setTimeout(function () {
 						self.viewportResizeEnd();
 					}, 500);
 				});
 			},
-			clearResizeTimeout: function() {
+			clearResizeTimeout: function () {
 				var self = this;
-				if(self.resizeTimeout) {
+				if (self.resizeTimeout) {
 					clearTimeout(self.resizeTimeout);
 				}
 			},
-			viewportResizeEnd: function() {
+			viewportResizeEnd: function () {
 				var self = this;
 
 				self.clearResizeTimeout();

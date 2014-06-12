@@ -1,5 +1,5 @@
 var bb = bb ? bb : {};
-(function($) {
+(function ($) {
 	$.extend(bb,{
 		menu : {
 			bb : null,
@@ -12,7 +12,7 @@ var bb = bb ? bb : {};
 			init : function () {
 				var self = this;
 				self.$handle = $('.action-menu'),
-				self.$handle.on('click.menu', function(event) {
+				self.$handle.on('click.menu', function (event) {
 					event.preventDefault();
 					if (self.bb.settings.$html.hasClass(self.menuInClass)) {
 						self.closeMenu(event);

@@ -1,7 +1,7 @@
 var bb = bb ? bb : {};
-(function($) {
+(function ($) {
 	$.extend(bb, {
-		getUrlParams: function(queryString) {
+		getUrlParams: function (queryString) {
 			var params = {};
 			if (queryString) {
 				var queryStringArray = queryString.split('&');
@@ -12,24 +12,24 @@ var bb = bb ? bb : {};
 			}
 			return params;
 		},
-		setUrlParams: function() {
+		setUrlParams: function () {
 			var self = this;
 			self.settings.urlParams = self.getUrlParams(window.location.search);
 		},
 		// use for debugging/logging
-		log: function(content) {
-			if (typeof(console) !== "undefined") {
+		log: function (content) {
+			if (typeof(console) !== 'undefined') {
 				console.log(content);
 			}
 		},
-		htmlEncode: function(value) {
+		htmlEncode: function (value) {
 			if (value) {
 				return $('<div />').text(value).html();
 			} else {
 				return '';
 			}
 		},
-		htmlDecode: function(value) {
+		htmlDecode: function (value) {
 			if (value) {
 				return $('<div />').html(value).text();
 			} else {
@@ -37,7 +37,7 @@ var bb = bb ? bb : {};
 			}
 		},
 		// get IE version from classname (acceptable values: 10,9,8 or 7)
-		ltIE: function(version) {
+		ltIE: function (version) {
 			var self = this;
 			if (self.settings.$html.hasClass('lt-ie' + version)) {
 				return true;
@@ -45,14 +45,14 @@ var bb = bb ? bb : {};
 				return false;
 			}
 		},
-		browserPrefix: function() {
+		browserPrefix: function () {
 			var self = this,
 				styles = window.getComputedStyle(window.document.documentElement, ''),
 				prefix = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1],
 				dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + prefix + ')', 'i'))[1];
 			self.settings.browserPrefix = '-' + prefix + '-';
 		},
-		transitionAnimationEndEvent: function() {
+		transitionAnimationEndEvent: function () {
 			var self = this,
 				transition, transitions, animation, animations, element = window.document.createElement('transitionAnimationElement');
 			transitions = {
@@ -89,10 +89,10 @@ var bb = bb ? bb : {};
 			}
 			self.settings.transitionAnimationEnd = (self.settings.transitionEnd + ' ' + self.settings.animationEnd).toString();
 		},
-		textDirection: function() {
+		textDirection: function () {
 			var self = this,
 				direction = self.settings.$html.attr('dir');
-			if(direction === 'rtl') {
+			if (direction === 'rtl') {
 				self.settings.rtl = true;
 			}
 		}
