@@ -574,6 +574,7 @@ module.exports = function(grunt) {
 		'clean:styles',
 		'concat:lessMixins',
 		'less',
+		'css_mqpacker',
 		'stripmq',
 		'copy:styles',
 		'copy:assets',
@@ -583,7 +584,6 @@ module.exports = function(grunt) {
 		'build_html',
 		'build_scripts',
 		'build_styles',
-		'css_mqpacker',
 		'modernizr',
 		'copy:bb'
 	]);
