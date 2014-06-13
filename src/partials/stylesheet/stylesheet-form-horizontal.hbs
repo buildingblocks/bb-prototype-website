@@ -1,0 +1,277 @@
+<section class="block block-size-a">
+	<h2 class="header-stylesheet">Form (Horizontal) &amp; Buttons</h2>
+	<div class="form form-horizontal form-style-a form-validate">
+		<form id="form1" name="form1" action="#" method="post">
+			<div class="control-group control-group-odd control-group-block">
+				<div class="control-label">
+					<label>Form grid sizes</label>
+				</div>
+				<div class="controls">
+					<input class="input-mini" type="text" placeholder=".input-mini"/>
+					<input class="input-small" type="text" placeholder=".input-small" />
+					<input class="input-medium" type="text" placeholder=".input-medium" />
+					<input class="input-large" type="text" placeholder=".input-large" />
+					<input class="input-xlarge" type="text" placeholder=".input-xlarge" />
+					<input class="input-xxlarge" type="text" placeholder=".input-xxlarge" />
+					<select class="input-mini">
+						<option>.input-mini</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select class="input-small">
+						<option>.input-small</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select class="input-medium">
+						<option>.input-medium</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select class="input-large">
+						<option>.input-large</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select class="input-xlarge">
+						<option>.input-xlarge</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select class="input-xxlarge">
+						<option>.input-xxlarge</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group control-group-even">
+				<div class="control-label">
+					<label for="requiredInput">Required Input</label>
+				</div>
+				<div class="controls">
+					<input class="input-large" type="text" placeholder=".input-large" id="requiredInput" name="requiredInput" data-val="true" data-val-required="Text input validation message" />
+					<span class="field-validation-message field-validation-valid" data-valmsg-for="requiredInput" data-valmsg-replace="true"></span>
+				</div>
+			</div>
+			<div class="control-group control-group-odd">
+				<div class="control-label">
+					<label for="optionalInput">Optional Input</label>
+				</div>
+				<div class="controls">
+					<input class="input-large" type="text" placeholder=".input-large" id="optionalInput" name="optionalInput" />
+					<span class="control-optional">(Optional)</span>
+				</div>
+			</div>
+			<div class="control-group control-disabled control-group-even">
+				<div class="control-label">
+					<label for="disabledInput">Disabled Input</label>
+				</div>
+				<div class="controls">
+					<input class="input-large" type="text" placeholder=".input-large" id="disabledInput" name="disabledInput" disabled />
+				</div>
+			</div>
+			<div class="control-group control-group-odd">
+				<div class="control-label">
+					<label for="requiredSelect">Required Select</label>
+				</div>
+				<div class="controls">
+					<select class="input-xxlarge" name="requiredSelect" id="requiredSelect" data-val="true" data-val-required="Select dropdown validation message">
+						<option value="">Please select an option&hellip;</option>
+						<option value="1">1</option>
+						<option value="2">3</option>
+						<option value="3">4</option>
+						<option value="4">5</option>
+					</select>
+					<span class="field-validation-message field-validation-valid" data-valmsg-for="requiredSelect" data-valmsg-replace="true"></span>
+				</div>
+			</div>
+			<div class="control-group control-group-even">
+				<div class="control-label">
+					<label for="emailInput">Email Input</label>
+				</div>
+				<div class="controls">
+					<input class="input-large" type="email" placeholder="e.g john@example.com" name="emailInput" id="emailInput" data-val="true" data-val-required="Email input required validation message" data-val-email="Email input format validation message" />
+					<span class="field-validation-message field-validation-valid" data-valmsg-for="emailInput" data-valmsg-replace="true"></span>
+				</div>
+			</div>
+			<div class="control-group control-group-odd">
+				<div class="control-label">
+					<label for="dateInput">Date Input</label>
+				</div>
+				<div class="controls">
+					<input class="input-large" type="date" id="dateInput" />
+				</div>
+			</div>
+			<div class="control-group control-group-odd">
+				<div class="control-label">
+					<label for="adjacentControl1">Adjacent Controls</label>
+				</div>
+				<div class="controls">
+					<input class="input-medium" type="text" placeholder="First name" id="adjacentControl1" name="adjacentControl1" data-val="true" data-val-requiredif="'Surname' also requires a 'First name'" data-val-requiredif-dependentupon="adjacentControl2" />
+					<input class="input-medium" type="text" placeholder="Surname" id="adjacentControl2" name="adjacentControl2" />
+					<select class="input-medium">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<span class="field-validation-message field-validation-valid" data-valmsg-for="adjacentControl1" data-valmsg-replace="true"></span>
+				</div>
+			</div>
+			<div class="control-group control-group-even">
+				<div class="control-label">
+					<label for="inlineCheckboxes">Inline checkboxes</label>
+				</div>
+				<div class="controls">
+					<label class="checkbox control-inline" for="inlineCheckbox1" >
+						<input type="checkbox" name="inlineCheckbox1" id="inlineCheckbox1" value="option1"/> Email
+					</label>
+					<label class="checkbox control-inline">
+						<input type="checkbox" name="inlineCheckbox2" id="inlineCheckbox2" value="option2" /> Post
+					</label>
+					<label class="checkbox control-inline">
+						<input type="checkbox" name="inlineCheckbox3" id="inlineCheckbox3" value="option3" /> SMS
+					</label>
+				</div>
+			</div>
+			<div class="control-group control-group-odd">
+				<div class="control-label">
+					<label for="optionsCheckboxList">Checkboxes</label>
+				</div>
+				<div class="controls">
+					<label class="checkbox">
+						<input type="checkbox" value="option1" name="optionsCheckboxList" id="optionsCheckboxList1" data-val="true" data-val-atleast="Select at least {0} options" data-val-atleast-minimum="2" />
+						Option one can be checked and included in form results
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" value="option2" name="optionsCheckboxList" id="optionsCheckboxList2" />
+						Option two can also be checked and included in form results
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" value="option3" name="optionsCheckboxList" id="optionsCheckboxList3" />
+						Option three can also be checked and included in form results
+					</label>
+					<label class="checkbox disabled">
+						<input type="checkbox" value="option3" name="optionsCheckboxList" id="optionsCheckboxList4" disabled />
+						Option disabled
+					</label>
+					<label class="checkbox disabled">
+						<input type="checkbox" value="option3" name="optionsCheckboxList" id="optionsCheckboxList5" disabled checked />
+						Option disabled and checked
+					</label>
+					<span class="field-validation-message field-validation-valid" data-valmsg-for="optionsCheckboxList" data-valmsg-replace="true"></span>
+					<p class="help-block"><strong>Note:</strong> Labels surround all the options for much larger click areas and a more usable form.</p>
+				</div>
+			</div>
+			<div class="control-group control-group-even">
+				<label class="control-label">Inline radio buttons</label>
+				<div class="controls">
+					<label class="radio control-inline">
+						<input type="radio" name="optionsRadios2" id="optionsRadios3" value="option1" data-val="true" data-val-required="Radio button validation message" />
+						Yes
+					</label>
+					<label class="radio control-inline">
+						<input type="radio" name="optionsRadios2" id="optionsRadios4" value="option2">
+						No
+					</label>
+					<label class="radio control-inline">
+						<input type="radio" name="optionsRadios2" id="optionsRadios5" value="option3">
+						Maybe
+					</label>
+					<span class="field-validation-message field-validation-valid" data-valmsg-for="optionsRadios2" data-valmsg-replace="true"></span>
+				</div>
+			</div>
+			<div class="control-group control-group-odd">
+				<label class="control-label">Radio buttons</label>
+				<div class="controls">
+					<label class="radio">
+						<input type="radio" name="optionsRadios1" id="optionsRadios1" value="option1" checked />
+						Option one with a 'checked' attribute applied
+					</label>
+					<label class="radio">
+						<input type="radio" name="optionsRadios1" id="optionsRadios2" value="option2" />
+						Option two is something else and selecting it will deselect option one
+					</label>
+					<label class="radio disabled">
+						<input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" disabled />
+						Option disabled
+					</label>
+					<label class="radio disabled">
+						<input type="radio" name="optionsRadios1" id="optionsRadios4" value="option3" disabled checked />
+						Option disabled and checked
+					</label>
+				</div>
+			</div>
+			<div class="control-group control-group-even">
+				<div class="control-label">
+					<label for="multiSelect">Multi-select</label>
+				</div>
+				<div class="controls">
+					<select multiple="multiple" id="multiSelect" class="input-xlarge">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group control-group-odd">
+				<div class="control-label">
+					<label for="fileInput">File input</label>
+				</div>
+				<div class="controls">
+					<input class="input-file" id="fileInput" type="file" data-btn-text="Choose file" data-label-text="No file chosen" />
+				</div>
+			</div>
+			<div class="control-group control-group-even">
+				<div class="control-label">
+					<label for="textarea">Textarea</label>
+				</div>
+				<div class="controls">
+					<textarea class="input-xxxlarge" id="textarea" name="textarea" rows="3" cols="10" data-val="true" data-val-required="Textarea validation message"></textarea>
+					<span class="field-validation-message field-validation-valid" data-valmsg-for="textarea" data-valmsg-replace="true"></span>
+				</div>
+			</div>
+			<div class="control-group control-group-odd">
+				<div class="controls">
+					<label class="checkbox control-inline" for="requiredCheckbox1">
+						<input type="checkbox" name="requiredCheckbox1" id="requiredCheckbox1" value="1" data-val="true" data-val-checked="A mandatory checkbox input" /> By ticking this box you agree to the <a href="#">terms and conditions</a>
+					</label>
+					<span class="field-validation-message field-validation-valid" data-valmsg-for="requiredCheckbox1" data-valmsg-replace="true"></span>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn">.btn</button>
+				<button type="submit" class="btn btn-icon-right ">.btn (icon) <i class="icon icon-chevron-right"></i></button>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-style-a">.btn-style-a</button>
+				<button type="submit" class="btn btn-style-a btn-icon-right">.btn-style-a (icon) <i class="icon icon-chevron-right"></i></button>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-large">.btn.btn-large</button>
+				<button type="submit" class="btn btn-primary btn-large">.btn.btn-primary.btn-large</button>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-small">.btn.btn-small</button>
+				<button type="submit" class="btn btn-primary btn-small">.btn.btn-primary.btn-small</button>
+			</div>
+		</form>
+	</div>
+	<!-- end .form-horizontal -->
+</section>

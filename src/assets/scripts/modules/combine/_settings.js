@@ -11,7 +11,6 @@ var bb = bb ? bb : {};
 			$header: $('#header'),
 			$main: $('#main'),
 			$footer: $('#footer'),
-			rtl: false,
 			// stored URL params (empty to begin with)
 			urlParams: {},
 			// class to use on
@@ -27,8 +26,13 @@ var bb = bb ? bb : {};
 			breakPointB: 480,
 			breakPointC: 600,
 			breakPointD: 768,
-			breakPointE: 1024,
-			breakPointF: 1200
+			breakPointE: 1000,
+			breakPointF: 1200,
+			breakPointG: 1360,
+			// store scripts directory
+			scriptsDirectory: '',
+			// is this a RTL site?
+			rtl: false
 		}
 	});
 }(jQuery));

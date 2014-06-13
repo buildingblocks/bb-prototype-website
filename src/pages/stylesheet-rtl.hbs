@@ -1,12 +1,9 @@
 ---
-title: Stylesheet
+title: Stylesheet RTL
 rtl: true
 ---
-{{#extend "layout-b"}}
+{{#extend "layout-a"}}
 	{{#content "region-a"}}
-		<p>region-a content</p>
-	{{/content}}
-	{{#content "region-b"}}
-		<p>region-b content</p>
+		{{>stylesheet}}
 	{{/content}}
 {{/extend}}

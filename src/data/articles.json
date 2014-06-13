@@ -1,16 +1,37 @@
 {
-	"articleStyleA": {
-		"class": "article-style-a",
-		"title": "Article Title (.article-style-a)",
-		"body": "<p>This is the content of the article.</p>",
+	"articleSizeA": {
+		"class": "block block-size-a",
+		"title": "Article Title",
+		"body": "<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec ullamcorper nulla non metus auctor fringilla.</p>",
 		"url": "#",
-		"urlText": "Read More"
+		"image": "/temp/1600x900.png"
 	},
-	"articleStyleB": {
-		"class": "article-style-b",
-		"title": "Article Title (.article-style-b)",
-		"body": "<p>This is the content of the article.</p>",
+	"articleSizeB": {
+		"class": "block block-size-b",
+		"title": "Article Title",
+		"body": "<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec ullamcorper nulla non metus auctor fringilla.</p>",
 		"url": "#",
-		"urlText": "Read More"
+		"image": "/temp/1600x900.png"
+	},
+	"articleSizeC": {
+		"class": "block block-size-c",
+		"title": "Article Title",
+		"body": "<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec ullamcorper nulla non metus auctor fringilla.</p>",
+		"url": "#",
+		"image": "/temp/1600x900.png"
+	},
+	"articleSizeD": {
+		"class": "block block-size-d",
+		"title": "Article Title",
+		"body": "<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec ullamcorper nulla non metus auctor fringilla.</p>",
+		"url": "#",
+		"image": "/temp/1600x900.png"
+	},
+	"articleSizeE": {
+		"class": "block block-size-e",
+		"title": "Article Title",
+		"body": "<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec ullamcorper nulla non metus auctor fringilla.</p>",
+		"url": "#",
+		"image": "/temp/1600x900.png"
 	}
 }

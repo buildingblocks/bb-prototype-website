@@ -12,28 +12,30 @@ title: Master Page
 <!--[if gt IE 9]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
 {{/if}}
 	<head>
-		{{>head-meta}}
-		{{>head-app}}
-		{{>head-icons}}
-		{{#if rtl}}
-			{{>head-css-rtl}}
-		{{else}}
-			{{>head-css}}
-		{{/if}}
-		{{>head-scripts}}
-		{{#block "master-head"}}{{/block}}
+		{{#block "master-head"}}
+			{{>head-meta}}
+			{{>head-app}}
+			{{>head-icons}}
+			{{#if rtl}}
+				{{>head-css-rtl}}
+			{{else}}
+				{{>head-css}}
+			{{/if}}
+			{{>head-fonts}}
+			{{>head-scripts}}
+		{{/block}}
 	</head>
 	<body>
-		<div id="page" class="page {{#if visibleGrid}}visible-grid{{/if}}">
-			{{>header}}
+		{{>header}}
+		<div id="page" class="page{{#if pageClass}} {{pageClass}}{{/if}}{{#if visibleGrid}} visible-grid{{/if}}">
 			{{#block "master-body"}}
 				{{body}}
 			{{/block}}
 			{{>footer}}
 		</div>
-		<!-- end #page -->
-		{{>footer-scripts}}
-		{{#block "master-foot"}}{{/block}}
+		{{#block "master-foot"}}
+			{{>foot-scripts}}
+		{{/block}}
 	</body>
 </html>
 

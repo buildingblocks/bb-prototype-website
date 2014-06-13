@@ -12,11 +12,23 @@
 @brand-color-g: #AEADAD;
 @brand-color-h: #D7D6D6;
 
+//social colors
+@color-twitter: #55ACEE;
+@color-facebook: #3B5998;
+@color-linkedin: #1C86BD;
+@color-youtube: #cd201f;
+@color-tumblr: #35465d;
+@color-pinterest: #cc2127;
+@color-gplus: #DD4B39;
+
+// easy access color names
+@color-text: #333;
+
 // Typography
 @font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif: "Georgia Pro", Georgia, Times, serif;
 @font-family-mono: "Anonymous Pro", "Droid Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, "Lucida Console", Courier, monospace;
-@font-family-base: @font-family-serif;
+@font-family-base: @font-family-sans-serif;
 
 // Font Sizing
 @font-size-base: 16px; // use .font-size(pxValue) to define font sizes
@@ -42,6 +54,15 @@
 @grid-total-width: 100%;
 @grid-gridsystem-width: (@grid-column-width*@grid-columns) + (@grid-gutter-width*@grid-columns) * 1px;
 @grid-correction: 0.5 / @grid-total-width * 100 * 1%; // IE7 See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+// Region A
+@region-a-width: (@grid-column-width*24) + (@grid-gutter-width*23);
+@region-a-inner-width: @region-a-width + @grid-gutter-width;
+// Region B
+@region-b-width: (@grid-column-width*16) + (@grid-gutter-width*15);
+@region-b-inner-width: @region-b-width + @grid-gutter-width;
+// Region C
+@region-c-width: (@grid-column-width*8) + (@grid-gutter-width*7);
+@region-c-inner-width: @region-c-width + @grid-gutter-width;
 
 // Media Query Break Points (px & em)
 @break-point-a-px: 320px;

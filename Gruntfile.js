@@ -23,8 +23,8 @@ module.exports = function(grunt) {
 			distImages: 'images',
 			distFonts: 'fonts',
 			// misc settings
-			pagePrefix: 'bb-website_',
-			partialPrefix: 'bb-website_partial-',
+			pagePrefix: '<%= pkg.name %>_',
+			partialPrefix: '<%= pkg.name %>_partial-',
 			assembleExt: 'hbs',
 			mainCss: 'main.css',
 			ieCss: 'ie.css',
@@ -66,16 +66,17 @@ module.exports = function(grunt) {
 				},
 				files: [
 					'<%= config.dist %>/{,*/}*.html',
-					'<%= config.dist %>/<%= config.srcAssets %>/{,*/}*.css',
-					'<%= config.dist %>/<%= config.srcAssets %>/{,*/}*.js',
-					'<%= config.dist %>/<%= config.srcAssets %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+					'<%= config.dist %>/<%= config.distAssets %>/{,*/}*.css',
+					'<%= config.dist %>/<%= config.distAssets %>/{,*/}*.js',
+					'<%= config.dist %>/<%= config.distAssets %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
 				]
 			}
 		},
 		connect: {
 			options: {
-				port: 8001,
+				port: 8008,
 				livereload: 35730,
+				useAvailablePort: true,
 				// change this to '0.0.0.0' to access the server from outside
 				hostname: 'localhost'
 			},
@@ -276,11 +277,13 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		cmq: {
+		css_mqpacker: {
+			options: {
+				map: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>.map'
+			},
 			main: {
-				files: {
-					'<%= config.dist %>/<%= config.distStyles %>/': '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>'
-				}
+				src: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>',
+				dest: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>'
 			}
 		},
 		stripmq: {
@@ -366,7 +369,16 @@ module.exports = function(grunt) {
 					}
 				]
 			},
-			deploy: {}
+			deploy: {
+				files: [
+					{
+						expand: true,
+						cwd: '<%= config.dist %>/',
+						src: ['**'],
+						dest: '<%= grunt.option(\'dest\') %>'
+					}
+				]
+			}
 		},
 		clean: {
 			production: [
@@ -450,7 +462,9 @@ module.exports = function(grunt) {
 				config: ".jscsrc",
 				requireCurlyBraces: [ "if" ]
 			},
-		scripts: [ '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/{,*/}*.js' ]
+			scripts: [
+				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/{,*/}*.js'
+			]
 		},
 		prettify: {
 			options: {
@@ -473,6 +487,51 @@ module.exports = function(grunt) {
 				src: ['*.html'],
 				dest: '<%= config.dist %>/'
 			}
+		},
+		zip: {
+			deploy: {
+				cwd: '<%= config.dist %>/',
+				src: ['<%= config.dist %>/**/*'],
+				dest: 'dist.zip'
+			}
+		},
+		devUpdate: {
+			report: {
+				options: {
+					updateType: 'report', //just report outdated packages
+					reportUpdated: false, //don't report already updated packages
+					semver: true, //use package.json semver rules when updating
+					packages: { //what packages to check
+						devDependencies: true, //only devDependencies
+						dependencies: false
+					},
+					packageJson: './package.json'
+				}
+			},
+			prompt: {
+				options: {
+					updateType: 'prompt',
+					reportUpdated: false,
+					semver: false,
+					packages: {
+						devDependencies: true,
+						dependencies: true
+					},
+					packageJson: './package.json'
+				}
+			},
+			force: {
+				options: {
+					updateType: 'force',
+					reportUpdated: false,
+					semver: false,
+					packages: {
+						devDependencies: true,
+						dependencies: true
+					},
+					packageJson: './package.json'
+				}
+			}
 		}
 	});
 	// Register tasks.
@@ -487,11 +546,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-stripmq');
-	grunt.loadNpmTasks('grunt-combine-media-queries');
+	grunt.loadNpmTasks('grunt-css-mqpacker');
 	grunt.loadNpmTasks("grunt-modernizr");
 	grunt.loadNpmTasks('grunt-replace');
 	grunt.loadNpmTasks('grunt-prettify');
 	grunt.loadNpmTasks("grunt-jscs-checker");
+	grunt.loadNpmTasks('grunt-zip');
+	grunt.loadNpmTasks('grunt-dev-update');
 	// Build tasks.
 	grunt.registerTask('build_html', [
 		'clean:html',
@@ -522,12 +583,12 @@ module.exports = function(grunt) {
 		'build_html',
 		'build_scripts',
 		'build_styles',
+		'css_mqpacker',
 		'modernizr',
 		'copy:bb'
 	]);
 	grunt.registerTask('build_production', [
 		'build_dev',
-		'cmq',
 		'cssmin',
 		'uglify',
 		'prettify',
@@ -558,6 +619,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('deploy', [
 		'build_production',
 		'copy:deploy',
-		'clean:deploy'
+		'clean:deploy',
+		'zip:deploy'
 	]);
 };

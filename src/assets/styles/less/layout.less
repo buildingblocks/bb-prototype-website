@@ -1,6 +1,14 @@
 // layout.less
 
 .page {
+}
+
+.main {
+	overflow: hidden;
+	position: relative;
+}
+
+.layout {
 	position: relative;
 	.clearfix();
 	.margin(0, @grid-gutter-width);
@@ -9,12 +17,6 @@
 	@media (min-width: @break-point-f) {
 		margin: 0 auto;
 	}
-}
-
-.layout {
-	width: 100%;
-	position: relative;
-	.clearfix();
 }
 
 .masonry {
@@ -39,7 +41,6 @@
 
 .region-inner {
 	position: relative;
-	overflow: hidden;
 }
 
 .block {
@@ -88,9 +89,29 @@
 	clear: both;
 }
 
-// Region A
-@region-a-width: (@grid-column-width*24) + (@grid-gutter-width*23);
-@region-a-inner-width: @region-a-width + @grid-gutter-width;
+.region-blocks(@region-outer-width:0, @region-inner-width:0) {
+
+	.block-size-a {
+
+		@media (min-width: @break-point-d) {
+			.fluid-width((@grid-column-width*24) + (@grid-gutter-width*23), @region-inner-width);
+		}
+	}
+
+	.block-size-b {
+
+		@media (min-width: @break-point-d) {
+			.fluid-width((@grid-column-width*16) + (@grid-gutter-width*15), @region-inner-width);
+		}
+	}
+
+	.block-size-c {
+
+		@media (min-width: @break-point-d) {
+			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-inner-width);
+		}
+	}
+}
 
 .region-a {
 
@@ -117,24 +138,10 @@
 		.gutter-sizer {
 			.fluid-width(@grid-gutter-width, @region-a-inner-width);
 		}
-
-		.block-size-a {
-			.fluid-width((@grid-column-width*24) + (@grid-gutter-width*23), @region-a-inner-width);
-		}
-
-		.block-size-b {
-			.fluid-width((@grid-column-width*16) + (@grid-gutter-width*15), @region-a-inner-width);
-		}
-
-		.block-size-c {
-			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-a-inner-width);
-		}
 	}
-}
 
-// Region B
-@region-b-width: (@grid-column-width*16) + (@grid-gutter-width*16);
-@region-b-inner-width: @region-b-width + @grid-gutter-width;
+	.region-blocks(@region-a-width, @region-a-inner-width);
+}
 
 .region-b {
 
@@ -161,31 +168,18 @@
 		.gutter-sizer {
 			.fluid-width(@grid-gutter-width, @region-b-inner-width);
 		}
-
-		.block-size-a {
-			.fluid-width((@grid-column-width*24) + (@grid-gutter-width*23), @region-b-inner-width);
-		}
-
-		.block-size-b {
-			.fluid-width((@grid-column-width*16) + (@grid-gutter-width*15), @region-b-inner-width);
-		}
-
-		.block-size-c {
-			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-b-inner-width);
-		}
 	}
-}
 
-// Region C
-@region-c-width: (@grid-column-width*8) + (@grid-gutter-width*7);
-@region-c-inner-width: @region-c-width + @grid-gutter-width;
+	.region-blocks(@region-b-width, @region-b-inner-width);
+}
 
 .region-c {
 
 	// Grid layout above @break-point-X only
-	@media (min-width: @break-point-d) {
+	@media (min-width: @break-point-c) {
 		position: relative;
-		float: left;
+		float: right;
+		margin: 0;
 		.fluid-width(@region-c-width, @max-width);
 
 		.region-inner{
@@ -205,21 +199,10 @@
 		.gutter-sizer {
 			.fluid-width(@grid-gutter-width, @region-c-inner-width);
 		}
-
-		.block-size-a {
-			.fluid-width((@grid-column-width*24) + (@grid-gutter-width*23), @region-c-inner-width);
-		}
-
-		.block-size-b {
-			.fluid-width((@grid-column-width*16) + (@grid-gutter-width*15), @region-c-inner-width);
-		}
-
-		.block-size-c {
-			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-c-inner-width);
-		}
 	}
-}
 
+	.region-blocks(@region-c-width, @region-c-inner-width);
+}
 
 // show the grid
 .visible-grid {
