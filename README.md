@@ -36,6 +36,7 @@ Assemble is a component and static site generator that makes it dead simple to b
 * Helpers - Documentation for the helpers in the [handlebars-helpers](http://github.com/assemble/handlebars-helpers) library.
 
 ## Release History
+ * 2014-06-13   v0.5.0
  * 2014-02-28   v0.4.0
  	* Split grunt tasks for quicker'watch'
  	* Extra layouts using 'extent, content, block' method
