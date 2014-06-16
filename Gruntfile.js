@@ -459,8 +459,8 @@ module.exports = function(grunt) {
 		},
 		jscs: {
 			options: {
-				config: ".jscsrc",
-				requireCurlyBraces: [ "if" ]
+				config: '.jscsrc',
+				requireCurlyBraces: [ 'if' ]
 			},
 			scripts: [
 				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/{,*/}*.js'
@@ -547,10 +547,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-stripmq');
 	grunt.loadNpmTasks('grunt-css-mqpacker');
-	grunt.loadNpmTasks("grunt-modernizr");
+	grunt.loadNpmTasks('grunt-modernizr');
 	grunt.loadNpmTasks('grunt-replace');
 	grunt.loadNpmTasks('grunt-prettify');
-	grunt.loadNpmTasks("grunt-jscs-checker");
+	grunt.loadNpmTasks('grunt-jscs-checker');
 	grunt.loadNpmTasks('grunt-zip');
 	grunt.loadNpmTasks('grunt-dev-update');
 	// Build tasks.
