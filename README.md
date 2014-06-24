@@ -1,3 +1,5 @@
+![Building Blocks](https://github.com/buildingblocks/bb-prototype-website/raw/master/src/assets/images/bb-logo.png "Building Blocks")
+
 # bb-prototype-website
 
 > Front-end website prototype template.
