@@ -6,42 +6,60 @@
 
 First things first, install [Node.js](http://nodejs.org).
 
-Then use npm to install [Grunt](http://gruntjs.com/)
+Then use npm to install [Grunt](http://gruntjs.com).
 
 ```
 $ npm install -g grunt 
 ```
 
-Then, once you have the project downloaded, run the command `npm install && bower install` in the root of the project to install all dependencies.
+Then, once you have the project downloaded, install all npm and Bower packages.
 
-Once this finishes running, you can build the project by running the command `grunt`
+```
+$ npm install && bower install
+```
+
+Once this finishes running, you can build the project by running Grunt. 
+
+```
+$ grunt
+```
 
 [TODO: Loads more documentation]
 
 Do not edit files in the grunt generated __/dist__ directory (these will always be deleted).
 
+You can also use our [Yeoman generator](https://github.com/buildingblocks/generator-bb-prototype-website).
+
+[TODO: Finish the generator]
+
+
 ## Adding packages
 When you install any new npm packages use the command:
-`npm install <package> --save-dev`
+
+```
+npm install <package> --save-dev
+```
 
 When you install any new Bower packages use the command:
-`bower install <package> --save-dev`
+
+```
+bower install <package> --save-dev
+```
+
 Notes:
 
  * Add new frameworks/libraries as _dev_ dependencies as they get compiled and moved for production during the build process
  * Remember to keep packages updated as needed
- * However, do not update jQuery to 2.x unless you are dropping support for Internet Explorer 6, 7, and 8
+ * However, do not update jQuery to 2.x unless you are dropping support for Internet Explorer 6, 7, and 8 [(see here)](http://blog.jquery.com/2013/04/18/jquery-2-0-released/#content)
 
-You can also use our Yeoman generator
-[TODO: Actually build the generator]
 
-### What is [Grunt.js](http://gruntjs.com/)?
+### What is [Grunt.js](http://gruntjs.com)?
 
 In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes. After you've configured it, a task runner can do most of that mundane work for you—and your team—with basically zero effort.
 
-[Find out more at the Grunt.js website](http://gruntjs.com/).
+[Find out more at the Grunt.js website](http://gruntjs.com).
 
-### What is [Assemble](http://assemble.io/)?
+### What is [Assemble](http://assemble.io)?
 
 Assemble is a component and static site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.
 
@@ -51,6 +69,8 @@ Assemble is a component and static site generator that makes it dead simple to b
 
 ### What is [Bower](http://bower.io)?
 Bower is a package manager for the web. It offers a generic, unopinionated solution to the problem of __front-end package management__, while exposing the package dependency model via an API that can be consumed by a more opinionated build stack.
+
+[Find out more at the Bower website](http://bower.io).
 
 ## Release History
  * 2014-06-24	v0.6.0 	Added Bower to automate front-end package management
