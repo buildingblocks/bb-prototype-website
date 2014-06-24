@@ -18,19 +18,15 @@ Then, once you have the project downloaded, install all npm and Bower packages.
 $ npm install && bower install
 ```
 
-Once this finishes running, you can build the project by running Grunt. 
+Once this finishes running, you can build and serve the project by running the Grunt task.
 
 ```
-$ grunt
+$ grunt server
 ```
-
-[TODO: Loads more documentation]
 
 Do not edit files in the grunt generated __/dist__ directory (these will always be deleted).
 
-You can also use our [Yeoman generator](https://github.com/buildingblocks/generator-bb-prototype-website).
-
-[TODO: Finish the generator]
+You can also use our [Yeoman generator](https://github.com/buildingblocks/generator-bb-prototype-website). [TODO: Finish the generator]
 
 
 ## Adding packages
@@ -39,6 +35,10 @@ When you install any new npm packages use the command:
 ```
 npm install <package> --save-dev
 ```
+
+Note: 
+
+ * Determine whether or not to save as dependencies `--save` or dev dependencies `--save-dev` on a case-by-case basis
 
 When you install any new Bower packages use the command:
 
@@ -53,11 +53,11 @@ Notes:
  * However, do not update jQuery to 2.x unless you are dropping support for Internet Explorer 6, 7, and 8 [(see here)](http://blog.jquery.com/2013/04/18/jquery-2-0-released/#content)
 
 
-### What is [Grunt.js](http://gruntjs.com)?
+### What is [Grunt](http://gruntjs.com)?
 
 In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes. After you've configured it, a task runner can do most of that mundane work for you—and your team—with basically zero effort.
 
-[Find out more at the Grunt.js website](http://gruntjs.com).
+[Find out more at the Grunt website](http://gruntjs.com).
 
 ### What is [Assemble](http://assemble.io)?
 
