@@ -1,4 +1,5 @@
 {
+		"safeContextKeyword": ["self"],
 		"requireCurlyBraces": [
 				"if",
 				"else",
