@@ -206,7 +206,7 @@ module.exports = function(grunt) {
 			},
 			jquery: {
 				src: [
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/vendor/jquery-*.js'
+					'<%= config.bower %>/jquery/dist/jquery.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/jquery.js'
 			},
@@ -220,8 +220,8 @@ module.exports = function(grunt) {
 			},
 			ieScripts: {
 				src: [
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/vendor/nwmatcher.js',
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/vendor/selectivizr.js'
+					'<%= config.bower %>/nwmatcher/src/nwmatcher.js',
+					'<%= config.bower %>/selectivizr/selectivizr.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/ie.js'
 			},
