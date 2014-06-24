@@ -2,7 +2,11 @@
 	"folders":
 	[
 		{
-			"path": "."
+			"path": ".",
+				"folder_exclude_patterns": [
+				"bower_components",
+				"node_modules"
+			]
 		}
 	]
 }
