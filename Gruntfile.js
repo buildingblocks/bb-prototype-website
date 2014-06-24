@@ -3,10 +3,13 @@ module.exports = function(grunt) {
 	require('time-grunt')(grunt);
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		bowerrc: grunt.file.readJSON('.bowerrc'),
 		meta: {
 			banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> */ \n'
 		},
 		config: {
+			// component settings
+			bower: '<%= bowerrc.directory %>',
 			// src settings
 			src: 'src',
 			srcAssets: 'assets',
@@ -203,7 +206,7 @@ module.exports = function(grunt) {
 			},
 			jquery: {
 				src: [
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/vendor/jquery-*.js'
+					'<%= config.bower %>/jquery/dist/jquery.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/jquery.js'
 			},
@@ -217,8 +220,8 @@ module.exports = function(grunt) {
 			},
 			ieScripts: {
 				src: [
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/vendor/nwmatcher.js',
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/vendor/selectivizr.js'
+					'<%= config.bower %>/nwmatcher/src/nwmatcher.js',
+					'<%= config.bower %>/selectivizr/selectivizr.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/ie.js'
 			},
@@ -403,7 +406,7 @@ module.exports = function(grunt) {
 		},
 		modernizr: {
 			dist: {
-				'devFile': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/vendor/modernizr.js',
+				'devFile': '<%= config.bower %>/modernizr/modernizr.js',
 				'outputFile': '<%= config.dist %>/<%= config.distScripts %>/modernizr.js',
 				'parseFiles': true,
 				'files': {
