@@ -24,9 +24,11 @@ Once this finishes running, you can build and serve the project by running the G
 $ grunt server
 ```
 
-Do not edit files in the grunt generated __/dist__ directory (these will always be deleted).
+Note:
 
-You can also use our [Yeoman generator](https://github.com/buildingblocks/generator-bb-prototype-website). [TODO: Finish the generator]
+ * Do not edit files in the grunt generated __/dist__ directory (these will always be deleted).
+
+You can also use our [Yeoman generator](https://github.com/buildingblocks/generator-bb-prototype-website).  [TODO: Finish the generator]
 
 
 ## Adding packages

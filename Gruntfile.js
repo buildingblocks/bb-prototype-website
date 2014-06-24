@@ -3,13 +3,13 @@ module.exports = function(grunt) {
 	require('time-grunt')(grunt);
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		//bowerrc: grunt.file.readJSON('.bowerrc'), //@TODO this dynamically.
+		bowerrc: grunt.file.readJSON('.bowerrc'),
 		meta: {
 			banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> */ \n'
 		},
 		config: {
 			// component settings
-			bower: 'src/assets/bower', //@TODO this dynamically using above config.
+			bower: '<%= bowerrc.directory %>',
 			// src settings
 			src: 'src',
 			srcAssets: 'assets',
