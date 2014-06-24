@@ -3,7 +3,9 @@
   "version": "0.5.0",
   "homepage": "https://github.com/buildingblocks/bb-prototype-website",
   "authors": [
-    "Daniel Furze <d.furze@building-blocks.com>"
+    "Paul Welsh (https://github.com/spacedawwwg)",
+    "John Cashmore (https://github.com/JohnCashmore)",
+    "Daniel Furze (https://github.com/furzeface)"
   ],
   "description": "Default Building Blocks website prototype template.",
   "keywords": [
