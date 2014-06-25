@@ -37,7 +37,7 @@ You can also use our [Yeoman generator](https://github.com/buildingblocks/genera
 When you install any new npm packages use the command:
 
 ```
-npm install <package> --save-dev
+$ npm install <package> --save-dev
 ```
 
 Note: 
@@ -47,7 +47,7 @@ Note:
 When you install any new Bower packages use the command:
 
 ```
-bower install <package> --save-dev
+$ bower install <package> --save-dev
 ```
 
 Notes:
@@ -70,6 +70,8 @@ Assemble is a component and static site generator that makes it dead simple to b
 * [Documentation](http://assemble.io/docs) 
 * [Plugins](http://assemble.io/plugins) - Plugins extend the core functionality of Assemble.
 * [Helpers](http://assemble.io/helpers) - Documentation for the helpers in the [handlebars-helpers](http://github.com/assemble/handlebars-helpers) library.
+
+[Find out more at the Assemble website](http://assemble.io).
 
 ### What is [Bower](http://bower.io)?
 Bower is a package manager for the web. It offers a generic, unopinionated solution to the problem of __front-end package management__, while exposing the package dependency model via an API that can be consumed by a more opinionated build stack.
