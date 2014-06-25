@@ -39,6 +39,7 @@
     "grunt-dev-update": "^0.5.8",
     "grunt-jscs-checker": "^0.4.4",
     "grunt-modernizr": "~0.5.1",
+    "grunt-notify": "^0.3.0",
     "grunt-prettify": "~0.3.4",
     "grunt-replace": "^0.7.8",
     "grunt-stripmq": "0.0.5",
