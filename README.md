@@ -44,6 +44,35 @@ When you install any new Bower packages use the command:
 $ bower install <package> --save-dev
 ```
 
+## Updating devDependencies
+To report what devDependencies need updating use the command
+
+```
+$ grunt devUpdate:report
+```
+
+To be prompted before updating each devDependency use the command
+
+```
+$ grunt devUpdate:prompt
+```
+
+To force update all devDependencies use the command
+
+```
+$ grunt devUpdate:force
+```
+
+Note: 
+
+ * Determine whether or not to save as dependencies `--save` or dev dependencies `--save-dev` on a case-by-case basis
+
+When you install any new Bower packages use the command:
+
+```
+$ bower install <package> --save-dev
+```
+
 Notes:
 
  * Add new frameworks/libraries as _dev_ dependencies as they get compiled and moved for production during the build process
