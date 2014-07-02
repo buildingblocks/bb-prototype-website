@@ -8,13 +8,7 @@
 
 First things first, install [Node.js](http://nodejs.org).
 
-Then use npm to install [Grunt](http://gruntjs.com).
-
-```
-$ npm install -g grunt 
-```
-
-Then, once you have the project downloaded, install all npm and Bower packages.
+Once you have the project downloaded, install all npm and Bower packages.
 
 ```
 $ npm install && bower install
