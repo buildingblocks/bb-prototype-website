@@ -17,8 +17,12 @@ $ npm install -g grunt
 Then, once you have the project downloaded, install all npm and Bower packages.
 
 ```
-$ npm install && bower install
+$ npm install
 ```
+
+Note: 
+ 
+ * no need to run `bower install` now as it's done automagically after npm install has finished.
 
 Once this finishes running, you can build and serve the project by running the Grunt task.
 
