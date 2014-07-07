@@ -8,13 +8,7 @@
 
 First things first, install [Node.js](http://nodejs.org).
 
-Then use npm to install [Grunt](http://gruntjs.com).
-
-```
-$ npm install -g grunt 
-```
-
-Then, once you have the project downloaded, install all npm and Bower packages.
+Once you have the project downloaded, install all npm and Bower packages.
 
 ```
 $ npm install
@@ -52,6 +46,25 @@ When you install any new Bower packages use the command:
 
 ```
 $ bower install <package> --save-dev
+```
+
+## Updating dev dependencies in package.json
+To report what dev dependencies need updating use the command
+
+```
+$ grunt devUpdate:report
+```
+
+To be prompted before updating each dev dependency use the command
+
+```
+$ grunt devUpdate:prompt
+```
+
+To force update all dev dependencies use the command
+
+```
+$ grunt devUpdate:force
 ```
 
 Notes:
