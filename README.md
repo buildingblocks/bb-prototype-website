@@ -96,12 +96,12 @@ Bower is a package manager for the web. It offers a generic, unopinionated solut
 [Find out more at the Bower website](http://bower.io).
 
 ## Release History
- * 2014-06-24   v0.6.0   Added Bower to automate front-end package management
- * 2014-06-13   v0.5.0
- * 2014-02-28   v0.4.0
+ * 2014-06-24 v0.6.0 - Added Bower to automate front-end package management
+ * 2014-06-13 v0.5.0
+ * 2014-02-28 v0.4.0
  	* Split grunt tasks for quicker 'watch'
  	* Extra layouts using 'extend, content, block' method
  	* Other minor fixes
- * 2014-02-28   v0.3.0   Massive update (too much to list, see commit log)
- * 2014-02-17   v0.2.0   Render components list
- * 2014-02-13   v0.1.0   Inital project upload
+ * 2014-02-28 v0.3.0 - Massive update (too much to list, see commit log)
+ * 2014-02-17 v0.2.0 - Render components list
+ * 2014-02-13 v0.1.0 - Inital project upload
