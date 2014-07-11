@@ -21,7 +21,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "assemble": "~0.4.33",
+    "assemble": "~0.4.41",
     "bower": "^1.3.7",
     "grunt": "^0.4.x",
     "grunt-contrib-clean": "~0.5.0",
@@ -59,7 +59,7 @@
     "site builder",
     "grunt"
   ],
-    "scripts": {
+  "scripts": {
     "test": "grunt assemble",
     "postinstall": "bower install"
   }
