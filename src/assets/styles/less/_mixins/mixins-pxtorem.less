@@ -17,31 +17,31 @@
 	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
 	margin: @pxValue;
 	margin: ~"@{remValue}rem";
-	}
+}
 
-	.margin(@pxVertical; @pxHorizontal){
-		@remVertical: ~`parseInt("@{pxVertical}", 10) / parseInt("@{rem-base}", 10)`;
-		@remHorizontal: ~`parseInt("@{pxHorizontal}", 10) / parseInt("@{rem-base}", 10)`;
-		margin: @pxVertical @pxHorizontal;
-		margin: ~"@{remVertical}rem @{remHorizontal}rem";
-		}
+.margin(@pxVertical; @pxHorizontal){
+	@remVertical: ~`parseInt("@{pxVertical}", 10) / parseInt("@{rem-base}", 10)`;
+	@remHorizontal: ~`parseInt("@{pxHorizontal}", 10) / parseInt("@{rem-base}", 10)`;
+	margin: @pxVertical @pxHorizontal;
+	margin: ~"@{remVertical}rem @{remHorizontal}rem";
+}
 
-		.margin(@pxTop; @pxHorizontal; @pxBottom){
-			@remTop: ~`parseInt("@{pxTop}", 10) / parseInt("@{rem-base}", 10)`;
-			@remHorizontal: ~`parseInt("@{pxHorizontal}", 10) / parseInt("@{rem-base}", 10)`;
-			@remBottom: ~`parseInt("@{pxBottom}", 10) / parseInt("@{rem-base}", 10)`;
-			margin: @pxTop @pxHorizontal @pxBottom;
-			margin: ~"@{remTop}rem @{remHorizontal}rem @{remBottom}rem";
-			}
+.margin(@pxTop; @pxHorizontal; @pxBottom){
+	@remTop: ~`parseInt("@{pxTop}", 10) / parseInt("@{rem-base}", 10)`;
+	@remHorizontal: ~`parseInt("@{pxHorizontal}", 10) / parseInt("@{rem-base}", 10)`;
+	@remBottom: ~`parseInt("@{pxBottom}", 10) / parseInt("@{rem-base}", 10)`;
+	margin: @pxTop @pxHorizontal @pxBottom;
+	margin: ~"@{remTop}rem @{remHorizontal}rem @{remBottom}rem";
+}
 
-			.margin(@pxTop; @pxRight; @pxBottom; @pxLeft){
-				@remTop: ~`parseInt("@{pxTop}", 10) / parseInt("@{rem-base}", 10)`;
-				@remRight: ~`parseInt("@{pxRight}", 10) / parseInt("@{rem-base}", 10)`;
-				@remBottom: ~`parseInt("@{pxBottom}", 10) / parseInt("@{rem-base}", 10)`;
-				@remLeft: ~`parseInt("@{pxLeft}", 10) / parseInt("@{rem-base}", 10)`;
-				margin: @pxTop @pxRight @pxBottom @pxLeft;
-				margin: ~"@{remTop}rem @{remRight}rem @{remBottom}rem @{remLeft}rem";
-				}
+.margin(@pxTop; @pxRight; @pxBottom; @pxLeft){
+	@remTop: ~`parseInt("@{pxTop}", 10) / parseInt("@{rem-base}", 10)`;
+	@remRight: ~`parseInt("@{pxRight}", 10) / parseInt("@{rem-base}", 10)`;
+	@remBottom: ~`parseInt("@{pxBottom}", 10) / parseInt("@{rem-base}", 10)`;
+	@remLeft: ~`parseInt("@{pxLeft}", 10) / parseInt("@{rem-base}", 10)`;
+	margin: @pxTop @pxRight @pxBottom @pxLeft;
+	margin: ~"@{remTop}rem @{remRight}rem @{remBottom}rem @{remLeft}rem";
+}
 
 .margin-top(@pxValue){
 	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
@@ -73,31 +73,31 @@
 	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
 	padding: @pxValue;
 	padding: ~"@{remValue}rem";
-	}
+}
 
-	.padding(@pxVertical; @pxHorizontal){
-		@remVertical: ~`parseInt("@{pxVertical}", 10) / parseInt("@{rem-base}", 10)`;
-		@remHorizontal: ~`parseInt("@{pxHorizontal}", 10) / parseInt("@{rem-base}", 10)`;
-		padding: @pxVertical @pxHorizontal;
-		padding: ~"@{remVertical}rem @{remHorizontal}rem";
-		}
+.padding(@pxVertical; @pxHorizontal){
+	@remVertical: ~`parseInt("@{pxVertical}", 10) / parseInt("@{rem-base}", 10)`;
+	@remHorizontal: ~`parseInt("@{pxHorizontal}", 10) / parseInt("@{rem-base}", 10)`;
+	padding: @pxVertical @pxHorizontal;
+	padding: ~"@{remVertical}rem @{remHorizontal}rem";
+}
 
-		.padding(@pxTop; @pxHorizontal; @pxBottom){
-			@remTop: ~`parseInt("@{pxTop}", 10) / parseInt("@{rem-base}", 10)`;
-			@remHorizontal: ~`parseInt("@{pxHorizontal}", 10) / parseInt("@{rem-base}", 10)`;
-			@remBottom: ~`parseInt("@{pxBottom}", 10) / parseInt("@{rem-base}", 10)`;
-			padding: @pxTop @pxHorizontal @pxBottom;
-			padding: ~"@{remTop}rem @{remHorizontal}rem @{remBottom}rem";
-			}
+.padding(@pxTop; @pxHorizontal; @pxBottom){
+	@remTop: ~`parseInt("@{pxTop}", 10) / parseInt("@{rem-base}", 10)`;
+	@remHorizontal: ~`parseInt("@{pxHorizontal}", 10) / parseInt("@{rem-base}", 10)`;
+	@remBottom: ~`parseInt("@{pxBottom}", 10) / parseInt("@{rem-base}", 10)`;
+	padding: @pxTop @pxHorizontal @pxBottom;
+	padding: ~"@{remTop}rem @{remHorizontal}rem @{remBottom}rem";
+}
 
-			.padding(@pxTop; @pxRight; @pxBottom; @pxLeft){
-				@remTop: ~`parseInt("@{pxTop}", 10) / parseInt("@{rem-base}", 10)`;
-				@remRight: ~`parseInt("@{pxRight}", 10) / parseInt("@{rem-base}", 10)`;
-				@remBottom: ~`parseInt("@{pxBottom}", 10) / parseInt("@{rem-base}", 10)`;
-				@remLeft: ~`parseInt("@{pxLeft}", 10) / parseInt("@{rem-base}", 10)`;
-				padding: @pxTop @pxRight @pxBottom @pxLeft;
-				padding: ~"@{remTop}rem @{remRight}rem @{remBottom}rem @{remLeft}rem";
-				}
+.padding(@pxTop; @pxRight; @pxBottom; @pxLeft){
+	@remTop: ~`parseInt("@{pxTop}", 10) / parseInt("@{rem-base}", 10)`;
+	@remRight: ~`parseInt("@{pxRight}", 10) / parseInt("@{rem-base}", 10)`;
+	@remBottom: ~`parseInt("@{pxBottom}", 10) / parseInt("@{rem-base}", 10)`;
+	@remLeft: ~`parseInt("@{pxLeft}", 10) / parseInt("@{rem-base}", 10)`;
+	padding: @pxTop @pxRight @pxBottom @pxLeft;
+	padding: ~"@{remTop}rem @{remRight}rem @{remBottom}rem @{remLeft}rem";
+}
 
 .padding-top(@pxValue){
 	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
@@ -160,8 +160,13 @@
 	max-width: ~"@{remValue}rem";
 }
 
-// REM Position
+// Generic size mixin - if height not passed in, same as width
+.size(@widthValue, @heightValue: @widthValue){
+	.height(@heightValue);
+	.width(@widthValue);
+}
 
+// REM Position
 .top(@pxValue) {
 	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
 	top: @pxValue;
@@ -191,28 +196,28 @@
 	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
 	border: @pxValue @string;
 	border: ~"@{remValue}rem" @string;
-	}
+}
 
-	.border-top(@pxValue, @string) {
-		@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
-		border-top: @pxValue @string;
-		border-top: ~"@{remValue}rem" @string;
-		}
+.border-top(@pxValue, @string) {
+	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
+	border-top: @pxValue @string;
+	border-top: ~"@{remValue}rem" @string;
+}
 
-	.border-right(@pxValue, @string) {
-		@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
-		border-right: @pxValue @string;
-		border-right: ~"@{remValue}rem" @string;
-		}
+.border-right(@pxValue, @string) {
+	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
+	border-right: @pxValue @string;
+	border-right: ~"@{remValue}rem" @string;
+}
 
-	.border-bottom(@pxValue, @string) {
-		@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
-		border-bottom: @pxValue @string;
-		border-bottom: ~"@{remValue}rem" @string;
-		}
+.border-bottom(@pxValue, @string) {
+	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
+	border-bottom: @pxValue @string;
+	border-bottom: ~"@{remValue}rem" @string;
+}
 
-	.border-left(@pxValue, @string) {
-		@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
-		border-left: @pxValue @string;
-		border-left: ~"@{remValue}rem" @string;
-		}
+.border-left(@pxValue, @string) {
+	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
+	border-left: @pxValue @string;
+	border-left: ~"@{remValue}rem" @string;
+}

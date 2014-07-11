@@ -1,1 +1,26 @@
-// forms.less
+// forms.less - sensible default form styles
+
+// Make textarea height behave
+textarea {
+	height: auto;
+	overflow: auto;
+	resize: none;
+}
+
+// Elements with actions need pointers
+input[type="submit"],
+button {
+	cursor: pointer;
+}
+
+// Search Inputs
+input[type="search"] {
+	-webkit-appearance: none;
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+}
