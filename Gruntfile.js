@@ -396,10 +396,10 @@ module.exports = function(grunt) {
 				'<%= config.dist %>/*.html'
 			],
 			scripts: [
-				'<%= config.dist %>/<%= config.srcScripts %>'
+				'<%= config.dist %>/<%= config.distScripts %>'
 			],
 			styles: [
-				'<%= config.dist %>/<%= config.srcStyles %>'
+				'<%= config.dist %>/<%= config.distStyles %>'
 			],
 			mixins: [
 				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
