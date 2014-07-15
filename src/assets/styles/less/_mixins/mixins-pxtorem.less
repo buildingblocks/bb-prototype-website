@@ -1,16 +1,4 @@
-// REM Font Size
-.font-size(@pxValue){
-	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
-	font-size: @pxValue;
-	font-size: ~"@{remValue}rem";
-}
-
-// REM Line Height
-.line-height(@pxValue){
-	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
-	line-height: @pxValue;
-	line-height: ~"@{remValue}rem";
-}
+// px to rem mixins
 
 // REM Margins
 .margin(@pxValue){

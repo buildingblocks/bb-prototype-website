@@ -1,0 +1,29 @@
+// type mixins
+
+// px to rem Line Height
+.line-height(@pxValue){
+	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
+	line-height: @pxValue;
+	line-height: ~"@{remValue}rem";
+} 
+
+// px to rem Font Size
+.font-size(@pxValue){
+    @remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
+    font-size: @pxValue;
+    font-size: ~"@{remValue}rem";
+}
+
+// pt to rem Line Height
+.line-height-pt(@ptValue){
+	@remValue: ~`(parseInt("@{ptValue}", 10) * 1.3) / parseInt("@{rem-base}", 10)`;
+	line-height: @ptValue;
+	line-height: ~"@{remValue}rem";
+}
+
+// pt to rem Font Size
+.font-size-pt(@ptValue){
+	@remValue: ~`(parseInt("@{ptValue}", 10) * 1.3) / parseInt("@{rem-base}", 10)`;
+	font-size: @ptValue;
+	font-size: ~"@{remValue}rem";
+}
