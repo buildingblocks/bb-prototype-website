@@ -378,6 +378,16 @@ module.exports = function(grunt) {
 					}
 				]
 			},
+			normalize: {
+				files: [
+					{
+						expand: true,
+						cwd: '<%= config.bower %>/normalize-less',
+						src: ['normalize.less'],
+						dest: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less',
+					}
+				]
+			},
 			deploy: {
 				files: [
 					{
@@ -574,6 +584,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build_dev', [
 		'build_html',
 		'build_scripts',
+		'copy:normalize',
 		'build_styles',
 		'modernizr',
 		'copy:bb'

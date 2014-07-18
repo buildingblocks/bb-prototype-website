@@ -1,3 +1,4 @@
+# debugging
 lib-cov
 *.seed
 *.log
@@ -7,15 +8,18 @@ lib-cov
 *.pid
 *.gz
 *.yo-rc.json
-
 pids
 logs
 results
 
-npm-debug.log
-node_modules
-src/assets/bower
-
+# project meta
 *.sublime-workspace
 
+# installed components
+node_modules
+src/assets/bower
+src/assets/styles/less/normalize.less
+
+# generated components
+src/assets/styles/less/_mixins/_combined.less
 dist
