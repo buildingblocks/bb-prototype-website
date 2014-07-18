@@ -33,6 +33,7 @@ module.exports = function(grunt) {
 			// misc settings
 			pagePrefix: '<%= pkg.name %>_',
 			partialPrefix: '<%= pkg.name %>_partial-',
+			helpers: 'helpers',
 			assembleExt: 'hbs',
 			mainCss: 'main.css',
 			ieCss: 'ie.css',
@@ -104,7 +105,7 @@ module.exports = function(grunt) {
 					'<%= config.src %>/layouts/**/*.<%= config.assembleExt %>'
 				],
 				helpers: [
-					'<%= config.src %>/helpers/helper-*.js'
+					'<%= config.src %>/<%= config.helpers %>/helper-*.js'
 				],
 				assets: '<%= config.dist %>',
 				images: '<%= config.distImages %>',
