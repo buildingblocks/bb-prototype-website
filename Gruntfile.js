@@ -199,7 +199,7 @@ module.exports = function(grunt) {
 				}
 			},
 			all: [
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/*.js',
+				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/**/*.js',
 				'Gruntfile.js'
 			]
 		},

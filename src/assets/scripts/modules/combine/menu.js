@@ -11,7 +11,7 @@ var bb = bb ? bb : {};
 			},
 			init : function () {
 				var self = this;
-				self.$handle = $('.action-menu'),
+				self.$handle = $('.action-menu');
 				self.$handle.on('click.menu', function (event) {
 					event.preventDefault();
 					if (self.bb.settings.$html.hasClass(self.menuInClass)) {
