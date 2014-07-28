@@ -8,7 +8,13 @@
 
 First things first, install [Node.js](http://nodejs.org).
 
-Once you have the project downloaded, install all npm and Bower packages.
+If you don't have [Bower](http://bower.io) installed locally, install it via npm:
+
+```
+$ npm install -g bower 
+```
+
+Once you have the project downloaded, install all NPM and Bower packages:
 
 ```
 $ npm install
@@ -16,9 +22,9 @@ $ npm install
 
 Note: 
  
- * no need to run `bower install` now as it's done automagically after npm install has finished.
+ * you shouldn't need to run `bower install` now as it's done via a __postinstall__ hook after `npm install` has finished.
 
-Once this finishes running, you can build and serve the project by running the Grunt task.
+Once this finishes running, you can build and serve the project by running the Grunt task:
 
 ```
 $ grunt server
@@ -49,19 +55,19 @@ $ bower install <package> --save-dev
 ```
 
 ## Updating dev dependencies in package.json
-To report what dev dependencies need updating use the command
+To report what dev dependencies need updating use the command:
 
 ```
 $ grunt devUpdate:report
 ```
 
-To be prompted before updating each dev dependency use the command
+To be prompted before updating each dev dependency use the command:
 
 ```
 $ grunt devUpdate:prompt
 ```
 
-To force update all dev dependencies use the command
+To force update all dev dependencies use the command:
 
 ```
 $ grunt devUpdate:force
