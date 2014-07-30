@@ -286,15 +286,6 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		css_mqpacker: {
-			options: {
-				map: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>.map'
-			},
-			main: {
-				src: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>',
-				dest: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>'
-			}
-		},
 		stripmq: {
 			ie: {
 				files: {
@@ -553,7 +544,7 @@ module.exports = function(grunt) {
 			}
 		}
 	});
-	
+
 	// Build tasks.
 	grunt.registerTask('build_html', [
 		'clean:html',
@@ -575,7 +566,7 @@ module.exports = function(grunt) {
 		'clean:styles',
 		'concat:lessMixins',
 		'less',
-		'css_mqpacker',
+		//'COMBINE MEDIA QUERIES GOES HERE',
 		'stripmq',
 		'copy:styles',
 		'copy:assets',
