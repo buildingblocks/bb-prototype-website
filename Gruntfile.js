@@ -299,6 +299,10 @@ module.exports = function(grunt) {
 			}
 		},
 		cssmin: {
+			options: {
+				noAdvanced: true,
+				compatibility: 'ie8'
+			},
 			main: {
 				src: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>',
 				dest: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>'
