@@ -40,7 +40,7 @@
     "grunt-prettify": "~0.3.4",
     "grunt-replace": "^0.7.8",
     "grunt-stripmq": "0.0.6",
-    "grunt-zip": "^0.15.0",
+    "grunt-zip": "0.16.0",
     "load-grunt-tasks": "^0.6.0",
     "time-grunt": "^0.4.0"
   },
