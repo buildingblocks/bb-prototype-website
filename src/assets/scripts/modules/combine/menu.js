@@ -1,7 +1,17 @@
+/**
+ * @file Menu
+ * @version 1.0.0
+ * @author {@link https://github.com/buildingblocks Building Blocks}
+ */
+
 var bb = bb ? bb : {};
 (function ($) {
-	$.extend(bb,{
-		menu : {
+	$.extend(bb, {
+		/**
+        * Menu related methods.
+        * @namespace menu
+        */
+		menu: {
 			bb : null,
 			$handle : null,
 			menuInClass : 'menu-in',

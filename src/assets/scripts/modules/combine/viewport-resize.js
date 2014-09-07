@@ -1,7 +1,16 @@
+/**
+ * @file Viewport Resize
+ * @version 1.0.0
+ * @author {@link https://github.com/buildingblocks Building Blocks}
+ */
+
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
-		// reusable site resize function
+        /**
+        * Reusable site resize function.
+        * @namespace viewportResize
+        */
 		viewportResize: {
 			bb: null,
 			resizeTimeout: null,

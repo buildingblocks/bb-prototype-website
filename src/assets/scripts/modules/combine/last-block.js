@@ -1,7 +1,16 @@
+/**
+ * @file Last Block
+ * @version 1.0.0
+ * @author {@link https://github.com/buildingblocks Building Blocks}
+ */
+
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
-		// last block in a row
+		/**
+		* Last block in a row.
+		* @namespace lastBlock
+		*/
 		lastBlock: {
 			bb: bb,
 			$blockContainers: null,

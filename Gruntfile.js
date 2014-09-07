@@ -1,3 +1,9 @@
+/**
+ * @file Gruntfile
+ * @version 1.0.0
+ * @author {@link https://github.com/buildingblocks Building Blocks}
+ */
+
 module.exports = function(grunt) {
 	'use strict';
 
@@ -30,6 +36,8 @@ module.exports = function(grunt) {
 			distTemp: 'temp',
 			distImages: 'images',
 			distFonts: 'fonts',
+			distDocs: 'docs',
+      		distJsDocs: 'jsdocs',
 			// misc settings
 			pagePrefix: '<%= pkg.name %>_',
 			partialPrefix: '<%= pkg.name %>_partial-',
@@ -170,6 +178,22 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+
+		jsdoc: {
+			all: {
+				src: [
+					'Gruntfile.js',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/combine/*.js',
+					'<%= config.src %>/<%= config.helpers %>/helper-*.js'
+				],
+				options: {
+					destination: '<%= config.dist %>/<%= config.distDocs %>/<%= config.distJsDocs %>',
+					template: 'node_modules/grunt-jsdoc/node_modules/ink-docstrap/template',
+					configure: '.jsdoc.conf.json'
+				}
+			}
+		},
+
 		jshint: {
 			options: {
 				curly: true,
@@ -584,6 +608,9 @@ module.exports = function(grunt) {
 		'modernizr',
 		'copy:bb'
 	]);
+	grunt.registerTask('build_docs', [
+		'jsdoc'
+	]);
 	grunt.registerTask('build_production', [
 		'build_dev',
 		'cssmin',
@@ -601,6 +628,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('server', [
 		'clean:everything',
 		'build_dev',
+		'build_docs',
 		'connect:livereload',
 		'watch'
 	]);

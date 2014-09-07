@@ -1,6 +1,16 @@
+/**
+ * @file Monitor Media Queries
+ * @version 1.0.0
+ * @author {@link https://github.com/buildingblocks Building Blocks}
+ */
+
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
+		/**
+        * Monitor media queries related methods.
+        * @namespace monitorMq
+        */
 		monitorMq : {
 			bb: null,
 			$detector: null,
