@@ -126,8 +126,9 @@ module.exports = function(grunt) {
 				ieRtlCss: '<%= config.ieRtlCss %>',
 				data: [
 					'<%= config.src %>/data/*.{json,yml}',
-					'package.json' ,
-				]
+					'package.json',
+				],
+				timestamp: '<%= grunt.template.today("mmm dS yyyy, h:MMtt Z") %>'
 			},
 			pages: {
 				files: [{
@@ -469,32 +470,6 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		replace: {
-			dist: {
-				options: {
-					patterns: [
-						{
-							match: 'version',
-							replacement: '<%= pkg.version %>'
-						},
-						{
-							match: 'timestamp',
-							replacement: '<%= grunt.template.today("mmm dS yyyy, h:MMtt Z") %>'
-						}
-					]
-				},
-				files: [
-					{
-						expand: true,
-						flatten: true,
-						src: [
-							'<%= config.dist %>/*.html'
-						],
-						dest: '<%= config.dist %>/'
-					}
-				]
-			}
-		},
 		jscs: {
 			options: {
 				config: '.jscsrc',
@@ -577,8 +552,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build_html', [
 		'clean:html',
 		'assemble',
-		'copy:assets',
-		'replace'
+		'copy:assets'
 	]);
 	grunt.registerTask('build_scripts', [
 		'clean:scripts',

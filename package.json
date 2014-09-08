@@ -39,7 +39,6 @@
     "grunt-modernizr": "~0.5.1",
     "grunt-notify": "^0.3.0",
     "grunt-prettify": "~0.3.4",
-    "grunt-replace": "^0.7.8",
     "grunt-stripmq": "0.0.6",
     "grunt-zip": "0.16.0",
     "load-grunt-tasks": "^0.6.0",
