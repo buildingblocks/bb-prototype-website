@@ -1,0 +1,31 @@
+{
+	"boss": true,
+	"curly": true,
+	"eqeqeq": true,
+	"eqnull": true,
+	"evil": true,
+	"globals": {
+		"$": true,
+		"bb": true,
+		"clearInterval": true,
+		"clearTimeout": true,
+		"console": true,
+		"document": true,
+		"exports": true,
+		"jQuery": true,
+		"Modernizr": true,
+		"module": true,
+		"navigator": true,
+		"node": true,
+		"require": true,
+		"setInterval": true,
+		"setTimeout": true,
+		"window": true
+	},
+	"immed": true,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"sub": true,
+	"undef": true
+}

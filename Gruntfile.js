@@ -1,6 +1,6 @@
 /**
  * @file Gruntfile
- * @version 1.0.0
+ * @version 0.6.0
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
 
@@ -19,6 +19,7 @@ module.exports = function(grunt) {
 			banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> */ \n'
 		},
 		config: {
+			gruntfile: 'Gruntfile.js',
 			// component settings
 			bower: '<%= bowerrc.directory %>',
 			// src settings
@@ -49,6 +50,14 @@ module.exports = function(grunt) {
 			ieRtlCss: 'ie.rtl.css'
 		},
 		watch: {
+			gruntfile: {
+				files: [
+					'<%= jshint.gruntfile.src %>'
+				],
+				tasks: [
+					'jshint:gruntfile'
+				]
+			},
 			html: {
 				files: [
 					'<%= config.src %>/{data,pages,partials,layouts}/{,*/}*.{<%= config.assembleExt %>,yml,json}'
@@ -183,7 +192,7 @@ module.exports = function(grunt) {
 		jsdoc: {
 			all: {
 				src: [
-					'Gruntfile.js',
+					'<%= config.gruntfile %>',
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/combine/*.js',
 					'<%= config.src %>/<%= config.helpers %>/helper-*.js'
 				],
@@ -197,36 +206,16 @@ module.exports = function(grunt) {
 
 		jshint: {
 			options: {
-				curly: true,
-				eqeqeq: true,
-				immed: true,
-				latedef: true,
-				newcap: true,
-				noarg: true,
-				sub: true,
-				undef: true,
-				boss: true,
-				eqnull: true,
-				globals: {
-					node: true,
-					exports: true,
-					require: true,
-					module: true,
-					jQuery: true,
-					$: true,
-					window: true,
-					console: true,
-					Modernizr: true,
-					clearTimeout: true,
-					setTimeout: true,
-					navigator: true,
-					bb: true
-				}
+				jshintrc: '.jshintrc',
+				reporter: require('jshint-stylish')
 			},
 			all: [
 				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/**/*.js',
-				'Gruntfile.js'
-			]
+				'<%= config.gruntfile %>'
+			],
+			gruntfile: {
+				src: '<%= config.gruntfile %>'
+			}
 		},
 		concat: {
 			lessMixins: {

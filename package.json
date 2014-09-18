@@ -42,6 +42,7 @@
     "grunt-prettify": "~0.3.4",
     "grunt-stripmq": "0.0.6",
     "grunt-zip": "0.16.0",
+    "jshint-stylish": "^0.4.0",
     "load-grunt-tasks": "^0.6.0",
     "time-grunt": "^0.4.0"
   },
