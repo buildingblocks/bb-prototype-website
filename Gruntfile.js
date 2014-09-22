@@ -3,15 +3,11 @@
  * @version 0.6.0
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
-
 module.exports = function(grunt) {
 	'use strict';
-
 	// Reads package.json and dynamically loads all Grunt tasks
     require('load-grunt-tasks')(grunt, {scope: 'devDependencies', pattern: ['assemble', 'grunt-*']});
-
 	require('time-grunt')(grunt);
-
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		bowerrc: grunt.file.readJSON('.bowerrc'),
@@ -47,7 +43,13 @@ module.exports = function(grunt) {
 			mainCss: 'main.css',
 			ieCss: 'ie.css',
 			mainRtlCss: 'main.rtl.css',
-			ieRtlCss: 'ie.rtl.css'
+			ieRtlCss: 'ie.rtl.css',
+			livereloadPort: function () {
+				var min = 35729,
+					max = min + 1000,
+					port = Math.floor(Math.random() * (max - min + 1)) + min;
+				return port;
+			}
 		},
 		watch: {
 			gruntfile: {
@@ -88,7 +90,7 @@ module.exports = function(grunt) {
 			},
 			livereload: {
 				options: {
-					livereload: '<%= connect.server.options.livereload %>'
+					livereload: parseInt('<%= config.livereloadPort %>',10)
 				},
 				files: [
 					'<%= config.dist %>/{,*/}*.html',
@@ -532,7 +534,6 @@ module.exports = function(grunt) {
 			}
 		}
 	});
-
 	// Build tasks.
 	grunt.registerTask('build_html', [
 		'clean:html',
