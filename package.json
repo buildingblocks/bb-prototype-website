@@ -2,7 +2,7 @@
   "name": "bb-prototype-website",
   "title": "BB Prototype Website",
   "description": "Default Building Blocks website prototype template.",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "homepage": "https://github.com/buildingblocks/bb-prototype-website",
   "authors": [
     "Paul Welsh (https://github.com/spacedawwwg)",
@@ -28,23 +28,23 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-connect": "~0.8.0",
-    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-copy": "^0.6.0",
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-less": "^0.11.4",
-    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-dev-update": "^0.6.0",
-    "grunt-jscs": "^0.6.2",
+    "grunt-dev-update": "^0.7.3",
+    "grunt-jscs": "^0.7.1",
     "grunt-jsdoc": "^0.5.7",
     "grunt-modernizr": "~0.5.1",
     "grunt-notify": "^0.3.0",
     "grunt-prettify": "~0.3.4",
     "grunt-stripmq": "0.0.6",
     "grunt-zip": "0.16.0",
-    "jshint-stylish": "^0.4.0",
+    "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^0.6.0",
-    "time-grunt": "^0.4.0"
+    "time-grunt": "^1.0.0"
   },
   "licenses": [
     {

@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 			distImages: 'images',
 			distFonts: 'fonts',
 			distDocs: 'docs',
-      		distJsDocs: 'jsdocs',
+			distJsDocs: 'jsdocs',
 			// misc settings
 			pagePrefix: '<%= pkg.name %>_',
 			partialPrefix: '<%= pkg.name %>_partial-',
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
 			},
 			livereload: {
 				options: {
-					livereload: '<%= connect.options.livereload %>'
+					livereload: '<%= connect.server.options.livereload %>'
 				},
 				files: [
 					'<%= config.dist %>/{,*/}*.html',
@@ -99,17 +99,15 @@ module.exports = function(grunt) {
 			}
 		},
 		connect: {
-			options: {
-				port: 8008,
-				livereload: 35730,
-				useAvailablePort: true,
-				// change this to '0.0.0.0' to access the server from outside
-				hostname: 'localhost'
-			},
-			livereload: {
+			server: {
 				options: {
+					port: 0,
+					livereload: true,
+					useAvailablePort: true,
+					// change this to '0.0.0.0' to access the server from outside
+					hostname: 'localhost',
 					open: true,
-					base: ['<%= config.dist %>']
+					base: '<%= config.dist %>'
 				}
 			}
 		},
@@ -188,7 +186,6 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
-
 		jsdoc: {
 			all: {
 				src: [
@@ -203,7 +200,6 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc',
@@ -579,12 +575,14 @@ module.exports = function(grunt) {
 		'cssmin',
 		'uglify',
 		'prettify',
+		'build_docs',
 		'clean:production'
 	]);
 	// Default task.
 	grunt.registerTask('default', [
 		'clean:everything',
 		'build_dev',
+		'build_docs',
 		'watch'
 	]);
 	// Local server task.
@@ -592,7 +590,7 @@ module.exports = function(grunt) {
 		'clean:everything',
 		'build_dev',
 		'build_docs',
-		'connect:livereload',
+		'connect',
 		'watch'
 	]);
 	// Dev.

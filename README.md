@@ -11,7 +11,7 @@ First things first, install [Node.js](http://nodejs.org).
 If you don't have [Bower](http://bower.io) installed locally, install it via npm:
 
 ```
-$ npm install -g bower 
+$ npm install -g bower
 ```
 
 Once you have the project downloaded, install all NPM and Bower packages:
@@ -20,8 +20,8 @@ Once you have the project downloaded, install all NPM and Bower packages:
 $ npm install
 ```
 
-Note: 
- 
+Note:
+
  * you shouldn't need to run `bower install` now as it's done via a __postinstall__ hook after `npm install` has finished.
 
 Once this finishes running, you can build and serve the project by running the Grunt task:
@@ -44,7 +44,7 @@ When you install any new npm packages use the command:
 $ npm install <package> --save-dev
 ```
 
-Note: 
+Note:
 
  * Determine whether or not to save as dependencies `--save` or dev dependencies `--save-dev` on a case-by-case basis
 
@@ -90,7 +90,7 @@ In one word: automation. The less work you have to do when performing repetitive
 
 Assemble is a component and static site generator that makes it dead simple to build modular sites, documentation and components from reusable templates and data.
 
-* [Documentation](http://assemble.io/docs) 
+* [Documentation](http://assemble.io/docs)
 * [Plugins](http://assemble.io/plugins) - Plugins extend the core functionality of Assemble.
 * [Helpers](http://assemble.io/helpers) - Documentation for the helpers in the [handlebars-helpers](http://github.com/assemble/handlebars-helpers) library.
 
@@ -102,6 +102,7 @@ Bower is a package manager for the web. It offers a generic, unopinionated solut
 [Find out more at the Bower website](http://bower.io).
 
 ## Release History
+ * 2014-06-24 v0.6.0 - Updated connect to runn off random port number
  * 2014-06-24 v0.6.0 - Added Bower to automate front-end package management
  * 2014-06-13 v0.5.0
  * 2014-02-28 v0.4.0

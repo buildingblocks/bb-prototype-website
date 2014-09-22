@@ -52,11 +52,13 @@ var bb = bb ? bb : {};
 			}
 		},
 		browserPrefix: function () {
-			var self = this,
-				styles = window.getComputedStyle(window.document.documentElement, ''),
-				prefix = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1],
-				dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + prefix + ')', 'i'))[1];
-			self.settings.browserPrefix = '-' + prefix + '-';
+			if (window.getComputedStyle) {
+				var self = this,
+					styles = window.getComputedStyle(window.document.documentElement, ''),
+					prefix = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1],
+					dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + prefix + ')', 'i'))[1];
+				self.settings.browserPrefix = '-' + prefix + '-';
+			}
 		},
 		transitionAnimationEndEvent: function () {
 			var self = this,
