@@ -6,7 +6,7 @@ published: false
 
 <h2>Pages</h2>
 <ul class="file-list">
-	{{#withSort pages filename}}
+	{{#withSort pages "filename"}}
 		{{#unless data.hide}}
 			<li class="file">
 				<a href="{{relative dest this.dest}}">{{filename}}</a>
