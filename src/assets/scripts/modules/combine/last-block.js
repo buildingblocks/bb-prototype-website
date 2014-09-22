@@ -1,9 +1,8 @@
 /**
  * @file Last Block
- * @version 1.0.0
+ * @version 0.6.2
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
-
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
@@ -12,7 +11,6 @@ var bb = bb ? bb : {};
 		* @namespace lastBlock
 		*/
 		lastBlock: {
-			bb: bb,
 			$blockContainers: null,
 			blockSelector: '.block',
 			lastClass: 'block-last',
@@ -20,10 +18,6 @@ var bb = bb ? bb : {};
 			$currentBlockContainer: null,
 			processing: false,
 			roundingOffset: 3,
-			setGlobal: function (bb) {
-				var self = this;
-				self.bb = bb;
-			},
 			init: function () {
 				var self = this;
 				self.$blockContainers = $('.region-inner');
@@ -101,9 +95,6 @@ var bb = bb ? bb : {};
 				}
 			}
 		}
-	});
-	$.subscribe('setGlobal', function (event, bb) {
-		bb.lastBlock.setGlobal(bb);
 	});
 	$.subscribe('pageReady', function () {
 		bb.lastBlock.init();

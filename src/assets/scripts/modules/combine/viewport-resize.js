@@ -1,9 +1,8 @@
 /**
  * @file Viewport Resize
- * @version 1.0.0
+ * @version 0.6.2
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
-
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
@@ -12,12 +11,7 @@ var bb = bb ? bb : {};
         * @namespace viewportResize
         */
 		viewportResize: {
-			bb: null,
 			resizeTimeout: null,
-			setGlobal: function (bb) {
-				var self = this;
-				self.bb = bb;
-			},
 			init: function () {
 				var self = this;
 				self.bb.settings.$window.on('resize.viewportResize', function () {

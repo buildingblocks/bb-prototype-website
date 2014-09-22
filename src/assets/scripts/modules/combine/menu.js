@@ -1,9 +1,8 @@
 /**
  * @file Menu
- * @version 1.0.0
+ * @version 0.6.2
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
-
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
@@ -12,13 +11,8 @@ var bb = bb ? bb : {};
         * @namespace menu
         */
 		menu: {
-			bb : null,
 			$handle : null,
 			menuInClass : 'menu-in',
-			setGlobal: function (bb) {
-				var self = this;
-				self.bb = bb;
-			},
 			init : function () {
 				var self = this;
 				self.$handle = $('.action-menu');
@@ -33,16 +27,13 @@ var bb = bb ? bb : {};
 			},
 			openMenu : function (event) {
 				var self = this;
-				self.bb.settings.$html.addClass(self.menuInClass).removeClass(self.bb.search.searchInClass);
+				self.bb.settings.$html.addClass(self.menuInClass);
 			},
 			closeMenu : function (event) {
 				var self = this;
 				self.bb.settings.$html.removeClass(self.menuInClass);
 			}
 		}
-	});
-	$.subscribe('setGlobal', function (event, bb) {
-		bb.menu.setGlobal(bb);
 	});
 	$.subscribe('pageReady', function () {
 		bb.menu.init();

@@ -1,9 +1,8 @@
 /**
  * @file Settings
- * @version 1.0.0
+ * @version 0.6.2
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
-
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {

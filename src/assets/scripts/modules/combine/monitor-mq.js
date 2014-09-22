@@ -1,9 +1,8 @@
 /**
  * @file Monitor Media Queries
- * @version 1.0.0
+ * @version 0.6.2
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
-
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
@@ -12,16 +11,11 @@ var bb = bb ? bb : {};
         * @namespace monitorMq
         */
 		monitorMq : {
-			bb: null,
 			$detector: null,
 			detectorId: 'monitor_mq',
 			detectorWidth: 0,
 			currentBreakpoint: 0,
 			previousBreakpoint: 0,
-			setGlobal: function (bb) {
-				var self = this;
-				self.bb = bb;
-			},
 			init: function () {
 				var self = this;
 				self.$detector = $('#' + self.detectorId);
@@ -43,9 +37,6 @@ var bb = bb ? bb : {};
 				}
 			}
 		}
-	});
-	$.subscribe('setGlobal', function (event, bb) {
-		bb.monitorMq.setGlobal(bb);
 	});
 	$.subscribe('pageReady', function () {
 		bb.monitorMq.init();

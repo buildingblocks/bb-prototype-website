@@ -1,16 +1,11 @@
 /**
  * @file Events
- * @version 1.0.0
+ * @version 0.6.2
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
-
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
-		setGlobal: function () {
-			var self = this;
-			$.publish('setGlobal', self);
-		},
 		// functions to run again when ajax content is loaded
 		ajaxLoaded: function () {
 			var self = this;
