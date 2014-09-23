@@ -24,8 +24,6 @@ var bb = bb ? bb : {};
 		// reusable site ready function
 		pageReady: function () {
 			var self = this;
-			// site global objects first
-			self.setGlobal();
 			// init loaded
 			self.pageLoaded();
 			$.publish('pageReady', self);
