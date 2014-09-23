@@ -1,44 +1,47 @@
 /**
- * @file Viewport Resize
+ * @file Monitor Media Queries
  * @version 0.6.2
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
-        /**
-        * Reusable site resize function.
-        * @namespace viewportResize
+		/**
+        * Monitor media queries related methods.
+        * @namespace monitorMq
         */
-		viewportResize: {
-			resizeTimeout: null,
+		monitorMq : {
+			$detector: null,
+			detectorId: 'monitor_mq',
+			detectorWidth: 0,
+			currentBreakpoint: 0,
+			previousBreakpoint: 0,
 			init: function () {
 				var self = this;
-				self.bb.settings.$window.on('resize.viewportResize', function () {
-					self.clearResizeTimeout();
-					self.resizeTimeout = setTimeout(function () {
-						self.viewportResizeEnd();
-					}, 500);
-				});
+				self.$detector = $('#' + self.detectorId);
+				self.monitor();
 			},
-			clearResizeTimeout: function () {
+			monitor: function () {
 				var self = this;
-				if (self.resizeTimeout) {
-					clearTimeout(self.resizeTimeout);
+				if (!self.$detector.length) {
+					self.$detector = $('<div />', {
+						id: self.detectorId
+					});
+					bb.settings.$body.append(self.$detector);
 				}
-			},
-			viewportResizeEnd: function () {
-				var self = this;
-
-				self.clearResizeTimeout();
-				$.publish('viewportResizeEnd');
+				self.detectorWidth = self.$detector.width();
+				if (self.detectorWidth !== self.currentBreakpoint) {
+					//a change has occurred so update the comparison variable
+					self.previousBreakpoint = self.currentBreakpoint;
+					self.currentBreakpoint = self.detectorWidth;
+				}
 			}
 		}
 	});
-	$.subscribe('setGlobal', function (e, bb) {
-		bb.viewportResize.setGlobal(bb);
-	});
 	$.subscribe('pageReady', function () {
-		bb.viewportResize.init();
+		bb.monitorMq.init();
+	});
+	$.subscribe('viewportResizeEnd', function () {
+		bb.monitorMq.monitor();
 	});
 }(jQuery));
