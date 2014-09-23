@@ -41,7 +41,7 @@ var bb = bb ? bb : {};
 				}
 				if (forceBuild) {
 					$(self.blockSelector).removeClass(self.lastClass);
-					if (self.bb.ltIE(8)) {
+					if (bb.ltIE(8)) {
 						$('.' + self.ieLastClass).remove();
 					}
 				}
@@ -88,7 +88,7 @@ var bb = bb ? bb : {};
 					return false;
 				}
 				$block.addClass(self.lastClass);
-				if (self.bb.ltIE(8)) {
+				if (bb.ltIE(8)) {
 					$block.after('<div />', {
 						'class': self.ieLastClass
 					});
