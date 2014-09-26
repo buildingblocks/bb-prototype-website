@@ -27,7 +27,7 @@ var bb = bb ? bb : {};
 					self.$detector = $('<div />', {
 						id: self.detectorId
 					});
-					self.bb.settings.$body.append(self.$detector);
+					bb.settings.$body.append(self.$detector);
 				}
 				self.detectorWidth = self.$detector.width();
 				if (self.detectorWidth !== self.currentBreakpoint) {

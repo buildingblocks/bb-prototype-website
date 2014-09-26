@@ -14,11 +14,13 @@ var bb = bb ? bb : {};
 			resizeTimeout: null,
 			init: function () {
 				var self = this;
-				self.bb.settings.$window.on('resize.viewportResize', function () {
+				bb.settings.$window.on('resize.viewportResize', function () {
 					self.clearResizeTimeout();
+					$.publish('viewportResizeStart');
 					self.resizeTimeout = setTimeout(function () {
-						self.viewportResizeEnd();
-					}, 500);
+						$.publish('viewportResizeEnd_prioritize');
+						$.publish('viewportResizeEnd');
+					}, 200);
 				});
 			},
 			clearResizeTimeout: function () {
@@ -26,17 +28,8 @@ var bb = bb ? bb : {};
 				if (self.resizeTimeout) {
 					clearTimeout(self.resizeTimeout);
 				}
-			},
-			viewportResizeEnd: function () {
-				var self = this;
-
-				self.clearResizeTimeout();
-				$.publish('viewportResizeEnd');
 			}
 		}
-	});
-	$.subscribe('setGlobal', function (e, bb) {
-		bb.viewportResize.setGlobal(bb);
 	});
 	$.subscribe('pageReady', function () {
 		bb.viewportResize.init();
