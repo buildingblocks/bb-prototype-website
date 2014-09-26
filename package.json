@@ -38,7 +38,6 @@
     "grunt-jscs": "^0.7.1",
     "grunt-jsdoc": "^0.5.7",
     "grunt-modernizr": "~0.5.1",
-    "grunt-notify": "^0.3.0",
     "grunt-prettify": "~0.3.4",
     "grunt-stripmq": "0.0.6",
     "grunt-zip": "0.16.0",
