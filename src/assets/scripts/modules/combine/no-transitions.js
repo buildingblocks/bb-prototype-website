@@ -2,15 +2,14 @@ var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
 		toggleTransitions: {
-			bb: bb,
 			noTransitionsClass: 'no-transitions',
 			disableTransitions: function () {
 				var self = this;
-				self.bb.settings.$html.addClass(self.noTransitionsClass);
+				bb.settings.$html.addClass(self.noTransitionsClass);
 			},
 			enableTransitions: function () {
 				var self = this;
-				self.bb.settings.$html.removeClass(self.noTransitionsClass);
+				bb.settings.$html.removeClass(self.noTransitionsClass);
 			}
 		}
 	});
