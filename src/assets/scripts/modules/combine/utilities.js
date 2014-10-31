@@ -54,8 +54,7 @@ var bb = bb ? bb : {};
 			if (window.getComputedStyle) {
 				var self = this,
 					styles = window.getComputedStyle(window.document.documentElement, ''),
-					prefix = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1],
-					dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + prefix + ')', 'i'))[1];
+					prefix = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1];
 				self.settings.browserPrefix = '-' + prefix + '-';
 			}
 		},

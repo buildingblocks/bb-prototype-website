@@ -45,7 +45,7 @@ var bb = bb ? bb : {};
 						$('.' + self.ieLastClass).remove();
 					}
 				}
-				self.$blockContainers.each(function (i) {
+				self.$blockContainers.each(function () {
 					var $blockContainer = $(this),
 						$blocks = $blockContainer.find(self.blockSelector),
 						//$blocks = $(),
@@ -63,7 +63,7 @@ var bb = bb ? bb : {};
 				if (!$blocks || !blockContainerWidth) {
 					self.stopProcessing();
 				}
-				$blocks.each(function (i) {
+				$blocks.each(function () {
 					var $block = $(this);
 					if ($block.hasClass('pull-right')) {
 						return true;

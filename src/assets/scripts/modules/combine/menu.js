@@ -25,11 +25,11 @@ var bb = bb ? bb : {};
 					}
 				});
 			},
-			openMenu : function (event) {
+			openMenu : function () {
 				var self = this;
 				self.bb.settings.$html.addClass(self.menuInClass);
 			},
-			closeMenu : function (event) {
+			closeMenu : function () {
 				var self = this;
 				self.bb.settings.$html.removeClass(self.menuInClass);
 			}
