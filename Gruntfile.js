@@ -595,7 +595,6 @@
 	grunt.registerTask('build_dev', [
 		'build_html',
 		'build_scripts',
-		'copy:normalize',
 		'build_styles',
 		'modernizr',
 		'copy:bb'
