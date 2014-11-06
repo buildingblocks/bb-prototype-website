@@ -104,6 +104,7 @@ Bower is a package manager for the web. It offers a generic, unopinionated solut
 [Find out more at the Bower website](http://bower.io).
 
 ## Release History
+* 2014-09-22 v0.7.0 - Updated Gruntfile with additional style tasks
 * 2014-09-22 v0.6.2 - Removed non-required setGlobal from JS
 * 2014-09-22 v0.6.1 - Updated connect to runn off random port number
 * 2014-06-24 v0.6.0 - Added Bower to automate front-end package management

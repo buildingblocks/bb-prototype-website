@@ -2,7 +2,8 @@
   "name": "bb-prototype-website",
   "title": "BB Prototype Website",
   "description": "Default Building Blocks website prototype template.",
-  "version": "0.6.2",
+  "version": "0.7.0",
+  "private": true,
   "homepage": "https://github.com/buildingblocks/bb-prototype-website",
   "authors": [
     "Paul Welsh (https://github.com/spacedawwwg)",
@@ -50,7 +51,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/buildingblocks/bb-prototype-website/blob/master/LICENSE-MIT"
+      "url": "http://building-blocks.mit-license.org"
     }
   ],
   "keywords": [
