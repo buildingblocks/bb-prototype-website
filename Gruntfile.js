@@ -487,8 +487,7 @@
 		},
 		jscs: {
 			options: {
-				config: '.jscsrc',
-				requireCurlyBraces: [ 'if' ]
+				config: '.jscsrc'
 			},
 			scripts: [
 			'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/**/*.js'
@@ -562,6 +561,10 @@
 			}
 		}
 	});
+	// Setup task (ran once as postinstall after npm i)
+	grunt.registerTask('setup', [
+		'copy:normalize'
+		]);
 	// Build tasks.
 	grunt.registerTask('build_html', [
 		'clean:html',
