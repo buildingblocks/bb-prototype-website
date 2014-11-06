@@ -1,6 +1,6 @@
 ![Building Blocks](https://github.com/buildingblocks/bb-prototype-website/raw/master/src/assets/images/bb-logo.png "Building Blocks")
 
-# bb-prototype-website
+# bb-prototype-website [![Build Status][travis-image]][travis-url]
 
 > Front-end website prototype template.
 
@@ -116,5 +116,11 @@ Bower is a package manager for the web. It offers a generic, unopinionated solut
 * 2014-02-17 v0.2.0 - Render components list
 * 2014-02-13 v0.1.0 - Inital project upload
 
+## License
+[MIT License](http://building-blocks.mit-license.org)
+
+
+[travis-url]: http://travis-ci.org/buildingblocks/bb-prototype-website
+[travis-image]: https://secure.travis-ci.org/buildingblocks/bb-prototype-website.svg?branch=master
 [dev-dependency-url]: https://david-dm.org/buildingblocks/bb-prototype-website#info=devDependencies
 [dev-dependency-image]: https://david-dm.org/buildingblocks/bb-prototype-website/dev-status.svg
