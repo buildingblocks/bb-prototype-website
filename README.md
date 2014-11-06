@@ -22,7 +22,7 @@ $ npm install
 
 Note:
 
- * you shouldn't need to run `bower install` now as it's done via a __postinstall__ hook after `npm install` has finished.
+* you shouldn't need to run `bower install` now as it's done via a __postinstall__ hook after `npm install` has finished.
 
 Once this finishes running, you can build and serve the project by running the Grunt task:
 
@@ -32,7 +32,7 @@ $ grunt server
 
 Note:
 
- * Do not edit files in the grunt generated __/dist__ directory (these will always be deleted).
+* Do not edit files in the grunt generated __/dist__ directory (these will always be deleted).
 
 You can also use our [Yeoman generator](https://github.com/buildingblocks/generator-bb-prototype-website).  [TODO: Finish the generator]
 
@@ -46,7 +46,7 @@ $ npm install <package> --save-dev
 
 Note:
 
- * Determine whether or not to save as dependencies `--save` or dev dependencies `--save-dev` on a case-by-case basis
+* Determine whether or not to save as dependencies `--save` or dev dependencies `--save-dev` on a case-by-case basis
 
 When you install any new Bower packages use the command:
 
@@ -55,6 +55,8 @@ $ bower install <package> --save-dev
 ```
 
 ## Updating dev dependencies in package.json
+[![devDependency Status][dev-dependency-image]][dev-dependency-url]
+
 To report what dev dependencies need updating use the command:
 
 ```
@@ -75,9 +77,9 @@ $ grunt devUpdate:force
 
 Notes:
 
- * Add new frameworks/libraries as _dev_ dependencies as they get compiled and moved for production during the build process
- * Remember to keep packages updated as needed
- * However, do not update jQuery to 2.x unless you are dropping support for Internet Explorer 6, 7, and 8 [(see here)](http://blog.jquery.com/2013/04/18/jquery-2-0-released/#content)
+* Add new frameworks/libraries as _dev_ dependencies as they get compiled and moved for production during the build process
+* Remember to keep packages updated as needed
+* However, do not update jQuery to 2.x unless you are dropping support for Internet Explorer 6, 7, and 8 [(see here)](http://blog.jquery.com/2013/04/18/jquery-2-0-released/#content)
 
 
 ### What is [Grunt](http://gruntjs.com)?
@@ -102,14 +104,17 @@ Bower is a package manager for the web. It offers a generic, unopinionated solut
 [Find out more at the Bower website](http://bower.io).
 
 ## Release History
- * 2014-09-22 v0.6.2 - Removed non-required setGlobal from JS
- * 2014-09-22 v0.6.1 - Updated connect to runn off random port number
- * 2014-06-24 v0.6.0 - Added Bower to automate front-end package management
- * 2014-06-13 v0.5.0
- * 2014-02-28 v0.4.0
- 	* Split grunt tasks for quicker 'watch'
- 	* Extra layouts using 'extend, content, block' method
- 	* Other minor fixes
- * 2014-02-28 v0.3.0 - Massive update (too much to list, see commit log)
- * 2014-02-17 v0.2.0 - Render components list
- * 2014-02-13 v0.1.0 - Inital project upload
+* 2014-09-22 v0.6.2 - Removed non-required setGlobal from JS
+* 2014-09-22 v0.6.1 - Updated connect to runn off random port number
+* 2014-06-24 v0.6.0 - Added Bower to automate front-end package management
+* 2014-06-13 v0.5.0
+* 2014-02-28 v0.4.0
+* Split grunt tasks for quicker 'watch'
+* Extra layouts using 'extend, content, block' method
+* Other minor fixes
+* 2014-02-28 v0.3.0 - Massive update (too much to list, see commit log)
+* 2014-02-17 v0.2.0 - Render components list
+* 2014-02-13 v0.1.0 - Inital project upload
+
+[dev-dependency-url]: https://david-dm.org/buildingblocks/bb-prototype-website#info=devDependencies
+[dev-dependency-image]: https://david-dm.org/buildingblocks/bb-prototype-website/dev-status.svg
