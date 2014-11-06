@@ -62,7 +62,7 @@ module.exports = function(grunt) {
 			},
 			html: {
 				files: [
-					'<%= config.src %>/{data,pages,partials,layouts}/{,*/}*.{<%= config.assembleExt %>,yml,json}'
+					'<%= config.src %>/{data,pages,partials,layouts}/**/*.{<%= config.assembleExt %>,json}'
 				],
 				tasks: [
 					'build_html'
@@ -93,10 +93,10 @@ module.exports = function(grunt) {
 					livereload: parseInt('<%= config.livereloadPort %>',10)
 				},
 				files: [
-					'<%= config.dist %>/{,*/}*.html',
-					'<%= config.dist %>/<%= config.distAssets %>/{,*/}*.css',
-					'<%= config.dist %>/<%= config.distAssets %>/{,*/}*.js',
-					'<%= config.dist %>/<%= config.distAssets %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+					'<%= config.dist %>/**/*.html',
+					'<%= config.dist %>/<%= config.distAssets %>/**/*.css',
+					'<%= config.dist %>/<%= config.distAssets %>/**/*.js',
+					'<%= config.dist %>/<%= config.distAssets %>/**/*.{png,jpg,jpeg,gif,webp,svg}'
 				]
 			}
 		},
@@ -118,8 +118,7 @@ module.exports = function(grunt) {
 				flatten: false,
 				layout: false,
 				partials: [
-					'<%= config.src %>/partials/**/*.<%= config.assembleExt %>',
-					'<%= config.src %>/layouts/**/*.<%= config.assembleExt %>'
+					'<%= config.src %>/{layouts,partials}/**/*.<%= config.assembleExt %>'
 				],
 				helpers: [
 					'<%= config.src %>/<%= config.helpers %>/helper-*.js'
@@ -463,7 +462,7 @@ module.exports = function(grunt) {
 				requireCurlyBraces: [ 'if' ]
 			},
 			scripts: [
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/{,*/}*.js'
+				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/**/*.js'
 			]
 		},
 		prettify: {
