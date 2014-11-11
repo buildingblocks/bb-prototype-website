@@ -607,21 +607,21 @@
 		'cssmin',
 		'uglify',
 		'prettify',
-		'build_docs',
+		// 'build_docs',
 		'clean:production'
 		]);
 	// Default task.
 	grunt.registerTask('default', [
 		'clean:everything',
 		'build_dev',
-		'build_docs',
+		// 'build_docs',
 		'watch'
 		]);
 	// Local server task.
 	grunt.registerTask('server', [
 		'clean:everything',
 		'build_dev',
-		'build_docs',
+		// 'build_docs',
 		'connect',
 		'watch'
 		]);
