@@ -244,7 +244,7 @@
 			},
 			validation: {
 				src: [
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/validation/*.js'
+				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins/validation/*.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/validation.js'
 			}
