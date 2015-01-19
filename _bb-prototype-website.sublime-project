@@ -4,7 +4,7 @@
 		{
 			"path": ".",
 				"folder_exclude_patterns": [
-				"bower",
+				"bower_components",
 				"node_modules"
 			]
 		}
