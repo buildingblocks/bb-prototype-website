@@ -1,45 +1,41 @@
-/**
- * @file Gruntfile
- * @version 0.6.0
- * @author {@link https://github.com/buildingblocks Building Blocks}
- */
- module.exports = function(grunt) {
- 	'use strict';
+module.exports = function(grunt) {
+	'use strict';
 	// Reads package.json and dynamically loads all Grunt tasks
 	require('load-grunt-tasks')(grunt, {scope: 'devDependencies', pattern: ['assemble', 'grunt-*']});
+	// Times tasks
 	require('time-grunt')(grunt);
+
+	// Project build configuration
 	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
 		bowerrc: grunt.file.readJSON('.bowerrc'),
+		pkg: grunt.file.readJSON('package.json'),
 		meta: {
 			banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> */ \n'
 		},
 		config: {
 			gruntfile: 'Gruntfile.js',
-			// component settings
+			// Component settings
 			bower: '<%= bowerrc.directory %>',
-			// src settings
+			// Src settings
 			src: 'src',
 			srcAssets: 'assets',
-			srcStyles: 'styles',
-			srcScripts: 'scripts',
-			srcTemp: 'temp',
-			srcImages: 'images',
 			srcFonts: 'fonts',
-			// dist settings
+			srcImages: 'images',
+			srcScripts: 'scripts',
+			srcStyles: 'styles',
+			srcTemp: 'temp',
+			// Dist settings
 			dist: 'dist',
-			distStyles: 'styles',
-			distScripts: 'scripts',
-			distTemp: 'temp',
-			distImages: 'images',
 			distFonts: 'fonts',
-			distDocs: 'docs',
-			distJsDocs: 'jsdocs',
-			// misc settings
+			distImages: 'images',
+			distScripts: 'scripts',
+			distStyles: 'styles',
+			distTemp: 'temp',
+			// Project settings
+			assembleExt: 'hbs',
+			helpers: 'helpers',
 			pagePrefix: '<%= pkg.name %>_',
 			partialPrefix: '<%= pkg.name %>_partial-',
-			helpers: 'helpers',
-			assembleExt: 'hbs',
 			mainCss: 'main.css',
 			ieCss: 'ie.css',
 			mainRtlCss: 'main.rtl.css',
@@ -51,6 +47,8 @@
 				return port;
 			}
 		},
+
+		// File watchers
 		watch: {
 			gruntfile: {
 				files: [
@@ -100,6 +98,8 @@
 				]
 			}
 		},
+
+		// Local server
 		connect: {
 			server: {
 				options: {
@@ -113,6 +113,8 @@
 				}
 			}
 		},
+
+		// HTML tasks
 		assemble: {
 			options: {
 				flatten: false,
@@ -187,19 +189,15 @@
 				}]
 			}
 		},
-		jsdoc: {
-			all: {
-				src: [
-				'<%= config.gruntfile %>',
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/combine/*.js',
-				'<%= config.src %>/<%= config.helpers %>/helper-*.js'
-				],
-				options: {
-					destination: '<%= config.dist %>/<%= config.distDocs %>/<%= config.distJsDocs %>',
-					template: 'node_modules/grunt-jsdoc/node_modules/ink-docstrap/template',
-					configure: '.jsdoc.conf.json'
-				}
-			}
+
+		// Script tasks
+		jscs: {
+			options: {
+				config: '.jscsrc'
+			},
+			scripts: [
+			'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/**/*.js'
+			]
 		},
 		jshint: {
 			options: {
@@ -251,7 +249,6 @@
 		},
 		uglify: {
 			options: {
-				//banner: '<%= meta.banner %>',
 				preserveComments: 'some',
 				mangle: true,
 				compress: {
@@ -271,6 +268,8 @@
 				dest: '<%= config.dist %>/<%= config.distScripts %>/ie.js'
 			}
 		},
+
+		// Style tasks
 		less: {
 			main: {
 				options: {
@@ -360,6 +359,8 @@
 				dest: '<%= config.dist %>/<%= config.distStyles %>/<%= config.ieRtlCss %>'
 			}
 		},
+
+		// Project tasks
 		copy: {
 			bb: {
 				files: [
@@ -485,14 +486,8 @@
 				}
 			}
 		},
-		jscs: {
-			options: {
-				config: '.jscsrc'
-			},
-			scripts: [
-			'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/**/*.js'
-			]
-		},
+
+		 // Production tasks
 		prettify: {
 			options: {
 				'indent': 1,
@@ -525,11 +520,11 @@
 		devUpdate: {
 			report: {
 				options: {
-					updateType: 'report', //just report outdated packages
-					reportUpdated: false, //don't report already updated packages
-					semver: true, //use package.json semver rules when updating
-					packages: { //what packages to check
-						devDependencies: true, //only devDependencies
+					updateType: 'report',
+					reportUpdated: false,
+					semver: true,
+					packages: {
+						devDependencies: true,
 						dependencies: false
 					},
 					packageJson: './package.json'
@@ -561,10 +556,12 @@
 			}
 		}
 	});
-	// Setup task (ran once as postinstall after npm i)
+
+	// Setup task (ran once as postinstall after npm install)
 	grunt.registerTask('setup', [
 		'copy:normalize'
 		]);
+
 	// Build tasks.
 	grunt.registerTask('build_html', [
 		'clean:html',
@@ -599,41 +596,30 @@
 		'modernizr',
 		'copy:bb'
 		]);
-	grunt.registerTask('build_docs', [
-		'jsdoc'
-		]);
 	grunt.registerTask('build_production', [
 		'build_dev',
 		'cssmin',
 		'uglify',
 		'prettify',
-		// 'build_docs',
 		'clean:production'
 		]);
-	// Default task.
+
+	// Default
 	grunt.registerTask('default', [
 		'clean:everything',
 		'build_dev',
-		// 'build_docs',
 		'watch'
 		]);
-	// Local server task.
+
+	// Local server
 	grunt.registerTask('server', [
 		'clean:everything',
 		'build_dev',
-		// 'build_docs',
 		'connect',
 		'watch'
 		]);
-	// Dev.
-	grunt.registerTask('dev', [
-		'build_dev'
-		]);
-	// Production task.
-	grunt.registerTask('production', [
-		'build_production'
-		]);
-	// Deploy task.
+
+	// Production
 	grunt.registerTask('deploy', [
 		'build_production',
 		'copy:deploy',
