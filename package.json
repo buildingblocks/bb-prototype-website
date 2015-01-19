@@ -42,6 +42,7 @@
     "grunt-jsdoc": "^0.5.7",
     "grunt-modernizr": "^0.6.0",
     "grunt-prettify": "^0.4.0",
+    "grunt-px-to-rem": "^0.3.2",
     "grunt-stripmq": "0.0.6",
     "grunt-zip": "^0.16.2",
     "jshint-stylish": "^1.0.0",

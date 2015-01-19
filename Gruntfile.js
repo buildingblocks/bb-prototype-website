@@ -308,6 +308,24 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		px_to_rem: {
+			main: {
+				options: {
+					base: 16,
+					fallback: false,
+					fallback_existing_rem: false,
+					ignore: []
+				},
+				files: [
+				{
+					expand: true,
+					flatten: true,
+					src: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>',
+					dest: '<%= config.dist %>/<%= config.distStyles %>/'
+				}
+				]
+			}
+		},
 		autoprefixer: {
 			options: {
 				browsers: [
@@ -584,6 +602,7 @@ module.exports = function(grunt) {
 		'less',
 		'stripmq',
 		'autoprefixer',
+		'px_to_rem',
 		'combine_mq',
 		'copy:styles',
 		'copy:assets',
