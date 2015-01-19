@@ -3,7 +3,7 @@
 * {
 	-webkit-tap-highlight-color: transparent;
 	word-wrap: break-word;
-	.box-sizing(border-box);
+	box-sizing: border-box;
 }
 
 :focus {
@@ -27,10 +27,10 @@ html {
 }
 
 body {
-	.line-height(@line-height-base);
-	font-family: @font-family-base;
 	color: @color-text;
+	font-family: @font-family-base;
 	font-weight: @font-weight-light;
+	line-height: @line-height-base;
 }
 
 img {

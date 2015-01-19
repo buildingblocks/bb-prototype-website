@@ -1,42 +1,42 @@
-// calculates a "fluid" (percentage) width (Ethan Marcotte: target / context = result method)
+// calculates a "fluid" (percentage) width (Ethan Marcotte: target / context = result method: http://alistapart.com/article/fluidgrids)
 .fluid-width(@target, @context) {
 	width: 100%*(@target/@context);
-	// ie correct formular to prevent
+	// IE7 correction
 	*width: (100%*(@target/@context))-@grid-correction;
 }
 
 .fluid-margin-right(@target, @context) {
 	margin-right: 100%*(@target/@context);
-	// ie correct formular to prevent
+	// IE7 correction
 	*margin-right: (100%*(@target/@context))-@grid-correction;
 }
 
 .fluid-margin-left(@target, @context) {
 	margin-left: 100%*(@target/@context);
-	// ie correct formular to prevent
+	// IE7 correction
 	*margin-left: (100%*(@target/@context))-@grid-correction;
 }
 
 .fluid-padding-right(@target, @context) {
 	padding-right: 100%*(@target/@context);
-	// ie correct formular to prevent
+	// IE7 correction
 	*padding-right: (100%*(@target/@context))-@grid-correction;
 }
 
 .fluid-padding-left(@target, @context) {
 	padding-left: 100%*(@target/@context);
-	// ie correct formular to prevent
+	// IE7 correction
 	*padding-left: (100%*(@target/@context))-@grid-correction;
 }
 
 .fluid-right(@target, @context) {
 	right: 100%*(@target/@context);
-	// ie correct formular to prevent
+	// IE7 correction
 	*right: (100%*(@target/@context))-@grid-correction;
 }
 
 .fluid-left(@target, @context) {
 	left: 100%*(@target/@context);
-	// ie correct formular to prevent
+	// IE7 correction
 	*left: (100%*(@target/@context))-@grid-correction;
 }

@@ -1,137 +1,137 @@
 // buttons.less
 @btn-border-width: 2px;
 
-@btn-padding-y-small: @vertical-rhythm;
+@btn-padding-y-small: @vr;
 @btn-padding-x-small: 15px;
-@btn-line-height-small: @vertical-rhythm*4 - @btn-border-width*2;
+@btn-line-height-small: @vr*4 - @btn-border-width*2;
 @btn-total-height-small: @btn-padding-y-small*2 + @btn-line-height-small;
 
-@btn-padding-y-default: @vertical-rhythm*2;
+@btn-padding-y-default: @vr*2;
 @btn-padding-x-default: 20px;
-@btn-line-height-default: @vertical-rhythm*4 - @btn-border-width*2;
+@btn-line-height-default: @vr*4 - @btn-border-width*2;
 @btn-total-height-default: @btn-padding-y-default*2 + @btn-line-height-default;
 
-@btn-padding-y-large: @vertical-rhythm*2;
+@btn-padding-y-large: @vr*2;
 @btn-padding-x-large: 30px;
-@btn-line-height-large: @vertical-rhythm*7 - @btn-border-width*2;
+@btn-line-height-large: @vr*7 - @btn-border-width*2;
 @btn-total-height-large: @btn-padding-y-large*2 + @btn-line-height-large;
 
 // buttons at smallscreen are reduced by one size (to a minimum of *-small)
 // e.g .btn below 768px uses *-small units, .btn-large uses *-default... but .btn-small still uses *-small
 
 input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+	border: 0;
+	padding: 0;
 }
 
 button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+	border: 0;
+	padding: 0;
 }
 
 .btn {
-  .underline-reset();
-  display: inline-block;
-  margin-bottom: 0; // For input.btn
-  font-family: @font-family-base;
-  font-weight: @font-weight-bold;
-  //min-height: @btn-total-height-default;
-  text-align: center;
-  vertical-align: top;
-  cursor: pointer;
-  border: @btn-border-width solid @brand-color-a;
-  white-space: nowrap;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 0;
-  box-shadow: none;
-  color: #fff;
-  background-image: none;
-  background-color: @brand-color-a;
-  // get rid of faux bolding
-  -webkit-font-smoothing: antialiased;
-  // height and padding
-  padding: @btn-padding-y-small @btn-padding-x-small;
-  font-size: 12px;
-  line-height: @btn-line-height-small;
-  min-height: @btn-total-height-small;
+	.underline-reset();
+	display: inline-block;
+	margin-bottom: 0; // For input.btn
+	font-family: @font-family-base;
+	font-weight: @font-weight-bold;
+	//min-height: @btn-total-height-default;
+	text-align: center;
+	vertical-align: top;
+	cursor: pointer;
+	border: @btn-border-width solid @brand-color-a;
+	white-space: nowrap;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 0;
+	box-shadow: none;
+	color: #fff;
+	background-image: none;
+	background-color: @brand-color-a;
+	// get rid of faux bolding
+	-webkit-font-smoothing: antialiased;
+	// height and padding
+	padding: @btn-padding-y-small @btn-padding-x-small;
+	font-size: 12px;
+	line-height: @btn-line-height-small;
+	min-height: @btn-total-height-small;
 
-  @media (min-width: @break-point-d) {
-    padding: @btn-padding-y-default @btn-padding-x-default;
-    font-size: 16px;
-    line-height: @btn-line-height-default;
-    min-height: @btn-total-height-default;
-  }
+	@media (min-width: @break-point-d) {
+		padding: @btn-padding-y-default @btn-padding-x-default;
+		font-size: 16px;
+		line-height: @btn-line-height-default;
+		min-height: @btn-total-height-default;
+	}
 
-  &:hover,
-  &:focus {
-    border-color: @brand-color-a;
-    box-shadow: none;
-  }
+	&:hover,
+	&:focus {
+		border-color: @brand-color-a;
+		box-shadow: none;
+	}
 
-  &:active,
-  &.active {
-    outline: 0;
-    box-shadow: none;
-  }
+	&:active,
+	&.active {
+		outline: 0;
+		box-shadow: none;
+	}
 
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: default;
-    pointer-events: none; // Future-proof disabling of clicks
-    .opacity(65);
-    box-shadow: none;
-  }
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: default;
+		pointer-events: none; // Future-proof disabling of clicks
+		.opacity(65);
+		box-shadow: none;
+	}
 }
 
 .btn-small {
-  padding: @btn-padding-y-small @btn-padding-x-small;
-  font-size: 12px;
-  line-height: @btn-line-height-small;
-  min-height: @btn-total-height-small;
+	padding: @btn-padding-y-small @btn-padding-x-small;
+	font-size: 12px;
+	line-height: @btn-line-height-small;
+	min-height: @btn-total-height-small;
 
-  @media (min-width: @break-point-d) {
-    padding: @btn-padding-y-small @btn-padding-x-small;
-    font-size: 12px;
-    line-height: @btn-line-height-small;
-    min-height: @btn-total-height-small;
-  }
+	@media (min-width: @break-point-d) {
+		padding: @btn-padding-y-small @btn-padding-x-small;
+		font-size: 12px;
+		line-height: @btn-line-height-small;
+		min-height: @btn-total-height-small;
+	}
 }
 
 .btn-large {
-  padding: @btn-padding-y-default @btn-padding-x-default;
-  font-size: 16px;
-  line-height: @btn-line-height-default;
-  min-height: @btn-total-height-default;
+	padding: @btn-padding-y-default @btn-padding-x-default;
+	font-size: 16px;
+	line-height: @btn-line-height-default;
+	min-height: @btn-total-height-default;
 
-  @media (min-width: @break-point-d) {
-    padding: @btn-padding-y-large @btn-padding-x-large;
-    line-height: @btn-line-height-large;
-    min-height: @btn-total-height-large;
-    font-size: 18px;
-  }
+	@media (min-width: @break-point-d) {
+		padding: @btn-padding-y-large @btn-padding-x-large;
+		line-height: @btn-line-height-large;
+		min-height: @btn-total-height-large;
+		font-size: 18px;
+	}
 }
 
 .btn-style-a {
-  background-color: @brand-color-b;
-  border-color: @brand-color-b;
-  color: #fff;
+	background-color: @brand-color-b;
+	border-color: @brand-color-b;
+	color: #fff;
 
-  &:hover,
-  &:focus {
-    border-color: @brand-color-b;
-  }
+	&:hover,
+	&:focus {
+		border-color: @brand-color-b;
+	}
 }
 
 .btn-style-b {
-  background-color: transparent;
-  border-color: @brand-color-a;
-  color: @brand-color-a;
+	background-color: transparent;
+	border-color: @brand-color-a;
+	color: @brand-color-a;
 
-  &:hover,
-  &:focus {
-    border-color: @brand-color-b;
-    //color: @brand-color-b;
-  }
+	&:hover,
+	&:focus {
+		border-color: @brand-color-b;
+		//color: @brand-color-b;
+	}
 }

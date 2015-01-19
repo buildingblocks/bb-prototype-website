@@ -9,10 +9,10 @@
 }
 
 .layout {
-	position: relative;
 	.clearfix();
-	.margin(0, @grid-gutter-width);
-	.max-width(@max-width);
+	position: relative;
+	margin: 0 @ggw;
+	max-width: @max-width;
 
 	@media (min-width: @break-point-f) {
 		margin: 0 auto;
@@ -47,7 +47,7 @@
 	float: left;
 	width: 100%;
 	max-width: 100%;
-	.margin-bottom(@vertical-rhythm*3);
+	margin-bottom: @vr*3;
 
 	.rtl & {
 		float: right;
@@ -94,21 +94,21 @@
 	.block-size-a {
 
 		@media (min-width: @break-point-d) {
-			.fluid-width((@grid-column-width*24) + (@grid-gutter-width*23), @region-inner-width);
+			.fluid-width((@gcw*24) + (@ggw*23), @region-inner-width);
 		}
 	}
 
 	.block-size-b {
 
 		@media (min-width: @break-point-d) {
-			.fluid-width((@grid-column-width*16) + (@grid-gutter-width*15), @region-inner-width);
+			.fluid-width((@gcw*16) + (@ggw*15), @region-inner-width);
 		}
 	}
 
 	.block-size-c {
 
 		@media (min-width: @break-point-d) {
-			.fluid-width((@grid-column-width*8) + (@grid-gutter-width*7), @region-inner-width);
+			.fluid-width((@gcw*8) + (@ggw*7), @region-inner-width);
 		}
 	}
 }
@@ -127,16 +127,16 @@
 		}
 
 		.block {
-			.fluid-margin-right(@grid-gutter-width, @region-a-inner-width);
+			.fluid-margin-right(@ggw, @region-a-inner-width);
 
 			.rtl & {
 				margin-right: 0;
-				.fluid-margin-left(@grid-gutter-width, @region-a-inner-width);
+				.fluid-margin-left(@ggw, @region-a-inner-width);
 			}
 		}
 
 		.gutter-sizer {
-			.fluid-width(@grid-gutter-width, @region-a-inner-width);
+			.fluid-width(@ggw, @region-a-inner-width);
 		}
 	}
 
@@ -157,16 +157,16 @@
 		}
 
 		.block {
-			.fluid-margin-right(@grid-gutter-width, @region-b-inner-width);
+			.fluid-margin-right(@ggw, @region-b-inner-width);
 
 			.rtl & {
 				margin-right: 0;
-				.fluid-margin-left(@grid-gutter-width, @region-b-inner-width);
+				.fluid-margin-left(@ggw, @region-b-inner-width);
 			}
 		}
 
 		.gutter-sizer {
-			.fluid-width(@grid-gutter-width, @region-b-inner-width);
+			.fluid-width(@ggw, @region-b-inner-width);
 		}
 	}
 
@@ -188,16 +188,16 @@
 		}
 
 		.block {
-			.fluid-margin-right(@grid-gutter-width, @region-c-inner-width);
+			.fluid-margin-right(@ggw, @region-c-inner-width);
 
 			.rtl & {
 				margin-right: 0;
-				.fluid-margin-left(@grid-gutter-width, @region-c-inner-width);
+				.fluid-margin-left(@ggw, @region-c-inner-width);
 			}
 		}
 
 		.gutter-sizer {
-			.fluid-width(@grid-gutter-width, @region-c-inner-width);
+			.fluid-width(@ggw, @region-c-inner-width);
 		}
 	}
 
@@ -208,7 +208,7 @@
 .visible-grid {
 
 	.block {
-		color: #fff;
-		background: #000;
+		background: @brand-color-a;
+		color: #FFF;
 	}
 }

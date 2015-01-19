@@ -1,27 +1,3 @@
-// Background clipping
-// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
-.background-clip(@clip) {
-	-webkit-background-clip: @clip;
-	 -moz-background-clip: @clip;
-			background-clip: @clip;
-}
-
-// Background sizing
-.background-size(@size){
-	-webkit-background-size: @size;
-	 -moz-background-size: @size;
-		 -o-background-size: @size;
-			background-size: @size;
-}
-
-// Background sizing
-.background-size(@size1, @size2){
-	-webkit-background-size: @size1 @size2;
-	 -moz-background-size: @size1 @size2;
-		 -o-background-size: @size1 @size2;
-			background-size: @size1 @size2;
-}
-
 // RGBA Backgrounds
 .rgba-bg(@colour, @alpha){
 	@alphaColour: hsla(hue(@colour), saturation(@colour), lightness(@colour), @alpha);

@@ -31,10 +31,10 @@
 @font-family-base: @font-family-sans-serif;
 
 // Font Sizing
-@font-size-base: 16px; // use .font-size(pxValue) to define font sizes
+@font-size-base: 16px;
 @font-size-small: 14px;
-@line-height-base: @vertical-rhythm*4; // 24px
-@line-height-small: @vertical-rhythm*3; // 18px
+@line-height-base: @vr*4; // 24px
+@line-height-small: @vr*3; // 18px
 
 @font-weight-bold: 400; // 700 when not using @font-face
 @font-weight-medium: 400; // 600 when not using @font-face
@@ -45,24 +45,31 @@
 @max-width: 1180px; // overall max width
 @font-size-html: 100%;
 @rem-base: 16px; // 100% browser default font size
-@vertical-rhythm: 6px; // use @vertical-rhythm*X to keep
+@vertical-rhythm: 6px; // use @vr*X to maintain vertical consistency
+@vr: @vertical-rhythm; // Alias
 
 // Grid system
 @grid-columns: 24;
 @grid-column-width: 30px;
+@gcw: @grid-column-width; // Alias
 @grid-gutter-width: 20px;
+@ggw: @grid-gutter-width; // Alias
 @grid-total-width: 100%;
-@grid-gridsystem-width: (@grid-column-width*@grid-columns) + (@grid-gutter-width*@grid-columns) * 1px;
+@grid-gridsystem-width: (@gcw*@grid-columns) + (@ggw*@grid-columns) * 1px;
 @grid-correction: 0.5 / @grid-total-width * 100 * 1%; // IE7 See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+// Custom smallscreen sizes
+@smallscreen-grid-gutter-width: 15px;
+@ggw-smallscreen: @smallscreen-grid-gutter-width;
+
 // Region A
-@region-a-width: (@grid-column-width*24) + (@grid-gutter-width*23);
-@region-a-inner-width: @region-a-width + @grid-gutter-width;
+@region-a-width: (@gcw*24) + (@ggw*23);
+@region-a-inner-width: @region-a-width + @ggw;
 // Region B
-@region-b-width: (@grid-column-width*16) + (@grid-gutter-width*15);
-@region-b-inner-width: @region-b-width + @grid-gutter-width;
+@region-b-width: (@gcw*16) + (@ggw*15);
+@region-b-inner-width: @region-b-width + @ggw;
 // Region C
-@region-c-width: (@grid-column-width*8) + (@grid-gutter-width*7);
-@region-c-inner-width: @region-c-width + @grid-gutter-width;
+@region-c-width: (@gcw*8) + (@ggw*7);
+@region-c-inner-width: @region-c-width + @ggw;
 
 // Media Query Break Points (px & em)
 @break-point-a-px: 320px;
