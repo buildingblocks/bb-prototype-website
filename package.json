@@ -2,7 +2,7 @@
   "name": "bb-prototype-website",
   "title": "BB Prototype Website",
   "description": "Default Building Blocks website prototype template.",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "private": true,
   "homepage": "https://github.com/buildingblocks/bb-prototype-website",
   "authors": [

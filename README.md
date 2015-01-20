@@ -103,14 +103,15 @@ Bower is a package manager for the web. It offers a generic, unopinionated solut
 
 [Find out more at the Bower website](http://bower.io).
 
-## Release History
+## Release History 
+* 2015-01-19 v0.8.0 - [See release notes](https://github.com/buildingblocks/bb-prototype-website/releases/tag/v0.8.0)
 * 2014-11-06 v0.7.0 - Updated Gruntfile with new tasks and packages
 * 2014-09-22 v0.6.2 - Removed non-required setGlobal from JS
 * 2014-09-22 v0.6.1 - Updated connect to run off random port number
 * 2014-06-24 v0.6.0 - Added Bower to automate front-end package management
 * 2014-06-13 v0.5.0
 * 2014-02-28 v0.4.0
-	* Split grunt tasks for quicker 'watch'
+	* Split Grunt tasks for quicker 'watch'
 	* Extra layouts using 'extend, content, block' method
 	* Other minor fixes
 * 2014-02-28 v0.3.0 - Massive update (too much to list, see commit log)
