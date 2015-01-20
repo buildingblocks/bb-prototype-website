@@ -6,6 +6,9 @@
 				"folder_exclude_patterns": [
 				"bower_components",
 				"node_modules"
+			],
+			"file_exclude_patterns": [
+				"*.sublime-workspace"
 			]
 		}
 	]
