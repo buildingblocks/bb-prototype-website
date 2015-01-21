@@ -382,18 +382,15 @@ module.exports = function(grunt) {
 		// Project tasks
 		copy: {
 			bb: {
-				files: [
-				{
+				files: [{
 					expand: true,
 					cwd: '<%= config.src %>/<%= config.srcAssets %>/_bb/',
 					src: ['**'],
 					dest: '<%= config.dist %>/_bb'
-				}
-				]
+				}]
 			},
 			assets: {
-				files: [
-				{
+				files: [{
 					expand: true,
 					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcImages %>/',
 					src: ['**'],
@@ -410,48 +407,31 @@ module.exports = function(grunt) {
 					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcTemp %>/',
 					src: ['**'],
 					dest: '<%= config.dist %>/<%= config.distTemp %>/'
-				}
-				]
+				}]
 			},
 			scripts: {
-				files: [
-				{
+				files: [{
 					expand: true,
 					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/',
 					src: ['*.js'],
 					dest: '<%= config.dist %>/<%= config.distScripts %>/'
-				}
-				]
+				}]
 			},
 			styles: {
-				files: [
-				{
+				files: [{
 					expand: true,
 					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/',
 					src: ['*.css'],
 					dest: '<%= config.dist %>/<%= config.distStyles %>/'
-				}
-				]
-			},
-			normalize: {
-				files: [
-				{
-					expand: true,
-					cwd: '<%= config.bower %>/normalize-less',
-					src: ['normalize.less'],
-					dest: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less',
-				}
-				]
+				}]
 			},
 			deploy: {
-				files: [
-				{
+				files: [{
 					expand: true,
 					cwd: '<%= config.dist %>/',
 					src: ['**'],
 					dest: '<%= grunt.option(\'dest\') %>'
-				}
-				]
+				}]
 			}
 		},
 		clean: {
@@ -576,17 +556,12 @@ module.exports = function(grunt) {
 		}
 	});
 
-	// Setup task (ran once as postinstall after npm install)
-	grunt.registerTask('setup', [
-		'copy:normalize'
-		]);
-
 	// Build tasks.
 	grunt.registerTask('build_html', [
 		'clean:html',
 		'assemble',
 		'copy:assets'
-		]);
+	]);
 	grunt.registerTask('build_scripts', [
 		'clean:scripts',
 		'jscs',
@@ -596,7 +571,7 @@ module.exports = function(grunt) {
 		'concat:ieScripts',
 		'concat:validation',
 		'copy:scripts'
-		]);
+	]);
 	grunt.registerTask('build_styles', [
 		'clean:styles',
 		'concat:lessMixins',
@@ -608,42 +583,39 @@ module.exports = function(grunt) {
 		'copy:styles',
 		'copy:assets',
 		'clean:mixins'
-		]);
+	]);
 	grunt.registerTask('build_dev', [
 		'build_html',
 		'build_scripts',
 		'build_styles',
 		'modernizr',
 		'copy:bb'
-		]);
+	]);
 	grunt.registerTask('build_production', [
 		'build_dev',
 		'cssmin',
 		'uglify',
 		'prettify',
 		'clean:production'
-		]);
-
+	]);
 	// Default
 	grunt.registerTask('default', [
 		'clean:everything',
 		'build_dev',
 		'watch'
-		]);
-
+	]);
 	// Local server
 	grunt.registerTask('server', [
 		'clean:everything',
 		'build_dev',
 		'connect',
 		'watch'
-		]);
-
+	]);
 	// Production
 	grunt.registerTask('deploy', [
 		'build_production',
 		'copy:deploy',
 		'clean:deploy',
 		'zip:deploy'
-		]);
+	]);
 };

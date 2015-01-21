@@ -26,7 +26,6 @@ Thumbs.db
 # installed components
 bower_components
 node_modules
-src/assets/styles/less/normalize.less
 
 # generated components
 dist
