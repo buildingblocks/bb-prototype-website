@@ -1,0 +1,42 @@
+// mixins-position.less
+
+// Provide a fallback fixed amount from top for < IE8 if required
+.vertically-centered(@fallbackTop: 0) {
+	.csstransforms & {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.ie8 & {
+		top: @fallbackTop;
+	}
+}
+
+// Provide a fallback fixed amount from left for < IE8 if required
+.horizontally-centered(@fallbackLeft: 0) {
+	.csstransforms & {
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.ie8 & {
+		left: @fallbackLeft;
+	}
+}
+
+// Provide fallback fixed amounts for < IE8 if required
+.totally-centered(@fallbackTop: 0, @fallbackLeft: 0) {
+	.csstransforms & {
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.ie8 & {
+		top: @fallbackTop;
+		left: @fallbackLeft;
+	}
+}
