@@ -1,6 +1,5 @@
 /**
  * @file Utilities
- * @version 0.6.2
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
 var bb = bb ? bb : {};
@@ -21,10 +20,22 @@ var bb = bb ? bb : {};
 			var self = this;
 			self.settings.urlParams = self.getUrlParams(window.location.search);
 		},
-		// use for debugging/logging
-		log: function (content) {
+		/*
+		* Safely outputs message to browser console. Use for debugging/logging.
+		* @function log
+		* @param {String|Object} content - Content to log to browser console.
+		* @param {String} styles - CSS style to apply to text logged to browser console.
+		* @example
+		* bb.log('Hello, World!', 'background:#F00;color:#FF0;');
+		*/
+		log: function (content, style) {
 			if (typeof(console) !== 'undefined') {
-				console.log(content);
+				if (style) {
+					console.log('%c' + content, style);
+				}
+				else {
+					console.log(content);
+				}
 			}
 		},
 		htmlEncode: function (value) {
