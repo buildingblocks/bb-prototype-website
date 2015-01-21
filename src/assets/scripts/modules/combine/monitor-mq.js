@@ -1,6 +1,5 @@
 /**
  * @file Monitor Media Queries
- * @version 0.6.2
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
 var bb = bb ? bb : {};
@@ -10,17 +9,30 @@ var bb = bb ? bb : {};
         * Monitor media queries related methods.
         * @namespace monitorMq
         */
-		monitorMq : {
+		monitorMq: {
+			// jQuery DOM caching
 			$detector: null,
+			// CSS selectors
 			detectorId: 'monitor_mq',
+			// Configuration
 			detectorWidth: 0,
 			currentBreakpoint: 0,
 			previousBreakpoint: 0,
+			/**
+			* Initialises monitor media queries module. Caches jQuery DOM objects, calls monitor() on pageReady.
+			* @function init
+			* @memberof monitorMq
+			*/
 			init: function () {
 				var self = this;
 				self.$detector = $('#' + self.detectorId);
 				self.monitor();
 			},
+			/**
+			* Creates detector <div> if not present. Updates the comparison variable when a change in screen size occurs.
+			* @function monitor
+			* @memberof monitorMq
+			*/
 			monitor: function () {
 				var self = this;
 				if (!self.$detector.length) {
@@ -31,7 +43,6 @@ var bb = bb ? bb : {};
 				}
 				self.detectorWidth = self.$detector.width();
 				if (self.detectorWidth !== self.currentBreakpoint) {
-					//a change has occurred so update the comparison variable
 					self.previousBreakpoint = self.currentBreakpoint;
 					self.currentBreakpoint = self.detectorWidth;
 				}
