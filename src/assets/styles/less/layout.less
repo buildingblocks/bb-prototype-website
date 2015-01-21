@@ -90,6 +90,11 @@
 }
 
 .region-blocks(@region-outer-width:0, @region-inner-width:0) {
+	.block-single {
+		@media (min-width: @break-point-d) {
+			.fluid-width(@gcw*1, @region-inner-width);
+		}
+	}
 
 	.block-size-a {
 

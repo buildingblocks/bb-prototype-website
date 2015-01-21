@@ -22,7 +22,7 @@ html {
 	// Disable iOS/WinMobile font size changes
 	@media screen and (max-device-width: 480px) {
 		-webkit-text-size-adjust: 100%;
-			-ms-text-size-adjust: 100%;
+		-ms-text-size-adjust: 100%;
 	}
 }
 
@@ -36,6 +36,42 @@ body {
 img {
 	-ms-interpolation-mode: bicubic;
 }
+
+.grid {
+	display: none;
+
+	.layout {
+		padding: 0;
+	}
+
+	.visible-grid & {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1001;
+		background: rgba(0,0,0,0);
+		display: block;
+
+		body:hover & {
+			z-index: 0;
+		}
+
+		.layout,
+		.region,
+		.region-inner,
+		.block {
+			height: 100%;
+		}
+
+		.block {
+			background: red;
+			opacity: 0.1;
+		}
+	}
+}
+
 
 .visible-grid-btn {
 	display: block;

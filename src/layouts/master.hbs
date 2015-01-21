@@ -33,6 +33,9 @@ title: Master Page
 			{{/block}}
 			{{>footer}}
 		</div>
+		{{#if visibleGrid}}
+			{{>grid}}
+		{{/if}}
 		{{#block "master-foot"}}
 			{{>foot-scripts}}
 		{{/block}}
