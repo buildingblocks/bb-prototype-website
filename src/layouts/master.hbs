@@ -25,9 +25,9 @@ title: Master Page
 			{{>head-scripts}}
 		{{/block}}
 	</head>
-	<body>
+	<body class="body{{#if visibleGrid}} visible-grid{{/if}}{{#if visibleBreakpoints}} visible-breakpoints{{/if}}">
 		{{>header}}
-		<div id="page" class="page{{#if pageClass}} {{pageClass}}{{/if}}{{#if visibleGrid}} visible-grid{{/if}}">
+		<div id="page" class="page{{#if pageClass}} {{pageClass}}{{/if}}">
 			{{#block "master-body"}}
 				{{body}}
 			{{/block}}
