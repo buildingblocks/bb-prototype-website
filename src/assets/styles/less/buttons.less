@@ -30,108 +30,133 @@ button::-moz-focus-inner {
 }
 
 .btn {
-	.underline-reset();
-	display: inline-block;
-	margin-bottom: 0; // For input.btn
-	font-family: @font-family-base;
-	font-weight: @font-weight-bold;
-	//min-height: @btn-total-height-default;
-	text-align: center;
-	vertical-align: top;
-	cursor: pointer;
-	border: @btn-border-width solid @brand-color-a;
-	white-space: nowrap;
-	text-decoration: none;
-	text-transform: uppercase;
-	border-radius: 0;
+	.underline-reset;
+
+	background-color: #CCC;
+	background-image: none;
+	border: @btn-border-width solid #CCC;
 	box-shadow: none;
 	color: #fff;
-	background-image: none;
-	background-color: @brand-color-a;
-	// get rid of faux bolding
-	-webkit-font-smoothing: antialiased;
-	// height and padding
-	padding: @btn-padding-y-small @btn-padding-x-small;
+	cursor: pointer;
+	display: inline-block;
+	font-family: @font-family-base;
 	font-size: 12px;
+	font-weight: @font-weight-bold;
 	line-height: @btn-line-height-small;
+	margin-bottom: 0; // For input.btn
 	min-height: @btn-total-height-small;
+	padding: @btn-padding-y-small @btn-padding-x-small;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: background 250ms, border-color 250ms;
+	vertical-align: top;
+	white-space: nowrap;
+	-webkit-font-smoothing: antialiased; // get rid of faux bolding
 
 	@media (min-width: @break-point-d) {
-		padding: @btn-padding-y-default @btn-padding-x-default;
-		font-size: 16px;
+		font-size: @font-size-base;
 		line-height: @btn-line-height-default;
 		min-height: @btn-total-height-default;
+		padding: @btn-padding-y-default @btn-padding-x-default;
 	}
 
 	&:hover,
 	&:focus {
-		border-color: @brand-color-a;
+		background: darken(#CCC, 10%);
+		border-color: darken(#CCC, 10%);
 		box-shadow: none;
 	}
 
 	&:active,
 	&.active {
-		outline: 0;
 		box-shadow: none;
+		outline: 0;
 	}
 
 	&.disabled,
 	&[disabled],
 	fieldset[disabled] & {
+		.opacity(65);
+
+		box-shadow: none;
 		cursor: default;
 		pointer-events: none; // Future-proof disabling of clicks
-		.opacity(65);
-		box-shadow: none;
 	}
 }
 
 .btn-small {
-	padding: @btn-padding-y-small @btn-padding-x-small;
 	font-size: 12px;
 	line-height: @btn-line-height-small;
 	min-height: @btn-total-height-small;
+	padding: @btn-padding-y-small @btn-padding-x-small;
 
 	@media (min-width: @break-point-d) {
-		padding: @btn-padding-y-small @btn-padding-x-small;
 		font-size: 12px;
 		line-height: @btn-line-height-small;
 		min-height: @btn-total-height-small;
+		padding: @btn-padding-y-small @btn-padding-x-small;
 	}
 }
 
 .btn-large {
-	padding: @btn-padding-y-default @btn-padding-x-default;
-	font-size: 16px;
+	font-size: @font-size-base;
 	line-height: @btn-line-height-default;
 	min-height: @btn-total-height-default;
+	padding: @btn-padding-y-default @btn-padding-x-default;
 
 	@media (min-width: @break-point-d) {
-		padding: @btn-padding-y-large @btn-padding-x-large;
+		font-size: 18px;
 		line-height: @btn-line-height-large;
 		min-height: @btn-total-height-large;
-		font-size: 18px;
+		padding: @btn-padding-y-large @btn-padding-x-large;
 	}
 }
 
 .btn-style-a {
-	background-color: @brand-color-b;
-	border-color: @brand-color-b;
-	color: #fff;
+	background-color: @brand-color-a;
+	border-color: @brand-color-a;
+	color: #FFF;
 
 	&:hover,
 	&:focus {
-		border-color: @brand-color-b;
+		background: darken(@brand-color-a, 10%);
+		border-color: darken(@brand-color-a, 10%);
 	}
 }
 
 .btn-style-b {
-	background-color: transparent;
-	border-color: @brand-color-a;
-	color: @brand-color-a;
+	background-color: @brand-color-b;
+	border-color: @brand-color-b;
+	color: #FFF;
 
 	&:hover,
 	&:focus {
-		border-color: @brand-color-b;
-		//color: @brand-color-b;
+		background: darken(@brand-color-b, 10%);
+		border-color: darken(@brand-color-b, 10%);
+	}
+}
+
+.btn-style-c {
+	background-color: @brand-color-c;
+	border-color: @brand-color-c;
+	color: #FFF;
+
+	&:hover,
+	&:focus {
+		background: darken(@brand-color-c, 10%);
+		border-color: darken(@brand-color-c, 10%);
+	}
+}
+
+.btn-style-d {
+	background-color: @brand-color-d;
+	border-color: @brand-color-d;
+	color: #FFF;
+
+	&:hover,
+	&:focus {
+		background: lighten(@brand-color-d, 10%);
+		border-color: lighten(@brand-color-d, 10%);
 	}
 }
