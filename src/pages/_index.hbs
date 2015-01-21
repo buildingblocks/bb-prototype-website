@@ -9,19 +9,18 @@ layout: src/layouts/_bb.hbs
 			<img src="{{assets}}/_bb/bb-logo.svg" alt="Building Blocks" width="83" height="50" />
 		</a>
 		<h1 class="project-title">
-			{{package.title}} {{package.version}}
+			{{{package.title}}} {{{package.version}}}
 			<span class="last-modified">
-				<b>Last Modified:</b> <span>{{timestamp}}</span>
+				<b>Last Modified:</b> <span>{{{timestamp}}}</span>
 			</span>
 		</h1>
 	</header>
 	<div class="main" id="main" role="main">
 		{{>page-list}}
 		{{>partials-link}}
-		{{>docs-link}}
 		{{>responsive-link}}
 	</div>
 	<footer class="footer" role="contentinfo">
-		<p>&copy; Copyright Building Blocks Ltd</p>
+		<p>&copy; Copyright {{{copyrightYear}}} Building Blocks Ltd.</p>
 	</footer>
 </div>

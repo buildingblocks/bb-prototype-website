@@ -135,10 +135,11 @@ module.exports = function(grunt) {
 				ieCss: '<%= config.ieCss %>',
 				ieRtlCss: '<%= config.ieRtlCss %>',
 				data: [
-				'<%= config.src %>/data/*.{json,yml}',
+				'<%= config.src %>/data/**/*.json',
 				'package.json',
 				],
-				timestamp: '<%= grunt.template.today("mmm dS yyyy, h:MMtt Z") %>'
+				timestamp: '<%= grunt.template.today("mmm dS yyyy, h:MMtt Z") %>',
+				copyrightYear: '<%= grunt.template.today("yyyy") %>'
 			},
 			pages: {
 				files: [{
