@@ -65,6 +65,6 @@
   ],
   "scripts": {
     "test": "grunt build_production",
-    "postinstall": "bower install && grunt setup"
+    "postinstall": "bower install"
   }
 }
