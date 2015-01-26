@@ -39,7 +39,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-dev-update": "^1.0.1",
     "grunt-jscs": "^1.2.0",
-    "grunt-jsdoc": "^0.5.7",
     "grunt-modernizr": "^0.6.0",
     "grunt-prettify": "^0.4.0",
     "grunt-px-to-rem": "^0.3.2",
