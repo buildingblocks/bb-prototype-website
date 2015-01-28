@@ -28,8 +28,8 @@ module.exports = function(grunt) {
 			dist: 'dist',
 			distFonts: 'fonts',
 			distImages: 'images',
-			distScripts: 'scripts',
-			distStyles: 'styles',
+			distScripts: '_scripts',
+			distStyles: '_styles',
 			distTemp: 'temp',
 			// Project settings
 			assembleExt: 'hbs',
