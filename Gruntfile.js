@@ -228,6 +228,10 @@ module.exports = function(grunt) {
 			},
 			scripts: {
 				src: [
+				// Add 3rd party Bower components here using <%= config.bower %>/**/*.js
+				'<%= config.bower %>/console-polyfill/index.js',
+				'<%= config.bower %>/jquery-tiny-pubsub/dist/ba-tiny-pubsub.min.js',
+				// Our scripts
 				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins/combine/*.js',
 				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/combine/*.js',
 				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/_init.js'
@@ -236,6 +240,7 @@ module.exports = function(grunt) {
 			},
 			ieScripts: {
 				src: [
+				// Add 3rd party Bower components here using <%= config.bower %>/**/*.js
 				'<%= config.bower %>/nwmatcher/src/nwmatcher.js',
 				'<%= config.bower %>/selectivizr/selectivizr.js'
 				],
@@ -243,6 +248,7 @@ module.exports = function(grunt) {
 			},
 			validation: {
 				src: [
+				// @todo: jquery validation as component - just double check the component is all working first though.
 				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins/validation/*.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/validation.js'
@@ -380,6 +386,28 @@ module.exports = function(grunt) {
 		},
 
 		// Project tasks
+		todo: {
+			options: {
+				colophon: true,
+				file: 'TODO.md',
+				marks: [{
+					name: 'todo',
+					pattern: /@(todo)/i,
+					color: 'blue'
+				},
+				{
+					name: 'note',
+					pattern: /@(note)/i,
+					color: 'yellow'
+				}],
+				title: '[<%= pkg.title%> TODO list:](<%= pkg.homepage %>)',
+				usePackage: true
+			},
+			all: [
+			'<%= config.src %>/**/*.{hbs,html,js,less,md,mst,mustache}',
+			'<%= config.gruntfile %>'
+			]
+		},
 		copy: {
 			bb: {
 				files: [{
@@ -487,9 +515,9 @@ module.exports = function(grunt) {
 		},
 
 		 // Production tasks
-		prettify: {
-			options: {
-				'indent': 1,
+		 prettify: {
+		 	options: {
+		 		'indent': 1,
 				'indent_char': '	', // tab
 				'indent_scripts': 'normal',
 				'wrap_line_length': 0,
@@ -561,7 +589,7 @@ module.exports = function(grunt) {
 		'clean:html',
 		'assemble',
 		'copy:assets'
-	]);
+		]);
 	grunt.registerTask('build_scripts', [
 		'clean:scripts',
 		'jscs',
@@ -571,7 +599,7 @@ module.exports = function(grunt) {
 		'concat:ieScripts',
 		'concat:validation',
 		'copy:scripts'
-	]);
+		]);
 	grunt.registerTask('build_styles', [
 		'clean:styles',
 		'concat:lessMixins',
@@ -583,39 +611,39 @@ module.exports = function(grunt) {
 		'copy:styles',
 		'copy:assets',
 		'clean:mixins'
-	]);
+		]);
 	grunt.registerTask('build_dev', [
 		'build_html',
 		'build_scripts',
 		'build_styles',
 		'modernizr',
 		'copy:bb'
-	]);
+		]);
 	grunt.registerTask('build_production', [
 		'build_dev',
 		'cssmin',
 		'uglify',
 		'prettify',
 		'clean:production'
-	]);
+		]);
 	// Default
 	grunt.registerTask('default', [
 		'clean:everything',
 		'build_dev',
 		'watch'
-	]);
+		]);
 	// Local server
 	grunt.registerTask('server', [
 		'clean:everything',
 		'build_dev',
 		'connect',
 		'watch'
-	]);
+		]);
 	// Production
 	grunt.registerTask('deploy', [
 		'build_production',
 		'copy:deploy',
 		'clean:deploy',
 		'zip:deploy'
-	]);
+		]);
 };
