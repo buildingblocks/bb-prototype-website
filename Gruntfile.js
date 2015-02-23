@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 		connect: {
 			server: {
 				options: {
-					port: 0,
+					// port: 0,
 					livereload: true,
 					useAvailablePort: true,
 					// change this to '0.0.0.0' to access the server from outside
