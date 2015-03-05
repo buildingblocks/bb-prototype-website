@@ -364,7 +364,8 @@ module.exports = function(grunt) {
 		},
 		cssmin: {
 			options: {
-				noAdvanced: true,
+				advanced: false,
+				rebase: false,
 				compatibility: 'ie8'
 			},
 			main: {
