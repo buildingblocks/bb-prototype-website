@@ -67,5 +67,10 @@
   "scripts": {
     "test": "grunt build_production",
     "postinstall": "bower install"
+  },
+  "frontend": {
+    "name": "BB Prototype Website",
+    "stylesheets": "src/assets/styles",
+    "javascripts": "src/assets/scripts"
   }
 }
