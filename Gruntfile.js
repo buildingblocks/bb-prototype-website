@@ -593,7 +593,7 @@ module.exports = function(grunt) {
 		]);
 	grunt.registerTask('build_scripts', [
 		'clean:scripts',
-		'jscs',
+		// 'jscs',
 		'jshint',
 		'concat:jquery',
 		'concat:scripts',
