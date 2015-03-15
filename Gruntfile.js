@@ -23,7 +23,9 @@ module.exports = function(grunt) {
 			srcImages: 'images',
 			srcScripts: 'scripts',
 			srcStyles: 'styles',
+			srcLess: 'less',
 			srcTemp: 'temp',
+			mainLess: '_order.less',
 			// Dist settings
 			dist: 'dist',
 			distFonts: 'fonts',
@@ -31,15 +33,15 @@ module.exports = function(grunt) {
 			distScripts: '_scripts',
 			distStyles: '_styles',
 			distTemp: 'temp',
+			mainCss: 'main.css',
+			ieCss: 'ie.css',
+			mainRtlCss: 'main.rtl.css',
+			ieRtlCss: 'ie.rtl.css',
 			// Project settings
 			assembleExt: 'hbs',
 			helpers: 'helpers',
 			pagePrefix: '<%= pkg.name %>_',
 			partialPrefix: '<%= pkg.name %>_partial-',
-			mainCss: 'main.css',
-			ieCss: 'ie.css',
-			mainRtlCss: 'main.rtl.css',
-			ieRtlCss: 'ie.rtl.css',
 			livereloadPort: function () {
 				var min = 35729,
 				max = min + 1000,
@@ -287,7 +289,7 @@ module.exports = function(grunt) {
 					sourceMapRootpath: '/'
 				},
 				files: {
-					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_order.less'
+					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>/<%= config.mainLess %>'
 				}
 			},
 			rtl: {
@@ -299,7 +301,7 @@ module.exports = function(grunt) {
 					sourceMapRootpath: '/'
 				},
 				files: {
-					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_order.less'
+					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>/<%= config.mainLess %>'
 				}
 			}
 		},
