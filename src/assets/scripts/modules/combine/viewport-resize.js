@@ -5,7 +5,7 @@
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
-        /**
+		/**
         * Reusable site resize function.
         * @namespace viewportResize
         */

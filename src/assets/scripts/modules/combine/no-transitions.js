@@ -9,7 +9,7 @@ var bb = bb ? bb : {};
         * Toggle transitions related methods.
         * @namespace toggleTransitions
         */
-        toggleTransitions: {
+		toggleTransitions: {
 			// CSS selectors
 			noTransitionsClass: 'no-transitions',
 			/**
