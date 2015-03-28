@@ -1,9 +1,10 @@
 ---
-title: Example Layout A
+title: Stylesheet RTL
+rtl: true
 ---
 {{#extend "layout-a"}}
 	{{#content "region-a"}}
-		<p class="block block-size-a">region-a content</p>
+
+		{{>stylesheet}}
 	{{/content}}
 {{/extend}}
-

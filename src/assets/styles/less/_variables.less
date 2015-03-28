@@ -1,20 +1,18 @@
 // variables.less
 
 // Primary Palette
-@brand-color-a: #ED1C24; // Brand red
-@brand-color-b: #00A650; // Brand green
-@brand-color-c: #2056AE; // Brand blue
-@brand-color-d: #FFC20E; // Brand yellow
+@brand-color-a: #ED1C24;
+@brand-color-b: #00A650;
+@brand-color-c: #2056AE;
+@brand-color-d: #FABC09;
 
 // Secondary Palette
-@brand-color-e: #3C3C3C; // Near black
-@brand-color-f: #5A5A5A; // Dark grey
-@brand-color-g: #808080; // Light grey
-@brand-color-h: #A5A5A5; // Lighter grey
-@brand-color-i: #E5E5D5; // Mid white
-@brand-color-j: #F5F5E7; // Near white
+@brand-color-e: #434041;
+@brand-color-f: #747172;
+@brand-color-g: #AEADAD;
+@brand-color-h: #D7D6D6;
 
-// Social colors
+//social colors
 @color-twitter: #55ACEE;
 @color-facebook: #3B5998;
 @color-linkedin: #1C86BD;
@@ -23,9 +21,8 @@
 @color-pinterest: #cc2127;
 @color-gplus: #DD4B39;
 
-// Easy access color names
-@color-white: #FFF;
-@color-text: @brand-color-e;
+// easy access color names
+@color-text: #333;
 
 // Typography
 @font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -45,29 +42,34 @@
 @font-weight-light: 100; // 100 when not using @font-face
 
 // Dimensions
+@max-width: 1180px; // overall max width
 @font-size-html: 100%;
 @rem-base: 16px; // 100% browser default font size
 @vertical-rhythm: 6px; // use @vr*X to maintain vertical consistency
 @vr: @vertical-rhythm; // Alias
 
-// // Grid system
-@max-width: 1410px; // overall max width
-
+// Grid system
 @grid-columns: 24;
 @grid-column-width: 30px;
 @gcw: @grid-column-width; // Alias
-@grid-gutter-width: 30px;
+@grid-gutter-width: 20px;
 @ggw: @grid-gutter-width; // Alias
-@grid-gutter-width-smallscreen: 15px; // Custom smallscreen sizes
-@ggw-smallscreen: 15px; // Alias
 @grid-total-width: 100%;
-
 @grid-gridsystem-width: (@gcw*@grid-columns) + (@ggw*@grid-columns) * 1px;
 @grid-correction: 0.5 / @grid-total-width * 100 * 1%; // IE7 See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+// Custom smallscreen sizes
+@smallscreen-grid-gutter-width: 15px;
+@ggw-smallscreen: @smallscreen-grid-gutter-width;
 
 // Region A
 @region-a-width: (@gcw*24) + (@ggw*23);
 @region-a-inner-width: @region-a-width + @ggw;
+// Region B
+@region-b-width: (@gcw*16) + (@ggw*15);
+@region-b-inner-width: @region-b-width + @ggw;
+// Region C
+@region-c-width: (@gcw*8) + (@ggw*7);
+@region-c-inner-width: @region-c-width + @ggw;
 
 // Media Query Break Points (px & em)
 @break-point-a-px: 320px;

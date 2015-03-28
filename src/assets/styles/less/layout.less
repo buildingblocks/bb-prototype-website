@@ -1,0 +1,219 @@
+// layout.less
+
+.page {
+}
+
+.main {
+	overflow: hidden;
+	position: relative;
+}
+
+.layout {
+	.clearfix();
+	position: relative;
+	margin: 0 @ggw;
+	max-width: @max-width;
+
+	@media (min-width: @break-point-f) {
+		margin: 0 auto;
+	}
+}
+
+.masonry {
+	overflow: hidden;
+	clear: both;
+}
+
+.region {
+
+	@media (min-width: @break-point-d) {
+		position: relative;
+		float: left;
+	}
+
+	.rtl & {
+
+		@media (min-width: @break-point-d) {
+			float: right;
+		}
+	}
+}
+
+.region-inner {
+	position: relative;
+}
+
+.block {
+	float: left;
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: @vr*3;
+
+	.rtl & {
+		float: right;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		vertical-align: top;
+	}
+
+	&.block-last {
+
+		& + .block {
+			clear: both;
+		}
+	}
+
+	.js .masonry & {
+		margin-right: 0!important;
+
+		@media (min-width: @break-point-d) {
+			margin-bottom: 0!important;
+		}
+	}
+}
+
+.block-sizer {
+	float: left;
+	max-width: 100%;
+}
+
+.gutter-sizer {
+	float: left;
+	max-width: 100%;
+}
+
+.block-last-clear {
+	clear: both;
+}
+
+.region-blocks(@region-outer-width:0, @region-inner-width:0) {
+	.block-single {
+		@media (min-width: @break-point-d) {
+			.fluid-width(@gcw*1, @region-inner-width);
+		}
+	}
+
+	.block-size-a {
+
+		@media (min-width: @break-point-d) {
+			.fluid-width((@gcw*24) + (@ggw*23), @region-inner-width);
+		}
+	}
+
+	.block-size-b {
+
+		@media (min-width: @break-point-d) {
+			.fluid-width((@gcw*16) + (@ggw*15), @region-inner-width);
+		}
+	}
+
+	.block-size-c {
+
+		@media (min-width: @break-point-d) {
+			.fluid-width((@gcw*8) + (@ggw*7), @region-inner-width);
+		}
+	}
+}
+
+.region-a {
+
+	// Grid layout above @break-point-X only
+	@media (min-width: @break-point-d) {
+		position: relative;
+		float: left;
+		.fluid-width(@region-a-width, @max-width);
+
+		.region-inner{
+			position: relative;
+			.fluid-width(@region-a-inner-width, @region-a-width);
+		}
+
+		.block {
+			.fluid-margin-right(@ggw, @region-a-inner-width);
+
+			.rtl & {
+				margin-right: 0;
+				.fluid-margin-left(@ggw, @region-a-inner-width);
+			}
+		}
+
+		.gutter-sizer {
+			.fluid-width(@ggw, @region-a-inner-width);
+		}
+	}
+
+	.region-blocks(@region-a-width, @region-a-inner-width);
+}
+
+.region-b {
+
+	// Grid layout above @break-point-X only
+	@media (min-width: @break-point-d) {
+		position: relative;
+		float: left;
+		.fluid-width(@region-b-width, @max-width);
+
+		.region-inner{
+			position: relative;
+			.fluid-width(@region-b-inner-width, @region-b-width);
+		}
+
+		.block {
+			.fluid-margin-right(@ggw, @region-b-inner-width);
+
+			.rtl & {
+				margin-right: 0;
+				.fluid-margin-left(@ggw, @region-b-inner-width);
+			}
+		}
+
+		.gutter-sizer {
+			.fluid-width(@ggw, @region-b-inner-width);
+		}
+	}
+
+	.region-blocks(@region-b-width, @region-b-inner-width);
+}
+
+.region-c {
+
+	// Grid layout above @break-point-X only
+	@media (min-width: @break-point-d) {
+		position: relative;
+		float: right;
+		margin: 0;
+		.fluid-width(@region-c-width, @max-width);
+
+		.region-inner{
+			position: relative;
+			.fluid-width(@region-c-inner-width, @region-c-width);
+		}
+
+		.block {
+			.fluid-margin-right(@ggw, @region-c-inner-width);
+
+			.rtl & {
+				margin-right: 0;
+				.fluid-margin-left(@ggw, @region-c-inner-width);
+			}
+		}
+
+		.gutter-sizer {
+			.fluid-width(@ggw, @region-c-inner-width);
+		}
+	}
+
+	.region-blocks(@region-c-width, @region-c-inner-width);
+}
+
+// show the grid
+.visible-grid {
+
+	.block {
+		.rgba-bg(@brand-color-a, .5);
+		color: #FFF;
+	}
+}

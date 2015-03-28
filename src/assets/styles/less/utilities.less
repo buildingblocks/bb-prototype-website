@@ -1,37 +1,5 @@
 // utilities.less
 
-.global-padding {
-	padding: 0 @ggw-smallscreen;
-
-	@media(min-width: @break-point-d) {
-		padding: 0 @ggw;
-	}
-}
-
-.global-margin {
-	margin: @ggw-smallscreen 0;
-
-	@media(min-width: @break-point-d) {
-		margin: @ggw 0;
-	}
-}
-
-.global-margin-top {
-	margin: @ggw-smallscreen 0 0;
-
-	@media(min-width: @break-point-d) {
-		margin: @ggw 0 0;
-	}
-}
-
-.global-margin-bottom {
-	margin: 0 0 @ggw-smallscreen 0;
-
-	@media(min-width: @break-point-d) {
-		margin: 0 0 @ggw 0;
-	}
-}
-
 .right {
 	float: right;
 }
@@ -42,6 +10,21 @@
 
 .center {
 	text-align: center;
+}
+
+.ir {
+	display: block;
+	border: 0;
+	text-indent: -999em;
+	overflow: hidden;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	text-align: left;
+	direction: ltr;
+
+	br {
+		display: none
+	}
 }
 
 .hide {
@@ -94,6 +77,17 @@
 	&:after {
 		clear: both
 	}
+}
+
+.clearboth {
+	clear: both;
+}
+
+.clearfloats {
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	clear: both;
 }
 
 .no-transition,

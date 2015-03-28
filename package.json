@@ -1,13 +1,22 @@
 {
-  "name": "bb-website-2015",
-  "title": "BB Website 2015",
-  "description": "Building Blocks website 2015.",
+  "name": "bb-prototype-website",
+  "title": "BB Prototype Website",
+  "description": "Default Building Blocks website prototype template.",
   "version": "0.8.0",
   "private": true,
-  "homepage": "https://github.com/buildingblocks/bb-website-2015",
+  "homepage": "https://github.com/buildingblocks/bb-prototype-website",
   "authors": [
+    "Paul Welsh (https://github.com/spacedawwwg)",
+    "John Cashmore (https://github.com/JohnCashmore)",
     "Daniel Furze (https://github.com/furzeface)"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/buildingblocks/bb-prototype-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/buildingblocks/bb-prototype-website/issues"
+  },
   "engines": {
     "node": ">=0.8"
   },
@@ -60,7 +69,7 @@
     "postinstall": "bower install"
   },
   "frontend": {
-    "name": "BB Website 2015",
+    "name": "BB Prototype Website",
     "stylesheets": "src/assets/styles",
     "javascripts": "src/assets/scripts"
   }
