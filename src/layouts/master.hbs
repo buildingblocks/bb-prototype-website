@@ -11,34 +11,32 @@ title: Master Page
 <!--[if IE 9]><html class="no-js ie9 lt-ie10" lang="en" dir="ltr"><![endif]-->
 <!--[if gt IE 9]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
 {{/if}}
-	<head>
-		{{#block "master-head"}}
-			{{>head-meta}}
-			{{>head-app}}
-			{{>head-icons}}
-			{{#if rtl}}
-				{{>head-css-rtl}}
-			{{else}}
-				{{>head-css}}
-			{{/if}}
-			{{>head-fonts}}
-			{{>head-scripts}}
+<head>
+	{{#block "master-head"}}
+	{{>head-meta}}
+	{{>head-app}}
+	{{>head-icons}}
+	{{>head-css}}
+	{{>head-fonts}}
+	{{>head-scripts}}
+	{{/block}}
+</head>
+<body class="body{{#if visibleGrid}} visible-grid{{/if}}{{#if visibleBreakpoints}} visible-breakpoints{{/if}}">
+	{{#if showHeader}}
+	{{>header}}
+	{{/if}}
+	<div id="page" class="page{{#if pageClass}} {{pageClass}}{{/if}}">
+		{{#block "master-body"}}
+		{{body}}
 		{{/block}}
-	</head>
-	<body class="body{{#if visibleGrid}} visible-grid{{/if}}{{#if visibleBreakpoints}} visible-breakpoints{{/if}}">
-		{{>header}}
-		<div id="page" class="page{{#if pageClass}} {{pageClass}}{{/if}}">
-			{{#block "master-body"}}
-				{{body}}
-			{{/block}}
-			{{>footer}}
-		</div>
-		{{#if visibleGrid}}
-			{{>grid}}
-		{{/if}}
-		{{#block "master-foot"}}
-			{{>foot-scripts}}
-		{{/block}}
-	</body>
+		{{>footer}}
+	</div>
+	{{#if visibleGrid}}
+	{{>grid}}
+	{{/if}}
+	{{#block "master-foot"}}
+	{{>foot-scripts}}
+	{{/block}}
+</body>
 </html>
 

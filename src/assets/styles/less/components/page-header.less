@@ -1,0 +1,48 @@
+@page-header-width: (@gcw*24) + (@ggw*23);
+
+.page-header {
+	.clearfix;
+
+	margin: 0 @ggw-smallscreen;
+	position: relative;
+
+	@media (min-width: @break-point-e) {
+		margin: 0 @ggw;
+	}
+
+	@media (min-width: @break-point-g) {
+		margin: 0 auto;
+	}
+}
+
+.page-header-inner {
+	background-color: #FFF;
+	overflow: hidden;
+	padding-bottom: @vr;
+
+	@media (min-width: @break-point-d) {
+		padding-bottom: @vr*3;
+		padding-top: @vr*2;
+	}
+}
+
+.page-header-title {
+	padding-top: @vr*3;
+	padding-bottom: @vr*2;
+	position: relative;
+	color: @brand-color-a;
+	display: inline-block;
+	margin-bottom: 0;
+	letter-spacing: 0.05em;
+	text-indent: 0.05em;
+
+	@media (min-width: @break-point-d) {
+		padding-top: @vr*5;
+		padding-bottom: @vr*4;
+	}
+
+	@media (min-width: @break-point-f) {
+		padding-top: @vr*4;
+		padding-bottom: @vr*4;
+	}
+}

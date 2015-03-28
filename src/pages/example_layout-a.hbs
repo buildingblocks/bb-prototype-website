@@ -2,8 +2,66 @@
 title: Example Layout A
 ---
 {{#extend "layout-a"}}
-	{{#content "region-a"}}
-		<p class="block block-size-a">region-a content</p>
-	{{/content}}
+{{#content "features-top"}}
+{{>hero-image example_articles.hero}}
+{{/content}}
+
+{{#content "region-a"}}
+<div class="block block-size-a">
+	<section class="section section-style-a">
+		<h1>section.section.section-style-a</h1>
+		<p>
+			<strong>.block.block-size-a</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</section>
+</div>
+
+<div class="block block-size-b">
+	<section class="section section-style-b">
+		<h1>section.section.section-style-b</h1>
+		<p>
+			<strong>.block.block-size-b</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</section>
+</div>
+
+<div class="block block-size-c">
+	<section class="section section-style-c">
+		<h1>section.section.section-style-c</h1>
+		<p>
+			<strong>.block.block-size-c</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</section>
+</div>
+
+<div class="block block-size-e">
+	<section class="section section-style-d">
+		<h1>section.section.section-style-d</h1>
+		<p>
+			<strong>.block.block-size-e</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</section>
+</div>
+{{/content}}
 {{/extend}}
 

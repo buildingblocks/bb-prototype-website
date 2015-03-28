@@ -1,0 +1,101 @@
+---
+component: hero-image
+hide: true
+published: false
+---
+<div class="hero {{class}} {{#if image.small.src}}hero-style-a{{/if}} {{#if carousel}}hero-carousel{{/if}}" id="{{id}}">
+	{{#if detail}}
+	<section class="hero-detail">
+		<div class="hero-detail-inner">
+			{{#if detail.image}}
+			<div class="hero-detail-media">
+				<img src="{{detail.image.src}}" alt="{{detail.image.alt}}">
+			</div>
+			{{/if}}
+			<div class="hero-detail-header">
+				<h1 class="hero-detail-title">
+					<span>{{{detail.title}}}</span>
+				</h1>
+			</div>
+			{{#if detail.body}}
+			<div class="hero-detail-body">
+				{{{detail.body}}}
+			</div>
+			{{/if}}
+			{{#if detail.action}}
+			<div class="hero-detail-footer">
+				{{#each detail.action}}
+					{{!-- <a href="{{url}}" class="btn btn-style-c btn-large">{{title}}</i></a> --}}
+					<a href="{{url}}" class="btn btn-style-a btn-large">{{title}}</i></a>
+				{{/each}}
+			</div>
+			{{/if}}
+		</div>
+	</section>
+	{{/if}}
+	{{#if carousel}}
+	<div class="hero-media">
+		<div class="carousel" id="carousel_1" data-carousel-navigation="#carousel_nav_1" data-carousel-auto="true" data-carousel-dots="false">
+			{{#each carousel.items}}
+				<div class="carousel-item">
+					<picture>
+						<!--[if IE 9]><video style="display: none;"><![endif]-->
+						<!-- 61.25em = 1024px -->
+						<source media="(min-width: 61.25em)" srcset="{{image.large.src}}">
+						{{#if image.small.src}}
+						<!-- 37.5em = 600px -->
+						<source media="(min-width: 37.5em)" srcset="{{image.medium.src}}">
+						{{/if}}
+						<!--[if IE 9]></video><![endif]-->
+						<!--[if lt IE 9]><img srcset="{{image.large.src}}" alt="{{image.alt}}" /><![endif]-->
+						<!--[if !lt IE 9]><!-->
+						{{#unless image.small.src}}
+							<img srcset="{{image.medium.src}}" alt="{{image.alt}}" />
+						{{/unless}}
+						{{#if image.small.src}}
+							<img srcset="{{image.small.src}}" alt="{{image.alt}}" />
+						{{/if}}
+						<!--<![endif]-->
+					</picture>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+	<div class="hero-carousel-navigation" id="carousel_nav_1"></div>
+	{{/if}}
+	{{#unless carousel}}
+	<div class="hero-media">
+		{{#if image}}
+			{{#unless video}}
+			<picture>
+				<!--[if IE 9]><video style="display: none;"><![endif]-->
+				<!-- 61.25em = 1024px -->
+				<source media="(min-width: 61.25em)" srcset="{{image.large.src}}">
+				{{#if image.small.src}}
+				<!-- 37.5em = 600px -->
+				<source media="(min-width: 37.5em)" srcset="{{image.medium.src}}">
+				{{/if}}
+				<!--[if IE 9]></video><![endif]-->
+				<!--[if lt IE 9]><img srcset="{{image.large.src}}" alt="{{image.alt}}" /><![endif]-->
+				<!--[if !lt IE 9]><!-->
+				{{#unless image.small.src}}
+					<img srcset="{{image.medium.src}}" alt="{{image.alt}}" />
+				{{/unless}}
+				{{#if image.small.src}}
+					<img srcset="{{image.small.src}}" alt="{{image.alt}}" />
+				{{/if}}
+				<!--<![endif]-->
+			</picture>
+			{{/unless}}
+		{{/if}}
+		{{#if video}}
+			{{#if video.youtube}}
+				{{>video-youtube video.youtube}}
+			{{/if}}
+			{{#if video.html5}}
+				{{>video-html5 video.html5}}
+			{{/if}}
+		{{/if}}
+	</div>
+	{{/unless}}
+</div>

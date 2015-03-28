@@ -1,0 +1,45 @@
+{
+	"hero": {
+		"id": "hero_articles",
+		"class": "",
+		"url": "#",
+		"image": {
+			"large": {
+				"src": "temp/1600x667.png"
+			},
+			"medium": {
+				"src": "temp/960x540.png"
+			},
+			"alt": ""
+		}
+	},
+	"pageHeader": {
+		"title": "Articles",
+		"body": "<p class=\"lead\">An example layout showing the different article options.</p>",
+		"class": ""
+	},
+	"quote": {
+		"class": "block block-size-h",
+		"body": "<p>Murano’s Lobster is a beautifully delicate and flavourful dish that epitomises dinner-time indulgence. The perfect accompaniment is a chilled bottle of Newton Unfiltered Chardonnay.</p>",
+		"image": {
+			"src": "temp/240x240.png",
+			"alt": ""
+		},
+		"author": {
+			"name": "Paul Welsh",
+			"detail": "Celebrity Cruises Blogger"
+		}
+	},
+	"cta": {
+		"class": "block block-size-h",
+		"title": "Already booked your cruise?",
+		"body": "<p class=\"lead\">If you have already booked your cruise with us then you can go ahead and reserve your table.</p>",
+		"actions": [
+			{
+				"title": "Reserve a table",
+				"url": "#",
+				"class": "btn-large btn-style-a"
+			}
+		]
+	}
+}

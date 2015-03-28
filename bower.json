@@ -1,13 +1,11 @@
 {
-  "name": "bb-prototype-website",
+  "name": "bb-website-2015",
   "version": "0.8.0",
-  "homepage": "https://github.com/buildingblocks/bb-prototype-website",
+  "homepage": "http://building-blocks.com",
   "authors": [
-    "Paul Welsh (https://github.com/spacedawwwg)",
-    "John Cashmore (https://github.com/JohnCashmore)",
     "Daniel Furze (https://github.com/furzeface)"
   ],
-  "description": "Default Building Blocks website prototype template.",
+  "description": "Building Blocks website 2015.",
   "keywords": [
     "assemble",
     "templates",

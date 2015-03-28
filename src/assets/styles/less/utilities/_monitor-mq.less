@@ -9,21 +9,16 @@
 	// smallest
 	width: @break-point-a;
 
-	&.rtl {
-		left: auto;
-		right: -9999em;
-	}
-
 	.visible-breakpoints &:after {
-		background: rgba(0,0,0,0.5);
+		background: rgba(0, 0, 0, 0.5);
 		color: white;
 		// smallest
 		content: '@break-point-a';
 		font-weight: @font-weight-bold;
 		padding: @vr @vr*2;
 		position: fixed;
-		right: @vr*3;
-		bottom: @vr*3;
+		right: @ggw-smallscreen;
+		bottom: @ggw-smallscreen;
 		text-align: center;
 		z-index: 1000;
 	}
