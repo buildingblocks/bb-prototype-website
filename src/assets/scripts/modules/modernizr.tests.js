@@ -12,6 +12,12 @@ if (Modernizr) {
 	Modernizr.addTest('ios', function () {
 		return (Modernizr.ipad || Modernizr.ipod || Modernizr.iphone);
 	});
+	// IE11
+	Modernizr.addTest('ie11', function () {
+		var trident = !!navigator.userAgent.match(/Trident\/7.0/);
+		var net = !!navigator.userAgent.match(/.NET4.0E/);
+		return trident && net;
+	});
 	// Windows Phone
 	Modernizr.addTest('windowsphone', function () {
 		return !!navigator.userAgent.match(/(Windows Phone)/);
