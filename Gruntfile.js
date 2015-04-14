@@ -1,7 +1,10 @@
 module.exports = function(grunt) {
 	'use strict';
 	// Reads package.json and dynamically loads all Grunt tasks
-	require('load-grunt-tasks')(grunt, {scope: 'devDependencies', pattern: ['assemble', 'grunt-*']});
+	require('load-grunt-tasks')(grunt, {
+		scope: 'devDependencies',
+		pattern: ['assemble', 'grunt-*']
+	});
 	// Times tasks
 	require('time-grunt')(grunt);
 
@@ -22,6 +25,7 @@ module.exports = function(grunt) {
 			srcFonts: 'fonts',
 			srcImages: 'images',
 			srcScripts: 'scripts',
+			srcModules: 'modules',
 			srcStyles: 'styles',
 			srcLess: 'less',
 			srcTemp: 'temp',
@@ -42,10 +46,10 @@ module.exports = function(grunt) {
 			helpers: 'helpers',
 			pagePrefix: '<%= pkg.name %>_',
 			partialPrefix: '<%= pkg.name %>_partial-',
-			livereloadPort: function () {
+			livereloadPort: function() {
 				var min = 35729,
-				max = min + 1000,
-				port = Math.floor(Math.random() * (max - min + 1)) + min;
+					max = min + 1000,
+					port = Math.floor(Math.random() * (max - min + 1)) + min;
 				return port;
 			}
 		},
@@ -54,49 +58,49 @@ module.exports = function(grunt) {
 		watch: {
 			gruntfile: {
 				files: [
-				'<%= config.gruntfile %>'
+					'<%= config.gruntfile %>'
 				],
 				tasks: [
-				'jshint:gruntfile'
+					'jshint:gruntfile'
 				]
 			},
 			html: {
 				files: [
-				'<%= config.src %>/{data,pages,partials,layouts}/**/*.{<%= config.assembleExt %>,json}'
+					'<%= config.src %>/{data,pages,partials,layouts}/**/*.{<%= config.assembleExt %>,json}'
 				],
 				tasks: [
-				'build_html'
+					'build_html'
 				]
 			},
 			scripts: {
 				files: [
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/**/**.js',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/**/**.js',
 				],
 				tasks: [
-				'build_scripts',
-				'modernizr'
+					'build_scripts',
+					'modernizr'
 				]
 			},
 			styles: {
 				files: [
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/*.css',
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/*.less',
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/mixins-*.less'
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/*.css',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/*.less',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/mixins-*.less'
 				],
 				tasks: [
-				'build_styles',
-				'modernizr'
+					'build_styles',
+					'modernizr'
 				]
 			},
 			livereload: {
 				options: {
-					livereload: parseInt('<%= config.livereloadPort %>',10)
+					livereload: parseInt('<%= config.livereloadPort %>', 10)
 				},
 				files: [
-				'<%= config.dist %>/**/*.html',
-				'<%= config.dist %>/<%= config.distAssets %>/**/*.css',
-				'<%= config.dist %>/<%= config.distAssets %>/**/*.js',
-				'<%= config.dist %>/<%= config.distAssets %>/**/*.{png,jpg,jpeg,gif,webp,svg}'
+					'<%= config.dist %>/**/*.html',
+					'<%= config.dist %>/<%= config.distAssets %>/**/*.css',
+					'<%= config.dist %>/<%= config.distAssets %>/**/*.js',
+					'<%= config.dist %>/<%= config.distAssets %>/**/*.{png,jpg,jpeg,gif,webp,svg}'
 				]
 			}
 		},
@@ -122,10 +126,10 @@ module.exports = function(grunt) {
 				flatten: false,
 				layout: false,
 				partials: [
-				'<%= config.src %>/{layouts,partials}/**/*.<%= config.assembleExt %>'
+					'<%= config.src %>/{layouts,partials}/**/*.<%= config.assembleExt %>'
 				],
 				helpers: [
-				'<%= config.src %>/<%= config.helpers %>/helper-*.js'
+					'<%= config.src %>/<%= config.helpers %>/helper-*.js'
 				],
 				assets: '<%= config.dist %>',
 				images: '<%= config.distImages %>',
@@ -137,8 +141,8 @@ module.exports = function(grunt) {
 				ieCss: '<%= config.ieCss %>',
 				ieRtlCss: '<%= config.ieRtlCss %>',
 				data: [
-				'<%= config.src %>/data/**/*.json',
-				'package.json',
+					'<%= config.src %>/data/**/*.json',
+					'package.json',
 				],
 				timestamp: '<%= grunt.template.today("mmm dS yyyy, h:MMtt Z") %>',
 				copyrightYear: '<%= grunt.template.today("yyyy") %>'
@@ -153,9 +157,9 @@ module.exports = function(grunt) {
 						var filename = src;
 						if (src.substring(0, 1) === '_') {
 							filename = dest + src.substring(1);
-						} else if(src.indexOf('/') !== -1) {
+						} else if (src.indexOf('/') !== -1) {
 							var index = null,
-							splitSrc = src.split('/');
+								splitSrc = src.split('/');
 							filename = dest + '<%= config.pagePrefix %>';
 							for (index = 0; index < splitSrc.length; ++index) {
 								filename = filename + splitSrc[index];
@@ -180,9 +184,9 @@ module.exports = function(grunt) {
 						var filename = src;
 						if (src.substring(0, 1) === '_') {
 							filename = dest + src.substring(1);
-						} else if(src.indexOf('/') !== -1) {
+						} else if (src.indexOf('/') !== -1) {
 							var index = null,
-							splitSrc = src.split('/');
+								splitSrc = src.split('/');
 							filename = dest + '<%= config.partialPrefix %>' + splitSrc.pop();
 						} else {
 							filename = dest + '<%= config.partialPrefix %>' + src;
@@ -194,68 +198,83 @@ module.exports = function(grunt) {
 		},
 
 		// Script tasks
+		jsbeautifier: {
+			options: {
+				config: '.jsbeautifyrc',
+			},
+			all: {
+				src: [
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/**/*.js',
+					'<%= config.gruntfile %>'
+				]
+			}
+		},
+
 		jscs: {
 			options: {
 				config: '.jscsrc'
 			},
 			scripts: [
-			'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/**/*.js'
+				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/**/*.js'
 			]
 		},
+
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc',
 				reporter: require('jshint-stylish')
 			},
 			all: [
-			'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/**/*.js',
-			'<%= config.gruntfile %>'
+				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/**/*.js',
+				'<%= config.gruntfile %>'
 			],
 			gruntfile: {
 				src: '<%= config.gruntfile %>'
 			}
 		},
+
 		concat: {
 			lessMixins: {
 				src: [
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/*.less'
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/*.less'
 				],
 				dest: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
 			},
 			jquery: {
 				src: [
-				'<%= config.bower %>/jquery/dist/jquery.js'
+					'<%= config.bower %>/jquery/dist/jquery.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/jquery.js'
 			},
 			scripts: {
 				src: [
-				// Add 3rd party Bower components here using <%= config.bower %>/**/*.js
-				'<%= config.bower %>/console-polyfill/index.js',
-				'<%= config.bower %>/jquery-tiny-pubsub/dist/ba-tiny-pubsub.min.js',
-				// Our scripts
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins/combine/*.js',
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/combine/*.js',
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/_init.js'
+					// Add 3rd party Bower components here using <%= config.bower %>/**/*.js
+					'<%= config.bower %>/console-polyfill/index.js',
+					'<%= config.bower %>/jquery-tiny-pubsub/dist/ba-tiny-pubsub.min.js',
+					// Our scripts
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins/combine/*.js',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/combine/*.js',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/_init.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/scripts.js'
 			},
 			ieScripts: {
 				src: [
-				// Add 3rd party Bower components here using <%= config.bower %>/**/*.js
-				'<%= config.bower %>/nwmatcher/src/nwmatcher.js',
-				'<%= config.bower %>/selectivizr/selectivizr.js'
+					// Add 3rd party Bower components here using <%= config.bower %>/**/*.js
+					'<%= config.bower %>/nwmatcher/src/nwmatcher.js',
+					'<%= config.bower %>/selectivizr/selectivizr.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/ie.js'
 			},
 			validation: {
 				src: [
-				// @todo: jquery validation as component - just double check the component is all working first though.
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins/validation/*.js'
+					// @todo: jquery validation as component - just double check the component is all working first though.
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins/validation/*.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/validation.js'
 			}
 		},
+
 		uglify: {
 			options: {
 				preserveComments: 'some',
@@ -305,18 +324,20 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
 		stripmq: {
 			ie: {
 				files: {
 					'<%= config.dist %>/<%= config.distStyles %>/<%= config.ieCss %>': '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>'
 				}
 			},
-			ieRtl : {
+			ieRtl: {
 				files: {
 					'<%= config.dist %>/<%= config.distStyles %>/<%= config.ieRtlCss %>': '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>'
 				}
 			}
 		},
+
 		px_to_rem: {
 			main: {
 				options: {
@@ -325,22 +346,21 @@ module.exports = function(grunt) {
 					fallback_existing_rem: false,
 					ignore: []
 				},
-				files: [
-				{
+				files: [{
 					expand: true,
 					flatten: true,
 					src: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>',
 					dest: '<%= config.dist %>/<%= config.distStyles %>/'
-				}
-				]
+				}]
 			}
 		},
+
 		autoprefixer: {
 			options: {
 				browsers: [
-				'last 3 version',
-				'ie 8',
-				'ie 9'
+					'last 3 version',
+					'ie 8',
+					'ie 9'
 				]
 			},
 			main: {
@@ -356,6 +376,7 @@ module.exports = function(grunt) {
 				dest: '<%= config.dist %>/<%= config.distStyles %>/'
 			}
 		},
+
 		combine_mq: {
 			main: {
 				expand: true,
@@ -364,6 +385,7 @@ module.exports = function(grunt) {
 				dest: '<%= config.dist %>/<%= config.distStyles %>/'
 			}
 		},
+
 		cssmin: {
 			options: {
 				advanced: false,
@@ -388,6 +410,38 @@ module.exports = function(grunt) {
 			}
 		},
 
+		// Misc tasks
+		modernizr: {
+			dist: {
+				'devFile': '<%= config.bower %>/modernizr/modernizr.js',
+				'outputFile': '<%= config.dist %>/<%= config.distScripts %>/modernizr.js',
+				'parseFiles': true,
+				'files': {
+					'src': [
+						'<%= config.dist %>/<%= config.distScripts %>/*.js',
+						'<%= config.dist %>/<%= config.distStyles %>/*.css'
+					]
+				},
+				'extra': {
+					'shiv': true,
+					'printshiv': false,
+					'load': true,
+					'mq': false,
+					'cssclasses': true
+				},
+				'extensibility': {
+					'addtest': false,
+					'prefixed': false,
+					'teststyles': false,
+					'testprops': false,
+					'testallprops': false,
+					'hasevents': false,
+					'prefixes': false,
+					'domprefixes': false
+				}
+			}
+		},
+
 		// Project tasks
 		todo: {
 			options: {
@@ -397,8 +451,7 @@ module.exports = function(grunt) {
 					name: 'todo',
 					pattern: /@(todo)/i,
 					color: 'blue'
-				},
-				{
+				}, {
 					name: 'note',
 					pattern: /@(note)/i,
 					color: 'yellow'
@@ -407,10 +460,11 @@ module.exports = function(grunt) {
 				usePackage: true
 			},
 			all: [
-			'<%= config.src %>/**/*.{hbs,html,js,less,md,mst,mustache}',
-			'<%= config.gruntfile %>'
+				'<%= config.src %>/**/*.{hbs,html,js,less,md,mst,mustache}',
+				'<%= config.gruntfile %>'
 			]
 		},
+
 		copy: {
 			bb: {
 				files: [{
@@ -426,14 +480,12 @@ module.exports = function(grunt) {
 					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcImages %>/',
 					src: ['**'],
 					dest: '<%= config.dist %>/<%= config.distImages %>/'
-				},
-				{
+				}, {
 					expand: true,
 					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcFonts %>/',
 					src: ['**'],
 					dest: '<%= config.dist %>/<%= config.distStyles %>/<%= config.distFonts %>/'
-				},
-				{
+				}, {
 					expand: true,
 					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcTemp %>/',
 					src: ['**'],
@@ -443,7 +495,7 @@ module.exports = function(grunt) {
 			scripts: {
 				files: [{
 					expand: true,
-					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/modules/',
+					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/',
 					src: ['*.js'],
 					dest: '<%= config.dist %>/<%= config.distScripts %>/'
 				}]
@@ -465,71 +517,42 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+
 		clean: {
 			production: [
-			'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>.map'
+				'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>.map'
 			],
 			html: [
-			'<%= config.dist %>/*.html'
+				'<%= config.dist %>/*.html'
 			],
 			scripts: [
-			'<%= config.dist %>/<%= config.distScripts %>'
+				'<%= config.dist %>/<%= config.distScripts %>'
 			],
 			styles: [
-			'<%= config.dist %>/<%= config.distStyles %>'
+				'<%= config.dist %>/<%= config.distStyles %>'
 			],
 			mixins: [
-			'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
+				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
 			],
 			everything: [
-			'<%= config.dist %>'
+				'<%= config.dist %>'
 			],
 			deploy: []
 		},
-		modernizr: {
-			dist: {
-				'devFile': '<%= config.bower %>/modernizr/modernizr.js',
-				'outputFile': '<%= config.dist %>/<%= config.distScripts %>/modernizr.js',
-				'parseFiles': true,
-				'files': {
-					'src': [
-					'<%= config.dist %>/<%= config.distScripts %>/*.js',
-					'<%= config.dist %>/<%= config.distStyles %>/*.css'
-					]
-				},
-				'extra' : {
-					'shiv' : true,
-					'printshiv' : false,
-					'load' : true,
-					'mq' : false,
-					'cssclasses' : true
-				},
-				'extensibility' : {
-					'addtest' : false,
-					'prefixed' : false,
-					'teststyles' : false,
-					'testprops' : false,
-					'testallprops' : false,
-					'hasevents' : false,
-					'prefixes' : false,
-					'domprefixes' : false
-				}
-			}
-		},
 
-		 // Production tasks
-		 prettify: {
-		 	options: {
-		 		'indent': 1,
-				'indent_char': '	', // tab
+		// Production tasks
+		prettify: {
+			options: {
+				'indent': 1,
+				'indent_char': '	',
 				'indent_scripts': 'normal',
 				'wrap_line_length': 0,
 				'brace_style': 'collapse',
 				'preserve_newlines': true,
 				'max_preserve_newlines': 1,
 				'unformatted': [
-				'code',
-				'pre'
+					'code',
+					'pre'
 				]
 			},
 			deploy: {
@@ -540,6 +563,7 @@ module.exports = function(grunt) {
 				dest: '<%= config.dist %>/'
 			}
 		},
+
 		zip: {
 			deploy: {
 				cwd: '<%= config.dist %>/',
@@ -547,41 +571,30 @@ module.exports = function(grunt) {
 				dest: 'dist.zip'
 			}
 		},
+
 		devUpdate: {
+			options: {
+				packageJson: './package.json',
+				packages: {
+					dependencies: true,
+					devDependencies: true
+				},
+				reportUpdated: false,
+				semver: true
+			},
 			report: {
 				options: {
-					updateType: 'report',
-					reportUpdated: false,
-					semver: true,
-					packages: {
-						devDependencies: true,
-						dependencies: false
-					},
-					packageJson: './package.json'
+					updateType: 'report'
 				}
 			},
 			prompt: {
 				options: {
-					updateType: 'prompt',
-					reportUpdated: false,
-					semver: false,
-					packages: {
-						devDependencies: true,
-						dependencies: true
-					},
-					packageJson: './package.json'
+					updateType: 'prompt'
 				}
 			},
 			force: {
 				options: {
-					updateType: 'force',
-					reportUpdated: false,
-					semver: false,
-					packages: {
-						devDependencies: true,
-						dependencies: true
-					},
-					packageJson: './package.json'
+					updateType: 'force'
 				}
 			}
 		}
@@ -592,17 +605,18 @@ module.exports = function(grunt) {
 		'clean:html',
 		'assemble',
 		'copy:assets'
-		]);
+	]);
 	grunt.registerTask('build_scripts', [
 		'clean:scripts',
-		'jscs',
+		// 'jscs',
+		'jsbeautifier',
 		'jshint',
 		'concat:jquery',
 		'concat:scripts',
 		'concat:ieScripts',
 		'concat:validation',
 		'copy:scripts'
-		]);
+	]);
 	grunt.registerTask('build_styles', [
 		'clean:styles',
 		'concat:lessMixins',
@@ -614,39 +628,39 @@ module.exports = function(grunt) {
 		'copy:styles',
 		'copy:assets',
 		'clean:mixins'
-		]);
+	]);
 	grunt.registerTask('build_dev', [
 		'build_html',
 		'build_scripts',
 		'build_styles',
 		'modernizr',
 		'copy:bb'
-		]);
+	]);
 	grunt.registerTask('build_production', [
 		'build_dev',
 		'cssmin',
 		'uglify',
 		'prettify',
 		'clean:production'
-		]);
+	]);
 	// Default
 	grunt.registerTask('default', [
 		'clean:everything',
 		'build_dev',
 		'watch'
-		]);
+	]);
 	// Local server
 	grunt.registerTask('server', [
 		'clean:everything',
 		'build_dev',
 		'connect',
 		'watch'
-		]);
+	]);
 	// Production
 	grunt.registerTask('deploy', [
 		'build_production',
 		'copy:deploy',
 		'clean:deploy',
 		'zip:deploy'
-		]);
+	]);
 };
