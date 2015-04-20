@@ -3,49 +3,66 @@
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
 var bb = bb ? bb : {};
-(function ($) {
+(function($) {
 	$.extend(bb, {
-		getUrlParams: function (queryString) {
-			var params = {};
-			if (queryString) {
-				var queryStringArray = queryString.split('&');
+		/**
+		* Returns a query string parameter’s value if specified, object of query string parameters if not.
+		* @function getUrlParams
+		* @memberof utilities
+		* @param {String} [parameter] Parameter passed in to retrieve from query string
+		* @returns {Obj} [params] | {String} [param]
+		*/
+		getUrlParams: function (parameter) {
+			var queryString = window.location.search;
+
+			if (queryString !== undefined) {
+				queryString = window.location.search.replace('?', '');
+
+				var params = {},
+				queryStringArray = queryString.split('&');
+
 				for (var index in queryStringArray) {
 					var query = queryStringArray[index].split('=');
+
 					params[decodeURIComponent(query[0])] = decodeURIComponent(query[1]);
 				}
+
+				if (parameter) {
+					return params[parameter];
+				} else {
+					return params;
+				}
 			}
-			return params;
 		},
-		setUrlParams: function () {
+		setUrlParams: function() {
 			var self = this;
 			self.settings.urlParams = self.getUrlParams(window.location.search);
 		},
 		/*
-		* Safely outputs message to browser console. Use for debugging/logging.
-		* @function log
-		* @param {String|Object} content - Content to log to browser console.
-		* @param {String} styles - CSS style to apply to text logged to browser console.
-		* @example
-		* bb.log('Hello, World!', 'background:#F00;color:#FF0;');
-		*/
-		log: function (content, style) {
+		 * Safely outputs message to browser console. Use for debugging/logging.
+		 * @function log
+		 * @param {String|Object} content - Content to log to browser console.
+		 * @param {String} styles - CSS style to apply to text logged to browser console.
+		 * @example
+		 * bb.log('Hello, World!', 'background:#F00;color:#FF0;');
+		 */
+		log: function(content, style) {
 			if (typeof(console) !== 'undefined') {
 				if (style) {
 					console.log('%c' + content, style);
-				}
-				else {
+				} else {
 					console.log(content);
 				}
 			}
 		},
-		htmlEncode: function (value) {
+		htmlEncode: function(value) {
 			if (value) {
 				return $('<div />').text(value).html();
 			} else {
 				return '';
 			}
 		},
-		htmlDecode: function (value) {
+		htmlDecode: function(value) {
 			if (value) {
 				return $('<div />').html(value).text();
 			} else {
@@ -53,7 +70,7 @@ var bb = bb ? bb : {};
 			}
 		},
 		// get IE version from classname (acceptable values: 10,9,8 or 7)
-		ltIE: function (version) {
+		ltIE: function(version) {
 			var self = this;
 			if (self.settings.$html.hasClass('lt-ie' + version)) {
 				return true;
@@ -61,7 +78,7 @@ var bb = bb ? bb : {};
 				return false;
 			}
 		},
-		browserPrefix: function () {
+		browserPrefix: function() {
 			if (window.getComputedStyle) {
 				var self = this,
 					styles = window.getComputedStyle(window.document.documentElement, ''),
@@ -69,7 +86,7 @@ var bb = bb ? bb : {};
 				self.settings.browserPrefix = '-' + prefix + '-';
 			}
 		},
-		transitionAnimationEndEvent: function () {
+		transitionAnimationEndEvent: function() {
 			var self = this,
 				transition, transitions, animation, animations, element = window.document.createElement('transitionAnimationElement');
 			transitions = {
@@ -106,7 +123,7 @@ var bb = bb ? bb : {};
 			}
 			self.settings.transitionAnimationEnd = (self.settings.transitionEnd + ' ' + self.settings.animationEnd).toString();
 		},
-		textDirection: function () {
+		textDirection: function() {
 			var self = this,
 				direction = self.settings.$html.attr('dir');
 			if (direction === 'rtl') {
@@ -114,7 +131,7 @@ var bb = bb ? bb : {};
 			}
 		}
 	});
-	$.subscribe('pageReady', function () {
+	$.subscribe('pageReady', function() {
 		bb.textDirection();
 		bb.browserPrefix();
 		bb.transitionAnimationEndEvent();
