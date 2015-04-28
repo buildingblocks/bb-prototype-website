@@ -1,7 +1,7 @@
 /**
- * @file Settings
- * @author {@link https://github.com/buildingblocks Building Blocks}
- */
+* @file Settings
+* @author {@link https://github.com/buildingblocks Building Blocks}
+*/
 var bb = bb ? bb : {};
 (function ($) {
 	$.extend(bb, {
@@ -36,7 +36,11 @@ var bb = bb ? bb : {};
 			// store scripts directory
 			scriptsDirectory: '',
 			// is this a RTL site?
-			rtl: false
+			rtl: false,
+			// Perform Modernizr tests once and store the result
+			supports: {
+				// history: Modernizr.history // for example
+			}
 		}
 	});
 }(jQuery));
