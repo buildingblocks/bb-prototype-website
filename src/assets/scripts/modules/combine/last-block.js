@@ -41,6 +41,7 @@ var bb = bb ? bb : {};
 			* Starts processing of blocks and logs start time.
 			* @function startProcessing
 			* @memberOf lastBlock
+			* @param {Boolean} [forceBuild] - whether or not to force a rebuild of blocks.
 			*/
 			startProcessing: function (forceBuild) {
 				var self = this;
