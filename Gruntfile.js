@@ -210,15 +210,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		jscs: {
-			options: {
-				config: '.jscsrc'
-			},
-			scripts: [
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/**/*.js'
-			]
-		},
-
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc',
@@ -602,13 +593,10 @@ module.exports = function(grunt) {
 
 	// Build tasks.
 	grunt.registerTask('build_html', [
-		'clean:html',
 		'assemble',
 		'copy:assets'
 	]);
 	grunt.registerTask('build_scripts', [
-		'clean:scripts',
-		// 'jscs',
 		'jsbeautifier',
 		'jshint',
 		'concat:jquery',
@@ -618,7 +606,6 @@ module.exports = function(grunt) {
 		'copy:scripts'
 	]);
 	grunt.registerTask('build_styles', [
-		'clean:styles',
 		'concat:lessMixins',
 		'less',
 		'stripmq',
@@ -630,8 +617,11 @@ module.exports = function(grunt) {
 		'clean:mixins'
 	]);
 	grunt.registerTask('build_dev', [
+		'clean:html',
 		'build_html',
+		'clean:scripts',
 		'build_scripts',
+		'clean:styles',
 		'build_styles',
 		'modernizr',
 		'copy:bb'
