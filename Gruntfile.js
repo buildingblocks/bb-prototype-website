@@ -173,27 +173,6 @@ module.exports = function(grunt) {
 						return filename;
 					}
 				}]
-			},
-			components: {
-				files: [{
-					expand: true,
-					cwd: '<%= config.src %>/partials/',
-					src: '**/*.<%= config.assembleExt %>',
-					dest: '<%= config.dist %>/',
-					rename: function(dest, src) {
-						var filename = src;
-						if (src.substring(0, 1) === '_') {
-							filename = dest + src.substring(1);
-						} else if (src.indexOf('/') !== -1) {
-							var index = null,
-								splitSrc = src.split('/');
-							filename = dest + '<%= config.partialPrefix %>' + splitSrc.pop();
-						} else {
-							filename = dest + '<%= config.partialPrefix %>' + src;
-						}
-						return filename;
-					}
-				}]
 			}
 		},
 
