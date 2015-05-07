@@ -3,26 +3,26 @@
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
 var bb = bb ? bb : {};
-(function ($) {
+(function($) {
 	$.extend(bb, {
 		/**
-        * Menu related methods.
-        * @namespace menu
-        */
+		 * Menu related methods.
+		 * @namespace menu
+		 */
 		menu: {
 			// jQuery DOM caching
-			$handle : null,
+			$handle: null,
 			// CSS selectors
-			menuInClass : 'menu-in',
+			menuInClass: 'menu-in',
 			/**
-			* Initialises menu module. Caches jQuery DOM objects.
-			* @function init
-			* @memberof menu
-			*/
-			init: function () {
+			 * Initialises menu module. Caches jQuery DOM objects.
+			 * @function init
+			 * @memberof menu
+			 */
+			init: function() {
 				var self = this;
 				self.$handle = $('.action-menu');
-				self.$handle.on('click.menu', function (event) {
+				self.$handle.on('click.menu', function(event) {
 					event.preventDefault();
 					if (bb.settings.$html.hasClass(self.menuInClass)) {
 						self.closeMenu(event);
@@ -32,26 +32,26 @@ var bb = bb ? bb : {};
 				});
 			},
 			/**
-			* Adds CSS class to <html>, showing menu.
-			* @function openMenu
-			* @memberof menu
-			*/
-			openMenu: function () {
+			 * Adds CSS class to <html>, showing menu.
+			 * @function openMenu
+			 * @memberof menu
+			 */
+			openMenu: function() {
 				var self = this;
 				bb.settings.$html.addClass(self.menuInClass);
 			},
 			/**
-			* Removes CSS class from <html>, hiding menu.
-			* @function closeMenu
-			* @memberof menu
-			*/
-			closeMenu: function () {
+			 * Removes CSS class from <html>, hiding menu.
+			 * @function closeMenu
+			 * @memberof menu
+			 */
+			closeMenu: function() {
 				var self = this;
 				bb.settings.$html.removeClass(self.menuInClass);
 			}
 		}
 	});
-	$.subscribe('pageReady', function () {
+	$.subscribe('pageReady', function() {
 		bb.menu.init();
 	});
 }(jQuery));

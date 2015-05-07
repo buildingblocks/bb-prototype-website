@@ -3,12 +3,12 @@
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
 var bb = bb ? bb : {};
-(function ($) {
+(function($) {
 	$.extend(bb, {
 		/**
-        * Monitor media queries related methods.
-        * @namespace monitorMq
-        */
+		 * Monitor media queries related methods.
+		 * @namespace monitorMq
+		 */
 		monitorMq: {
 			// jQuery DOM caching
 			$detector: null,
@@ -19,21 +19,21 @@ var bb = bb ? bb : {};
 			currentBreakpoint: 0,
 			previousBreakpoint: 0,
 			/**
-			* Initialises monitor media queries module. Caches jQuery DOM objects, calls monitor() on pageReady.
-			* @function init
-			* @memberof monitorMq
-			*/
-			init: function () {
+			 * Initialises monitor media queries module. Caches jQuery DOM objects, calls monitor() on pageReady.
+			 * @function init
+			 * @memberof monitorMq
+			 */
+			init: function() {
 				var self = this;
 				self.$detector = $('#' + self.detectorId);
 				self.monitor();
 			},
 			/**
-			* Creates detector <div> if not present. Updates the comparison variable when a change in screen size occurs.
-			* @function monitor
-			* @memberof monitorMq
-			*/
-			monitor: function () {
+			 * Creates detector <div> if not present. Updates the comparison variable when a change in screen size occurs.
+			 * @function monitor
+			 * @memberof monitorMq
+			 */
+			monitor: function() {
 				var self = this;
 				if (!self.$detector.length) {
 					self.$detector = $('<div />', {
@@ -49,10 +49,10 @@ var bb = bb ? bb : {};
 			}
 		}
 	});
-	$.subscribe('pageReady', function () {
+	$.subscribe('pageReady', function() {
 		bb.monitorMq.init();
 	});
-	$.subscribe('viewportResizeEnd', function () {
+	$.subscribe('viewportResizeEnd', function() {
 		bb.monitorMq.monitor();
 	});
 }(jQuery));

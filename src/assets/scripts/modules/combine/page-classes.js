@@ -1,25 +1,25 @@
 /**
-* @file Page classes
-* @author {@link https://github.com/buildingblocks Building Blocks}
-*/
+ * @file Page classes
+ * @author {@link https://github.com/buildingblocks Building Blocks}
+ */
 var bb = bb ? bb : {};
-(function ($) {
+(function($) {
 	$.extend(bb, {
-		pageReadyClass: function () {
+		pageReadyClass: function() {
 			var self = this;
 
 			self.settings.$html.addClass('page-ready');
 		},
-		pageLoadedClass: function () {
+		pageLoadedClass: function() {
 			var self = this;
 
 			self.settings.$html.addClass('page-loaded');
 		}
 	});
-	$.subscribe('pageReady', function () {
+	$.subscribe('pageReady', function() {
 		bb.pageReadyClass();
 	});
-	$.subscribe('pageLoaded', function () {
+	$.subscribe('pageLoaded', function() {
 		bb.pageLoadedClass();
 	});
 }(jQuery));

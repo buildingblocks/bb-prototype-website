@@ -1,9 +1,9 @@
 /**
-* @file Settings
-* @author {@link https://github.com/buildingblocks Building Blocks}
-*/
+ * @file Settings
+ * @author {@link https://github.com/buildingblocks Building Blocks}
+ */
 var bb = bb ? bb : {};
-(function ($) {
+(function($) {
 	$.extend(bb, {
 		settings: {
 			// cache some common variables

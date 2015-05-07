@@ -2,12 +2,12 @@
  * @file Toggle grid
  * @author {@link https://github.com/buildingblocks Building Blocks}
  */
- var bb = bb ? bb : {};
-(function ($) {
+var bb = bb ? bb : {};
+(function($) {
 	$.extend(bb, {
-		toggleGrid: function ($object) {
+		toggleGrid: function($object) {
 			var self = this,
-			$visibleGrid = $('.visible-grid');
+				$visibleGrid = $('.visible-grid');
 
 			if (!$visibleGrid.length) {
 				return;
@@ -20,12 +20,12 @@
 
 			bb.settings.$body.append($btn);
 
-			$btn.on('click', function (event) {
+			$btn.on('click', function(event) {
 				bb.settings.$body.toggleClass('visible-grid');
 			});
 		}
 	});
-	$.subscribe('pageReady', function () {
+	$.subscribe('pageReady', function() {
 		bb.toggleGrid();
 	});
 }(jQuery));

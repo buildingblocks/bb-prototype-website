@@ -1,14 +1,14 @@
 /**
-* @file Last Block
-* @author {@link https://github.com/buildingblocks Building Blocks}
-*/
+ * @file Last Block
+ * @author {@link https://github.com/buildingblocks Building Blocks}
+ */
 var bb = bb ? bb : {};
-(function ($) {
+(function($) {
 	$.extend(bb, {
 		/**
-		* Last block in a row.
-		* @namespace lastBlock
-		*/
+		 * Last block in a row.
+		 * @namespace lastBlock
+		 */
 		lastBlock: {
 			// jQuery DOM objs
 			$blockContainers: null,
@@ -22,11 +22,11 @@ var bb = bb ? bb : {};
 			processing: false,
 			roundingOffset: 3,
 			/**
-			* Initialises last block module, caches jQuery DOM objects.
-			* @function init
-			* @memberOf lastBlock
-			*/
-			init: function () {
+			 * Initialises last block module, caches jQuery DOM objects.
+			 * @function init
+			 * @memberOf lastBlock
+			 */
+			init: function() {
 				var self = this;
 
 				self.$blockContainers = $(self.containerSelector);
@@ -38,12 +38,12 @@ var bb = bb ? bb : {};
 				self.startProcessing(false);
 			},
 			/**
-			* Starts processing of blocks and logs start time.
-			* @function startProcessing
-			* @memberOf lastBlock
-			* @param {Boolean} [forceBuild] - whether or not to force a rebuild of blocks.
-			*/
-			startProcessing: function (forceBuild) {
+			 * Starts processing of blocks and logs start time.
+			 * @function startProcessing
+			 * @memberOf lastBlock
+			 * @param {Boolean} [forceBuild] - whether or not to force a rebuild of blocks.
+			 */
+			startProcessing: function(forceBuild) {
 				var self = this;
 
 				console.time('Processing last blocks');
@@ -62,7 +62,7 @@ var bb = bb ? bb : {};
 					}
 				}
 
-				self.$blockContainers.each(function () {
+				self.$blockContainers.each(function() {
 					var $blockContainer = $(this),
 						$blocks = $blockContainer.find(self.blockSelector),
 						blocksLength = $blocks.length,
@@ -78,11 +78,11 @@ var bb = bb ? bb : {};
 				});
 			},
 			/**
-			* Stops processing of blocks and logs end time.
-			* @function stopProcessing
-			* @memberOf lastBlock
-			*/
-			stopProcessing: function () {
+			 * Stops processing of blocks and logs end time.
+			 * @function stopProcessing
+			 * @memberOf lastBlock
+			 */
+			stopProcessing: function() {
 				var self = this;
 
 				console.timeEnd('Processing last blocks');
@@ -92,20 +92,20 @@ var bb = bb ? bb : {};
 				return false;
 			},
 			/**
-			* Processes blocks, pushing the last block in a row into setLastBlock.
-			* @function processBlocks
-			* @memberOf lastBlock
-			* @param {Obj} $blocks - jQuery DOM objects of elements to calculate widths from.
-			* @param {Number} blockContainerWidth - max width of containing element to calculate widths from.
-			*/
-			processBlocks: function ($blocks, blockContainerWidth) {
+			 * Processes blocks, pushing the last block in a row into setLastBlock.
+			 * @function processBlocks
+			 * @memberOf lastBlock
+			 * @param {Obj} $blocks - jQuery DOM objects of elements to calculate widths from.
+			 * @param {Number} blockContainerWidth - max width of containing element to calculate widths from.
+			 */
+			processBlocks: function($blocks, blockContainerWidth) {
 				var self = this;
 
 				if (!$blocks || !blockContainerWidth) {
 					self.stopProcessing();
 				}
 
-				$blocks.each(function () {
+				$blocks.each(function() {
 					var $block = $(this);
 
 					if ($block.hasClass('pull-right') || $block.hasClass('block-alt')) {
@@ -133,12 +133,12 @@ var bb = bb ? bb : {};
 				self.stopProcessing();
 			},
 			/**
-			* Adds CSS class to last block, plus fallbackfor ltIE8.
-			* @function setLastBlock
-			* @memberOf lastBlock
-			* @param {Obj} $block - jQuery DOM object of element to add class to.
-			*/
-			setLastBlock: function ($block) {
+			 * Adds CSS class to last block, plus fallbackfor ltIE8.
+			 * @function setLastBlock
+			 * @memberOf lastBlock
+			 * @param {Obj} $block - jQuery DOM object of element to add class to.
+			 */
+			setLastBlock: function($block) {
 				var self = this;
 
 				if (!$block) {
@@ -156,10 +156,10 @@ var bb = bb ? bb : {};
 		}
 	});
 	// Subscribe to published events
-	$.subscribe('pageReady ajaxLoaded', function () {
+	$.subscribe('pageReady ajaxLoaded', function() {
 		bb.lastBlock.init();
 	});
-	$.subscribe('viewportResizeEnd', function () {
+	$.subscribe('viewportResizeEnd', function() {
 		bb.lastBlock.startProcessing(true);
 	});
 }(jQuery));
