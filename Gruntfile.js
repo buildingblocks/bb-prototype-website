@@ -270,25 +270,11 @@ module.exports = function(grunt) {
 		// Style tasks
 		less: {
 			main: {
-				options: {
-					yuicompress: false,
-					sourceMap: true,
-					sourceMapFilename: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>.map',
-					sourceMapURL: '<%= config.mainCss %>.map',
-					sourceMapRootpath: '/'
-				},
 				files: {
 					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>/<%= config.mainLess %>'
 				}
 			},
 			rtl: {
-				options: {
-					yuicompress: false,
-					sourceMap: true,
-					sourceMapFilename: '<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>.map',
-					sourceMapURL: '<%= config.mainRtlCss %>.map',
-					sourceMapRootpath: '/'
-				},
 				files: {
 					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>/<%= config.mainLess %>'
 				}
