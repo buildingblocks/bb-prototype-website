@@ -456,14 +456,6 @@ module.exports = function(grunt) {
 					dest: '<%= config.dist %>/<%= config.distScripts %>/'
 				}]
 			},
-			styles: {
-				files: [{
-					expand: true,
-					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/',
-					src: ['*.css'],
-					dest: '<%= config.dist %>/<%= config.distStyles %>/'
-				}]
-			},
 			deploy: {
 				files: [{
 					expand: true,
@@ -577,7 +569,6 @@ module.exports = function(grunt) {
 		'autoprefixer',
 		'px_to_rem',
 		'combine_mq',
-		'copy:styles',
 		'copy:assets',
 		'clean:mixins'
 	]);
