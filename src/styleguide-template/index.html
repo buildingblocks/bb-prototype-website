@@ -15,11 +15,11 @@
 	  <link rel="stylesheet" href="public/kss.css">
 	  {{{styles}}}
 </head>
-<body id="kss-node">
+<body id="kss-node" class="body visible-breakpoints">
 
 <div class="kss-sidebar kss-style">
   <header class="kss-header">
-    <h1 class="kss-doc-title">{{options.title}}</h1>
+    <h1 class="kss-doc-title">BB Prototype Styleguide</h1>
   </header>
   <nav class="kss-nav">
     <ul class="kss-nav__menu">
@@ -56,8 +56,20 @@
 </div>
 <article role="main" class="kss-main">
 {{#if homepage}}
-  <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
-    {{{homepage}}}
+  <div id="kssref-1" class="kss-section kss-section--depth-1 kss-overview kss-style">
+    <div class="kss-style">
+      <h1 class="kss-title kss-title--level-1">
+        <a class="kss-title__permalink" href="#kssref-1">
+          <span class="kss-title__ref">
+              1
+            <span class="kss-title__permalink-hash">
+                #permalink
+            </span>
+          </span>
+          Overview
+        </a>
+      </h1>
+    </div>
   </div>
 {{else}}
 
@@ -114,10 +126,6 @@
     </div>
 
     {{#if markup}}
-      <div class="kss-modifier__wrapper">
-        <div class="kss-modifier__heading kss-style">
-          Example{{#if modifiers}}s{{/if}}
-        </div>
       {{#if modifiers}}
         <div class="kss-modifier__default-name kss-style">
           Default styling
@@ -137,7 +145,6 @@
           {{{markup}}}
         </div>
       {{/eachModifier}}
-      </div>
 
       <div class="kss-markup kss-style">
         <pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
@@ -155,6 +162,7 @@
 
 <!-- SCRIPTS -->
 <script src="public/kss.js"></script>
+    
 <script src="public/prettify.js"></script>
 <script>
   prettyPrint();

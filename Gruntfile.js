@@ -555,7 +555,8 @@ module.exports = function(grunt) {
 
 		kss: {
 			options: {
-				css: '../../<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>',
+				js: ['../<%= config.distScripts %>/jquery.js', '../<%= config.distScripts %>/scripts.js'],
+				css: '../<%= config.distStyles %>/<%= config.mainCss %>',
 				template: '<%= config.src %>/styleguide-template',
 			},
 			dist: {
