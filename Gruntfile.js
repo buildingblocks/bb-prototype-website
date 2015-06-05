@@ -66,7 +66,7 @@ module.exports = function(grunt) {
 			},
 			html: {
 				files: [
-					'<%= config.src %>/{data,pages,partials,layouts}/**/*.{<%= config.assembleExt %>,json}'
+					'<%= config.src %>/{data,pages,partials,layouts}/**/*.{<%= config.assembleExt %>,json}',
 				],
 				tasks: [
 					'build_html'
@@ -84,6 +84,7 @@ module.exports = function(grunt) {
 			styles: {
 				files: [
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/*.css',
+					'<%= config.src %>/styleguide-template/public/kss.less',
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/*.less',
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/mixins-*.less'
 				],
@@ -151,7 +152,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '<%= config.src %>/pages/',
-					src: '**/*.<%= config.assembleExt %>',
+					src: ['**/*.<%= config.assembleExt %>', '! **/styleguide-template.html'],
 					dest: '<%= config.dist %>/',
 					rename: function(dest, src) {
 						var filename = src;
@@ -278,7 +279,12 @@ module.exports = function(grunt) {
 				files: {
 					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>/<%= config.mainLess %>'
 				}
-			}
+			},
+			kss: {
+				files: {
+					'<%= config.dist %>/styleguide/public/kss.css': '<%= config.src %>/styleguide-template/public/kss.less'
+				}
+			},
 		},
 
 		stripmq: {
@@ -545,6 +551,19 @@ module.exports = function(grunt) {
 					updateType: 'force'
 				}
 			}
+		},
+
+		kss: {
+			options: {
+				js: ['../<%= config.distScripts %>/jquery.js', '../<%= config.distScripts %>/scripts.js'],
+				css: '../<%= config.distStyles %>/<%= config.mainCss %>',
+				template: '<%= config.src %>/styleguide-template',
+			},
+			dist: {
+				files: {
+					'<%= config.dist %>/styleguide/': ['<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>']
+				}
+			}
 		}
 	});
 
@@ -564,6 +583,7 @@ module.exports = function(grunt) {
 	]);
 	grunt.registerTask('build_styles', [
 		'concat:lessMixins',
+		'kss',
 		'less',
 		'stripmq',
 		'autoprefixer',

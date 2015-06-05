@@ -1,4 +1,11 @@
-// buttons.less
+// Buttons
+//
+// Button styles can be applied to anything with the `.btn` class applied.
+// However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering.
+//
+// Styleguide 4
+//
+
 @btn-border-width: 2px;
 
 @btn-padding-y-small: @vr;
@@ -28,6 +35,23 @@ button::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
+
+
+// Basic button states
+//
+// Buttons have `:hover`, `:focus`, and `:active` states
+//
+// .btn-icon-left      - Button with icon on the left
+// .btn-icon-right      - Button with icon on the right
+// .disabled            - Disabled button
+//
+// Markup:
+// <div class="form-actions">
+//		<button type="submit" class="btn {{modifier_class}}">.btn</button>
+// </div>
+//
+// Styleguide 4.1
+
 
 .btn {
 	.underline-reset;
@@ -85,6 +109,21 @@ button::-moz-focus-inner {
 	}
 }
 
+// Sizing
+//
+// .btn-large  - Large button.
+// .btn-small  - Small button.
+//
+// Markup:
+// <div class="form-actions">
+//		<button type="submit" class="btn {{modifier_class}}">.btn</button>
+//		<button type="submit" class="btn btn-icon-left {{modifier_class}}">Icon left</button>
+//		<button type="submit" class="btn btn-icon-right {{modifier_class}}">Icon right</button>
+// </div>
+//
+// Styleguide 4.2
+
+
 .btn-small {
 	font-size: 12px;
 	line-height: @btn-line-height-small;
@@ -112,6 +151,24 @@ button::-moz-focus-inner {
 		padding: @btn-padding-y-large @btn-padding-x-large;
 	}
 }
+
+// Styles
+//
+// .btn-style-a  - Button Style A
+// .btn-style-b  - Button Style B
+// .btn-style-c  - Button Style C
+// .btn-style-d  - Button Style D
+//
+// Markup:
+// <div class="form-actions">
+//		<button type="submit" class="btn {{modifier_class}}">.btn</button>
+//		<button type="submit" class="btn btn-icon-left {{modifier_class}}">Icon left</button>
+//		<button type="submit" class="btn {{modifier_class}}" disabled>.disabled</button>
+//		<button type="submit" class="btn btn-small {{modifier_class}}">.btn-small</button>
+//		<button type="submit" class="btn btn-large {{modifier_class}}">.btn-large</button>
+// </div>
+//
+// Styleguide 4.3
 
 .btn-style-a {
 	background-color: @brand-color-a;
