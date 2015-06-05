@@ -7,8 +7,8 @@
 ## Using the prototype website
 Please refer to [the wiki](https://github.com/buildingblocks/bb-prototype-website/wiki) for details on how to use this prototype project:
 
-- [Prerequisites](Prerequisites)
-- [Installation](Installation)
+- [Prerequisites](https://github.com/buildingblocks/bb-prototype-website/wiki/Prerequisites)
+- [Installation](https://github.com/buildingblocks/bb-prototype-website/wiki/Installation)
 - [Building the project](https://github.com/buildingblocks/bb-prototype-website/wiki/Building-the-project)
 - [Working with the project](https://github.com/buildingblocks/bb-prototype-website/wiki/Working-with-the-project)
 - [Working on the project](https://github.com/buildingblocks/bb-prototype-website/wiki/Working-on-the-project)
