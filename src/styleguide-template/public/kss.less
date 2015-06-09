@@ -17,7 +17,6 @@
 @import "../../assets/styles/less/_variables";
 
 @kss-vertical-rhythm: @vr * 4;
-@kss-sidebar-width: (@gcw*6) + (@ggw*5);
 @kss-main-width: (@gcw*18) + (@ggw*17);
 @max-width: 100%;
 
@@ -211,28 +210,20 @@
     padding: 0;
     background: #fff;
     width: @max-width;
-        
-    .kss-main,
-    .kss-sidebar {
-        @media (min-width: @break-point-f) {
-             float: left;
-             margin-right: -100%;
-             box-sizing: border-box;
-        }
-          
-    }
-
 
   .kss-main {
     width: 100%;
-    padding: 5%;
-    padding-top: 0;
 
     @media (min-width: @break-point-f) {
-      .fluid-width(@kss-main-width, @max-width);
-      .fluid-margin-right(@ggw, @kss-main-width);
-        float: right;
         padding: 0;
+		width: @kss-main-width;
+		margin: 0 auto;
+		padding-left: @ggw + @gcw;
+
+		.rtl & {
+			padding: 0;
+			padding-right: @ggw + @gcw;
+		}
     }
   }
 
@@ -241,17 +232,25 @@
 	border-right: 1px solid #CCC;
 	background: #eee;
     width: 100%;
-      padding: 2% 5% 1% 5%;
+    padding: 2% 5% 1% 5%;
 
     @media (min-width: @break-point-f) {
       position: fixed;
-      .fluid-width(@kss-sidebar-width, @max-width);
-      .fluid-margin-right(@ggw, @kss-sidebar-width);
+	  top: 0;
+	  bottom: 0;
+	  left: 0;
+      width: 195px;
       height: 100%;
       overflow: auto;
       border-bottom: 0;
       padding: 20px @ggw;
-    }
+	z-index: 1002;
+
+		.rtl & {
+			left: auto;
+			right: 0;
+		}
+      }
   }
 }
 // ------------------------------------------------------------------------------
@@ -375,8 +374,11 @@
     }
     .kss-modifier__name {
         float: right;
-        padding-right: 10px;
 		font-style: italic;
+
+		.rtl & {
+			float: left;
+		}
     }
     .kss-modifier__description {
         margin-top: @kss-vertical-rhythm;
@@ -409,6 +411,48 @@
             border: 0;
         }
     }
+
+	.kss-color-swatch {
+		@kss-color-swatch-width: (@gcw*4+@ggw*3);
+		color: #fff;
+		font-weight: bold;
+		padding: 10px;
+		width: @kss-color-swatch-width;
+		height: @kss-color-swatch-width;
+		margin-right: 1.9%;
+		margin-bottom: @ggw;
+		display: inline-block;
+
+		.rtl & {
+			margin-right: 0;
+			margin-left: 1.9%;
+		}
+
+		&.kss-color-a {
+			background: @brand-color-a;
+		}
+		&.kss-color-b {
+			background: @brand-color-b;
+		}
+		&.kss-color-c {
+			background: @brand-color-c;
+		}
+		&.kss-color-d {
+			background: @brand-color-d;
+		}
+		&.kss-color-e {
+			background: @brand-color-e;
+		}
+		&.kss-color-f {
+			background: @brand-color-f;
+		}
+		&.kss-color-g {
+			background: @brand-color-g;
+		}
+		&.kss-color-h {
+			background: @brand-color-h;
+		}
+	}
     // ------------------------------------------------------------------------------
     //   @group prettyprint.js styling
     // ------------------------------------------------------------------------------
