@@ -8,14 +8,12 @@
   "authors": [
     "Paul Welsh (https://github.com/spacedawwwg)",
     "John Cashmore (https://github.com/JohnCashmore)",
-    "Daniel Furze (https://github.com/furzeface)"
+    "Daniel Furze <d.furze@building-blocks.com>",
+    "Andrew 'Anthony Costa' Blackledge <a.blackledge@building-blocks.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/buildingblocks/bb-prototype-website.git"
-  },
-  "bugs": {
-    "url": "https://github.com/buildingblocks/bb-prototype-website/issues"
+    "url": "git@bitbucket.org:buildingblocks/itg.git"
   },
   "engines": {
     "node": ">=0.8"
@@ -53,20 +51,6 @@
     "load-grunt-tasks": "^3.0.0",
     "time-grunt": "^1.0.0"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://building-blocks.mit-license.org"
-    }
-  ],
-  "keywords": [
-    "assemble",
-    "templates",
-    "handlebars",
-    "site generator",
-    "site builder",
-    "grunt"
-  ],
   "scripts": {
     "test": "grunt build_production",
     "postinstall": "bower install"

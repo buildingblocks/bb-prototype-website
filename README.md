@@ -15,6 +15,8 @@ Please refer to [the wiki](https://github.com/buildingblocks/bb-prototype-websit
 - [Appendix: Technologies used](https://github.com/buildingblocks/bb-prototype-website/wiki/Appendix:-Technologies-used)
 
 ## Release History 
+**@todo:** need to start doing proper releases
+
 * 2015-01-19 v0.8.0 - [See release notes](https://github.com/buildingblocks/bb-prototype-website/releases/tag/v0.8.0)
 * 2014-11-06 v0.7.0 - Updated Gruntfile with new tasks and packages
 * 2014-09-22 v0.6.2 - Removed non-required setGlobal from JS
@@ -27,7 +29,7 @@ Please refer to [the wiki](https://github.com/buildingblocks/bb-prototype-websit
 	* Other minor fixes
 * 2014-02-28 v0.3.0 - Massive update (too much to list, see commit log)
 * 2014-02-17 v0.2.0 - Render components list
-* 2014-02-13 v0.1.0 - Inital project upload
+* 2014-02-13 v0.1.0 - Initial project upload
 
 See also: [Releases](https://github.com/buildingblocks/bb-prototype-website/releases).
 
