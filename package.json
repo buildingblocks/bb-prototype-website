@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:buildingblocks/itg.git"
+    "url": "git://github.com/buildingblocks/bb-prototype-website.git"
   },
   "engines": {
     "node": ">=0.8"
