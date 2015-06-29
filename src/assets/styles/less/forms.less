@@ -32,7 +32,20 @@
 //      </form>
 // </div>
 //
-// Styleguide 3.1
+// Styleguide 4.1
+
+// Forms specific variables
+@input-border-width: 1px;
+
+@input-height-smallscreen: @vr*5;
+@input-padding-y-smallscreen: @vr;
+@input-padding-x-smallscreen: 10px;
+
+@input-height: @vr*7;
+@input-padding-y: @vr;
+@input-padding-x: 15px;
+
+@input-icon-width: 16px;
 
 // Make textarea height behave
 textarea {
@@ -42,6 +55,7 @@ textarea {
 }
 
 // Elements with actions need pointers
+label,
 input[type="submit"],
 button {
 	cursor: pointer;
@@ -57,6 +71,91 @@ input[type="search"] {
 	&::-webkit-search-results-decoration {
 		display: none;
 	}
+}
+
+// Remove -webkit styles from text inputs
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="week"],
+input[type="month"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="time"],
+input[type="number"],
+input[type="search"],
+input[type="password"],
+textarea {
+	.appearance(none);
+}
+
+// Inputs within a label
+label input,
+label textarea,
+label select {
+	display: block;
+}
+
+textarea {
+	height: @vr*30;
+	white-space: normal;
+	overflow: auto;
+	padding: @input-padding-y-smallscreen @input-padding-x-smallscreen;
+
+	@media (min-width: @break-point-d) {
+		padding: @input-padding-y*2 @input-padding-x;
+		height: @vr*30;
+	}
+}
+
+.input-full {
+	width: 100%;
+
+	input {
+		overflow: visible;
+	}
+}
+
+@media (min-width: @break-point-d) {
+
+	.input-mini {
+		width: (@gcw*1) + (@ggw*1);
+	}
+	.input-small {
+		width: (@gcw*2) + (@ggw*1);
+	}
+	.input-medium {
+		width: (@gcw*3) + (@ggw*2);
+	}
+	.input-large {
+		width: (@gcw*4) + (@ggw*3);
+	}
+	.input-xlarge {
+		width: (@gcw*5) + (@ggw*4);
+	}
+	.input-xxlarge {
+		width: (@gcw*6) + (@ggw*5);
+	}
+	.input-xxxlarge {
+		width: (@gcw*7) + (@ggw*6);
+	}
+	.input-xxxxlarge {
+		width: (@gcw*8) + (@ggw*7);
+		max-width: 90%;
+	}
+}
+
+// Reset the file input to browser defaults
+input[type="file"] {
+	width: auto;
+	padding: initial;
+	line-height: initial;
+	background-color: initial;
+	border: initial;
+	box-shadow: none;
+	cursor: pointer;
 }
 
 .form-actions {
