@@ -32,8 +32,6 @@ module.exports = function(grunt) {
 			mainLess: '_order.less',
 			// Dist settings
 			dist: 'dist',
-			distDocs: 'docs',
-			distJsDocs: 'jsdocs',
 			distFonts: 'fonts',
 			distImages: 'images',
 			distScripts: '_scripts',
@@ -555,7 +553,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// Styleguide
 		kss: {
 			options: {
 				css: '../<%= config.distStyles %>/<%= config.mainCss %>',
@@ -565,20 +562,6 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					'<%= config.dist %>/styleguide/': ['<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>']
-				}
-			}
-		},
-
-		// Documentation tasks
-		jsdoc: {
-			all: {
-				src: [
-					'Gruntfile.js',
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/combine/*.js',
-					'<%= config.src %>/<%= config.helpers %>/helper-*.js'
-				],
-				options: {
-					destination: '<%= config.dist %>/<%= config.distDocs %>/<%= config.distJsDocs %>'
 				}
 			}
 		}
@@ -614,7 +597,6 @@ module.exports = function(grunt) {
 		'build_html',
 		'clean:scripts',
 		'build_scripts',
-		'jsdoc',
 		'clean:styles',
 		'build_styles',
 		'modernizr',

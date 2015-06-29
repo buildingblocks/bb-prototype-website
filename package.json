@@ -40,7 +40,6 @@
     "grunt-dev-update": "^1.0.1",
     "grunt-jsbeautifier": "^0.2.10",
     "grunt-jscs": "^1.2.0",
-    "grunt-jsdoc": "^0.6.7",
     "grunt-kss": "^2.0.0",
     "grunt-modernizr": "^0.6.0",
     "grunt-preen": "^1.1.0",
