@@ -21,14 +21,28 @@
 @color-pinterest: #cc2127;
 @color-gplus: #DD4B39;
 
-// easy access color names
+// Aliases
 @color-text: #333;
+@brand-white: #FFF;
+@brand-black: #000;
+
+// Dimensions
+@max-width: 1180px; // overall max width
+@font-size-html: 100%;
+@rem-base: 16px; // 100% browser default font size
+@vertical-rhythm: 6px; // use @vr*X to maintain vertical consistency
+@vr: @vertical-rhythm; // Alias
 
 // Typography
-@font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family-serif: "Georgia Pro", Georgia, Times, serif;
-@font-family-mono: "Anonymous Pro", "Droid Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, "Lucida Console", Courier, monospace;
+@font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-family-serif: 'Georgia Pro', Georgia, Times, serif;
+@font-family-mono: 'Anonymous Pro', 'Droid Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, 'Lucida Console', Courier, monospace;
 @font-family-base: @font-family-sans-serif;
+
+@icon-prefix: ~'icon';
+@directory-images: '../images/css';
+@directory-fonts: 'fonts';
+@icon-font: 'icomoon';
 
 // Font Sizing
 @font-size-base: 16px;
@@ -40,13 +54,6 @@
 @font-weight-medium: 600; // 600 when not using @font-face
 @font-weight-regular: 400; // 400 when not using @font-face
 @font-weight-light: 100; // 100 when not using @font-face
-
-// Dimensions
-@max-width: 1180px; // overall max width
-@font-size-html: 100%;
-@rem-base: 16px; // 100% browser default font size
-@vertical-rhythm: 6px; // use @vr*X to maintain vertical consistency
-@vr: @vertical-rhythm; // Alias
 
 // Grid system
 @grid-columns: 24;

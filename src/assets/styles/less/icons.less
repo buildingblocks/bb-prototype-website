@@ -1,0 +1,32 @@
+// Icons
+
+@font-face {
+	font-family: '@{icon-font}';
+	src:url('@{directory-fonts}/@{icon-font}.eot?-gfwsty');
+	src:url('@{directory-fonts}/@{icon-font}.eot?#iefix-gfwsty') format('embedded-opentype'),
+	url('@{directory-fonts}/@{icon-font}.ttf?-gfwsty') format('truetype'),
+	url('@{directory-fonts}/@{icon-font}.woff?-gfwsty') format('woff'),
+	url('@{directory-fonts}/@{icon-font}.svg?-gfwsty#@{icon-font}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon() {
+	font-family: '@{icon-font}';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	line-height: 1;
+	speak: none;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.@{icon-prefix} {
+	.icon();
+}
+
+.@{icon-prefix}-placeholder:before {
+	content: '\f096';
+}
