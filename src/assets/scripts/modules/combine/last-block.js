@@ -1,6 +1,6 @@
 /**
  * @file Last Block
- * @author {@link https://github.com/buildingblocks Building Blocks}
+ * @author {@link http://buildingblocks.com Building Blocks}
  */
 var bb = bb ? bb : {};
 (function($) {
