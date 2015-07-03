@@ -29,4 +29,7 @@ node_modules
 
 # generated components
 dist
-src/assets/styles/less/_mixins/_combined.less
+test/results
+FRONTEND.md
+TODO.md
+_combined.less
