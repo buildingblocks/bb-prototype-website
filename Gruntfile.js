@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 			srcScripts: 'scripts',
 			srcModules: 'modules',
 			srcStyles: 'styles',
-			srcStyleguide: 'styleguide-template',
+			srcStyleguide: '<%= config.styleguide %>',
 			srcLess: 'less',
 			srcTemp: 'temp',
 			mainLess: '_order.less',
@@ -44,11 +44,11 @@ module.exports = function(grunt) {
 			ieCss: 'ie.css',
 			mainRtlCss: 'main.rtl.css',
 			ieRtlCss: 'ie.rtl.css',
+			styleguide: 'styleguide-template',
 			// Project settings
 			assembleExt: 'hbs',
 			helpers: 'helpers',
 			pagePrefix: '<%= pkg.name %>_',
-			partialPrefix: '<%= pkg.name %>_partial-',
 			livereloadPort: function() {
 				var min = 35729,
 					max = min + 1000,
@@ -87,8 +87,8 @@ module.exports = function(grunt) {
 			styles: {
 				files: [
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/*.css',
-					'<%= config.src %>/styleguide-template/public/kss.less',
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/*.less',
+					'<%= config.src %>/<%= config.styleguide %>/public/kss.less',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/**/*.less',
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/mixins-*.less'
 				],
 				tasks: [
@@ -155,7 +155,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '<%= config.src %>/pages/',
-					src: ['**/*.<%= config.assembleExt %>', '! **/styleguide-template.html'],
+					src: ['**/*.<%= config.assembleExt %>', '! **/<%= config.styleguide %>.html'],
 					dest: '<%= config.dist %>/',
 					rename: function(dest, src) {
 						var filename = src;
@@ -286,7 +286,7 @@ module.exports = function(grunt) {
 			},
 			kss: {
 				files: {
-					'<%= config.dist %>/styleguide/public/kss.css': '<%= config.src %>/styleguide-template/public/kss.less'
+					'<%= config.dist %>/styleguide/public/kss.css': '<%= config.src %>/<%= config.styleguide %>/public/kss.less'
 				}
 			},
 		},
@@ -574,7 +574,7 @@ module.exports = function(grunt) {
 		kss: {
 			options: {
 				css: '../<%= config.distStyles %>/<%= config.mainCss %>',
-				template: '<%= config.src %>/styleguide-template',
+				template: '<%= config.src %>/<%= config.styleguide %>',
 				helpers: '<%= config.src %>/<%= config.helpers %>',
 			},
 			dist: {
