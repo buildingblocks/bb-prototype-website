@@ -376,6 +376,19 @@ module.exports = function(grunt) {
 			}
 		},
 
+		csscomb: {
+			options: {
+				config: '.csscomb.json'
+			},
+			all: {
+				files: {
+					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>': [
+						'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>'
+					]
+				}
+			}
+		},
+
 		// Misc tasks
 		modernizr: {
 			dist: {
@@ -608,6 +621,7 @@ module.exports = function(grunt) {
 		'autoprefixer',
 		'px_to_rem',
 		'combine_mq',
+		'csscomb',
 		'copy:assets',
 		'clean:mixins'
 	]);
