@@ -2,6 +2,7 @@
 //   @group Variables - Colors, Fonts, etc.
 // ------------------------------------------------------------------------------
 @kss-colors-background: #fff;
+@kss-colors-middle: #aaa;
 @kss-colors-foreground: #444;
 @kss-colors-heading: #111;
 @kss-colors-quotes: #666;
@@ -229,22 +230,23 @@
 
   .kss-sidebar {
 	border-bottom:1px solid #ddd;
-	border-right: 1px solid #CCC;
+	border-right: 1px solid @kss-colors-middle;
 	background: #eee;
     width: 100%;
     padding: 2% 5% 1% 5%;
+	position: relative;
+	z-index: 1002;
 
     @media (min-width: @break-point-f) {
-      position: fixed;
 	  top: 0;
 	  bottom: 0;
 	  left: 0;
+	  position: fixed;
       width: 195px;
       height: 100%;
       overflow: auto;
       border-bottom: 0;
       padding: 20px @ggw;
-	z-index: 1002;
 
 		.rtl & {
 			left: auto;
@@ -290,12 +292,12 @@
             // we can put these :first-child and :last child styles back on the ul.
             li:first-child {
                 margin-top: 10px;
-                border-top: 1px solid #ccc;
+                border-top: 1px solid @kss-colors-middle;
                 padding: 10px 0 0;
             }
             li:last-child {
                 margin-bottom: 10px;
-                border-bottom: 1px solid #ccc;
+                border-bottom: 1px solid @kss-colors-middle;
                 padding: 0 0 10px;
             }
 
@@ -350,7 +352,7 @@
     }
     .kss-title__permalink-hash {
         display: none;
-        color: #ccc;
+        color: @kss-colors-middle;
     }
     .kss-parameters {
         display: table;
@@ -391,6 +393,27 @@
         &:last-child {
             margin: 0;
         }
+    }
+    .kss-toggle-markup {
+		margin-bottom: 0;
+
+        text-align: right;
+		text-transform: uppercase;
+		font-size: 14px;
+		font-weight: bold;
+		color: @kss-colors-middle;
+
+		cursor: pointer;
+		transition: all 100ms;
+
+		&:hover {
+			color: darken(@kss-colors-middle, 20%);
+		}
+
+		&:active,
+		&.active {
+			color: @kss-colors-link-active;
+		}
     }
     .kss-markup {
         margin: -1px 0 @kss-vertical-rhythm 0;

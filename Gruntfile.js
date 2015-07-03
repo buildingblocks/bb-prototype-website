@@ -27,6 +27,7 @@ module.exports = function(grunt) {
 			srcScripts: 'scripts',
 			srcModules: 'modules',
 			srcStyles: 'styles',
+			srcStyleguide: 'styleguide-template',
 			srcLess: 'less',
 			srcTemp: 'temp',
 			mainLess: '_order.less',
@@ -227,6 +228,7 @@ module.exports = function(grunt) {
 					// Our scripts
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins/combine/*.js',
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/combine/*.js',
+					'<%= config.src %>/<%= config.srcStyleguide %>/public/<%= config.srcScripts %>/*.js',
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/_init.js'
 				],
 				dest: '<%= config.dist %>/<%= config.distScripts %>/scripts.js'

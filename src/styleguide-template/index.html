@@ -155,6 +155,12 @@
 			</div>
 
 			{{#if markup}}
+
+			  <p class="kss-toggle-markup">Toggle markup</p>
+			  <div class="kss-markup kss-style" dir="ltr">
+				<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
+			  </div>
+
 			  {{#if modifiers}}
 				<div class="kss-modifier__default-name kss-style">
 				  Default styling
@@ -175,9 +181,6 @@
 				</div>
 			  {{/eachModifier}}
 
-			  <div class="kss-markup kss-style" dir="ltr">
-				<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
-			  </div>
 			{{/if}}
 
 			{{#ifDepth 1}}
@@ -205,14 +208,12 @@
 
 
 	<!-- SCRIPTS -->
-	<script src="public/kss.js"></script>
+	<script src="public/scripts/kss.js"></script>
 
-	<script src="public/prettify.js"></script>
+	<script src="public/scripts/prettify.js"></script>
 	<script>
 	  prettyPrint();
 	</script>
-	{{{scripts}}}
-
 	<!-- Jquery -->
 	<script src="../_scripts/jquery.js"></script>
 	<!-- Validation Scripts -->
