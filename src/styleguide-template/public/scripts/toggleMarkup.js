@@ -1,6 +1,6 @@
 /**
  * @file Toggle markup
- * @author {@link http://buildingblocks.com Building Blocks}
+ * @author {@link http://building-blocks.com Building Blocks}
  */
 var bb = bb ? bb : {};
 (function($) {
