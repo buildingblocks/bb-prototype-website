@@ -225,6 +225,7 @@ module.exports = function(grunt) {
 					// Add 3rd party Bower components here using <%= config.bower %>/**/*.js
 					'<%= config.bower %>/console-polyfill/index.js',
 					'<%= config.bower %>/jquery-tiny-pubsub/dist/ba-tiny-pubsub.min.js',
+					'<%= config.bower %>/tota11y/tota11y.min.js',
 					// Our scripts
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins/combine/*.js',
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/combine/*.js',
