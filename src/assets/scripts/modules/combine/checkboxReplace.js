@@ -3,8 +3,8 @@
  * @author {@link http://building-blocks.com Building Blocks}
  */
 var bb = bb ? bb : {};
-(function ($) {
-	$.extend(bb,{
+(function($) {
+	$.extend(bb, {
 		/**
 		 * Checkbox replace related methods.
 		 * @namespace checkboxReplace
@@ -18,7 +18,7 @@ var bb = bb ? bb : {};
 			 * @function init
 			 * @memberof checkboxReplace
 			 */
-			init: function () {
+			init: function() {
 				var self = this;
 
 				if (bb.ltIE(9)) {
@@ -27,7 +27,7 @@ var bb = bb ? bb : {};
 
 				var $inputs = $('input[type=checkbox]:not(.' + self.processedClass + '):not(.' + self.ignoreClass + ')');
 
-				$inputs.each( function () {
+				$inputs.each(function() {
 					var $input = $(this),
 						$placeholder = $('<label />', {
 							'class': 'checkbox-replace',
@@ -40,7 +40,7 @@ var bb = bb ? bb : {};
 			}
 		}
 	});
-	$.subscribe('pageReady ajaxLoaded', function () {
+	$.subscribe('pageReady ajaxLoaded', function() {
 		bb.checkboxReplace.init();
 	});
 }(jQuery));
