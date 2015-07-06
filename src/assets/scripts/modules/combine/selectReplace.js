@@ -16,7 +16,7 @@ var bb = bb ? bb : {};
 			/**
 			 * Initialises select replace module. Processes <select>s. Creates `.select-replace` markup. Binds events.
 			 * @function init
-			 * @memberof menu
+			 * @memberof selectReplace
 			 */
 			init: function() {
 				var self = this;
