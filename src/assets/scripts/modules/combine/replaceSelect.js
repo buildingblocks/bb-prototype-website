@@ -7,16 +7,16 @@ var bb = bb ? bb : {};
 	$.extend(bb, {
 		/**
 		 * Select replace related methods.
-		 * @namespace selectReplace
+		 * @namespace replaceSelect
 		 */
-		selectReplace: {
+		replaceSelect: {
 			// CSS Selectors
 			processedClass: 'processed',
 			numberSpinnerSelector: '.number-spinner',
 			/**
 			 * Initialises select replace module. Processes <select>s. Creates `.select-replace` markup. Binds events.
 			 * @function init
-			 * @memberof selectReplace
+			 * @memberof replaceSelect
 			 */
 			init: function() {
 				var self = this;
@@ -44,7 +44,7 @@ var bb = bb ? bb : {};
 
 						$numberLabel.text(val);
 
-						$select.on('change.selectReplace', function() {
+						$select.on('change.replaceSelect', function() {
 							var val = $select.find('option:selected').text();
 							$numberLabel.text(val);
 						});
@@ -74,6 +74,6 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady ajaxLoaded', function() {
-		bb.selectReplace.init();
+		bb.replaceSelect.init();
 	});
 }(jQuery));

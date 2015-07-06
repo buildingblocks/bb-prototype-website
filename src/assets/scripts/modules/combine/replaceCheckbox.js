@@ -7,16 +7,16 @@ var bb = bb ? bb : {};
 	$.extend(bb, {
 		/**
 		 * Checkbox replace related methods.
-		 * @namespace checkboxReplace
+		 * @namespace replaceCheckbox
 		 */
-		checkboxReplace: {
+		replaceCheckbox: {
 			// CSS Selectors
 			processedClass: 'checkbox-replace-input',
 			ignoreClass: 'checkbox-replace-ignore',
 			/**
 			 * Initialises checkbox replace module. Processes <inout type="checkbox">s. Creates `.checkbox-replace` markup.
 			 * @function init
-			 * @memberof checkboxReplace
+			 * @memberof replaceCheckbox
 			 */
 			init: function() {
 				var self = this;
@@ -41,6 +41,6 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady ajaxLoaded', function() {
-		bb.checkboxReplace.init();
+		bb.replaceCheckbox.init();
 	});
 }(jQuery));

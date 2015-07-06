@@ -7,16 +7,16 @@ var bb = bb ? bb : {};
 	$.extend(bb, {
 		/**
 		 * Select replace related methods.
-		 * @namespace radioReplace
+		 * @namespace replaceRadio
 		 */
-		radioReplace: {
+		replaceRadio: {
 			// CSS Selectors
 			processedClass: 'radio-replace-input',
 			ignoreClass: 'radio-replace-ignore',
 			/**
 			 * Initialises radio replace module. Processes <input type="radio">s. Creates `.radio-replace` markup.
 			 * @function init
-			 * @memberof radioReplace
+			 * @memberof replaceRadio
 			 */
 			init: function() {
 				var self = this;
@@ -40,6 +40,6 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady ajaxLoaded', function() {
-		bb.styleRadio.init();
+		bb.replaceRadio.init();
 	});
 }(jQuery));
