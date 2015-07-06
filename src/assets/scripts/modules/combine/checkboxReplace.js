@@ -14,7 +14,7 @@ var bb = bb ? bb : {};
 			processedClass: 'checkbox-replace-input',
 			ignoreClass: 'checkbox-replace-ignore',
 			/**
-			 * Initialises checkbox replace module. Processes <inout type="checkbox">s. Creates `.checkbox-replace` markup. Binds events.
+			 * Initialises checkbox replace module. Processes <inout type="checkbox">s. Creates `.checkbox-replace` markup.
 			 * @function init
 			 * @memberof checkboxReplace
 			 */
