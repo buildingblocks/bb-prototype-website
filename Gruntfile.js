@@ -650,7 +650,11 @@ module.exports = function(grunt) {
 		'watch'
 	]);
 	// Local server
-	grunt.registerTask('server', [
+	grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
+		grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+		grunt.task.run(['serve:' + target]);
+	});
+	grunt.registerTask('serve', [
 		'clean:everything',
 		'build_dev',
 		'connect',
