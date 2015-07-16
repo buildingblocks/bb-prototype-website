@@ -477,6 +477,11 @@ module.exports = function(grunt) {
 					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/<%= config.srcModules %>/',
 					src: ['*.js'],
 					dest: '<%= config.dist %>/<%= config.distScripts %>/'
+				}, {
+					expand: true,
+					cwd: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcScripts %>/plugins',
+					src: ['*.js'],
+					dest: '<%= config.dist %>/<%= config.distScripts %>/'
 				}]
 			},
 			deploy: {
