@@ -28,8 +28,7 @@
     "modernizr": "~2.8.2",
     "normalize-less": "*",
     "nwmatcher": "~1.3.1",
-    "selectivizr": "~1.0.2",
-    "tota11y": "~0.0.5"
+    "selectivizr": "~1.0.2"
   },
   "preen": {
     "console-polyfill": [
