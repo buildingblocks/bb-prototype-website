@@ -87,7 +87,6 @@ module.exports = function(grunt) {
 			styles: {
 				files: [
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/*.css',
-					'<%= config.src %>/<%= config.styleguide %>/public/kss.less',
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/**/*.less',
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/mixins-*.less'
 				],
@@ -620,7 +619,6 @@ module.exports = function(grunt) {
 	]);
 	grunt.registerTask('build_styles', [
 		'concat:lessMixins',
-		'kss',
 		'less',
 		'stripmq',
 		'autoprefixer',
@@ -638,6 +636,7 @@ module.exports = function(grunt) {
 		'jsdoc',
 		'clean:styles',
 		'build_styles',
+		'kss',
 		'modernizr',
 		'copy:bb'
 	]);
