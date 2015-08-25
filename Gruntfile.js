@@ -28,7 +28,6 @@ module.exports = function(grunt) {
 			srcModules: 'modules',
 			srcStyles: 'styles',
 			srcStyleguide: '<%= config.styleguide %>',
-			srcLess: 'less',
 			srcTemp: 'temp',
 			mainLess: '_order.less',
 			// Dist settings
@@ -87,8 +86,8 @@ module.exports = function(grunt) {
 			styles: {
 				files: [
 					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/*.css',
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/**/*.less',
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/mixins-*.less'
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/**/*.less',
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/_mixins/mixins-*.less'
 				],
 				tasks: [
 					'build_styles',
@@ -209,9 +208,9 @@ module.exports = function(grunt) {
 		concat: {
 			lessMixins: {
 				src: [
-					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/*.less'
+					'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/_mixins/*.less'
 				],
-				dest: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
+				dest: '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/_mixins/_combined.less'
 			},
 			jquery: {
 				src: [
@@ -275,12 +274,12 @@ module.exports = function(grunt) {
 		less: {
 			main: {
 				files: {
-					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>/<%= config.mainLess %>'
+					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.mainLess %>'
 				}
 			},
 			rtl: {
 				files: {
-					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>/<%= config.mainLess %>'
+					'<%= config.dist %>/<%= config.distStyles %>/<%= config.mainRtlCss %>': '<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.mainLess %>'
 				}
 			},
 			kss: {
@@ -507,7 +506,7 @@ module.exports = function(grunt) {
 				'<%= config.dist %>/<%= config.distStyles %>'
 			],
 			mixins: [
-				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/less/_mixins/_combined.less'
+				'<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/_mixins/_combined.less'
 			],
 			everything: [
 				'<%= config.dist %>'
@@ -583,7 +582,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'<%= config.dist %>/styleguide/': ['<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>/<%= config.srcLess %>']
+					'<%= config.dist %>/styleguide/': ['<%= config.src %>/<%= config.srcAssets %>/<%= config.srcStyles %>']
 				}
 			}
 		},
