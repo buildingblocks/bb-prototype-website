@@ -12,11 +12,23 @@ if (Modernizr) {
 	Modernizr.addTest('ios', function() {
 		return (Modernizr.ipad || Modernizr.ipod || Modernizr.iphone);
 	});
+	// IE10
+	Modernizr.addTest('ie10', function() {
+		var trident = !!navigator.userAgent.match(/Trident\/6.0/);
+		var ie = !!navigator.userAgent.match(/MSIE 10/);
+		return trident && ie;
+	});
 	// IE11
 	Modernizr.addTest('ie11', function() {
 		var trident = !!navigator.userAgent.match(/Trident\/7.0/);
-		var net = !!navigator.userAgent.match(/.NET4.0E/);
+		var net = !!navigator.userAgent.match(/.NET4.0C/ || /.NET4.0E/);
 		return trident && net;
+	});
+	// Safari
+	Modernizr.addTest('safari', function() {
+		var safari = !!navigator.userAgent.match(/Safari\//);
+		var chrome = !!navigator.userAgent.match(/Chrome\//);
+		return safari && !chrome;
 	});
 	// Windows Phone
 	Modernizr.addTest('windowsphone', function() {
