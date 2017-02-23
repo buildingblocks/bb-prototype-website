@@ -1,14 +1,27 @@
 ---
 title: Example Layout A
-pageType: layoutPage
-bbPageNav: true
 layoutPage: true
+bbPageNav: true
 ---
 
-{{#extend "layout--a"}}
+{{#extend "layout-a"}}
+	{{#content "features-top"}}
+		<p>features top</p>
+	{{/content}}
 
-	{{#content "region--a"}}
+	{{#content "sections-top"}}
+		<p>sections top</p>
+	{{/content}}
+
+	{{#content "region-a"}}
 		<p class="block block--size-a">region-a</p>
 	{{/content}}
 
+	{{#content "sections-bottom"}}
+		<p>sections bottom</p>
+	{{/content}}
+
+	{{#content "features-bottom"}}
+		<p>features bottom</p>
+	{{/content}}
 {{/extend}}

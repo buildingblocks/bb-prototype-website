@@ -1,0 +1,41 @@
+---
+title: Layout A
+---
+{{#extend "master"}}
+	{{! Main Content }}
+	{{#content "master-body"}}
+		{{#if_block "features-top"}}
+			{{#block "features-top"}}{{/block}}
+		{{/if_block}}
+		<main class="main" id="main" role="main">
+			{{#if_block "sections-top"}}
+				{{#block "sections-top"}}{{/block}}
+			{{/if_block}}
+			{{#if_block "region-a"}}
+			<div class="layout layout-a">
+				{{body}}
+				{{#if_block "region-a"}}
+				<div class="region region-a">
+					<div class="region-inner">
+						{{#block "region-a"}}{{/block}}
+					</div>
+				</div>
+				{{/if_block}}
+			</div>
+			{{/if_block}}
+			{{#if_block "sections-bottom"}}
+				{{#block "sections-bottom"}}{{/block}}
+			{{/if_block}}
+		</main>
+		{{#if_block "features-bottom"}}
+			{{#block "features-bottom"}}{{/block}}
+		{{/if_block}}
+	{{/content}}
+	{{! Additional Content for <head> and just before </body>}}
+	{{#content "master-head" mode="extend"}}
+		{{#block "head"}}{{/block}}
+	{{/content}}
+	{{#content "master-foot" mode="extend"}}
+		{{#block "foot"}}{{/block}}
+	{{/content}}
+{{/extend}}

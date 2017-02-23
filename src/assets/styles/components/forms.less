@@ -1,0 +1,371 @@
+// Forms specific variables
+@input-border-width: 1px;
+
+@input-height-smallscreen: @vr*5;
+@input-padding-y-smallscreen: @vr;
+@input-padding-x-smallscreen: 10px;
+
+@input-height: @vr*7;
+@input-padding-y: @vr;
+@input-padding-x: 15px;
+
+@input-icon-width: 16px;
+
+// Make textarea height behave
+textarea {
+	height: auto;
+	overflow: auto;
+	resize: none;
+}
+
+//  Fake <select>
+.select-replace {
+	display: block;
+	position: relative;
+	padding: 0;
+
+	select {
+		appearance: none;
+		background: none;
+		border: 0;
+		box-shadow: none;
+		position: relative;
+		text-indent: 0.01px;
+		text-overflow: '';
+		z-index: 2;
+	}
+}
+
+// Elements with actions need pointers
+label,
+input[type='submit'],
+button {
+	cursor: pointer;
+}
+
+// Search Inputs
+input[type='search'] {
+	-webkit-appearance: none;
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+}
+
+// Remove -webkit styles from text inputs
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='url'],
+input[type='date'],
+input[type='week'],
+input[type='month'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='time'],
+input[type='number'],
+input[type='search'],
+input[type='password'],
+textarea {
+	appearance: none;
+}
+
+// Inputs within a label
+label input,
+label textarea,
+label select {
+	display: block;
+}
+
+textarea {
+	height: @vr*30;
+	white-space: normal;
+	overflow: auto;
+	padding: @input-padding-y-smallscreen @input-padding-x-smallscreen;
+
+	@media @BPD {
+		padding: @input-padding-y*2 @input-padding-x;
+		height: @vr*30;
+	}
+}
+
+// selects
+.select-replace {
+	display: block;
+	padding: 0;
+	position: relative;
+
+	select {
+		appearance: none;
+		background: none;
+		border: 0;
+		box-shadow: none;
+		position: relative;
+		text-indent: 0.01px;
+		text-overflow: '';
+		z-index: 2;
+	}
+}
+
+// radios and checkboxes
+input[type='radio'],
+input[type='checkbox'] {
+	.size(auto);
+
+	background: none;
+	border: 0;
+	box-shadow: none;
+	margin: 0;
+	padding: 0;
+
+	.lt-ie9 & {
+		display: inline;
+	}
+}
+
+.radio,
+.checkbox {
+	font-size: 12px;
+	display: block;
+	line-height: @vr*3;
+	margin-bottom: @vr;
+	padding-top: @vr*2;
+	padding-left: 25px;
+	position: relative;
+
+	@media(min-width: @break-point-e) {
+		font-size: 16px;
+		line-height: @vr*5;
+		padding-top: @vr;
+	}
+
+	&:first-child {
+
+		@media @BPD {
+			margin-top: @vr;
+		}
+	}
+
+	&.disabled {
+		color: #CCC;
+	}
+
+	&.checklist-item {
+		margin-top: 0;
+	}
+
+	.checkbox-replace,
+	.radio-replace {
+		position: absolute;
+		top: 7px;
+		left: 0;
+	}
+
+	&.radio-style-a,
+	&.radio-style-b {
+		background-color: #EBEBEB;
+		font-size: 14px;
+		font-weight: @font-weight-medium;
+		line-height: normal;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: @vr*2 5px @vr*2 35px;
+		width: 100%;
+
+		.no-js & {
+			padding: @vr*2;
+		}
+
+		.radio-replace {
+			background-color: transparent;
+			border-color: @brand-color-a;
+			left: 10px;
+			top: 12px;
+		}
+
+		&.checked {
+			background-color: #FFF;
+			box-shadow: inset 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+		}
+	}
+}
+
+.no-js {
+	.radio,
+	.checkbox {
+		padding-left: 0;
+
+		input {
+			box-shadow: none;
+			padding: 0;
+			display: inline-block;
+			width: auto;
+		}
+	}
+}
+
+.checkbox-replace-input,
+.radio-replace-input {
+	.visually-hidden;
+}
+
+.checkbox-replace,
+.radio-replace {
+	.size(@vr*4);
+
+	appearance: none;
+	background-color: transparent;
+	border: 2px solid @brand-color-a;
+	cursor: pointer;
+	display: inline-block;
+	line-height: normal;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	outline: 0;
+	transition: none;
+	vertical-align: top;
+
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+
+	&:hover,
+	input:focus + &,
+	input:active + & {
+		border-color: @brand-color-b;
+	}
+
+	input[disabled] + & {
+		background: #F0F0F0;
+		border-color: @brand-color-f;
+		color: @brand-color-f;
+		cursor: not-allowed;
+
+		&:hover,
+		&:focus {
+			border-color: @brand-color-f;
+		}
+	}
+
+	input[disabled] +  & {
+		&:hover,
+		&:focus {
+			border-color: @brand-color-f;
+		}
+	}
+}
+
+.checkbox-replace {
+	border-radius: 2px;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		line-height: 100%;
+		text-align: center;
+		font-size: 16px;
+		content: "\2714"; // a tick
+		//hide to begin with
+		display: none;
+	}
+
+	input:checked + & {
+		color: #fff;
+		background: @brand-color-b;
+		border-color: @brand-color-b;
+
+		&:after {
+			display: block;
+		}
+	}
+}
+
+.radio-replace {
+	border-radius: 100%;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 7px;
+		left: 7px;
+		width: 0;
+		height: 0;
+		border-radius: 100%;
+		transition: all 100ms;
+	}
+
+	input:checked + & {
+		&:after {
+			width: 12px;
+			height: 12px;
+			top: 2px;
+			left: 2px;
+		}
+	}
+}
+
+
+// Input size variations
+@media @BPD {
+	.input--mini {
+		width: (@gcw*1) + (@ggw*1);
+	}
+	.input--small {
+		width: (@gcw*2) + (@ggw*1);
+	}
+	.input--medium {
+		width: (@gcw*3) + (@ggw*2);
+	}
+	.input--large {
+		width: (@gcw*4) + (@ggw*3);
+	}
+	.input--xlarge {
+		width: (@gcw*5) + (@ggw*4);
+	}
+	.input--xxlarge {
+		width: (@gcw*6) + (@ggw*5);
+	}
+	.input--xxxlarge {
+		width: (@gcw*7) + (@ggw*6);
+	}
+	.input--xxxxlarge {
+		width: (@gcw*8) + (@ggw*7);
+		max-width: 90%;
+	}
+}
+
+.input--full {
+	width: 100%;
+
+	input {
+		overflow: visible;
+	}
+}
+
+// Reset the file input to browser defaults
+input[type='file'] {
+	width: auto;
+	padding: initial;
+	line-height: initial;
+	background-color: initial;
+	border: initial;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.form-actions {
+	margin-top: @vr*2;
+
+	.btn {
+		margin-bottom: @vr;
+	}
+}

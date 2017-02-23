@@ -1,0 +1,57 @@
+{
+  "name": "bb-prototype-website",
+  "version": "1.0.0",
+  "description": "Default Building Blocks website prototype template.",
+  "homepage": "https://github.com/buildingblocks/bb-prototype-website",
+  "issues": "https://github.com/buildingblocks/bb-prototype-website/issues",
+  "authors": [
+    "Paul Welsh (https://github.com/spacedawwwg)",
+    "John Cashmore (https://github.com/JohnCashmore)",
+    "Daniel Furze (https://github.com/furzeface)",
+    "Andrew 'The Ledge' Blackledge (https://github.com/ablackledge)",
+    "Clara Jordan (https://github.com/czmj)"
+  ],
+  "contributors": [
+    "Phil Lennon (https://github.com/PJL101)",
+    "Peter Broom (https://github.com/PeterBroom)"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "devDependencies": {
+    "console-polyfill": "~0.1.2",
+    "jquery": "1.11.1",
+    "jquery-tiny-pubsub": "~0.7.0",
+    "modernizr": "~2.8.2",
+    "normalize-less": "*",
+    "nwmatcher": "~1.3.1",
+    "selectivizr": "~1.0.2",
+    "picturefill": "~2.3.1"
+  },
+  "preen": {
+    "console-polyfill": [
+      "*.js"
+    ],
+    "jquery": [
+      "dist/*.{js,map}"
+    ],
+    "jquery-tiny-pubsub": [
+      "dist/*.min.js"
+    ],
+    "modernizr": [
+      "modernizr.js"
+    ],
+    "normalize-less": [
+      "normalize.less"
+    ],
+    "nwmatcher": [
+      "src/nwmatcher.js"
+    ],
+    "selectivizr": [
+      "selectivizr.js"
+    ]
+  }
+}

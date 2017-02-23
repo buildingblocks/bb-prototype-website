@@ -1,0 +1,54 @@
+// new image replacement see: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.hide-text() {
+	overflow: hidden;
+	text-indent: 150%;
+	white-space: nowrap;
+}
+
+// produces the "..." on mobile and modern browsers
+.ellipsis(@ellipwidth: 100%) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: @ellipwidth;
+}
+
+// Opacity
+.opacity(@opacity) {
+	filter: ~"alpha(opacity=@{opacity})";
+	opacity: @opacity / 100;
+}
+
+// Links
+.reset-link() {
+    border: 0;
+    color: inherit;
+    text-decoration: none;
+
+    &:visited,
+    &:active {
+        border: 0;
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+// Custom underlines
+.underline(@thickness: 1px, @color: #000, @opacity: 100%, @position: 99%) {
+	.background-image(linear-gradient(to bottom, fade(@color,0%) 50%, fade(@color,@opacity) 50%));
+
+	background-position: 0 @position;
+	background-repeat: repeat-x;
+	background-size: @thickness*2 @thickness*2;
+	text-decoration: none;
+}
+
+.underline-reset() {
+	background: none;
+}
+
+// Generic size mixin
+.size(@width, @height: @width){
+	height: @height;
+	width: @width;
+}

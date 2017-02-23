@@ -1,0 +1,29 @@
+// Calculates a "fluid" (percentage) width (Ethan Marcotte: target / context = result method: http://alistapart.com/article/fluidgrids)
+
+.fluid-width(@target, @context) {
+	width: 100%*(@target/@context);
+}
+
+.fluid-margin-right(@target, @context) {
+	margin-right: 100%*(@target/@context);
+}
+
+.fluid-margin-left(@target, @context) {
+	margin-left: 100%*(@target/@context);
+}
+
+.fluid-padding-right(@target, @context) {
+	padding-right: 100%*(@target/@context);
+}
+
+.fluid-padding-left(@target, @context) {
+	padding-left: 100%*(@target/@context);
+}
+
+.fluid-right(@target, @context) {
+	right: 100%*(@target/@context);
+}
+
+.fluid-left(@target, @context) {
+	left: 100%*(@target/@context);
+}

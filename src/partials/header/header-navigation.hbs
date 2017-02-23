@@ -1,0 +1,14 @@
+<nav class="navigation" id="site-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	<a href="#site-navigation" class="skip-link visually-hidden focusable"><h4 class="navigation-title">Navigation</h4></a>
+	<a href="#main" class="skip-link visually-hidden focusable">Skip to content</a>
+	<a href="#site-footer" class="skip-link visually-hidden focusable">Skip to footer</a>
+	<ul class="navigation-menu menu-level-0">
+		{{#each navigation}}
+		<li>
+			<a href="{{{url}}}" class="{{#if class}}{{{class}}}{{/if}}{{#is id ../activePageId}} active{{/is}}">
+				<span>{{{title}}}</span>
+			</a>
+		</li>
+		{{/each}}
+	</ul>
+</nav>

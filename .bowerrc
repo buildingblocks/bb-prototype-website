@@ -1,0 +1,8 @@
+{
+	"directory" : "bower_components",
+	"private": true,
+	"interactive": false,
+	"scripts": {
+		"postinstall": "grunt preen"
+	}
+}

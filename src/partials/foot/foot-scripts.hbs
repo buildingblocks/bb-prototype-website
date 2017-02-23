@@ -1,9 +1,9 @@
 {{!-- jQuery --}}
-<script src="_scripts/jquery.min.js"></script>
+<script src="{{assets}}/{{scripts}}/jquery.js"></script>
 {{!-- Validation Scripts --}}
-<script src="_scripts/validation.js"></script>
+<script src="{{assets}}/{{scripts}}/validation.js"></script>
 
-{{!-- Our scripts --}}
+{{!-- Append combined Scripts --}}
 <script>
 	function getParameterByName(name) {
 	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -25,5 +25,9 @@
 
 	document.body.appendChild(script);
 </script>
+{{!-- <script src="{{assets}}/{{scripts}}/scripts.js"></script> --}}
 
-{{!-- <script src="_scripts/scripts.js"></script> --}}
+{{#if includeTota11y}}
+	<!-- Don’t include this for production -->
+	<script src="{{{assets}}}/{{{scripts}}}/tota11y.min.js"></script>
+{{/if}}

@@ -1,8 +1,8 @@
 <section class="block block--size-a">
 	<h2 class="header--stylesheet">Form (Horizontal) &amp; Buttons</h2>
-	<div class="form form--horizontal form--style-a form--validate">
+	<div class="form form-horizontal form-style-a form-validate">
 		<form id="form1" name="form1" action="#" method="post">
-			<div class="control-group control-group--odd control-group--block">
+			<div class="control-group control-group-odd control-group-block">
 				<div class="control-label">
 					<label>Form grid sizes</label>
 				</div>
@@ -57,7 +57,7 @@
 					</select>
 				</div>
 			</div>
-			<div class="control-group control-group--even">
+			<div class="control-group control-group-even">
 				<div class="control-label">
 					<label for="requiredInput">Required Input</label>
 				</div>
@@ -66,7 +66,7 @@
 					<span class="field-validation-message field-validation-valid" data-valmsg-for="requiredInput" data-valmsg-replace="true"></span>
 				</div>
 			</div>
-			<div class="control-group control-group--odd">
+			<div class="control-group control-group-odd">
 				<div class="control-label">
 					<label for="optionalInput">Optional Input</label>
 				</div>
@@ -75,7 +75,7 @@
 					<span class="control-optional">(Optional)</span>
 				</div>
 			</div>
-			<div class="control-group control-disabled control-group--even">
+			<div class="control-group control-disabled control-group-even">
 				<div class="control-label">
 					<label for="disabledInput">Disabled Input</label>
 				</div>
@@ -83,7 +83,7 @@
 					<input class="input--large" type="text" placeholder=".input--large" id="disabledInput" name="disabledInput" disabled />
 				</div>
 			</div>
-			<div class="control-group control-group--odd">
+			<div class="control-group control-group-odd">
 				<div class="control-label">
 					<label for="requiredSelect">Required Select</label>
 				</div>
@@ -98,7 +98,7 @@
 					<span class="field-validation-message field-validation-valid" data-valmsg-for="requiredSelect" data-valmsg-replace="true"></span>
 				</div>
 			</div>
-			<div class="control-group control-group--even">
+			<div class="control-group control-group-even">
 				<div class="control-label">
 					<label for="emailInput">Email Input</label>
 				</div>
@@ -107,7 +107,7 @@
 					<span class="field-validation-message field-validation-valid" data-valmsg-for="emailInput" data-valmsg-replace="true"></span>
 				</div>
 			</div>
-			<div class="control-group control-group--odd">
+			<div class="control-group control-group-odd">
 				<div class="control-label">
 					<label for="dateInput">Date Input</label>
 				</div>
@@ -115,7 +115,7 @@
 					<input class="input--large" type="date" id="dateInput" />
 				</div>
 			</div>
-			<div class="control-group control-group--odd">
+			<div class="control-group control-group-odd">
 				<div class="control-label">
 					<label for="adjacentControl1">Adjacent Controls</label>
 				</div>
@@ -132,63 +132,52 @@
 					<span class="field-validation-message field-validation-valid" data-valmsg-for="adjacentControl1" data-valmsg-replace="true"></span>
 				</div>
 			</div>
-			<div class="control-group control-group--even">
+			<div class="control-group control-group-even">
 				<div class="control-label">
 					<label for="inlineCheckboxes">Inline checkboxes</label>
 				</div>
 				<div class="controls">
 					<label class="checkbox control-inline" for="inlineCheckbox1" >
-						<input type="checkbox" name="inlineCheckbox1" id="inlineCheckbox1" value="option1"/>
-                        <label class="checkbox-check" for="inlineCheckbox1" role="presentation"></label>
-                        Email
+						<input type="checkbox" name="inlineCheckbox1" id="inlineCheckbox1" value="option1"/> Email
 					</label>
 					<label class="checkbox control-inline">
-						<input type="checkbox" name="inlineCheckbox2" id="inlineCheckbox2" value="option2" />
-                        <label class="checkbox-check" for="inlineCheckbox2" role="presentation"></label>
-                        Post
+						<input type="checkbox" name="inlineCheckbox2" id="inlineCheckbox2" value="option2" /> Post
 					</label>
 					<label class="checkbox control-inline">
-						<input type="checkbox" name="inlineCheckbox3" id="inlineCheckbox3" value="option3" />
-                        <label class="checkbox-check" for="inlineCheckbox3" role="presentation"></label>
-                        SMS
+						<input type="checkbox" name="inlineCheckbox3" id="inlineCheckbox3" value="option3" /> SMS
 					</label>
 				</div>
 			</div>
-			<div class="control-group control-group--odd">
+			<div class="control-group control-group-odd">
 				<div class="control-label">
 					<label for="optionsCheckboxList">Checkboxes</label>
 				</div>
 				<div class="controls">
 					<label class="checkbox">
 						<input type="checkbox" value="option1" name="optionsCheckboxList" id="optionsCheckboxList1" data-val="true" data-val-atleast="Select at least {0} options" data-val-atleast-minimum="2" />
-						<label class="checkbox-check" for="optionsCheckboxList1" role="presentation"></label>
-                        Option one can be checked and included in form results
+						Option one can be checked and included in form results
 					</label>
 					<label class="checkbox">
 						<input type="checkbox" value="option2" name="optionsCheckboxList" id="optionsCheckboxList2" />
-                        <label class="checkbox-check" for="optionsCheckboxList2" role="presentation"></label>
 						Option two can also be checked and included in form results
 					</label>
 					<label class="checkbox">
 						<input type="checkbox" value="option3" name="optionsCheckboxList" id="optionsCheckboxList3" />
-                        <label class="checkbox-check" for="optionsCheckboxList3" role="presentation"></label>
 						Option three can also be checked and included in form results
 					</label>
 					<label class="checkbox disabled">
 						<input type="checkbox" value="option3" name="optionsCheckboxList" id="optionsCheckboxList4" disabled />
-                        <label class="checkbox-check" for="optionsCheckboxList4" role="presentation"></label>
 						Option disabled
 					</label>
 					<label class="checkbox disabled">
 						<input type="checkbox" value="option3" name="optionsCheckboxList" id="optionsCheckboxList5" disabled checked />
-                        <label class="checkbox-check" for="optionsCheckboxList5" role="presentation"></label>
 						Option disabled and checked
 					</label>
 					<span class="field-validation-message field-validation-valid" data-valmsg-for="optionsCheckboxList" data-valmsg-replace="true"></span>
 					<p class="help-block"><strong>Note:</strong> Labels surround all the options for much larger click areas and a more usable form.</p>
 				</div>
 			</div>
-			<div class="control-group control-group--even">
+			<div class="control-group control-group-even">
 				<label class="control-label">Inline radio buttons</label>
 				<div class="controls">
 					<label class="radio control-inline">
@@ -206,7 +195,7 @@
 					<span class="field-validation-message field-validation-valid" data-valmsg-for="optionsRadios2" data-valmsg-replace="true"></span>
 				</div>
 			</div>
-			<div class="control-group control-group--odd">
+			<div class="control-group control-group-odd">
 				<label class="control-label">Radio buttons</label>
 				<div class="controls">
 					<label class="radio">
@@ -227,7 +216,7 @@
 					</label>
 				</div>
 			</div>
-			<div class="control-group control-group--even">
+			<div class="control-group control-group-even">
 				<div class="control-label">
 					<label for="multiSelect">Multi-select</label>
 				</div>
@@ -241,7 +230,7 @@
 					</select>
 				</div>
 			</div>
-			<div class="control-group control-group--odd">
+			<div class="control-group control-group-odd">
 				<div class="control-label">
 					<label for="fileInput">File input</label>
 				</div>
@@ -249,7 +238,7 @@
 					<input class="input-file" id="fileInput" type="file" data-btn-text="Choose file" data-label-text="No file chosen" />
 				</div>
 			</div>
-			<div class="control-group control-group--even">
+			<div class="control-group control-group-even">
 				<div class="control-label">
 					<label for="textarea">Textarea</label>
 				</div>
@@ -258,12 +247,10 @@
 					<span class="field-validation-message field-validation-valid" data-valmsg-for="textarea" data-valmsg-replace="true"></span>
 				</div>
 			</div>
-			<div class="control-group control-group--odd">
+			<div class="control-group control-group-odd">
 				<div class="controls">
 					<label class="checkbox control-inline" for="requiredCheckbox1">
-						<input type="checkbox" name="requiredCheckbox1" id="requiredCheckbox1" value="1" data-val="true" data-val-checked="A mandatory checkbox input" />
-                        <label class="checkbox-check" for="requiredCheckbox1" role="presentation"></label>
-                        By ticking this box you agree to the <a href="#">terms and conditions</a>
+						<input type="checkbox" name="requiredCheckbox1" id="requiredCheckbox1" value="1" data-val="true" data-val-checked="A mandatory checkbox input" /> By ticking this box you agree to the <a href="#">terms and conditions</a>
 					</label>
 					<span class="field-validation-message field-validation-valid" data-valmsg-for="requiredCheckbox1" data-valmsg-replace="true"></span>
 				</div>

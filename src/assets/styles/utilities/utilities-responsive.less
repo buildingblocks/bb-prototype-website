@@ -1,0 +1,36 @@
+// utilities-responsive.less
+
+.visible-smallscreen,
+.visible-mediumscreen,
+.visible-largescreen {
+	display: none;
+}
+
+.visible-smallscreen {
+	display: block;
+}
+
+.visible-mediumscreen {
+	@media @BPD {
+    	display: block;
+  	}
+}
+
+.visible-largescreen {
+
+	@media @BPE {
+		display: block;
+  	}
+}
+
+.hidden-mediumscreen {
+	@media @BPD {
+    	display: none;
+  	}
+}
+
+.hidden-largescreen {
+	@media @BPE {
+    	display: none;
+  	}
+}

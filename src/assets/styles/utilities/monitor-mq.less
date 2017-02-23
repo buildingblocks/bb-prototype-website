@@ -1,0 +1,84 @@
+// for monitor-mq.js
+
+.monitor-mq {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	top: -9999em;
+	left: -9999em;
+	// smallest
+	width: @break-point-a;
+
+	&.rtl {
+		left: auto;
+		right: -9999em;
+	}
+
+	.visible-breakpoints &:after {
+		background: rgba(0,0,0,0.5);
+		color: white;
+		// smallest
+		content: '@break-point-a';
+		font-weight: @font-weight-bold;
+		padding: @vr @vr*2;
+		position: fixed;
+		right: @vr*3;
+		bottom: @vr*3;
+		text-align: center;
+		z-index: 1000;
+		transition: all 250ms ease;
+
+		.demo-actions-show & {
+			bottom: @vr*10;
+		}
+	}
+
+	@media @BPB {
+		width: @break-point-b-px;
+
+		.visible-breakpoints &:after {
+			content: '@break-point-b';
+		}
+	}
+
+	@media @BPC {
+		width: @break-point-c-px;
+
+		.visible-breakpoints &:after {
+			content: '@break-point-c';
+		}
+	}
+
+	@media @BPD {
+		width: @break-point-d-px;
+
+		.visible-breakpoints &:after {
+			content: '@break-point-d';
+		}
+	}
+
+	@media @BPE {
+		width: @break-point-e-px;
+
+		.visible-breakpoints &:after {
+			content: '@break-point-e';
+		}
+	}
+
+	@media @BPF {
+		width: @break-point-f-px;
+
+		.visible-breakpoints &:after {
+			content: '@break-point-f';
+		}
+	}
+
+	@media @BPG {
+		width: @break-point-g-px;
+
+		.visible-breakpoints &:after {
+			content: '@break-point-g +';
+		}
+	}
+}

@@ -1,0 +1,34 @@
+---
+title: Example Layout B
+includeTota11y: true
+layoutPage: true
+bbPageNav: true
+---
+
+{{#extend "layout-b"}}
+	{{#content "features-top"}}
+		<p>features top</p>
+	{{/content}}
+
+	{{#content "sections-top"}}
+		<p>sections top</p>
+	{{/content}}
+
+	{{#content "region-a"}}
+		<p class="block block--size-a">region-a content</p>
+	{{/content}}
+	{{#content "region-b"}}
+		<p class="block block--size-b">region-b content</p>
+	{{/content}}
+	{{#content "region-c"}}
+		<p class="block block--size-c">region-c content</p>
+	{{/content}}
+
+	{{#content "sections-bottom"}}
+		<p>sections bottom</p>
+	{{/content}}
+
+	{{#content "features-bottom"}}
+		<p>features bottom</p>
+	{{/content}}
+{{/extend}}

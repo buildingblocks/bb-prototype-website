@@ -1,0 +1,43 @@
+---
+title: File List
+layout: src/layouts/_bb.hbs
+hide: true
+---
+
+<div class="main" id="main" role="main">
+
+	<div class="client-image" style="background-image: url({{package.clientImage}}); background-size: cover; background-position: center;">
+		<img class="client-logo" src="{{package.clientLogo}}" alt="Client Logo" height="50" />
+	</div>
+
+	<div class="site-files">
+		<div class="container">
+			<header class="header" role="banner">
+					<a href="#" class="logo">
+						<img src="{{{assets}}}/_bb/bb-logo.svg" alt="Building Blocks" width="83" height="50" />
+					</a>
+					<h1 class="project-title">
+						{{{package.title}}}
+						<span class="last-modified">
+							<b>Last Modified:</b> <span>{{{timestamp}}}</span>
+						</span>
+					</h1>
+			</header>
+			<div class="content">
+				{{!-- <div class="site-description">
+					<p>{{{package.description}}}</p>
+				</div> --}}
+				{{>styleguide-link}}
+				{{>page-list}}
+				{{>component-list}}
+				{{>rtl-list}}
+				{{>layout-list}}
+				{{>ajax-list}}
+			</div>
+
+			<footer class="footer" role="contentinfo">
+				<p>&copy; Copyright {{{copyrightYear}}} Building Blocks Ltd.</p>
+			</footer>
+		</div>
+	</div>
+</div>

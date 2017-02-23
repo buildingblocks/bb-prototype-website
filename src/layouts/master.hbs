@@ -1,60 +1,67 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-
-		{{#block "master__head"}}
-			{{>head/head-meta}}
-			{{>head/head-app}}
-			{{>head/head-icons}}
-			{{>head/head-css}}
-			{{>head/head-fonts}}
-			{{>head/head-scripts}}
+---
+title: Master Page
+---
+<!DOCTYPE html>
+{{#if rtl}}
+<!--[if IE 8]><html class="rtl no-js ie8 lt-ie10 lt-ie9" lang="en" dir="rtl"><![endif]-->
+<!--[if IE 9]><html class="rtl no-js ie9 lt-ie10" lang="en" dir="rtl"><![endif]-->
+<!--[if gt IE 9]><!--><html class="rtl no-js" lang="en" dir="rtl"><!--<![endif]-->
+{{else}}
+<!--[if IE 8]><html class="no-js ie8 lt-ie10 lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9 lt-ie10" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+{{/if}}
+	<head>
+		{{#block "master-head"}}
+			{{>head-meta}}
+			{{>head-app}}
+			{{>head-icons}}
+			{{#if rtl}}
+				{{>head-css-rtl}}
+			{{else}}
+				{{>head-css}}
+			{{/if}}
+			{{>head-fonts}}
+			{{>head-scripts}}
 		{{/block}}
-
-  </head>
-  <body class="body{{#if pageData.visibleGrid}} visible-grid{{/if}}{{#if pageData.visibleBreakpoints}} visible-breakpoints{{/if}}">
-
-    {{#block "master__header"}}
-      {{> header}}
-    {{/block}}
-
-    <div id="page" class="page{{#if pageData.pageClass}} {{pageData.pageClass}}{{/if}}">
-      <main class="main" role="main">
-      {{#block "master__main"}}{{/block}}
-      </main>
-    </div>
-
-    {{#block "master__footer"}}
-      {{> footer}}
-    {{/block}}
-
-    <!-- DEMO USE ONLY : START -->
-    {{#if pageData.visibleGrid}}
-      {{> other/grid}}
-    {{/if}}
-    <button class="action-demo-actions demo-actions-btn">
-      <i class="bb-icon bb-icon-menu"><b>menu</b></i>
-    </button>
-    <div class="demo-actions">
-      <div class="demo-links">
-        <button class="action-demo-actions">
-          <i class="bb-icon bb-icon-chevron-down"><b>hide menu</b></i>
-        </button>
-      </div>
-      <div class="demo-info">
-        <p>
-          <strong><a href="/">{{{global.title}}}</a></strong>
-        </p>
-        <img src="_bb/bb-logo.svg" alt="BB Logo" class="demo-bb-logo" />
-      </div>
-    </div>
-    <script src="https://use.typekit.net/ugk3ouj.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-    <!-- DEMO USE ONLY : END -->
-
-    {{#block "master__foot"}}
-			{{>foot/foot-scripts}}
-    {{/block}}
-
-  </body>
+	</head>
+	<body class="body{{#if visibleGrid}} visible-grid{{/if}}{{#if visibleBreakpoints}} visible-breakpoints{{/if}}">
+		{{>header}}
+		<div id="page" class="page{{#if pageClass}} {{pageClass}}{{/if}}">
+			{{#block "master-body"}}
+				{{body}}
+			{{/block}}
+			{{>footer}}
+		</div>
+		{{#if visibleGrid}}
+			{{>grid}}
+		{{/if}}
+		{{#if bbPageNav}}
+			{{> bb-page-nav}}
+		{{/if}}
+		<!-- DEMO USE ONLY : START -->
+		<button class="action-demo-actions demo-actions-btn">
+			<i class="bb-icon bb-icon-menu"><b>menu</b></i>
+		</button>
+		<div class="demo-actions">
+			<div class="demo-links">
+				<button class="action-demo-actions">
+					<i class="bb-icon bb-icon-chevron-down"><b>hide menu</b></i>
+				</button>
+			</div>
+			<div class="demo-info">
+				<p>
+					<strong><a href="/">{{{package.title}}}</a></strong> / {{{title}}}
+				</p>
+				<img src="{{package.bbLogo}}" alt="BB Logo" class="demo-bb-logo" />
+			</div>
+		</div>
+		<script src="https://use.typekit.net/ugk3ouj.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<!-- DEMO USE ONLY : END -->
+		{{#block "master-foot"}}
+			{{>foot-scripts}}
+		{{/block}}
+	</body>
 </html>
+

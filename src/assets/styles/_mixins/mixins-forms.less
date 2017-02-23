@@ -1,0 +1,34 @@
+// Reset button
+.reset-button() {
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+// WebKit-style focus
+.tab-focus() {
+	// Default
+	outline: thin dotted;
+	// WebKit
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+.placeholder(@color: @input-color-placeholder) {
+	&:-moz-placeholder {
+		color: @color; // Firefox 4-18
+	}
+
+	&::-moz-placeholder {
+		color: @color; // Firefox 19+
+	}
+
+	&:-ms-input-placeholder {
+		color: @color; // Internet Explorer 10+
+	}
+
+	&::-webkit-input-placeholder {
+		color: @color; // Safari and Chrome
+	}
+}
