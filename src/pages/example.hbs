@@ -1,0 +1,18 @@
+---
+title: Example Page
+description: This is an example page description
+visibleBreakpoints: true
+visibleGrid: true
+bbPageNav: true
+pageType: fullPage
+fullPage: true
+---
+{{#extend "layout--a"}}
+  {{#content "region--a"}}
+    <h1>{{example.title}}</h1>
+    <p>{{{example.intro}}}</p>
+    <h2>Sub Heading (Inline HTML)</h2>
+    <p>Example Page Content (Inline HTML). Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis velit fringilla, pharetra turpis sit amet, dignissim enim. Suspendisse eget metus id sem hendrerit aliquet eu a est. Nulla ut enim blandit, vulputate nisl nec, pharetra leo. Curabitur a turpis sit amet dolor sodales euismod at nec ante. Etiam et purus sed arcu auctor ullamcorper ac eget lorem. Aenean congue hendrerit laoreet. Pellentesque et neque consequat, sodales felis nec, malesuada nibh. Pellentesque turpis diam, pretium sit amet tortor sit amet, auctor accumsan lorem. Aenean a est at turpis aliquam aliquet a eget orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi eget porta lectus. In consequat eros ut bibendum porta. Ut congue dolor volutpat nisl laoreet dignissim.</p>
+    {{>test testdata.test_a}}
+  {{/content}}
+{{/extend}}

@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="robots" content="noindex, nofollow" />
-		<title>{{package.title}} {{package.version}}</title>
-		<!-- Icons -->
-		<link rel="icon" href="{{assets}}/_bb/favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="{{assets}}/_bb/favicon.ico" type="image/x-icon" />
-		<!-- CSS -->
-		<link rel="stylesheet" href="{{assets}}/_bb/style.css" />
-	</head>
-	<body>
-		{{>body}}
-		<!-- Javascript -->
-		<script src="{{assets}}/_bb/jquery.js"></script>
-		<script src="{{assets}}/_bb/scripts.js"></script>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="robots" content="noindex, nofollow" />
+        <title>{{{global.title}}} {{{global.version}}}</title>
+        <link rel="icon" href="_bb/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="_bb/style.css" />
+
+        <script src="https://use.typekit.net/ugk3ouj.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    </head>
+    <body>
+        {{#block "master__main"}}{{/block}}
+    </body>
 </html>

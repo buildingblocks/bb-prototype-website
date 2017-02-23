@@ -1,0 +1,13 @@
+{
+    "name": "Prototype Project",
+    "title": "Prototype",
+    "description": "Boilerplate project setup",
+    "clientImage": "_bb/bb-mosaic.svg",
+    "clientLogo": "_bb/bb-logo.svg",
+    "bbLogo": "_bb/bb-logo.png",
+    "styles": "_styles",
+    "scripts": "_scripts",
+    "mainCss": "styles.css",
+    "images": "images",
+    "copyrightYear": "2016"
+}

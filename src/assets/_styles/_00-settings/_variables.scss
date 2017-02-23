@@ -1,0 +1,149 @@
+// variables.scss
+@function parseInt($str, $radix: 10) {
+  $chars: charsFromBase($radix);
+  $result: 0;
+
+  $is-negative: str-index($str, '-') == 1;
+
+  @if $is-negative {
+    $str: str-slice($str, 2);
+  }
+
+  @for $i from 1 through str-length($str) {
+    $char: str-slice($str, -$i, -$i);
+    $value: str-index($chars, $char) - 1;
+    $result: $result + ($value * pow($radix, ($i - 1)));
+  }
+
+  @return if($is-negative, -$result, $result);
+}
+
+// Primary Palette
+$brand-color-a: #ED1C24;
+$brand-color-b: #00A650;
+$brand-color-c: #2056AE;
+$brand-color-d: #FABC09;
+
+// Secondary Palette
+$brand-color-e: #434041;
+$brand-color-f: #747172;
+$brand-color-g: #AEADAD;
+$brand-color-h: #D7D6D6;
+
+//social colors
+$color-twitter: #55ACEE;
+$color-facebook: #3B5998;
+$color-linkedin: #1C86BD;
+$color-youtube: #cd201f;
+$color-tumblr: #35465d;
+$color-pinterest: #cc2127;
+$color-gplus: #DD4B39;
+
+// Aliases
+$color-text: #333;
+$brand-white: #FFF;
+$brand-black: #000;
+
+// Dimensions
+$max-width: 1180px; // overall max width
+$font-size-html: 100%;
+$rem-base: 16px; // 100% browser default font size
+$vertical-rhythm: 6px; // use $vr*X to maintain vertical consistency
+$vr: $vertical-rhythm; // Alias
+
+// Typography
+$font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-serif: 'Georgia Pro', Georgia, Times, serif;
+$font-family-mono: 'Anonymous Pro', 'Droid Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, 'Lucida Console', Courier, monospace;
+$font-family-base: $font-family-sans-serif;
+
+$icon-prefix: 'icon';
+$directory-images: '../images/css';
+$directory-fonts: 'fonts';
+$icon-font: 'icomoon';
+
+// Font Sizing
+$font-size-base: 16px;
+$font-size-small: 14px;
+$line-height-base: $vr*4; // 24px
+$line-height-small: $vr*3; // 18px
+
+$font-weight-bold: 700; // 700 when not using $font-face
+$font-weight-medium: 600; // 600 when not using $font-face
+$font-weight-regular: 400; // 400 when not using $font-face
+$font-weight-light: 100; // 100 when not using $font-face
+
+// Grid system
+$grid-columns: 24;
+$grid-column-width: 30px;
+$gcw: $grid-column-width; // Alias
+$grid-gutter-width: 20px;
+$ggw: $grid-gutter-width; // Alias
+$grid-total-width: 100%;
+//$grid-gridsystem-width: ($gcw*$grid-columns) + ($ggw*$grid-columns) * 1px;
+// Custom smallscreen sizes
+$smallscreen-grid-gutter-width: 15px;
+$ggw-smallscreen: $smallscreen-grid-gutter-width;
+
+// Region A
+$region-a-width: ($gcw*24) + ($ggw*23);
+$region-a-inner-width: $region-a-width + $ggw;
+// Region B
+$region-b-width: ($gcw*16) + ($ggw*15);
+$region-b-inner-width: $region-b-width + $ggw;
+// Region C
+$region-c-width: ($gcw*8) + ($ggw*7);
+$region-c-inner-width: $region-c-width + $ggw;
+
+
+// Media Query Break Points (px & em)
+$break-point-a-px: 320px;
+$break-point-a-em-val: 320 / 16;
+$break-point-a-em: #{$break-point-a-em-val}em;
+// Set to -px or -em
+$break-point-a: $break-point-a-em;
+
+$break-point-b-px: 480px;
+$break-point-b-em-val: 480 / 16;
+$break-point-b-em: #{$break-point-b-em-val}em;
+// Set to -px or -em
+$break-point-b: $break-point-b-em;
+
+$break-point-c-px: 600px;
+$break-point-c-em-val: 600 / 16;
+$break-point-c-em: #{$break-point-c-em-val}em;
+// Set to -px or -em
+$break-point-c: $break-point-c-em;
+
+$break-point-d-px: 768px;
+$break-point-d-em-val: 768 / 16;
+$break-point-d-em: #{$break-point-d-em-val}em;
+// Set to -px or -em
+$break-point-d: $break-point-d-em;
+
+$break-point-e-px: 980px;
+$break-point-e-em-val: 980 / 16;
+$break-point-e-em: #{$break-point-e-em-val}em;
+// Set to -px or -em
+$break-point-e: $break-point-e-em;
+
+$break-point-f-px: 1200px;
+$break-point-f-em-val: 1200 / 16;
+$break-point-f-em: #{$break-point-f-em-val}em;
+// Set to -px or -em
+$break-point-f: $break-point-f-em;
+
+$break-point-g-px: 1400px;
+$break-point-g-em-val: 1400 / 16;
+$break-point-g-em: #{$break-point-g-em-val}em;
+// Set to -px or -em
+$break-point-g: $break-point-g-em;
+
+// For break point shorthands
+$BPA: "(min-width:" $break-point-a")";
+$BPB: "(min-width:" $break-point-b")";
+$BPC: "(min-width:" $break-point-c")";
+$BPD: "(min-width:" $break-point-d")";
+$BPE: "(min-width:" $break-point-e")";
+$BPF: "(min-width:" $break-point-f")";
+$BPG: "(min-width:" $break-point-g")";

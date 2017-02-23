@@ -20,7 +20,8 @@
 		"require": true,
 		"setInterval": true,
 		"setTimeout": true,
-		"window": true
+		"window": true,
+		"picturefill": true
 	},
 	"immed": true,
 	"latedef": true,

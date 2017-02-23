@@ -1,0 +1,20 @@
+---
+component: page-list
+hide: true
+published: false
+---
+
+<h2 class="bb-page-title">Components</h2>
+<ul class="file-list">
+	{{#withSort pages "filename"}}
+		{{#if data.uiComponent}}
+			{{#unless data.hide}}
+				{{#if data.Component}}
+				<li class="file">
+					<a href="{{relative dest this.dest}}">{{data.title}} <span>{{filename}}</span></a>
+				</li>
+				{{/if}}
+			{{/unless}}
+		{{/if}}
+	{{/withSort}}
+</ul>

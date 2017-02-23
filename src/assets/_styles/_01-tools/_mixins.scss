@@ -1,0 +1,231 @@
+// RGBA Backgrounds
+@mixin  rgba-bg($colour, $alpha){
+	$alphaColour: hsla(hue($colour), saturation($colour), lightness($colour), $alpha);
+	$ieAlphaColour: argb($alphaColour);
+
+	background-color: $colour; // Fallback for older browsers
+	background-color: $alphaColour;
+}
+
+// Calculates a "fluid" (percentage) width (Ethan Marcotte: target / context = result method: http://alistapart.com/article/fluidgrids)
+
+@mixin fluid-width($target, $context) {
+	width: 100%*($target/$context);
+}
+
+@mixin fluid-margin-right($target, $context) {
+	margin-right: 100%*($target/$context);
+}
+
+@mixin fluid-margin-left($target, $context) {
+	margin-left: 100%*($target/$context);
+}
+
+@mixin fluid-padding-right($target, $context) {
+	padding-right: 100%*($target/$context);
+}
+
+@mixin fluid-padding-left($target, $context) {
+	padding-left: 100%*($target/$context);
+}
+
+@mixin fluid-right($target, $context) {
+	right: 100%*($target/$context);
+}
+
+@mixin fluid-left($target, $context) {
+	left: 100%*($target/$context);
+}
+
+// Reset button
+@mixin reset-button() {
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+// WebKit-style focus
+@mixin tab-focus() {
+	// Default
+	outline: thin dotted;
+	// WebKit
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+@mixin placeholder($color) {
+	&:-moz-placeholder {
+		color: $color; // Firefox 4-18
+	}
+
+	&::-moz-placeholder {
+		color: $color; // Firefox 19+
+	}
+
+	&:-ms-input-placeholder {
+		color: $color; // Internet Explorer 10+
+	}
+
+	&::-webkit-input-placeholder {
+		color: $color; // Safari and Chrome
+	}
+}
+
+// Gradients
+#gradient {
+	@mixin horizontal($startColor: #555, $endColor: #333) {
+		background-color: $endColor;
+		background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
+		background-image: -ms-linear-gradient(left, $startColor, $endColor); // IE10
+		background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+		background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+		background-image: -o-linear-gradient(left, $startColor, $endColor); // Opera 11.10
+		background-image: linear-gradient(left, $startColor, $endColor); // Le standard
+		background-repeat: repeat-x;
+		//filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",$startColor,$endColor)); // IE9 and down
+		.cssgradients &{
+			background-color: transparent;
+		}
+	}
+
+	@mixin vertical($startColor: #555, $endColor: #333, $startColorStop: 0%, $endColorStop: 100%) {
+		background-color: $endColor;
+		background-image: -moz-linear-gradient(top, $startColor $startColorStop, $endColor $endColorStop); // FF 3.6+
+		background-image: -ms-linear-gradient(top, $startColor $startColorStop, $endColor $endColorStop); // IE10
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor, $startColorStop), to($endColor, $endColorStop)); // Safari 4+, Chrome 2+
+		background-image: -webkit-linear-gradient(top, $startColor $startColorStop, $endColor $endColorStop); // Safari 5.1+, Chrome 10+
+		background-image: -o-linear-gradient(top, $startColor $startColorStop, $endColor $endColorStop); // Opera 11.10
+		background-image: linear-gradient(top, $startColor $startColorStop, $endColor $endColorStop); // The standard
+		background-repeat: repeat-x;
+		//filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",$startColor,$endColor)); // IE9 and down
+		.cssgradients &{
+			background-color: transparent;
+		}
+	}
+
+	@mixin directional($startColor: #555, $endColor: #333, $deg: 45deg) {
+		background-color: $endColor;
+		background-repeat: repeat-x;
+		background-image: -moz-linear-gradient($deg, $startColor, $endColor); // FF 3.6+
+		background-image: -ms-linear-gradient($deg, $startColor, $endColor); // IE10
+		background-image: -webkit-linear-gradient($deg, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+		background-image: -o-linear-gradient($deg, $startColor, $endColor); // Opera 11.10
+		background-image: linear-gradient($deg, $startColor, $endColor); // The standard
+	}
+
+	@mixin vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+		background-color: mix($midColor, $endColor, 80%);
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+		background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
+		background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
+		background-image: -ms-linear-gradient($startColor, $midColor $colorStop, $endColor);
+		background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
+		background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
+		background-repeat: no-repeat;
+	}
+
+	@mixin radial($innerColor: #555, $outerColor: #333)	 {
+		background-color: $outerColor;
+		background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($innerColor), to($outerColor));
+		background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor);
+		background-image: -moz-radial-gradient(circle, $innerColor, $outerColor);
+		background-image: -ms-radial-gradient(circle, $innerColor, $outerColor);
+		background-image: -o-radial-gradient(circle, $innerColor, $outerColor);
+		background-repeat: no-repeat;
+	}
+
+	@mixin striped($color, $angle: -45deg) {
+		background-color: $color;
+		background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+		background-image: -webkit-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+		background-image: -moz-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+		background-image: -ms-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+		background-image: -o-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+		background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+	}
+}
+
+// Reset filters for IE
+@mixin reset-filter() {
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+// new image replacement see: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+@mixin hide-text() {
+	overflow: hidden;
+	text-indent: 150%;
+	white-space: nowrap;
+}
+
+// produces the "..." on mobile and modern browsers
+@mixin ellipsis($ellipwidth: 100%) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: $ellipwidth;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	opacity: $opacity / 100;
+}
+
+// Links
+@mixin reset-link() {
+    border: 0;
+    color: inherit;
+    text-decoration: none;
+
+    &:visited,
+    &:active {
+        border: 0;
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+@mixin underline-reset() {
+	background: none;
+}
+
+// Generic size mixin
+@mixin size($width, $height: $width){
+	height: $height;
+	width: $width;
+}
+
+// For clearing floats
+@mixin clearfix() {
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin visually-hidden() {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+
+	&.focusable:active,
+	&.focusable:focus {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+}
+

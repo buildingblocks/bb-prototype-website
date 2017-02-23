@@ -1,7 +1,3 @@
-![Building Blocks](https://github.com/buildingblocks/bb-prototype-website/raw/master/src/assets/images/bb-logo.png "Building Blocks")
-
-# bb-prototype-website [![Build Status][travis-image]][travis-url]
-
 > Front-end website prototype template.
 
 ## Using the prototype website

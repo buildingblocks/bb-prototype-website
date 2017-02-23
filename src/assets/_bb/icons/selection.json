@@ -1,0 +1,110 @@
+{
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M1022.037 897.28l-391.851-388.053 387.925-391.424-120.832-119.765-387.84 391.637-391.509-387.755-119.893 119.893 391.936 388.48-388.053 391.851 119.893 119.893 388.779-392.192 391.68 388.267z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 0,
+				"tags": [
+					"close"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 3,
+				"id": 2,
+				"prevSize": 16,
+				"code": 59650,
+				"name": "close"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 0
+		},
+		{
+			"icon": {
+				"paths": [
+					"M917.333 192l128 132.267-512 507.733-512-507.733 128-132.267 384 384 384-384z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 0,
+				"tags": [
+					"chevron-down"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 1,
+				"id": 1,
+				"prevSize": 16,
+				"code": 59648,
+				"name": "chevron-down"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 1
+		},
+		{
+			"icon": {
+				"paths": [
+					"M1024 256h-1024v-170.667h1024v170.667zM1024 426.667h-1024v170.667h1024v-170.667zM1024 768h-1024v170.667h1024v-170.667z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"grid": 0,
+				"tags": [
+					"menu"
+				]
+			},
+			"attrs": [],
+			"properties": {
+				"order": 2,
+				"id": 0,
+				"prevSize": 16,
+				"code": 59649,
+				"name": "menu"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 2
+		}
+	],
+	"height": 1024,
+	"metadata": {
+		"name": "bb-icon"
+	},
+	"preferences": {
+		"showGlyphs": true,
+		"showCodes": true,
+		"showQuickUse": true,
+		"showQuickUse2": true,
+		"showSVGs": true,
+		"fontPref": {
+			"prefix": "bb-icon-",
+			"metadata": {
+				"fontFamily": "bb-icon",
+				"majorVersion": 1,
+				"minorVersion": 0
+			},
+			"metrics": {
+				"emSize": 1024,
+				"baseline": 6.25,
+				"whitespace": 50
+			},
+			"embed": false
+		},
+		"imagePref": {
+			"prefix": "icon-",
+			"png": true,
+			"useClassSelector": true,
+			"color": 0,
+			"bgColor": 16777215
+		},
+		"historySize": 100
+	}
+}

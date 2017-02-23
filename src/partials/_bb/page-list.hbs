@@ -4,13 +4,15 @@ hide: true
 published: false
 ---
 
-<h2>Pages</h2>
+<h2 class="bb-page-title">Pages</h2>
 <ul class="file-list">
 	{{#withSort pages "filename"}}
-		{{#unless data.hide}}
-			<li class="file">
-				<a href="{{relative dest this.dest}}">{{filename}}</a>
-			</li>
-		{{/unless}}
+		{{#if data.fullPage}}
+			{{#unless data.hide}}
+				<li class="file">
+					<a href="{{relative dest this.dest}}">{{data.title}} <span>{{filename}}</span></a>
+				</li>
+			{{/unless}}
+		{{/if}}
 	{{/withSort}}
 </ul>

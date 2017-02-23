@@ -1,0 +1,18 @@
+---
+component: ajax-list
+hide: true
+published: false
+---
+
+<h2 class="bb-page-title">Ajax Pages</h2>
+<ul class="file-list">
+	{{#withSort pages "filename"}}
+		{{#if data.ajaxPage}}
+			{{#unless data.hide}}
+				<li class="file">
+					<a href="{{relative dest this.dest}}">{{data.title}} <span>{{filename}}</span></a>
+				</li>
+			{{/unless}}
+		{{/if}}
+	{{/withSort}}
+</ul>

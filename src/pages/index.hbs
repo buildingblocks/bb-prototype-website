@@ -1,0 +1,83 @@
+---
+title: File List
+hide: true
+---
+
+{{#extend "_bb"}}
+	{{#content "master__main"}}
+	<div class="main" id="main" role="main">
+
+		<div class="client-image" style="background-image: url({{global.clientImage}}); background-size: cover; background-position: center;">
+			<img class="client-logo" src="{{global.clientLogo}}" alt="Client Logo" height="50" />
+		</div>
+
+		<div class="site-files">
+			<div class="container">
+				<header class="header" role="banner">
+						<a href="#" class="logo">
+							<img src="_bb/bb-logo.svg" alt="Building Blocks" width="83" height="50" />
+						</a>
+						<h1 class="project-title">
+							{{{global.title}}}
+                            <span class="last-modified">
+                                {{!-- Could also do an each with if statement for the data publised if this becomes a problem --}}
+                                <b>Last Modified:</b> <span>{{pageList.0.datePublished}}</span> 
+                            </span>
+						</h1>
+				</header>
+				<div class="content">
+
+					<h2 class="bb-page-title">Styleguide</h2>
+					<ul class="file-list">
+						<li class="file"><a href="styleguide.html">Styleguide <span>styleguide.html</span></a></li>
+					</ul>
+
+					<div class="bb-page-list" data-page-type="fullPage">
+						<h2 class="bb-page-title">Pages</h2>
+						<ul class="file-list">
+							{{#each pageList}}
+								{{#if data.fullPage}}
+								<li class="file">
+								    <a href="{{url}}">{{data.title}} <span>{{url}}</span></a>
+								</li>
+								{{/if}}
+							{{/each}}
+						</ul>
+					</div>
+
+					<div class="bb-page-list" data-page-type="uiComponent">
+						<h2 class="bb-page-title">Components</h2>
+						<ul class="file-list">
+							{{#each pageList}}
+								{{#if data.uiComponent}}
+								<li class="file">
+								    <a href="{{url}}">{{data.title}} <span>{{url}}</span></a>
+								</li>
+								{{/if}}
+							{{/each}}
+						</ul>
+					</div>
+
+					<div class="bb-page-list" data-page-type="layoutPage">
+						<h2 class="bb-page-title">Layout Pages</h2>
+						<ul class="file-list">
+							{{#each pageList}}
+								{{#if data.layoutPage}}
+								<li class="file">
+								    <a href="{{url}}">{{data.title}} <span>{{url}}</span></a>
+								</li>
+								{{/if}}
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+
+				<footer class="footer" role="contentinfo">
+					<p>&copy; Copyright {{{global.copyrightYear}}} Building Blocks Ltd.</p>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+	{{/content}}
+{{/extend}}

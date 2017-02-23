@@ -1,8 +1,9 @@
-html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;font-family: "museo-sans",sans-serif;font-weight: 900;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
 
 /* main styles */
 body {
-    font-family: Georgia, serif;
+    /*font-family: Georgia, serif;*/
+    font-family: 'Museo-sans', Sans-Serif;
     font-size: 16px;
     line-height: 20px;
     color: #000;
@@ -10,41 +11,49 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
 }
-a,
-a:link,
-a:visited,
-a:focus {
-    color: #2056AE;
+a, a:link, a:focus {
     text-decoration: none;
-    border-bottom: 1px solid rgba(32,86,174,0);
+    color: #5266bf;
+}
+.dev-completed a,
+li.dev-completed {
+    color: #BFA452;
+}
+.file-signedoff a,
+li.file-signedoff {
+    color: #52BF52;
 }
 a:hover {
-    color: #2056AE;
+    color: #2b2b2b;
     text-decoration: none;
-    border-bottom: 1px solid rgba(32,86,174,0.2);
 }
 b, strong {
-	font-weight: normal;
+    font-weight: normal;
 }
 p {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .container {
     max-width: 940px;
     margin: 0 20px;
     position: relative;
-    overflow: hidden;
 }
 @media only screen and (min-width: 980px) {
     .container {
         margin: 0 auto;
     }
 }
+
+
 .header {
-    padding: 20px 0 0;
-    width: 100%;
     overflow: hidden;
     float: left;
+    position: fixed;
+    top: 0;
+    width: 50%;
+    right: 0;
+    padding: 60px 0 30px;
+    background: #fff;
 }
 .header a {
     border: 0;
@@ -58,20 +67,26 @@ p {
     .header .logo {
         max-width: 83px;
         margin-bottom: 0;
+        left: 0px;
+        position: relative;
+    }
+}
+
+@media only screen and (min-width: 961px) {
+    .header .logo {
+        left: 30px;
     }
 }
 .header .logo img {
-	max-width: 100%;
-	height: auto;
+    max-width: 100%;
+    height: auto;
 }
 .header .project-title {
     float: left;
     clear: both;
-    font-size: 18px;
-    line-height: 25px;
-    font-weight: bold;
-    letter-spacing: -1px;
-    font-family: 'Helvetica Neue', Arial, Sans-Serif;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;=:-1px;
 }
 @media only screen and (min-width: 660px) {
     .header .project-title {
@@ -79,42 +94,60 @@ p {
         text-align: right;
         clear: none;
         max-width: 60%;
-        padding: 0 2px;
+        right: 0px;
+        position: relative;
+    }
+}
+@media only screen and (min-width: 961px) {
+    .header .project-title {
+        float: right;
+        text-align: right;
+        clear: none;
+        max-width: 60%;
+        right: 0px;
+        position: relative;
+        right: 30px;
     }
 }
 .header .last-modified {
-   	font-size: 12px;
-   	font-weight: normal;
-   	display: block;
-   	line-height: 20px;
-   	text-align: right;
-   	letter-spacing: 0;
-   	padding-top: 5px;
-   	font-family: Georgia, serif;
+    font-weight: normal;
+    display: block;
+    line-height: 22px;
+    text-align: right;
+    letter-spacing: 0;
+    padding-top: 5px;
+    font-family: Georgia, serif;
+    text-transform: none;
+    color: #878787;
+    font-size: 14px;
 }
 .main {
     clear: both;
     width: 100%;
     float: left;
+    height: 100%;
+    overflow: hidden;
 }
 h2 {
     padding: 20px 0 10px;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 20px;
+    line-height: 48px;
     width: 100%;
     clear: both;
-    letter-spacing: -1px;
-    font-weight: bold;
-    font-family: 'Helvetica Neue', Arial, Sans-Serif;
+    font-weight: 900;
+    /*font-family: 'Helvetica Neue', Arial, Sans-Serif;*/
+    font-family: 'Museo-sans', Sans-Serif;
+    text-transform: uppercase;
 }
 h2 b {
-	font-weight: bold
+    font-weight: bold
 }
 h2 span {
     font-weight: normal;
     font-size: 16px;
     line-height: 1;
-    font-family: 'Helvetica Neue', Arial, Sans-Serif;
+    /*font-family: 'Helvetica Neue', Arial, Sans-Serif;*/
+    font-family: 'Museo-sans', Sans-Serif;
     vertical-align: baseline;
 }
 span.small {
@@ -130,14 +163,21 @@ span.small {
 }
 .file-list li {
     padding: 10px 0;
-    border-bottom: 1px solid #E6E6E7;
+    border-bottom: 1px solid #e2e2e2;
     width: 100%;
     float: left;
+    font-size: 16px;
+    line-height: 26px;
+}
+.file-list li span {
+    display: block;
+    color: #999999;
+    font-size: 14px;
+    line-height: 14px;
 }
 .file-list li:first-child {
-	border-top: 0;
+    border-top: 0;
 }
-
 .page-link {
     width: 100%;
     float: left;
@@ -170,54 +210,102 @@ span.small {
     margin-bottom: 20px;
     font-size: 14px;
 }
-/* responsive test tool */
-.responsive {
+
+.client-image {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+.site-files {
+    position: relative;
+    float: right;
+    width: 50%;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.site-files .container {
+    padding: 200px 30px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .site-files .container {
+        padding: 30px;
+    }
 
 }
-.responsive-header {
-    padding: 20px 20px 0;
+
+@media only screen and (max-width: 960px) {
+
+    .client-image {
+        position: relative;
+        width: 100%;
+        height: 160px;
+        background-repeat: no-repeat;
+    }
+
+    .site-files {
+        position: relative;
+        float: none;
+        width: 100%;
+        height: auto;
+    }
+
+    .site-files .container {
+        padding: 30px;
+       }
+
+    .header {
+        padding: 0;
+        position: relative;
+        width: 100%;
+        left: 0;
+       }
+
+    .header .last-modified {
+        text-align: left;
+    }
+
 }
-.responsive-options {
-	display: inline-block;
-	padding-left: 20px;
+
+.client-image::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0, .6);
+    content: "";
 }
-.responsive-options label {
-	padding-right: 10px;
+
+.client-logo {
+    z-index: 99;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    height: 30px;
 }
-.responsive-frames {
-    overflow-x: scroll;
-    width: 100%;
+
+@media only screen and (min-width: 961px) {
+    .client-logo {
+        right: auto;
+        top: auto;
+        height: 30px;
+        left: 10px;
+        bottom: 30px;
+    }
 }
-.responsive-frames-inner {
-    padding: 20px;
-    overflow: hidden;
+
+.site-description {
+    margin-bottom: 20px;
 }
-.responsive-frame {
-	float: left;
-	padding-left: 20px;
-}
-.responsive-frame:first-child {
-	padding-left: 0;
-}
-.responsive-frame h2 {
-	padding-top: 0;
-}
-.responsive-frame iframe{
-	border: solid 1px #000;
-}
-.responsive-width-only .responsive-frame iframe {
-	height: 500px;
-}
-.responsive-width-only .responsive-frame h2 span,
-.responsive-width-only .responsive-frame h2 b {
-	display: none;
-}
-/* responsive frame loader */
-.responsive-frame-loader {
-	display: none;
-}
-.responsive-frame.loading .responsive-frame-loader{
-	display: inline-block;
-	vertical-align: middle;
-	margin: -3px 0 0 3px;
+
+.site-description p {
+    font-size: 18px;
+    line-height: 24px;
 }
