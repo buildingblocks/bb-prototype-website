@@ -129,6 +129,54 @@ var bb = bb ? bb : {};
 			if (direction === 'rtl') {
 				self.settings.rtl = true;
 			}
+		},
+        closestClass: function(el, className) {
+			while (el) {
+				if (bb.hasClass(el, className)) {
+					break;
+				}
+				el = el.parentElement;
+			}
+			return el;
+		},
+		hasClass: function(el, className) {
+			if (el.classList) {
+				return el.classList.contains(className);
+			} else {
+				if (el.className) {
+					var classArray = el.className.split(' ');
+					for (var i = 0; i < classArray.length; i++) {
+						if (classArray[i] === className) {
+							return true;
+						}
+					}
+				}
+			}
+			//return el.classList ? el.classList.contains(className) : new RegExp('\\b' + className + '\\b').test(el.className);
+		},
+		addClass: function(el, className) {
+			var classNames = className.split(' ');
+			var i;
+
+			for (i = 0; i < classNames.length; i++) {
+				if (el.classList) {
+					el.classList.add(classNames[i]);
+				} else if (!bb.hasClass(el, classNames[i])) {
+					el.className += ' ' + classNames[i];
+				}
+			}
+		},
+		removeClass: function(el, className) {
+			var classNames = className.split(' ');
+			var i;
+
+			for (i = 0; i < classNames.length; i++) {
+				if (el.classList) {
+					el.classList.remove(classNames[i]);
+				} else {
+					el.className = el.className.replace(new RegExp('\\b' + classNames[i] + '\\b', 'g'), '');
+				}
+			}
 		}
 	});
 	$.subscribe('pageReady', function() {
