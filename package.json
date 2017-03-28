@@ -10,10 +10,12 @@
   "homepage": "https://github.com/buildingblocks/bb-prototype-website",
   "issues": "https://github.com/buildingblocks/bb-prototype-website/issues",
   "authors": [
-    "Andrew 'The Ledge' Blackledge (https://github.com/ablackledge)"
+    "Andrew Blackledge (https://github.com/ablackledge)"
   ],
   "contributors": [
-    "Clara Jordan (https://github.com/czmj)"
+    "Clara Jordan (https://github.com/czmj)",
+    "Paul Welsh (https://github.com/spacedawwwg)",
+    "John Cashmore (https://github.com/JohnCashmore)"
   ],
   "repository": {
     "type": "git",
