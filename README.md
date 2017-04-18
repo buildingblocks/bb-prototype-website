@@ -1,40 +1,34 @@
-> Front-end website prototype template.
+> Front-end website template.
 
-## Using the prototype website
-Please refer to [the wiki](https://github.com/buildingblocks/bb-prototype-website/wiki) for details on how to use this prototype project:
+## Prerequisites
 
-- [Prerequisites](https://github.com/buildingblocks/bb-prototype-website/wiki/Prerequisites)
-- [Installation](https://github.com/buildingblocks/bb-prototype-website/wiki/Installation)
-- [Building the project](https://github.com/buildingblocks/bb-prototype-website/wiki/Building-the-project)
-- [Working with the project](https://github.com/buildingblocks/bb-prototype-website/wiki/Working-with-the-project)
-- [Working on the project](https://github.com/buildingblocks/bb-prototype-website/wiki/Working-on-the-project)
-- [Appendix: Technologies used](https://github.com/buildingblocks/bb-prototype-website/wiki/Appendix:-Technologies-used)
+You will need to have git, node and gulp on your machine:
 
-## Release History 
+- [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+- [https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
 
-* 2015-07-03 **v1.0.0** - [See release notes](https://github.com/buildingblocks/bb-prototype-website/releases/tag/1.0.0)
-* 2015-04-14 v0.9.0 - [Build changes](https://github.com/buildingblocks/bb-prototype-website/releases/tag/v0.9.0)
-* 2015-01-19 v0.8.0 - [See release notes](https://github.com/buildingblocks/bb-prototype-website/releases/tag/v0.8.0)
-* 2014-11-06 v0.7.0 - Updated Gruntfile with new tasks and packages
-* 2014-09-22 v0.6.2 - Removed non-required setGlobal from JS
-* 2014-09-22 v0.6.1 - Updated connect to run off random port number
-* 2014-06-24 v0.6.0 - Added Bower to automate front-end package management
-* 2014-06-13 v0.5.0
-* 2014-02-28 v0.4.0
-	* Split Grunt tasks for quicker 'watch'
-	* Extra layouts using 'extend, content, block' method
-	* Other minor fixes
-* 2014-02-28 v0.3.0 - Massive update (too much to list, see commit log)
-* 2014-02-17 v0.2.0 - Render components list
-* 2014-02-13 v0.1.0 - Initial project upload
+## Download and install the project modules
 
-See also: [Releases](https://github.com/buildingblocks/bb-prototype-website/releases).
+You will need to clone the repo and then run a couple of commands to build the project
 
-## License
-[MIT License](http://building-blocks.mit-license.org)
+- `git clone git@github.com:buildingblocks/bb-prototype-website.git`
+
+Change into the project directory
+
+- `cd bb-prototype-website`
+
+Install node modules
+
+- `npm install`
+
+## Build the project
+
+There are a couple different ways to build
+
+- `gulp` this will build the project and run the watch task, so any changes to the files now will cause the build to run again automatically
+- `gulp serve` this will build and watch the project plus serve the site locally
+- `gulp production` same as running gulp but minifies files and doesn't run the watch or serve tasks
 
 
-[travis-url]: http://travis-ci.org/buildingblocks/bb-prototype-website
-[travis-image]: https://secure.travis-ci.org/buildingblocks/bb-prototype-website.svg?branch=master
-[dev-dependency-url]: https://david-dm.org/buildingblocks/bb-prototype-website#info=devDependencies
-[dev-dependency-image]: https://david-dm.org/buildingblocks/bb-prototype-website/dev-status.svg
+
