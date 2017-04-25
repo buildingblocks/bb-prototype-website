@@ -1,0 +1,19 @@
+// textarea
+
+// Make textarea height behave
+textarea {
+    overflow: auto;
+    resize: none;
+    white-space: normal;
+    overflow: auto;
+    height: $vr*30;
+    white-space: pre;
+    margin: 0 0 $vr;
+    padding: 10px 20px;
+    border-radius: $input-border-radius;
+    background-color:  transparent;
+}
+
+textarea[disabled] {
+    white-space: pre;
+}

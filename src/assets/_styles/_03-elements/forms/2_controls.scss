@@ -1,0 +1,94 @@
+// controls
+
+.control__label {
+	font-size: 16px;
+	line-height: $input-height;
+	font-weight: $font-weight-regular;
+
+	@media #{$BPD} {
+		font-size: 18px;
+		line-height: $input-height;
+	}
+
+	label {
+		line-height: $vr*3;
+	    display: inline-block;
+	    cursor: pointer;
+	    font-size: 14px;
+	    margin-bottom: $vr;
+	    font-weight: $font-weight-regular;
+	}
+}
+
+.control-inline {
+
+	@media #{$BPD} {
+		display: inline-block;
+		clear: none;
+		margin-right: $vr*3;
+		margin-bottom: $vr;
+		clear: none;
+	}
+}
+
+.control--adjacent {
+    display: block;
+    width: 100%;
+    margin-bottom: $vr;
+
+    @media #{$BPD} {
+        float: left;
+        width: auto;
+    }
+
+    .control__label,
+    .controls {
+
+        @media #{$BPD} {
+            float: left;
+            width: auto;
+            margin-right: $ggw/2;
+        }
+    }
+}
+
+.control-group {
+	margin-bottom: $vr*2;
+}
+
+.control-group--block {
+
+	input,
+	select,
+	.select-replace {
+		display: block;
+	}
+}
+
+.control-optional {
+	color: #999;
+	font-weight: $font-weight-regular;
+	font-family: $font-family-base;
+	font-size: $font-size-small;
+	line-height: $line-height-small;
+	text-transform: none;
+
+	.controls & {
+		display: none;
+
+		@media #{$BPD} {
+			display: inline;
+		}
+
+		.btn {
+			float: left;
+		}
+	}
+}
+
+.form-actions {
+
+	.btn {
+		margin-bottom: $vr;
+	}
+}

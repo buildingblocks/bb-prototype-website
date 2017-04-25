@@ -1,0 +1,204 @@
+// Forms specific variables
+$input-border-width: 1px;
+$input-border-radius: 0px;
+
+$input-height-smallscreen: $vr*4;
+$input-padding-y-smallscreen: $vr;
+$input-padding-x-smallscreen: 10px;
+
+$input-height: $vr*5;
+$input-padding-y: $vr;
+$input-padding-x: 15px;
+
+$input-icon-width: 16px;
+$input-color-a: $brand-color-f;
+
+
+// Elements with actions need pointers
+label,
+input[type='submit'],
+button {
+	cursor: pointer;
+}
+
+// Search Inputs
+input[type='search'] {
+	-webkit-appearance: none;
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+// Remove -webkit styles from text inputs
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='url'],
+input[type='date'],
+input[type='week'],
+input[type='month'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='time'],
+input[type='number'],
+input[type='search'],
+input[type='password'],
+textarea {
+	appearance: none;
+}
+
+
+// Input size variations
+.input--mini,
+.input--small,
+.input--medium,
+.input--large,
+.input--xlarge,
+.input--xxlarge,
+.input--xxxlarge,
+.input--xxxxlarge {
+	width: 100%;
+}
+
+@media #{$BPD} {
+
+	.input--mini {
+		width: ($gcw*2) + ($ggw*1);
+	}
+
+	.input--small {
+		width: ($gcw*3) + ($ggw*2);
+	}
+
+	.input--medium {
+		width: ($gcw*4) + ($ggw*3);
+	}
+
+	.input--large {
+		width: ($gcw*5) + ($ggw*4);
+	}
+
+	.input--xlarge {
+		width: ($gcw*6) + ($ggw*5);
+	}
+
+	.input--xxlarge {
+		width: ($gcw*7) + ($ggw*6);
+	}
+
+	.input--xxxlarge {
+		width: ($gcw*8) + ($ggw*7);
+	}
+
+	.input--xxxxlarge {
+		width: ($gcw*9) + ($ggw*8);
+		max-width: 90%;
+	}
+}
+
+
+
+// Reset the file input to browser defaults
+input[type='file'] {
+	width: auto;
+	padding: initial;
+	line-height: initial;
+	background-color: initial;
+	border: initial;
+	box-shadow: none;
+	cursor: pointer;
+
+	.ie11 & {
+		border: none;
+		padding-left: 0;
+	}
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	appearance: none;
+	margin: 0;
+}
+
+.field-validation-message {
+	font-size: 12px;
+}
+
+.form-title {
+	font-size: 21px;
+}
+
+.important-text {
+	color: $brand-color-a;
+}
+
+// Inputs, Textareas, Selects
+input,
+textarea,
+select,
+.select-replace {
+	padding: 0 20px;
+	max-width: 100%;
+	font-size: 14px;
+	font-weight: $font-weight-regular;
+	color: $color-text;
+	background: $brand-white;
+	border: 1px solid $input-color-a;
+	border-radius: $input-border-radius;
+	vertical-align: middle;
+	display: inline-block;
+	transition: all 100ms;
+	white-space: nowrap;
+	height: 40px;
+	outline: none;
+	margin-bottom: $vr;
+
+	@media #{$BPD} {
+		padding: 0 $input-padding-x;
+		height: 40px;
+	}
+
+	&:focus {
+		border: 1px solid $brand-color-c;
+		outline: none;
+	}
+
+	@include placeholder($brand-color-f);
+
+	&[disabled] {
+		background: #f0f0f0;
+		border-color: #ddd;
+		color: $color-text;
+		cursor: not-allowed;
+
+		&:hover,
+		&:focus {
+			border-color: transparent;
+		}
+	}
+
+	&[readonly] {
+		cursor: not-allowed;
+
+		&:hover,
+		&:focus {
+			border-color: #ccc;
+		}
+	}
+}
+
+

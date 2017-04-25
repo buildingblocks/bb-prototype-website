@@ -29,7 +29,7 @@ hide: true
 
 					<h2 class="bb-page-title">Styleguide</h2>
 					<ul class="file-list">
-						<li class="file"><a href="styleguide.html">Styleguide <span>styleguide.html</span></a></li>
+						<li class="file"><a href="styleguide.html?debug=true">Styleguide <span>styleguide.html</span></a></li>
 					</ul>
 
 					<div class="bb-page-list" data-page-type="fullPage">
@@ -38,7 +38,7 @@ hide: true
 							{{#each pageList}}
 								{{#if data.fullPage}}
 								<li class="file">
-								    <a href="{{url}}">{{data.title}} <span>{{url}}</span></a>
+								    <a href="{{url}}?debug=true">{{data.title}} <span>{{url}}</span></a>
 								</li>
 								{{/if}}
 							{{/each}}
@@ -51,7 +51,7 @@ hide: true
 							{{#each pageList}}
 								{{#if data.uiComponent}}
 								<li class="file">
-								    <a href="{{url}}">{{data.title}} <span>{{url}}</span></a>
+								    <a href="{{url}}?debug=true">{{data.title}} <span>{{url}}</span></a>
 								</li>
 								{{/if}}
 							{{/each}}
@@ -64,7 +64,7 @@ hide: true
 							{{#each pageList}}
 								{{#if data.layoutPage}}
 								<li class="file">
-								    <a href="{{url}}">{{data.title}} <span>{{url}}</span></a>
+								    <a href="{{url}}?debug=true">{{data.title}} <span>{{url}}</span></a>
 								</li>
 								{{/if}}
 							{{/each}}

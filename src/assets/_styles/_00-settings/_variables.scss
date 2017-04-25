@@ -45,7 +45,7 @@ $brand-white: #FFF;
 $brand-black: #000;
 
 // Dimensions
-$max-width: 1180px; // overall max width
+$max-width: 1420px; // overall max width
 $font-size-html: 100%;
 $rem-base: 16px; // 100% browser default font size
 $vertical-rhythm: 6px; // use $vr*X to maintain vertical consistency
@@ -65,7 +65,7 @@ $icon-font: 'icomoon';
 // Font Sizing
 $font-size-base: 16px;
 $font-size-small: 14px;
-$line-height-base: $vr*4; // 24px
+$line-height-base: $vr*3; // 18px
 $line-height-small: $vr*3; // 18px
 
 $font-weight-bold: 700; // 700 when not using $font-face
@@ -75,7 +75,7 @@ $font-weight-light: 100; // 100 when not using $font-face
 
 // Grid system
 $grid-columns: 24;
-$grid-column-width: 30px;
+$grid-column-width: 40px;
 $gcw: $grid-column-width; // Alias
 $grid-gutter-width: 20px;
 $ggw: $grid-gutter-width; // Alias
@@ -133,8 +133,8 @@ $break-point-f-em: #{$break-point-f-em-val}em;
 // Set to -px or -em
 $break-point-f: $break-point-f-em;
 
-$break-point-g-px: 1400px;
-$break-point-g-em-val: 1400 / 16;
+$break-point-g-px: 1480px;
+$break-point-g-em-val: 1480 / 16;
 $break-point-g-em: #{$break-point-g-em-val}em;
 // Set to -px or -em
 $break-point-g: $break-point-g-em;
@@ -147,3 +147,13 @@ $BPD: "(min-width:" $break-point-d")";
 $BPE: "(min-width:" $break-point-e")";
 $BPF: "(min-width:" $break-point-f")";
 $BPG: "(min-width:" $break-point-g")";
+
+
+// For break point max shorthands
+$MaxBPA: "(max-width:" $break-point-a")";
+$MaxBPB: "(max-width: 479px)";
+$MaxBPC: "(max-width: 599px)";
+$MaxBPD: "(max-width: 767px)";
+$MaxBPE: "(max-width: 979px)";
+$MaxBPF: "(max-width: 1199px)";
+$MaxBPG: "(max-width: 1399px)";

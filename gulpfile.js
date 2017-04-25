@@ -68,6 +68,9 @@ gulp.task('production', function(callback) {
 gulp.task('watch', ['build'], function() {
     livereload.listen();
     gulp.watch(config.paths.styles.src + '**/*.scss', ['styles', 'assets']);
+    gulp.watch(config.paths.styles.src + '**/**/*.scss', ['styles', 'assets']);
+    gulp.watch(config.paths.temp.src + '**/*', ['assets']);
+    gulp.watch(config.paths.images.src + '**/*', ['assets']);
     gulp.watch(config.paths.scripts.src + '**/*.js', ['scripts']);
     gulp.watch([
         config.paths.views.src + '**/*',

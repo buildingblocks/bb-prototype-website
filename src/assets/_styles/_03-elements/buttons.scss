@@ -2,9 +2,6 @@
 //
 // Button styles can be applied to anything with the `.btn` class applied.
 // However, typically you'll want to apply these to only `<a>` and `<button>` elements for the best rendering.
-//
-// Styleguide 4
-//
 
 $btn-border-width: 2px;
 
@@ -23,9 +20,6 @@ $btn-padding-x-large: 30px;
 $btn-line-height-large: $vr*7 - $btn-border-width*2;
 $btn-total-height-large: $btn-padding-y-large*2 + $btn-line-height-large;
 
-// buttons at smallscreen are reduced by one size (to a minimum of *-small)
-// e.g .btn below 768px uses *-small units, .btn-large uses *-default... but .btn-small still uses *-small
-
 input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
@@ -39,11 +33,11 @@ button::-moz-focus-inner {
 .btn {
 	@include underline-reset();
 
-	background-color: #CCC;
+	background-color: $brand-black;
 	background-image: none;
-	border: $btn-border-width solid #CCC;
+	border: $btn-border-width solid $brand-black;
 	box-shadow: none;
-	color: #fff;
+	color: $brand-white;
 	cursor: pointer;
 	display: inline-block;
 	font-family: $font-family-base;
@@ -70,8 +64,8 @@ button::-moz-focus-inner {
 
 	&:hover,
 	&:focus {
-		background: darken(#CCC, 10%);
-		border-color: darken(#CCC, 10%);
+		background: lighten($brand-black, 10%);
+		border-color: lighten($brand-black, 10%);
 		box-shadow: none;
 	}
 
@@ -91,12 +85,6 @@ button::-moz-focus-inner {
 		pointer-events: none; // Future-proof disabling of clicks
 	}
 }
-
-// Sizing
-//
-// .btn-large  - Large button.
-// .btn-small  - Small button.
-//
 
 .btn--small {
 	font-size: 12px;
@@ -125,6 +113,38 @@ button::-moz-focus-inner {
 		padding: $btn-padding-y-large $btn-padding-x-large;
 	}
 }
+
+.btn--icon-right {
+	position: relative;
+	padding-right: 25px;
+
+	@media #{$BPF} {
+		padding-right: 45px;
+	}
+
+	.icon {
+		position: absolute;
+		top: 50%;
+		transition: transform 250ms ease-in-out;
+		transform: translate(4px, -50%);
+
+		@media #{$BPF} {
+			transform: translate(14px, -50%);
+		}
+	}
+
+	&:hover {
+
+		.icon {
+			transform: translate(8px, -50%);
+
+			@media #{$BPF} {
+				transform: translate(20px, -50%);
+			}
+		}
+	}
+}
+
 
 .btn--style-a {
 	background-color: $brand-color-a;

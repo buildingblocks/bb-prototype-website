@@ -14,7 +14,7 @@
 	margin: 0 $ggw;
 	max-width: $max-width;
 
-	@media (min-width: $break-point-f) {
+	@media #{$BPG} {
 		margin: 0 auto;
 	}
 }
@@ -259,4 +259,6 @@
 .gridblock__title {
 	color: #FFF;
 	margin-top: 0;
+	font-size: 24px;
+	line-height: $vr*5;
 }

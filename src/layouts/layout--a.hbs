@@ -3,6 +3,11 @@
     {{#block "head"}}{{/block}}
   {{/content}}
   {{#content "master__main"}}
+
+    {{#if (content "section-full-top")}}
+      {{#block "section-full-top"}}{{/block}}
+    {{/if}}
+
     {{#or (content "region--a") (content "region--b") (content "region--c")}}
       <div class="layout layout--a">
           {{#if (content "region--a")}}
@@ -28,6 +33,12 @@
           {{/if}}
       </div>
     {{/or}}
+
+    {{#if (content "section-full-bottom")}}
+      {{#block "section-full-bottom"}}{{/block}}
+    {{/if}}
+
+
   {{/content}}
   {{#content "master__foot" mode="append"}}
     {{#block "foot"}}{{/block}}

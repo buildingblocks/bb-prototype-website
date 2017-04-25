@@ -1,0 +1,115 @@
+// selects
+
+select {
+	text-transform: none;
+	font-size: 14px;
+	color: #434343;
+	text-align: left;
+
+	&::-ms-expand {
+		display: none;
+	}
+}
+
+.select-replace {
+	display: block;
+	position: relative;
+	padding: 0;
+	border-radius: $input-border-radius;
+	font-size: 16px;
+	border: 1px solid $input-color-a;
+	cursor: pointer;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	background: transparent;
+
+	@media #{$BPD} {
+		display: inline-block;
+		padding: 0;
+	}
+
+	&:hover,
+	&:focus {
+		background:  transparent;
+	}
+
+	&.select--small {
+		height: 30px;
+
+		&::after {
+			height: 30px;
+			line-height: 32px;
+		}
+
+		select {
+			height: 30px;
+			top: -1px;
+		}
+	}
+
+	select {
+		background: none;
+		position: relative;
+		border: 0;
+		box-shadow: none;
+		text-overflow: '';
+		padding-right: 30px;
+		height: 40px;
+		width: 100%;
+		appearance: none;
+		border-radius: $input-border-radius;
+		padding-left: 20px;
+		cursor: pointer;
+		font-weight: $font-weight-regular;
+        z-index: 2;
+        font-size: 16px;
+
+		&[disabled] {
+			cursor: not-allowed;
+		}
+
+		@media #{$BPD} {
+			padding: 0 $input-padding-x;
+			height: 40px;
+			padding-right: 30px;
+		}
+
+		option {
+			padding: 0 10px;
+		}
+	}
+
+	&:after {
+	    display: block;
+	    height: 10px;
+	    position: absolute;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    right: 16px;
+	    width: 13px;
+	    z-index: 1;
+	    font-size: 15px;
+        color: $brand-color-c;
+	    font-family: $icon-font;
+	    content: "\e906";
+	    line-height: 1;
+        z-index: 1;
+
+		.lt-ie10 & {
+			display: none;
+		}
+	}
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+	height: auto;
+	background: $brand-white;
+	padding-top: $input-padding-y*2;
+	line-height: $input-height - $vr;
+	padding-bottom: $input-padding-y;
+	padding-right: 5px;
+}

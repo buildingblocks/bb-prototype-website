@@ -1,0 +1,183 @@
+// radios and checkboxes
+input[type="radio"],
+input[type="checkbox"] {
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	background: transparent;
+
+	.lt-ie9 & {
+		display: inline;
+	}
+}
+
+input[type="radio"] {
+	margin-top: 4px;
+}
+
+.radio,
+.checkbox {
+	margin-bottom: $vr;
+	display: block;
+	position: relative;
+	padding-left: 25px;
+	padding-top: $vr;
+	line-height: $vr*3;
+
+	@media #{$BPE} {
+		padding-top: $vr;
+	}
+
+	&:first-child {
+
+		@media #{$BPD} {
+			margin-top: $vr;
+		}
+	}
+
+	&.disabled {
+		color: $brand-color-g;
+	}
+
+	.checkbox--replace,
+	.radio--replace {
+		position: absolute;
+		top: 7px;
+		left: 0;
+	}
+
+	input {
+		@include visually-hidden();
+	}
+}
+
+.checkbox--replace,
+.radio--replace {
+	width: 15px;
+	height: 15px;
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	line-height: normal;
+	cursor: pointer;
+	background-color: transparent;
+	border: 1px solid #69c4da;
+	transition: none;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	appearance: none;
+
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+
+	&:hover,
+	input:active + & {
+		border-color: $brand-color-g;
+	}
+
+	input:focus + & {
+		border-color: $brand-color-g;
+	}
+
+	input[disabled] + & {
+		border-color: $brand-color-g;
+		color: $brand-color-g;
+		cursor: not-allowed;
+
+		&:hover,
+		&:focus {
+			border-color: $brand-color-g;
+		}
+	}
+}
+
+input[type="checkbox"]:checked {
+
+	.checkbox--replace {
+
+		&::after {
+			display: block;
+		}
+	}
+}
+
+.checkbox--replace {
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
+		width: 14px;
+		height: 14px;
+		line-height: 100%;
+		text-align: center;
+		font-size: 13px;
+		font-family: $icon-font;
+		content: "\e903"; // a tick
+		display: none;
+	}
+
+	input:checked + & {
+		background: $brand-white;
+		border-color: $brand-color-c;
+
+		&:after {
+			display: block;
+			color: $brand-color-c;
+		}
+	}
+
+	input[disabled] + & {
+		border-color: $brand-color-g;
+
+		&:after {
+			color: $brand-color-g;
+		}
+	}
+}
+
+.radio--replace {
+	border-radius: 100%;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		left: 50%;
+		width: 0;
+		height: 0;
+		background: $brand-color-c;
+		border-radius: 100%;
+		transition: all 100ms;
+	}
+
+	input:checked + & {
+		border-color: $brand-color-c;
+
+		&:after {
+			width: 15px;
+			height: 15px;
+		}
+	}
+
+	input[disabled] + & {
+		border-color: $brand-color-g;
+
+		&:after {
+			background: $brand-color-g;
+		}
+	}
+}
+
+
+
+.checkbox--replace-input,
+.radio--replace-input {
+	@include visually-hidden();
+}

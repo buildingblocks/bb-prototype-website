@@ -40,6 +40,6 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady ajaxLoaded', function() {
-		bb.replaceRadio.init();
+		// bb.replaceRadio.init();
 	});
 }(jQuery));

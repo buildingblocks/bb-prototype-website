@@ -157,9 +157,9 @@ var bb = bb ? bb : {};
 	});
 	// Subscribe to published events
 	$.subscribe('pageReady ajaxLoaded', function() {
-		bb.lastBlock.init();
+		// bb.lastBlock.init();
 	});
 	$.subscribe('viewportResizeEnd', function() {
-		bb.lastBlock.startProcessing(true);
+		// bb.lastBlock.startProcessing(true);
 	});
 }(jQuery));

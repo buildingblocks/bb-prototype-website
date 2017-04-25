@@ -1,0 +1,35 @@
+// Errors
+input,
+textarea,
+.select-replace {
+
+    &.input-validation-error,
+    &.input-validation-error:hover,
+    &.input-validation-error:focus,
+    &.input-validation-error-replace,
+    &.input-validation-error-replace:hover,
+    &.input-validation-error-replace:focus {
+        border: 1px solid #c20000;
+    }
+}
+
+.input-validation-error,
+.input-validation-error:hover,
+.input-validation-error:focus {
+
+    & + .radio--replace,
+    & + .checkbox--replace {
+        border-color: #c20000;
+    }
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.field-validation-error,
+.validation-summary-errors {
+    color: #c20000;
+    display: block;
+    clear: both;
+}
