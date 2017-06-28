@@ -59,7 +59,8 @@ gulp.task('scripts-lint', function() {
       errorHandler: handleError
     }))
     .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
+    .pipe(jshint.reporter(stylish))
+    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('scripts-compile', function() {
