@@ -4,7 +4,12 @@
 <script src="_scripts/validation.js"></script>
 
 {{!-- Our scripts --}}
+{{!-- detect IE - https://codepen.io/gapcode/pen/vEJNZN  --}}
 <script>
+	var ua = window.navigator.userAgent;
+	var _BB_msie = ua.indexOf('MSIE ');
+	var _BB_trident = ua.indexOf('Trident/');
+
 	function getParameterByName(name) {
 	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -19,7 +24,11 @@
 
 	if (debugQS && debugQS.length > 0) {
 		if (debugQS === 'true') {
-			script.src = '/_scripts/scripts.js';
+			if (_BB_msie > 0 || _BB_trident > 0) {
+				script.src = '/_scripts/scripts.es5.js';
+			} else {
+				script.src = '/_scripts/scripts.js';
+			}
 		}
 	}
 

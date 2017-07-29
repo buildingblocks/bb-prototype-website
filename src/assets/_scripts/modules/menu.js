@@ -20,14 +20,15 @@ var bb = bb ? bb : {};
 			 * @memberof menu
 			 */
 			init: function() {
-				var self = this;
+				const self = this;
 				self.$handle = $('.action-menu');
-				self.$handle.on('click.menu', function(event) {
+
+				self.$handle.on('click.menu', (event) => {
 					event.preventDefault();
 					if (bb.settings.$html.hasClass(self.menuInClass)) {
-						self.closeMenu(event);
+						self.closeMenu();
 					} else {
-						self.openMenu(event);
+						self.openMenu();
 					}
 				});
 			},

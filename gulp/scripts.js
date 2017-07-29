@@ -15,6 +15,8 @@ var concat = require('gulp-concat');
 var runSequence = require('run-sequence').use(gulp);
 var gulpCopy = require('gulp-copy');
 var livereload = require('gulp-livereload');
+var babel = require('gulp-babel');
+var rename = require('gulp-rename');
 
 var config = require('./config');
 var handleError = require('./handle-error');
@@ -23,13 +25,17 @@ gulp.task('scripts', function(callback) {
   runSequence(
     'scripts-lint',
     'scripts-modernizr',
+    'modules-compile',
+    'scripts-babel',
     'scripts-compile',
+    'scripts-es5-compile',
     'scripts-min',
     'validation-compile',
     'jquery-copy',
     callback
   );
 });
+
 
 gulp.task('scripts-modernizr', function() {
   return gulp.src([
@@ -63,6 +69,38 @@ gulp.task('scripts-lint', function() {
     .pipe(jshint.reporter('fail'));
 });
 
+gulp.task('modules-compile', function() {
+	return gulp.src(
+		config.paths.scripts.src + 'modules/**/*.js'
+	)
+	.on('error', handleError)
+	.pipe(concat('modules.js'))
+	.pipe(gulp.dest(config.paths.scripts.dist))
+  .pipe(livereload());
+});
+
+gulp.task('scripts-babel', () => {
+  return gulp.src(config.paths.scripts.dist + 'modules.js')
+    .pipe(babel({
+      presets: ['env']
+    }))
+    .pipe(rename('es5Modules.js'))
+    .pipe(gulp.dest(config.paths.scripts.dist));
+});
+
+gulp.task('scripts-es5-compile', function() {
+	return gulp.src([
+		config.paths.scripts.src + 'plugins/combine/**/*.js',
+    config.paths.scripts.src + 'plugins/modernizr.tests.js',
+		config.paths.scripts.dist + 'es5Modules.js',
+		config.paths.scripts.src + '_init.js'
+	])
+	.on('error', handleError)
+	.pipe(concat(config.outputFiles.scripts.mainES5))
+	.pipe(gulp.dest(config.paths.scripts.dist))
+  .pipe(livereload());
+});
+
 gulp.task('scripts-compile', function() {
 	return gulp.src([
 		config.paths.scripts.src + 'plugins/combine/**/*.js',
@@ -77,12 +115,7 @@ gulp.task('scripts-compile', function() {
 });
 
 gulp.task('scripts-min', function() {
-  return gulp.src([
-    config.paths.scripts.src + 'plugins/combine/**/*.js',
-    config.paths.scripts.src + 'plugins/modernizr.tests.js',
-    config.paths.scripts.src + 'modules/**/*.js',
-    config.paths.scripts.src + '_init.js'
-  ])
+  return gulp.src(config.paths.scripts.dist + config.outputFiles.scripts.mainES5)
   .on('error', handleError)
   .pipe(concat(config.outputFiles.scripts.mainMin))
   .pipe(uglify({

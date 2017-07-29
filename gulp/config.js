@@ -90,6 +90,7 @@ var inputFiles = {
 var outputFiles = {
   scripts: {
     main: 'scripts.js',
+    mainES5: 'scripts.es5.js',
     mainMin: 'scripts.min.js',
     validation: 'validation.js'
   },

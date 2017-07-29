@@ -4,6 +4,8 @@
 	"eqeqeq": true,
 	"eqnull": true,
 	"evil": true,
+	"loopfunc" : true,
+	"esversion": 6,
 	"globals": {
 		"$": true,
 		"bb": true,
