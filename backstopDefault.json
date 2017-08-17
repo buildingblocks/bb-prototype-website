@@ -1,0 +1,48 @@
+{
+  "id": "test",
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "tablet_v",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "label": "tablet_h",
+      "width": 1200,
+      "height": 768
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "BackstopJS Homepage",
+      "url": "https://garris.github.io/BackstopJS/",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectorExpansion": true,
+      "selectors": [],
+      "readyEvent": null,
+      "delay": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions" : true,
+      "onBeforeScript": "onBefore.js",
+      "onReadyScript": "onReady.js"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "engineFlags": [],
+  "engine": "chrome",
+  "report": ["browser"],
+  "debug": false,
+  "debugWindow": false
+}

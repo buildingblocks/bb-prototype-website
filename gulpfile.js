@@ -20,6 +20,7 @@ var build = function(callback) {
         'scripts',
         'assets',
         'pagelist',
+        'buildConfig',
         callback
     );
 };
@@ -83,7 +84,7 @@ gulp.task('watch', ['build'], function() {
 // SERVE TASK
 gulp.task('serve', ['watch'], function(callback) {
     var open = require('open');
-    var serverPort = Math.floor((Math.random() * 1000) + 3000);
+    var serverPort = 1985;
     var localhost = 'http://localhost:' + serverPort;
 
     connect.server({

@@ -29,6 +29,7 @@
     "gulp-babel": "^6.1.2"
   },
   "devDependencies": {
+    "backstopjs": "^3.0.11",
     "browserify": "^13.1.0",
     "del": "^2.2.0",
     "gray-matter": "^2.0.2",
@@ -44,6 +45,8 @@
     "gulp-hb": "^5.1.0",
     "gulp-inject": "^4.1.0",
     "gulp-jshint": "^2.0.1",
+    "gulp-json-editor": "^2.2.1",
+    "gulp-json-modify": "^1.0.2",
     "gulp-livereload": "^3.8.1",
     "gulp-modernizr": "^1.0.0-alpha",
     "gulp-plumber": "^1.0.1",
@@ -52,8 +55,9 @@
     "gulp-sass": "^2.3.2",
     "gulp-sass-generate-contents": "^0.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-tap": "^1.0.1",
     "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7",
+    "gulp-util": "^3.0.8",
     "handlebars": "^4.0.1",
     "handlebars-helpers": "aFrontendDev/handlebars-helpers",
     "handlebars-layouts": "^3.1.2",

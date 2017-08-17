@@ -33,3 +33,7 @@ test/results
 FRONTEND.md
 TODO.md
 _combined.less
+
+# backstopjs visual regression testing
+backstop_data/bitmaps_test
+backstop_data/html_report
