@@ -32,6 +32,7 @@ gulp.task('scripts', function(callback) {
     'scripts-min',
     'validation-compile',
     'jquery-copy',
+    'babelpoly-copy',
     callback
   );
 });
@@ -141,4 +142,10 @@ gulp.task('jquery-copy', function() {
   return gulp
     .src(config.paths.node_jquery.src)
     .pipe(gulpCopy(config.paths.scripts.dist, {prefix: 3}));
+});
+
+gulp.task('babelpoly-copy', function() {
+	return gulp
+		.src(config.paths.node_babelpoly.src)
+		.pipe(gulpCopy(config.paths.scripts.dist, {prefix: 3}));
 });
