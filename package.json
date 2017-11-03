@@ -30,6 +30,7 @@
     "babel-polyfill": "^6.23.0"
   },
   "devDependencies": {
+    "backstopjs": "^3.0.32",
     "browserify": "^13.1.0",
     "del": "^2.2.0",
     "gray-matter": "^2.0.2",
@@ -52,6 +53,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sass-generate-contents": "^0.3.2",
+    "gulp-shell": "^0.6.3",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",

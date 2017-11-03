@@ -6,6 +6,7 @@ var wrench = require('wrench');
 var del = require('del');
 var environments = require('gulp-environments');
 var gutil = require('gulp-util');
+var shell = require('gulp-shell');
 var connect = require('gulp-connect');
 var livereload = require('gulp-livereload');
 
@@ -49,6 +50,36 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
 
 gulp.task('clean:everything', function() {
     return del('dist');
+});
+
+
+gulp.task('run_backstop_refs',  shell.task([
+    'backstop reference'
+]));
+
+gulp.task('run_backstop_test', shell.task([
+    'backstop test'
+]));
+
+gulp.task('open_port', function() {
+    var open = require('open');
+    var serverPort = 4000;
+    var localhost = 'http://localhost:' + serverPort;
+
+    connect.server({
+        host: 'localhost',
+        port: serverPort,
+        livereload: false,
+        root: 'dist/'
+    });
+});
+
+gulp.task('backstop-ref', ['open_port', 'run_backstop_refs'], function (callback) {
+    connect.serverClose();
+});
+
+gulp.task('backstop-test', ['open_port', 'run_backstop_test'], function (callback) {
+    connect.serverClose();
 });
 
 

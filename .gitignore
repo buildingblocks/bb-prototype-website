@@ -30,6 +30,7 @@ node_modules
 # generated components
 dist
 test/results
+backstop_data/bitmaps_test
 FRONTEND.md
 TODO.md
 _combined.less
