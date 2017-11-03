@@ -135,3 +135,14 @@ HTML Output
 
 * *You may have notices that some of our data is called in using double { and some is called in using triple {, triple { allows us to bring in special characters as opposed to simple strings. We can then bring in markup such as `<p class="foo">Lorem Ipsum</p>` and this will then render out correctly on the page.*
 
+
+Visual Regression Testing
+-------
+We use backstopjs on this project for visual testing.
+There is already a backstop_data folder which holds the reference images, the test images are excluded from git
+
+To re-add the base images for testing against (shouldn't have to do this often/at all) run:
+'**gulp backstop-ref**'
+
+To run a test go to your commandline and type '**gulp backstop-test**'
+This will run the tests against the reference images and when finished it will open up a browser window to show the results. If there are differences you can either fix the css and run again or if the changes are intended go back to your commandline and run '**backstop approve**' which will then overwrite the ref images with the updated test images.
