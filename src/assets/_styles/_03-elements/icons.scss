@@ -23,14 +23,26 @@
 	-moz-osx-font-smoothing: grayscale;
 
 	b {
-        @include visually-hidden();
-    }
+		@include visually-hidden();
+	}
 }
 
 .icon{
 	@extend %icon;
 }
 
+.#{$icon-prefix}--alert-warning:before {
+  content: "\e90a";
+}
+.#{$icon-prefix}--alert-notice:before {
+  content: "\e90b";
+}
+.#{$icon-prefix}--alert-error:before {
+  content: "\e90c";
+}
+.#{$icon-prefix}--alert-success:before {
+  content: "\e90d";
+}
 .#{$icon-prefix}--arrow-left:before {
   content: "\e908";
 }

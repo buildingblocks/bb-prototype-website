@@ -1,0 +1,31 @@
+<div class="flash-alerts">
+  <div class="flash-alerts-inner">
+      
+    <div class="alert-container">
+      {{#each this}}
+      <section class="alert alert--{{alertType}}" data-timeout="{{timeout}}">
+        <div class="alert__inner">
+          <header class="alert__header">
+            {{#if title}}
+              <h4 class="alert__title">{{title}}</h4>
+            {{/if}}
+            <button class="alert--dismiss" title="Close Alert">
+              <span class="icon icon--x" role="presentation" aria-hidden="true"></span>
+              <span class="visually-hidden">dismiss</span>
+            </button>
+          </header>
+          <div class="alert__content">
+            <div class="alert__icon">
+              <span role="presentation" aria-hidden="true" class="icon icon--alert-{{alertType}}"></span>
+            </div>
+            {{#if message}}
+              <p>{{message}}</p>
+            {{/if}}
+          </div>
+        </div>
+      </section>
+      {{/each}}
+    </div>
+
+  </div>
+</div>

@@ -1,10 +1,6 @@
-/**
- * @file Monitor Media Queries
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		/**
 		 * Monitor media queries related methods.
 		 * @namespace monitorMq
@@ -41,7 +37,7 @@ var bb = bb ? bb : {};
 						id: self.detectorId,
 						class: self.detectorClass
 					});
-					bb.settings.$body.append(self.$detector);
+					_buildingBlocks.settings.$body.append(self.$detector);
 				}
 				self.detectorWidth = self.$detector.width();
 				if (self.detectorWidth !== self.currentBreakpoint) {
@@ -52,9 +48,9 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady', function() {
-		bb.monitorMq.init();
+		_buildingBlocks.monitorMq.init();
 	});
 	$.subscribe('viewportResizeEnd', function() {
-		bb.monitorMq.monitor();
+		_buildingBlocks.monitorMq.monitor();
 	});
 }(jQuery));

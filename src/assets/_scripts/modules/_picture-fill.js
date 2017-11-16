@@ -1,4 +1,4 @@
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
 	$.subscribe('pageReady ajaxLoaded', function() {
 		if (typeof picturefill === 'function') {

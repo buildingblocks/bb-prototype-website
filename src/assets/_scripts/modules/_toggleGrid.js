@@ -1,10 +1,6 @@
-/**
- * @file Toggle grid
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		toggleGrid: function($object) {
 			var self = this,
 				$visibleGrid = $('.visible-grid');
@@ -22,15 +18,15 @@ var bb = bb ? bb : {};
 			if ($demoActions && $demoActions.length > 0) {
 				$demoActions.append($btn);
 			} else {
-				bb.settings.$body.append($btn);
+				_buildingBlocks.settings.$body.append($btn);
 			}
 
 			$btn.on('click', function(event) {
-				bb.settings.$body.toggleClass('visible-grid-in');
+				_buildingBlocks.settings.$body.toggleClass('visible-grid-in');
 			});
 		}
 	});
 	$.subscribe('pageReady', function() {
-		bb.toggleGrid();
+		_buildingBlocks.toggleGrid();
 	});
 }(jQuery));

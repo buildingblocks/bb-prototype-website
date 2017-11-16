@@ -1,6 +1,6 @@
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		imgToBg: {
             // DOM Objects
             _ImgToBg: null,
@@ -60,10 +60,10 @@ var bb = bb ? bb : {};
             getImgSML: function () {
                 var self = this;
 
-                var currentBP = bb.monitorMq.currentBreakpoint;
-                if (currentBP < bb.settings.breakPointD) {
+                var currentBP = _buildingBlocks.monitorMq.currentBreakpoint;
+                if (currentBP < _buildingBlocks.settings.breakPointD) {
                     return 'S';
-                } else if (currentBP < bb.settings.breakPointF && currentBP >= bb.settings.breakPointD) {
+                } else if (currentBP < _buildingBlocks.settings.breakPointF && currentBP >= _buildingBlocks.settings.breakPointD) {
                     return 'M';
                 } else {
                     return 'L';
@@ -86,12 +86,12 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady', function() {
-		bb.imgToBg.init();
+		_buildingBlocks.imgToBg.init();
 	});
     $.subscribe('viewportResizeEnd', function() {
-		bb.imgToBg.resizeEvent();
+		_buildingBlocks.imgToBg.resizeEvent();
 	});
     $.subscribe('ajaxLoaded', function() {
-		bb.imgToBg.resizeEvent();
+		_buildingBlocks.imgToBg.resizeEvent();
 	});
 }(jQuery));

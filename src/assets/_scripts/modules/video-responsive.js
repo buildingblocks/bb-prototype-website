@@ -1,6 +1,6 @@
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function ($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		$selector: null,
 		videosResponsive: function ($object) {
 			if (!$object) {
@@ -12,6 +12,6 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady', function () {
-		bb.videosResponsive();
+		_buildingBlocks.videosResponsive();
 	});
 }(jQuery));

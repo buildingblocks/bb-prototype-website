@@ -1,10 +1,6 @@
-/**
- * @file Viewport Resize
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		/**
 		 * Reusable site resize function.
 		 * @namespace viewportResize
@@ -21,7 +17,7 @@ var bb = bb ? bb : {};
 			init: function() {
 				var self = this;
 
-				bb.settings.$window.on('resize.viewportResize', function() {
+				_buildingBlocks.settings.$window.on('resize.viewportResize', function() {
 					if (self.resizeTimeout) {
 						clearTimeout(self.resizeTimeout);
 					}
@@ -37,6 +33,6 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady', function() {
-		bb.viewportResize.init();
+		_buildingBlocks.viewportResize.init();
 	});
 }(jQuery));

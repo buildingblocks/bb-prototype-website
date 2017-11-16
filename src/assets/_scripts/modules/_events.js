@@ -1,15 +1,11 @@
-/**
- * @file Events
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
 	/**
 	 * Publish events using Pub/Sub
 	 * @namespace events
 	 * @see {@link https://github.com/cowboy/jquery-tiny-pubsub}
 	 */
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		/**
 		 * Publish event when the page is ready.
 		 * @function pageReady

@@ -1,10 +1,6 @@
-/**
- * @file Page classes
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		pageReadyClass: function() {
 			var self = this;
 
@@ -17,9 +13,9 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady', function() {
-		bb.pageReadyClass();
+		_buildingBlocks.pageReadyClass();
 	});
 	$.subscribe('pageLoaded', function() {
-		bb.pageLoadedClass();
+		_buildingBlocks.pageLoadedClass();
 	});
 }(jQuery));

@@ -1,10 +1,6 @@
-/**
- * @file Menu module
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		/**
 		 * Menu related methods.
 		 * @namespace menu
@@ -25,7 +21,7 @@ var bb = bb ? bb : {};
 
 				self.$handle.on('click.menu', (event) => {
 					event.preventDefault();
-					if (bb.settings.$html.hasClass(self.menuInClass)) {
+					if (_buildingBlocks.settings.$html.hasClass(self.menuInClass)) {
 						self.closeMenu();
 					} else {
 						self.openMenu();
@@ -39,7 +35,7 @@ var bb = bb ? bb : {};
 			 */
 			openMenu: function() {
 				var self = this;
-				bb.settings.$html.addClass(self.menuInClass);
+				_buildingBlocks.settings.$html.addClass(self.menuInClass);
 			},
 			/**
 			 * Removes CSS class from <html>, hiding menu.
@@ -48,11 +44,11 @@ var bb = bb ? bb : {};
 			 */
 			closeMenu: function() {
 				var self = this;
-				bb.settings.$html.removeClass(self.menuInClass);
+				_buildingBlocks.settings.$html.removeClass(self.menuInClass);
 			}
 		}
 	});
 	$.subscribe('pageReady', function() {
-		bb.menu.init();
+		_buildingBlocks.menu.init();
 	});
 }(jQuery));

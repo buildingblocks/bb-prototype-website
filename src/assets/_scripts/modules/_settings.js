@@ -1,10 +1,6 @@
-/**
- * @file Settings
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		settings: {
 			// cache some common variables
 			$window: $(window),

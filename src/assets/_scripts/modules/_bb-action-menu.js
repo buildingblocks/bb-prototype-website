@@ -1,10 +1,6 @@
-/**
- * @file bbActionMenu
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		bbActionMenu: function() {
 			var self = this,
 				$demoActions = $('.demo-actions'),
@@ -27,20 +23,20 @@ var bb = bb ? bb : {};
 				wait = true;
 
 				if (menuIn) {
-					bb.settings.$html.removeClass('demo-actions-show');
+					_buildingBlocks.settings.$html.removeClass('demo-actions-show');
 
 					delayA = setTimeout(function() {
-						bb.settings.$html.removeClass('demo-actions-out');
+						_buildingBlocks.settings.$html.removeClass('demo-actions-out');
 						menuIn = false;
 						wait = false;
 						clearTimeout(delayA);
 					}, 250);
 
 				} else {
-					bb.settings.$html.addClass('demo-actions-out');
+					_buildingBlocks.settings.$html.addClass('demo-actions-out');
 
 					delayB = setTimeout(function() {
-						bb.settings.$html.addClass('demo-actions-show');
+						_buildingBlocks.settings.$html.addClass('demo-actions-show');
 						menuIn = true;
 						wait = false;
 						clearTimeout(delayB);
@@ -50,6 +46,6 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady', function() {
-		bb.bbActionMenu();
+		_buildingBlocks.bbActionMenu();
 	});
 }(jQuery));

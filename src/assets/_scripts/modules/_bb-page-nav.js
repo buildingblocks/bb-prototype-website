@@ -1,10 +1,6 @@
-/**
- * @file bbPageNav
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		bbPageNav: function() {
 			var self = this,
 				$pageNav = $('.bb-page-nav'),
@@ -26,7 +22,7 @@ var bb = bb ? bb : {};
 
 			// open nav on btn click
 			$btn.on('click.bbPageNav', function(event) {
-				bb.settings.$html.toggleClass('bb-page-nav-show');
+				_buildingBlocks.settings.$html.toggleClass('bb-page-nav-show');
 
 				if (navOpen) {
 					navOpen = false;
@@ -38,12 +34,12 @@ var bb = bb ? bb : {};
 			// close nav on close button click
 			$('.action-bb-page-nav-close').on('click.bbPageNav', function(event) {
 				event.preventDefault();
-				bb.settings.$html.removeClass('bb-page-nav-show');
+				_buildingBlocks.settings.$html.removeClass('bb-page-nav-show');
 				navOpen = false;
 			});
 
 			// close nav on body click
-			bb.settings.$htmlbody.on('click.bbPageNav', function(event) {
+			_buildingBlocks.settings.$htmlbody.on('click.bbPageNav', function(event) {
 				var $clickElement = $(event.target),
 					$actionBtn = $clickElement.closest('.action-bb-page-nav'),
 					$pageNav = $clickElement.closest('.bb-page-nav');
@@ -53,7 +49,7 @@ var bb = bb ? bb : {};
 				}
 
 				if (navOpen) {
-					bb.settings.$html.removeClass('bb-page-nav-show');
+					_buildingBlocks.settings.$html.removeClass('bb-page-nav-show');
 					navOpen = false;
 				} else {
 					return;
@@ -62,6 +58,6 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady', function() {
-		bb.bbPageNav();
+		_buildingBlocks.bbPageNav();
 	});
 }(jQuery));

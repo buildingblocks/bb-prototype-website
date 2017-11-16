@@ -229,3 +229,47 @@
 	}
 }
 
+@mixin animation($string){
+	-webkit-animation: $string;
+	 -moz-animation: $string;
+		-ms-animation: $string;
+			-o-animation: $string;
+				animation: $string;
+}
+
+@mixin animation-duration($string){
+	-webkit-animation-duration: $string;
+	 -moz-animation-duration: $string;
+		-ms-animation-duration: $string;
+			-o-animation-duration: $string;
+				animation-duration: $string;
+}
+
+@mixin animation-delay($delay) {
+	-webkit-animation-delay: $delay;
+		-moz-animation-delay: $delay;
+			-ms-animation-delay: $delay;
+			 	-o-animation-delay: $delay;
+					animation-delay: $delay;
+}
+
+@mixin animation-fill($fill) {
+	-webkit-animation-fill-mode: $fill;
+		-moz-animation-fill-mode: $fill;
+			-ms-animation-fill-mode: $fill;
+				-o-animation-fill-mode: $fill;
+					animation-fill-mode: $fill;
+}
+
+@mixin animation-name($name) {
+	-webkit-animation-name: $name;
+		-moz-animation-name: $name;
+			-o-animation-name: $name;
+				animation-name: $name;
+}
+
+
+@mixin animated {
+	@include animation-fill(both);
+	@include animation-duration(1s);
+}

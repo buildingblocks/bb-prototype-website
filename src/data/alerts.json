@@ -1,0 +1,28 @@
+{
+  "alertsA": [
+    {
+      "alertType": "success",
+      "timeout": "5",
+      "title": "Success!",
+      "message": "This message will explain to the user what has been a success (completed form, successful login .etc)"
+    },
+    {
+      "alertType": "notice",
+      "timeout": "6",
+      "title": "Please Note...",
+      "message": "There is something the user needs to take note of, this message will explain it to the user."
+    },
+    {
+      "alertType": "warning",
+      "timeout": "10",
+      "title": "Warning!",
+      "message": "This message will warn the user of of an issue that requires their attention (unsaved application .etc)"
+    },
+    {
+      "alertType": "error",
+      "timeout": "",
+      "title": "Sorry, there was an error...",
+      "message": "There was an error, such as a wrong username and password combination."
+    }
+  ]
+}

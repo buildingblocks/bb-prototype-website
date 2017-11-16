@@ -1,10 +1,6 @@
-/**
- * @file Utilities
- * @author {@link http://building-blocks.com Building Blocks}
- */
-var bb = bb ? bb : {};
+var _buildingBlocks = _buildingBlocks ? _buildingBlocks : {};
 (function($) {
-	$.extend(bb, {
+	$.extend(_buildingBlocks, {
 		/**
 		 * Returns a query string parameter’s value if specified, object of query string parameters if not.
 		 * @function getUrlParams
@@ -44,7 +40,7 @@ var bb = bb ? bb : {};
 		 * @param {String|Object} content - Content to log to browser console.
 		 * @param {String} styles - CSS style to apply to text logged to browser console.
 		 * @example
-		 * bb.log('Hello, World!', 'background:#F00;color:#FF0;');
+		 * _buildingBlocks.log('Hello, World!', 'background:#F00;color:#FF0;');
 		 */
 		log: function(content, style) {
 			if (typeof(console) !== 'undefined') {
@@ -132,7 +128,7 @@ var bb = bb ? bb : {};
 		},
         closestClass: function(el, className) {
 			while (el) {
-				if (bb.hasClass(el, className)) {
+				if (_buildingBlocks.hasClass(el, className)) {
 					break;
 				}
 				el = el.parentElement;
@@ -161,7 +157,7 @@ var bb = bb ? bb : {};
 			for (i = 0; i < classNames.length; i++) {
 				if (el.classList) {
 					el.classList.add(classNames[i]);
-				} else if (!bb.hasClass(el, classNames[i])) {
+				} else if (!_buildingBlocks.hasClass(el, classNames[i])) {
 					el.className += ' ' + classNames[i];
 				}
 			}
@@ -180,9 +176,9 @@ var bb = bb ? bb : {};
 		}
 	});
 	$.subscribe('pageReady', function() {
-		bb.textDirection();
-		bb.browserPrefix();
-		bb.transitionAnimationEndEvent();
-		bb.setUrlParams();
+		_buildingBlocks.textDirection();
+		_buildingBlocks.browserPrefix();
+		_buildingBlocks.transitionAnimationEndEvent();
+		_buildingBlocks.setUrlParams();
 	});
 }(jQuery));
