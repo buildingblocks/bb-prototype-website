@@ -89,12 +89,23 @@
 		var atleastLength = 0;
 		$elements.each(function() {
 			$input = $(this);
-			if ($input.is(':checkbox:not(:checked)') || $input.is(':radio:not(:checked)')) {
-				return false;
-			} else if ($input.val().length === 0) {
-				return false;
-			}
-			atleastLength++;
+
+			// is input a checkbox or radio? If not then just check value otherwise see if input is checked
+			var $checkboxRadio = $input.is(':checkbox') || $input.is(':radio');
+
+			if ($checkboxRadio) {
+				// is input checked?
+				if ($input.is(':checkbox:checked') || $input.is(':radio:checked')) {
+					// if checked then increment variable
+					atleastLength++;
+				}
+			} else {
+				// is there a value in the text input 
+				if ($input.val().length > 0) {
+					// if checked then increment variable
+					atleastLength++;
+				}
+ 			}
 		});
 		if (atleastLength >= minimum) {
 			return true;
